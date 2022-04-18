@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Rgba generator</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400&display=swap" rel="stylesheet">
+     <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <div class="silders">
+      <label>Red</label>
+      <input type="range" min="0" max="255" value="0" oninput="getValue()" id="red"/>
+            <label>Green</label>
+      <input type="range" min="0" max="255" value="0" oninput="getValue()" id="green"/>
+            <label>Blue</label>
+            <input type="range" min="0" max="255" value="0" oninput="getValue()" id="blue"/>
+                  <label>Alpha</label>
+                  <input type="range" min="0.1" max="1.0" step="0.1" value="1" oninput="getValue()" id="alpha"/>
+     <div class="output-box">
+       <div class="output">rgba(0,0,0,1)</div>
+       <div class="copyBtn" onclick="copy()"><i class="fa fa-clone" aria-hidden="true"></i></div>
+     </div>
+    </div>
+  </div>
+  <script src="main.js"></script>
+</body>
+</html>

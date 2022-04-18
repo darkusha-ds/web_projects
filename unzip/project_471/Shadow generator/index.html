@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Shadow Generator</title>
+        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="style.css"/>
+    </head>
+    <body>
+        <div class="container">
+            <div class="box-container">
+                <div class="box"></div>
+                <div class="box-color color-input">
+                    <input type="color" id="boxcolor" value="#0069e5" oninput="getBoxcolor(this.value)"/>
+                </div>
+            </div>
+            <div class="inputs">
+            <div class="input">
+                <label>X</label>
+                <input type="range" value="0" min="-50" max="50" id="x" oninput="getValue()"/>
+            </div>
+            <div class="input">
+                <label>Y</label>
+                <input type="range" value="0"  min="-50" max="50" id="y" oninput="getValue()"/>
+            </div>
+            <div class="input">
+                <label>Blur</label>
+                <input type="range" value="0" max="50" id="blur" oninput="getValue()"/>
+            </div>
+            <div class="input">
+                <label>Spread</label>
+                <input type="range" value="0" max="50" id="spread" oninput="getValue()"/>
+            </div>
+            <div class="color-input input">
+                <input type="color" id="color" oninput="getValue()"/>
+            </div>
+            </div>
+            <div class="shadow-text">
+                <p id="text">box-shadow:0px 0px 0px 0px #000000;</p>
+            </div>
+        </div>
+        <script src="main.js"></script>
+    </body>
+</html>

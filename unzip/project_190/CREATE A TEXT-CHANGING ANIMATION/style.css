@@ -1,0 +1,39 @@
+ body{
+      background-color: #111;
+}
+
+h1{
+      text-transform: uppercase;
+      color: #313131;
+      font-family: verdana;
+
+ /* for centering the h1 */ 
+      margin: 0;
+      position: absolute;
+      top:50%; left:50%;
+      transform: translate(-50%,-50%);
+}
+
+div{
+      display: inline-block;
+      height: 33px;
+      overflow: hidden;
+      color: red;
+}
+span{
+        display: inline-block;
+        animation: rotate 5s infinite;
+}
+
+@keyframes rotate{
+            
+        0%{ transform:translateY(0px); }
+
+        25%{ transform:translateY(-40px); }             
+
+        50%{ transform:translateY(-80px); }             
+
+        75%{ transform:translateY(-120px); }
+
+        100%{ transform:translateY(0px); }
+}

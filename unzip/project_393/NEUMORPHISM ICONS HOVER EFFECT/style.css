@@ -1,0 +1,40 @@
+body{
+        background-color: #d6d6d6;
+}
+            
+.container{
+         display: flex;
+         width: 40%;
+         justify-content: space-between;
+        
+         /* for centering the container */
+          position: absolute;
+          top: 50%; left: 50%;
+          transform: translate(-50%,-50%);
+}
+
+a{
+           position: relative;
+           text-decoration: none;
+           width: 80px; height: 80px;
+           border-radius: 50%;
+           box-shadow: -6px -6px 15px rgba(255,255,255,0.7), 
+                        6px 6px 15px rgba(0,0,0,0.3);
+           transition: all 0.3s;
+}
+
+i{
+                font-size: 37px;
+                color: #ee6f57;
+
+            /* for centering the icons */
+                position: absolute;
+                top: 50%; left: 50%;
+                transform: translate(-50%,-50%);
+}
+
+a:hover{
+                box-shadow:inset -6px -6px 15px rgba(255,255,255,1), 
+                           inset 6px 6px 15px rgba(0,0,0,0.3);
+
+}

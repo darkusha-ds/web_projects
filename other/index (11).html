@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Document</title>
+<style>
+* {
+margin: 0;
+padding: 0;
+box-sizing: border-box;
+}
+
+body {
+background-color: #111;
+}
+
+.wrapper {
+position: absolute;
+top: 50%;
+left: 50%;
+transform: translate(-50%, -50%);
+}
+
+textarea {
+color: #111;
+background-color: rgb(216, 241, 68);
+overflow-y: scroll;
+text-align-last: left;
+float:left;
+width: 800px;
+height: 450px;
+outline: none;
+}
+
+.button {
+display: inline-block;
+position: relative;
+font-size: 0.9em;
+background-color: rgb(230, 14, 43);
+color: #fff;
+transition: all 300ms ease;
+cursor: pointer;
+width: 20%;
+height: 50px;
+}
+
+.button:hover {
+background-color: rgb(24, 40, 185);
+color: #fff;
+}
+</style>
+</head>
+
+<body>
+
+<div class="wrapper">
+<textarea id="select-this" cols="50" rows="255" spellcheck="false">
+<!-- you text here  -->
+<h1 style="font-size: 80px;">copy & paste</h1>
+<h2>Done</h2>
+<h3>Done</h3>
+<h4>Done</h4>
+<h5>Done</h5>
+<h6>Done</h6>
+<!-- you text here  -->
+</textarea>
+<button class="button" id="clickMe">Click to copy</button>
+</div>
+
+<script>
+let button = document.getElementById('clickMe');
+button.addEventListener('click', function (e) {
+e.preventDefault();
+document.execCommand('copy', false, document.getElementById('select-this').select());
+})
+</script>
+</body>
+
+</html>

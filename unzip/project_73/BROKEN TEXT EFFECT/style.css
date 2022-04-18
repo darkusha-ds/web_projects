@@ -1,0 +1,39 @@
+body{
+        background-color: #111;
+}
+
+h1{
+        font-family: verdana;
+        font-size: 90px;
+        color: transparent;
+        cursor: pointer;
+
+    /* for centering the h1 */
+        margin: 0;
+        position: absolute;
+        top: 50%; left: 50%;
+        transform: translate(-50%,-50%);
+}
+
+h1::before, h1::after{
+        content: "BROKEN";
+        position: absolute;
+        color:#da4747;
+        top: 0; left: 0;
+        transition: all 0.3s;
+}
+h1::before{
+        clip-path: polygon(0 0, 100% 0, 0 100%);
+}
+
+h1::after{
+        clip-path: polygon(100% 0, 100% 100%, 0 99%);
+}
+
+h1:hover::before{
+        transform: translateX(-5px) rotate(-3deg);
+}
+
+h1:hover::after{
+        transform: translateX(5px) rotate(3deg);
+}

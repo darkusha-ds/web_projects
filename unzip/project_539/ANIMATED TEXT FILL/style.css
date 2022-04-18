@@ -1,0 +1,33 @@
+body{
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+	background: #353535;
+	padding-top: 200px;
+	font: 700 4em "Oswald", sans-serif;
+}
+h1{
+	text-transform: uppercase;
+	letter-spacing: 0.5em;
+	letter-spacing: 0;
+	padding: 0.25em 0 0.325em;
+	display: block;
+	margin: 0 auto;
+	color: rgba(255, 255, 255, .25);
+	text-shadow: 0 0 80px rgba(255, 255, 255, .5);
+	background: url(https://i.ibb.co/RDTnNrT/animated-text-fill.png) repeat-y;
+	-webkit-background-clip: text;
+	background-clip: text;
+	-webkit-text-fill-color: transparent;
+	-webkit-transform: translate3d(0, 0, 0);
+	-webkit-backface-visibility: hidden;
+	animation: aitf 80s linear infinite;
+}
+@keyframes aitf {
+    0% {
+        background-position: 0% 50%;
+   }
+    100% {
+        background-position: 100% 50%;
+   }
+}

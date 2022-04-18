@@ -1,0 +1,32 @@
+body {
+	display: flex;
+	justify-content: center;
+	font-family: 'Raleway', sans-serif;
+	 background: #353535;
+	 padding-top: 200px;
+}
+h1{
+	position: relative;
+	color: #fff;
+	font-size: 8em;
+	color: transparent;
+	-webkit-text-stroke: 2px #03a9f4;
+	text-transform: uppercase;
+}
+h1::after {
+	content: attr(data-text);
+	position: absolute;
+	top: 0;
+	left: 0;
+	color: #03a9f4;
+	animation: animate 4s ease-in-out infinite;
+}
+@keyframes animate {
+	0%,
+	100% {
+		clip-path: polygon(0% 45%,16% 44%,33% 50%,54% 60%,70% 61%,84% 59%,100% 52%,100% 100%,0% 100%);
+	}
+	50% {
+		clip-path: polygon(0% 60%,15% 65%,34% 66%,51% 62%,67% 50%,84% 45%,100% 46%,100% 100%,0% 100%);
+	}
+}

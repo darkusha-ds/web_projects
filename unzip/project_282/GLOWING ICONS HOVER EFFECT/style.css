@@ -1,0 +1,52 @@
+body{ background-color: #111; }
+            
+.container{
+      width: 40%;
+      display: flex;
+      justify-content: space-between;
+        
+  /* for centering the container */
+      position: absolute;
+      top: 50%; left: 50%;
+      transform: translate(-50%,-50%);
+}
+
+a{
+      position: relative;
+      text-decoration: none;
+      width: 80px; height: 80px;
+      border-radius: 50%;
+      background-color: #212121;
+      transition: all 0.5s;
+      transition-delay: 0.1s;
+}
+
+i{
+        font-size: 37px;
+        color: #515151;
+        transition: all 0.5s;
+        transition-delay: 0.1s;
+
+     /* for centering the icons */
+        position: absolute;
+        top: 50%; left: 50%;
+        transform: translate(-50%,-50%);
+}
+
+a::before{
+        content: "";
+        position: absolute;
+        top: 0; left: 0;
+        width: 100%; height: 100%;
+        transform: scale(0.6);
+        background-color: #ff5722;
+        border-radius: 50%;
+        z-index: -1;
+        filter: blur(10px);
+        transition: all 0.3s;
+        transition-delay: 0.1s;
+}
+
+a:hover i{ color:#ff5722; }
+
+a:hover::before{ transform: scale(1.1); }

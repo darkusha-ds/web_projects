@@ -1,0 +1,30 @@
+
+body{
+
+/* for styling the body */
+	background-image: linear-gradient(black,blue);
+
+/* for centering the input within body */	
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 100vh;
+}
+
+input{
+	border:2px solid black;
+	padding: 5px 10px;
+	border-radius: 5px;
+	box-shadow: 5px 5px 10px black;
+
+ /* main stuffs here */	
+	width: 80px;
+	transition: width 0.5s ease-in;
+}
+
+input:focus{
+	width: 200px; /* width after input comes in focus */
+}
+
+
+	  

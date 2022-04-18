@@ -1,0 +1,53 @@
+body{
+    background-color: #00184d;
+}
+
+.container{
+    background-color:#f24338;
+    width: 90px; height: 90px;
+    border-radius: 50%;
+    cursor: pointer;
+  
+  /* FOR CENTERING THE CONTAINER */
+    position: absolute;
+    top: 50%; left: 50%;
+    transform: translate(-50%,-50%);
+}
+
+span{
+  /* FOR CENTERING THE HAMBURGER */
+    position: absolute;
+    top: 50%; left: 50%;
+    transform: translate(-50%,-50%);
+}
+
+span,span::before,span::after{
+      width: 35px; height: 2px;
+      background-color: black;
+      transition: all 0.3s;
+}
+
+span::before,span::after{
+    position: absolute;
+    content: "";
+}
+
+span::before{
+    transform: translateY(-10px);
+}
+
+span::after{
+    transform: translateY(10px);
+}
+
+.container:hover span{
+    background-color: transparent;
+}
+
+.container:hover span::before{
+      transform: rotate(135deg);
+}
+
+.container:hover span::after{
+      transform: rotate(-135deg);
+}

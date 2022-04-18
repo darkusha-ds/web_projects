@@ -1,0 +1,112 @@
+@import url("https://fonts.googleapis.com/css2?family=Rubik&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  height: 100vh;
+  display: grid;
+  place-items: center;
+  background: #a8a9bd;
+  font-family: "Rubik", sans-serif;
+  overflow: hidden;
+}
+li {
+  list-style: none;
+}
+.main {
+  width: 80%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.card {
+  display: flex;
+  justify-content: center;
+  position: relative;
+  align-items: center;
+  flex-direction: column;
+  margin-right: 0.7rem;
+  height: 16rem;
+  width: 20rem;
+  border-radius: 8px;
+  background-color: tomato;
+}
+.card:nth-child(1) {
+  background: linear-gradient(to bottom, #ea4c89, #be1657);
+}
+.card:nth-child(2) {
+  background: linear-gradient(to bottom, #053eff, #032081);
+}
+.card:nth-child(3) {
+  background: linear-gradient(to bottom, #e60023, #740113);
+}
+.card i {
+  display: block;
+  font-size: 8rem;
+  color: #fff;
+  transition: 0.5s;
+}
+.card:hover i {
+  font-size: 6rem;
+  transform: translateY(-30px);
+}
+.card__details {
+  position: absolute;
+  bottom: 0;
+  margin: 1.2rem 0;
+  transition: 0.5s;
+}
+.card__details::before {
+  content: "";
+  position: absolute;
+  left: 300px;
+  top: -40px;
+  height: 2px;
+  width: 100%;
+  margin: 0.7rem 0;
+  border-radius: 20px;
+  background: #fff;
+  opacity: 0;
+  transition: 0.5s;
+}
+.card:hover .card__details::before {
+  left: 0;
+  opacity: 1;
+}
+.card__details ul {
+  display: flex;
+}
+.card__details ul li {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 0 0.7rem;
+  opacity: 0;
+  transition: 0.5s;
+  transform: translateY(70px);
+}
+.card__details ul li p:first-child {
+  font-size: 1.2rem;
+  color: #fff;
+}
+.card__details ul li p:last-child {
+  color: rgba(255, 255, 255, 0.438);
+}
+.card:hover .card__details ul li:nth-child(1) {
+  transition-delay: 0.5s;
+  transform: translateY(0);
+  opacity: 1;
+}
+.card:hover .card__details ul li:nth-child(2) {
+  transition-delay: 0.8s;
+  transform: translateY(0);
+  opacity: 1;
+}
+.card:hover .card__details ul li:nth-child(3) {
+  transition-delay: 1s;
+  transform: translateY(0);
+  opacity: 1;
+}

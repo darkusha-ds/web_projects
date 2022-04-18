@@ -1,0 +1,42 @@
+body{
+    background-color: #313131;
+}
+
+.form-group{
+    width: 20%;
+  
+   /* for centering the form-group */  
+    position: absolute;
+    top: 50%; left: 50%;
+    transform: translate(-50%,-50%);
+}
+
+input{
+    display: block;
+    width: 100%;
+    color:#eee;
+    border: none;
+    border:2px solid #eee;
+    background-color: transparent;
+    padding: 12px;
+}
+
+label{
+      position: absolute;
+      top: -21px;
+      left: 0 ;
+      opacity: 1;
+      transition: all 0.3s;
+      font-family: verdana;
+      font-size: 13px;
+      color:#eee;
+}
+
+/* The :placeholder-shown CSS pseudo-class represents any <input> or 
+   <textarea> element that is currently displaying placeholder text. */
+
+input:placeholder-shown + label{
+      top: 12px;
+      left: 12px;
+      opacity: 0;
+}

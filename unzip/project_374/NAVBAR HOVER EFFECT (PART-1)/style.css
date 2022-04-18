@@ -1,0 +1,38 @@
+body{
+	margin: 0;
+	height: 100vh;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background-color: black;
+}
+
+.nav-list{
+	list-style-type: none;
+	display: flex;
+}
+
+.nav-links{
+    position: relative;
+    color:#eee;
+    letter-spacing: 2px;
+    text-decoration: none;
+    font-family: Verdana;
+    padding:12px;
+    margin:0 18px;
+}
+
+.nav-links::before{
+	content: "";
+	position: absolute;
+	bottom:0;
+	left:0;
+	width:0;
+	height: 1px;
+	transition:width 0.2s ease-out;
+	background-color:#ff5151;
+}
+
+.nav-links:hover::before{
+	width: 100%;
+}

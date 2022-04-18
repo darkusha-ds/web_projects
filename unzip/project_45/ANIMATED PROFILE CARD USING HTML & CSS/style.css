@@ -1,0 +1,102 @@
+/* Embedding montserrat fonts from google fonts */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap');
+
+*{ margin: 0; padding: 0; box-sizing: border-box; }
+
+body{
+  background-color: #5B86e5;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.card{
+  width: 400px;
+  overflow: hidden;
+  background-color: #fff;
+  box-shadow: 0 20px 30px rgba(0, 0, 0, 0.1);
+}
+
+.card .card-header{
+  height: 150px;
+  position: relative;
+}
+
+.card .card-header .waves-container{
+  height: 100%;
+}
+
+.card .card-header .waves-container .wave{
+  position: absolute;
+  width: 650px; height: 650px;
+  background-image: linear-gradient(to bottom left, #8aafff, #5B86E5);
+  transform: translateX(-50%);
+}
+
+.card .card-header .waves-container .wave1{
+    border-radius: 50%;
+    top: -330%; left: 50%;
+    animation: spin 12s linear infinite;
+}
+
+.card .card-header .waves-container .wave2{
+  border-radius: 46%;
+  top: -332%; left: 48%;
+  opacity: 0.5;
+  animation: spin 16s linear infinite;
+}
+
+.card .card-header .waves-container .wave3{
+  border-radius: 40%;
+  top: -328%; left: 52%;
+  opacity: 0.2;
+  animation: spin 16s linear infinite;
+}
+
+@keyframes spin{
+  to{
+    transform: translateX(-50%) rotate(360deg);
+  }
+}
+
+.card .card-header .profile-img{
+  margin: 0 auto;
+  width: 150px; height: 150px;
+  border-radius: 50%;
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%,-50%);
+}
+
+.card .card-body{
+    margin-top: 100px;
+    text-align: center;
+    padding: 0 20px;
+  }
+  
+  .card .card-body h2{
+    text-transform: capitalize;
+    color: rgb(82,82,82);
+  }
+  
+  .card .card-body p{
+    font-size: 14px;
+    line-height: 1.8;
+    color: rgba(82,82,82,0.6);
+    margin: 20px 0;
+  }
+  
+  .card .card-body .btn{
+    display: inline-block;
+    text-decoration: none;
+    padding: 15px 45px;
+    color: #fff;
+    background-color: #5B86E5;
+    border-radius: 100px;
+    text-transform: uppercase;
+    margin:20px 0 40px;
+    font-weight: 600;
+    letter-spacing: 1px;
+  }
