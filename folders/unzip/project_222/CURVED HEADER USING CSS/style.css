@@ -1,0 +1,11 @@
+
+html{
+	overflow-x: hidden;  /* for hiding the horizontal scroling */
+}
+
+header{
+	width: 100vw;
+	height: 100vh;
+	background-color: orange;
+	clip-path: ellipse(100% 99% at 50% 0); /* responsible for making the header curve */
+}

@@ -1,0 +1,33 @@
+body{
+    background-color: #00B1C0;
+}
+
+.text{
+    text-transform: uppercase;
+    font-size: 100px; font-family: Arial;
+    font-style: italic;
+    color:#fff;
+    -webkit-text-stroke:2px black; /*this will apply a stroke of 2px and black in color*/
+    white-space: nowrap; 
+    cursor: pointer; margin: 0; 
+
+   /* to center the h1 */
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+}
+
+.text::before{
+        content: "sparsh codes"; 
+        position: absolute;
+        color:#fc0d32;
+        width: 0;
+        overflow: hidden;
+        transition: width 0.5s ease-in,text-shadow 0.3s ease-out;
+}
+
+.text:hover::before{
+        width: 100%;
+        text-shadow: 2px 5px 10px black;
+}

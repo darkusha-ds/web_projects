@@ -1,0 +1,108 @@
+@import url("https://fonts.googleapis.com/css?family=Raleway:200");
+body {
+  height: 100vh;
+  display: grid;
+  place-items: center;
+  font-family: "Raleway", sans-serif;
+  background: #eee;
+}
+.wrapper {
+  width: 300px;
+  height: 500px;
+  perspective: 900px;
+}
+.container {
+  position: absolute;
+  top: 0%;
+  width: 100%;
+  height: 100%;
+  transition: 0.5s all ease;
+  transform: rotateX(60deg) scale(0.7);
+  perspective: 900px;
+  box-shadow: 0px 20px 50px #555;
+  animation: entry 1s linear 1;
+}
+#c0 {
+  position: absolute;
+  top: 0%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to bottom, #eba65b 30%, #d99267 100%);
+  z-index: 300;
+  box-shadow: 0px 20px 100px #555;
+}
+#c1 {
+  background: linear-gradient(to bottom, #59476f 30%, #7b88d1 100%);
+  box-shadow: 0px 20px 100px #555;
+  left: 100%;
+  z-index: 0;
+}
+#c2 {
+  left: -100%;
+  z-index: 0;
+  background: linear-gradient(to bottom, #DA4453 30%, #89216B 100%);
+  box-shadow: 0px 20px 100px #555;
+}
+.container:hover {
+  cursor: pointer;
+  transform: rotate(0deg) scale(1) translateY(10px);
+  transition: 0.5s all ease;
+  z-index: 400;
+}
+.city {
+  position: absolute;
+  top: 0%;
+  left: 0%;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: 0.5s all ease;
+}
+.container:hover .city {
+  height: 45%;
+}
+.story {
+  position: absolute;
+  top: 45%;
+  left: 0%;
+  height: 55%;
+  width: 100%;
+  z-index: 30;
+  transition: 0.5s all ease;
+}
+.container:hover #s0{
+  background: linear-gradient(to bottom, #eba65b 30%, #d99267 100%);
+}
+.container:hover #s1{
+  background: linear-gradient(to bottom, #59476f 30%, #7b88d1 100%);
+}
+.container:hover #s2{
+  background: linear-gradient(to bottom, #DA4453 30%, #89216B 100%);
+}
+.info {
+  position: absolute;
+  top: 10%;
+}
+h3 {
+  text-align: center;
+  text-shadow: 0px 0px 10px #eee;
+  color: #eee;
+  letter-spacing: 2px;
+}
+p {
+  font-size: 14px;
+  color: #fff;
+  padding: 0px 20px 20px 20px;
+  line-height: 150%;
+  text-align: center;
+  letter-spacing: 1px;
+}
+@keyframes entry {
+  0% {
+    top: -20%;
+    opacity: 0.1;
+  }
+  100% {
+    top: 0%;
+  }
+}

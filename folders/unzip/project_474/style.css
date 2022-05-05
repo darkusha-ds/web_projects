@@ -1,0 +1,88 @@
+@import url('https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;600&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Baloo 2', cursive;
+    list-style: none;
+}
+a{
+    text-decoration: none;
+}
+body{
+    position: relative;
+    height: 100vh;
+    background-color: #ECF2F9;
+}
+button{
+    position: absolute;
+    left: 50%;
+    bottom: 20px;
+    height: 35px;
+    width: 35px;
+    padding: 5px;
+    border-radius: 50%;
+    outline: none;
+    border: none;
+    background-color: #2A374A;
+    color: #ffff;
+    font-size: 16px;
+    line-height: 2;
+}
+.share-box{
+    position: absolute;
+    bottom: 60px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 270px;
+    padding: 10px;
+    background-color: #ffff;
+    box-shadow: 0 0 5px 2px rgba(0, 0, 0, 0.192);
+    border-radius: 5px;
+    opacity: 0;
+    pointer-events: none;
+    transition: top 0s 0.2s ease-in-out,
+    opacity 0.2s 0s ease-in-out,
+    top 0.2s 0s ease-in-out;
+}
+.share-box.show{
+    opacity: 1; pointer-events: all;
+}
+.links:first-child > ul li img{
+    width: 40px;
+    height: 40px; object-fit: cover; border-radius: 50%;
+}
+.share-box h4{
+    position: relative; margin-bottom: 10px;
+    font-size: 18px;
+}
+.share-box h4::after{
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    background-color: rgba(0, 0, 0, 0.15);
+}
+.links ul{
+    margin-bottom: 10px;
+    text-align: center;
+    display: flex;
+    justify-content: space-between;
+}
+.links ul li a{
+    color: #44474D;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.share-box .links:first-child ~ .links ul li img{
+    height: 25px;
+    width: 25px;
+    object-fit: cover;
+}
+
+
+
+

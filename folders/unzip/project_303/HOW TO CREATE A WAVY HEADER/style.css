@@ -1,0 +1,29 @@
+body{
+            margin: 0;
+}
+
+.header{
+            height: 100vh;
+            background-color: #111;
+}
+
+.content{
+            position: absolute;
+            top: 40%; left: 50%;
+            transform: translate(-50%,-50%);
+            text-transform: capitalize;
+            text-align: center;
+            font-family: verdana;
+            color: white;
+}
+
+p{
+            margin-top: 16px;
+            color: #da4747;
+}
+
+    /* main stuff here */
+svg{
+            position: absolute;
+            bottom: 0; left: 0;
+}

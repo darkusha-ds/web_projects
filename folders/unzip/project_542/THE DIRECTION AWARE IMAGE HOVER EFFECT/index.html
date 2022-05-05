@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Direction Aware Image Hover Effect</title>
+
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <section class="gallery">
+    <h1 class="heading">our team</h1>
+    <div class="container">
+        <div class="box snake box1">
+            <img src="./team-member1.jpg" alt="">
+            <div class="overlay">
+                <h2>Cadie Smith</h2>
+            </div>
+        </div>
+        <div class="box snake box2">
+            <img src="./team-member2.jpg" alt="">
+            <div class="overlay">
+                <h2>Chris abdallah</h2>
+            </div>
+        </div>
+        <div class="box snake box3">
+            <img src="./team-member3.jpg" alt="">
+            <div class="overlay">
+                <h2>olivia watson</h2>
+            </div>
+        </div>
+        <div class="box snake box4">
+            <img src="./team-member4.jpg" alt="">
+            <div class="overlay">
+                <h2>isabella miller</h2>
+            </div>
+        </div>
+        <div class="box snake box5">
+            <img src="./team-member5.jpg" alt="">
+            <div class="overlay">
+                <h2>Mia jones</h2>
+            </div>
+        </div>
+        <div class="box snake box6">
+            <img src="./team-member6.jpg" alt="">
+            <div class="overlay">
+                <h2>james brown</h2>
+            </div>
+        </div>
+    </div>
+</section>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="./snake.js"></script>
+<script>
+    $(".snake").snakeify({
+  speed: 250
+});
+</script>
+</body>
+</html>

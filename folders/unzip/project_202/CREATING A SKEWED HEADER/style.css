@@ -1,0 +1,24 @@
+body{
+    margin: 0; /* overriding the default margin */
+}
+
+header{
+     position: relative;
+     background-color: #111;
+     height: 100vh;
+     clip-path: polygon(0 0, 100% 0, 100% 85vh, 0 100%);
+}
+
+h1{
+      position: absolute;
+      top: 44%; left: 50%;
+      transform: translate(-50%,-50%);
+      text-transform: uppercase;
+      font-family: verdana;
+      color: white;
+      font-size: 21px;
+}
+
+#color{
+      color: #da4747;
+}

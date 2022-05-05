@@ -1,0 +1,34 @@
+/* basic styling */
+body {
+  background-color: #131313;
+}
+
+h1 {
+  font-family: Arial, Helvetica, sans-serif;
+  color: #ff7a00;
+}
+
+p {
+  font-size: 20px;
+  line-height: 1.8;
+  color: #fff;
+}
+
+/* scrollbar styling */
+
+/* styles the scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+/* styles the scrollbar track */
+::-webkit-scrollbar-track {
+  border-radius: 10px;
+  box-shadow: inset 0 0 5px #fff;
+}
+
+/* styles the scrollbar button */
+::-webkit-scrollbar-thumb {
+  background-color: #ff7a00;
+  border-radius: 10px;
+}

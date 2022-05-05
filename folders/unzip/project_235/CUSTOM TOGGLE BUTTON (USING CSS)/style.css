@@ -1,0 +1,43 @@
+ /* for centering the input element */
+	body{
+		margin: 0;
+		height: 100vh;
+		background-color: black;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+	}
+
+ /* main stuffs starts here */
+	input[type="checkbox"]{
+		-webkit-appearance:none;  /* it will remove the browser's default styling from the checkbox
+									 so that we can style the checkbox as we want. */
+		width: 200px;
+		height: 100px;
+		border-radius: 100px;
+		background-color: grey;
+		position: relative;
+		transition:all 0.3s ease-in-out;
+		outline: none;
+}
+
+	input[type="checkbox"]::before{
+		content: "";
+		position: absolute;
+		left:0;
+		border-radius: 100px;
+		transform: scale(1.1);
+		width: 100px;
+		height: 100px;
+		background-color: white;
+		transition: all 0.3s ease-in-out;
+
+	}
+
+	input[type="checkbox"]:checked{
+		background-color: orange;
+	} 
+
+	input[type="checkbox"]:checked::before{
+		left: 100px;
+	}

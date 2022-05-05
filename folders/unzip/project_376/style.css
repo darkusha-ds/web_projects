@@ -1,0 +1,78 @@
+@import url('https://fonts.googleapis.com/css2?family=Baloo+Tammudu+2:wght@400;500&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+li{
+    list-style: none;
+}
+a{
+    text-decoration: none;
+}
+body{
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Baloo Tammudu 2', cursive;
+    background: #345BD8;
+}
+nav{
+    width: 500px;
+    border-radius: 5px 5px 20px 20px;
+    background: #181A2D;
+    padding: 10px 20px;
+}
+nav ul{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+nav ul li{
+    position: relative;
+    z-index: 10;
+}
+nav ul li a{
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: center;
+    color: #6B75AB;
+    line-height: 1;
+}
+nav ul li a span{
+    font-size: 14px;
+    font-weight: 500;
+    padding: 5px;
+}
+nav ul li.active a::after{
+    content: '';
+    position: absolute;
+    height: 2px;
+    width: 90%;
+    background: #03e9f4;
+    border-radius: 50px;
+    z-index: 15;
+    animation: slide 1.5s linear infinite both;
+}
+nav ul li.active a::before,
+nav ul li:hover a::before{
+    content: '';
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    background: linear-gradient(to bottom, transparent, #03e8f444);
+    border-radius: 2px;
+    z-index: 9;
+}
+@keyframes slide {
+    0% {
+                transform: translateY(0);
+    }
+    50% {
+                transform: translateY(-50px);
+    }
+    0% {
+                transform: translateY(0);
+    } 
+}

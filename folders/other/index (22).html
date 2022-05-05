@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+:root {
+--clr-light: #111;
+--clr-accent: #fff;
+}
+
+body {
+background: var(--clr-light);
+color: var(--clr-dark);
+}
+
+.nav-toggle {
+padding: .5em;
+background: transparent;
+border: 0;
+cursor: pointer;
+position: absolute;
+right: 1em;
+top: 1em;
+z-index: 1000;
+outline: none;
+}
+
+.nav-open .hamburger {
+transform: rotate(.625turn);
+}
+
+.nav-open .hamburger::before {
+transform: rotate(90deg) translateX(-6px);
+}
+
+.nav-open .hamburger::after {
+opacity: 0;
+}
+
+.hamburger {
+display: block;
+position: relative;
+}
+
+.hamburger,
+.hamburger::before,
+.hamburger::after {
+background: var(--clr-accent);
+width: 2em;
+height: 3px;
+border-radius: 1em;
+transition: transform 250ms ease-in-out;
+}
+
+.hamburger::before,
+.hamburger::after {
+content: '';
+position: absolute;
+left: 0;
+right: 0;
+}
+
+.hamburger::before {
+top: 6px;
+}
+
+.hamburger::after {
+bottom: 6px;
+}
+</style>
+</head>
+
+<body>
+<button class="nav-toggle">
+<span class="hamburger"></span>
+</button>
+<script>
+const navToggle = document.querySelector('.nav-toggle');
+navToggle.addEventListener('click', () => {
+document.body.classList.toggle('nav-open');
+});
+</script>
+</body>
+
+</html>

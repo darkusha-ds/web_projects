@@ -1,0 +1,24 @@
+/* styling the background */
+body{
+			background-color:black;
+
+		/* for centering the h1 within body */	
+			margin: 0;
+			height: 100vh;	
+			display: flex;
+			justify-content: center;
+			align-items: center;
+}
+
+h1{
+
+	/* styling the h1 */
+			text-transform: uppercase;
+			font-size: 3rem;
+			font-family: verdana;
+
+	/* main stuffs here */
+			color: transparent;
+		    background-image: linear-gradient(109deg,red,yellow);
+			-webkit-background-clip: text;
+}

@@ -1,0 +1,16 @@
+.container{
+     height: 80vh;
+
+/*make sure to use "rgba()" (for manipulating the opacity of gradient)*/
+     background-image: linear-gradient(to right,rgba(0,0,0,0.5),rgba(0,0,0,0.5)),url("teamwork.jpg");
+     background-repeat: no-repeat;
+     background-size: cover;
+     background-position: center;
+
+/* for centering the h1 element */
+     display: flex;
+     justify-content: center;
+     align-items: center;
+     color: white;
+     font-family: verdana;
+}

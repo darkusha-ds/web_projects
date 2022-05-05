@@ -1,0 +1,47 @@
+body{
+    background-color: #090221;
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    font-family: 'Bebas Neue', cursive;
+}
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.container h1{
+    position: relative;
+    color: #fff;
+    text-shadow: 0 6px 12px rgba(0,0,0,.4);
+    font-size: 4.2rem;
+    letter-spacing: 4px;
+    user-select: none;
+}
+h1::after , h1::before{
+    content: "Creative coder";
+    position: absolute;
+    top: 0;
+    left: 0;
+    -webkit-text-stroke-color:#005AFE;
+    -webkit-text-stroke-width: 1px;
+    -webkit-text-fill-color: transparent;
+    opacity: 0;
+    transition: .2s;
+}
+h1::after{
+    z-index: -1;
+}
+h1::before{
+    text-shadow: 0 6px 12px rgba(0,0,0,.4);
+    z-index: 2;
+}
+h1:hover:after{
+    transform: translate(40px,40px);
+    opacity: 1;
+}
+h1:hover:before{
+    opacity: 1;
+    transform: translate(-40px,-40px);
+}

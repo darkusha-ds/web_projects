@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/070428bd88.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="style.css">
+    <title>Music App UI | Coderider</title>
+</head>
+<body>
+    <div class="container">
+        <button id="like"><i class="fa fa-heart-o"></i></button>
+        <div class="head_section">
+            <button id="down"><i class="fa fa-chevron-down"></i></button>
+            <p>Now Playing</p>
+        </div>
+        
+        <span class="song__img"><img src="album.jpg" alt=""></span>
+        <div class="title__section">
+            <h4 class="song__name">Beautiful</h4>
+            <p class="artist__name">Christina Aguilera</p>
+        </div>
+        <div class="control__section">
+            <button class="primaryBtn"><i class="fa fa-list-ul"></i></button>
+            <div class="song__timing">
+                <div class="visual__bars">
+                    <input type="range" min="1" max="100" value="50" class="slider" id="myRange">
+                    <span class="one"></span>
+                    <span class="two"></span>
+                    <span class="three"></span>
+                    <span class="four"></span>
+                    <span class="one"></span>
+                    <span class="two"></span>
+                    <span class="three"></span>
+                    <span class="four"></span>
+                    <span class="one"></span>
+                    <span class="two"></span>
+                    <span class="three"></span>
+                    <span class="four"></span>
+                    <span class="one"></span>
+                    <span class="two"></span>
+                    <span class="three"></span>
+                    <span class="four"></span>
+                    <span class="one"></span>
+                    <span class="two"></span>
+                    <span class="three"></span>
+                    <span class="four"></span>
+                    <span class="one"></span>
+                    <span class="two"></span>
+                    <span class="three"></span>
+                    <span class="four"></span>
+                    <span class="one"></span>
+                </div>
+                <div class="time__control">
+                    <span id="start__time">01:45
+                    </span>
+                    <span id="end__time">06:22</span>
+                </div>
+            </div>
+            <button class="primaryBtn"><i class="fa fa-plus"></i></button>
+        </div>
+        <div class="user__controls">
+            <button class="seconderyBtn" id="suffle"><i class="fa fa-random"></i></button>
+            <button class="seconderyBtn" id="prev"><i class="fa fa-step-backward"></i></button>
+            <button id="play"><i class="fa fa-play"></i></button>
+            <button class="seconderyBtn" id="next"><i class="fa fa-step-forward"></i></button>
+            <button class="seconderyBtn" id="vol"><i class="fa fa-volume-up"></i></button>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,96 @@
+*{ margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  background-color: #eee;
+  min-height: 100vh;
+  display: flex; justify-content: center; align-items: center;
+}
+
+.team-member {
+  width: 500px;
+  position: relative;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.team-member img {
+  display: block;
+  max-width: 100%;
+  transition: all 0.3s;
+}
+
+.team-member:hover img {
+  transform: scale(1.2);
+  filter: brightness(50%);
+}
+
+.social-media-icons {
+  position: absolute;
+  left: 0; bottom: 0;
+}
+
+.social-media-icons a {
+    display: flex; justify-content: center; align-items: center;
+    text-decoration: none;
+    width: 40px; height: 40px;
+    background-color: #272727;
+    color: #fff;
+    opacity: 0.8;
+    transform: translate(-50px, -50px);
+    transition: transform 0.3s;
+  }
+  
+  .social-media-icons a:hover {
+    color: #272727;
+    background-color: #fff;
+  }
+  
+  .social-media-icons a:first-child { transition-delay: 0.1s; }
+  
+  .social-media-icons a:nth-child(2) { transition-delay: 0.2s; }
+  
+  .social-media-icons a:nth-child(3) { transition-delay: 0.3s; }
+  
+  .social-media-icons a:nth-child(4) { transition-delay: 0.4s; }
+  
+  .social-media-icons a:last-child { transition-delay: 0.5s; }
+  
+  .team-member:hover .social-media-icons a { transform: translate(0); }
+
+  .team-member:hover .social-media-icons a:first-child {
+    transition: transform 0.3s 0.5s, background-color 0.3s, color 0.3s;
+  }
+  
+  .team-member:hover .social-media-icons a:nth-child(2) {
+    transition: transform 0.3s 0.4s, background-color 0.3s, color 0.3s;
+  }
+  
+  .team-member:hover .social-media-icons a:nth-child(3) {
+    transition: transform 0.3s 0.3s, background-color 0.3s, color 0.3s;
+  }
+  
+  .team-member:hover .social-media-icons a:nth-child(4) {
+    transition: transform 0.3s 0.2s, background-color 0.3s, color 0.3s;
+  }
+  
+  .team-member:hover .social-media-icons a:last-child {
+    transition: transform 0.3s 0.1s, background-color 0.3s, color 0.3s;
+  }
+  
+  .team-member p {
+    position: absolute;
+    color: #fff;
+    opacity: 0;
+    font-family: Helvetica;
+    letter-spacing: 1px;
+    bottom: 10px; left: 50px;
+    transition: all 0.5s;
+    transition-delay: 0.5s;
+    text-transform: uppercase;
+    font-size: 25px;
+  }
+  
+  .team-member:hover p {
+    opacity: 1; transform: translateX(10px);
+  }

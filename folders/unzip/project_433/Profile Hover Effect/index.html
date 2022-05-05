@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Document</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            overflow: hidden;
+        }
+
+        body {
+            background: #111;
+        }
+
+        .container {
+            height: 100vh;
+            width: 100vw;
+            max-height: 800px;
+            max-width: 1280px;
+            min-height: 600px;
+            min-width: 1000px;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            margin: 0 auto;
+        }
+
+        .effect {
+            height: 369px;
+            width: 290px;
+            background: transparent;
+            border-radius: 10px;
+            transition: border 1s;
+            position: relative;
+        }
+
+        .effect:hover {
+            box-shadow: 2px 1px 6px 2px rgba(255, 255, 255, 0.7)
+        }
+
+        .card {
+            height: 379px;
+            width: 300px;
+            border-radius: 10px;
+            transition: background 0.8s;
+            overflow: hidden;
+            box-shadow: 0 70px 63px -60px #000;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+        }
+
+        .card:hover h2 {
+            opacity: 1;
+        }
+
+        .card:hover .fa {
+            opacity: 1;
+        }
+
+        .card0 {
+            background: url(1.jpg) center center no-repeat;
+            background-size: 350px;
+        }
+
+        .card0:hover {
+            background: url(1.jpg)left center no-repeat;
+            background-size: 600px;
+        }
+
+        .card1 {
+            background: url(2.jpg) center center no-repeat;
+            background-size: 350px;
+        }
+
+        .card1:hover {
+            background: url(2.jpg) left center no-repeat;
+            background-size: 600px;
+        }
+
+        .card2 {
+            background: url(3.jpeg) center center no-repeat;
+            background-size: 350px;
+        }
+
+        .card2:hover {
+            background: url(3.jpeg) left center no-repeat;
+            background-size: 600px;
+        }
+
+        h2 {
+            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+            color: #fff;
+            margin: 20px;
+            opacity: 0;
+            transition: opacity 1s;
+        }
+
+        .fa {
+            opacity: 0;
+            transition: opacity 1s;
+        }
+
+        .icons {
+            position: absolute;
+            fill: #fff;
+            color: #fff;
+            height: 130px;
+            top: 226px;
+            width: 50px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-around;
+        }
+
+        .fa:hover {
+            cursor: pointer;
+            transform: scale(1.5);
+            transition: 0.5s ease-in;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="card card0">
+            <div class="effect">
+                <h2>Person 1</h2>
+                <div class="icons">
+                    <i class="fa fa-facebook" aria-hidden="true"></i>
+                    <i class="fa fa-instagram" aria-hidden="true"></i>
+                    <i class="fa fa-github" aria-hidden="true"></i>
+                    <i class="fa fa-linkedin" aria-hidden="true"></i>
+                    <i class="fa fa-youtube" aria-hidden="true"></i>
+                </div>
+            </div>
+        </div>
+        <div class="card card1">
+            <div class="effect">
+                <h2>Person 2</h2>
+                <div class="icons">
+                    <i class="fa fa-facebook" aria-hidden="true"></i>
+                    <i class="fa fa-instagram" aria-hidden="true"></i>
+                    <i class="fa fa-github" aria-hidden="true"></i>
+                    <i class="fa fa-linkedin" aria-hidden="true"></i>
+                    <i class="fa fa-youtube" aria-hidden="true"></i>
+                </div>
+            </div>
+        </div>
+        <div class="card card2">
+            <div class="effect">
+                <h2>Person 3</h2>
+                <div class="icons">
+                    <i class="fa fa-facebook" aria-hidden="true"></i>
+                    <i class="fa fa-instagram" aria-hidden="true"></i>
+                    <i class="fa fa-github" aria-hidden="true"></i>
+                    <i class="fa fa-linkedin" aria-hidden="true"></i>
+                    <i class="fa fa-youtube" aria-hidden="true"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://kit.fontawesome.com/dd8c49730d.js" crossorigin="anonymous"></script>
+
+</body>
+
+</html>

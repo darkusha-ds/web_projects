@@ -1,0 +1,20 @@
+body{
+	background-color: #000;
+
+/*for centering the .gradient within body*/
+	margin: 0;
+	height: 100vh;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.gradient{
+	width: 20vw;
+	height: 30vh;
+
+	/* main stuffs here */
+	border:5px solid black;
+	border-image: linear-gradient(57deg,#833ab4,#fd1d1d,#fcb045);
+	border-image-slice: 1;
+}
