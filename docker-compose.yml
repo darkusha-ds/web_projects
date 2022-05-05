@@ -1,0 +1,11 @@
+version: '3'
+
+services:
+  web:
+    build: ./dockerr
+    image: darkushads/web_projects:latest
+    command: python manage.py runserver 0.0.0.0:8080
+    volumes:
+      - .:/web_projects
+    ports:
+      - '8080:8080'
