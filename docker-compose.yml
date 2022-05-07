@@ -2,7 +2,7 @@ version: '3'
 
 services:
   web:
-    build: ./dockerr
+    build: ./Docker
     image: darkushads/web_projects:latest
     command: python manage.py runserver 0.0.0.0:8080
     volumes:
