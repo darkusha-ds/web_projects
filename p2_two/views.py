@@ -1,3 +1,3 @@
-from django.shortcuts import render
+from django.views.generic import TemplateView
 
-# Create your views here.
+class page_2(TemplateView): template_name = 'page_2.html'
