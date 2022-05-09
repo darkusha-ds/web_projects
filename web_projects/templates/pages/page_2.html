@@ -1,0 +1,18 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href={% static 'style/pages/page.css' %}>
+    <title></title>
+  </head>
+  <body>
+      <div class="container">
+          <h1>Page 2</h1>
+          <div class="head">
+              <a href={% url 'home' %}><button>back</button></a>
+          </div>
+      </div>
+  </body>
+</html>
