@@ -1,3 +1,5 @@
-from django.views.generic import TemplateView
+from django.shortcuts import redirect
 
-class home(TemplateView): template_name = 'home_page/home.html'
+def home(request):
+    response = redirect('/page_0/')
+    return response
