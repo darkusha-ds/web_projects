@@ -1,6 +1,6 @@
 from django.apps import AppConfig
 
 
-class P3ThreeConfig(AppConfig):
+class P5Config(AppConfig):
     default_auto_field = 'django.db.models.BigAutoField'
-    name = 'p3_three'
+    name = 'p5'

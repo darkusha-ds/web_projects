@@ -1,6 +1,6 @@
 from django.apps import AppConfig
 
 
-class P4FourConfig(AppConfig):
+class P4Config(AppConfig):
     default_auto_field = 'django.db.models.BigAutoField'
-    name = 'p4_four'
+    name = 'p4'

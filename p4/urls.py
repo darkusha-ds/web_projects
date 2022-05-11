@@ -1,5 +1,5 @@
 from django.urls import path
-from p4_four.views import *
+from p4.views import *
 
 urlpatterns = [
     path('', page_4.as_view(), name='page_4'),

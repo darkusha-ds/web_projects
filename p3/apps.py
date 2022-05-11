@@ -1,6 +1,6 @@
 from django.apps import AppConfig
 
 
-class P2TwoConfig(AppConfig):
+class P3Config(AppConfig):
     default_auto_field = 'django.db.models.BigAutoField'
-    name = 'p2_two'
+    name = 'p3'
