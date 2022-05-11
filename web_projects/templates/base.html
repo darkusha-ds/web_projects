@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, user-scalable=no">
     <link rel="stylesheet" href={% static 'style/home.css' %}>
     <link rel="icon" href={% static 'img/favicon.ico' %}>
-    <title>{% block title %}{% endblock %}</title>
+    <title>{{ name }}</title>
 </head>
 
 <body>
@@ -28,7 +28,6 @@
             <h1> <i class="fas fa-code" style="font-size: 20px;"></i>Projects</h1>
           </a>
         </div>
-
 
         <ul class="nav__list" id="navlinkitems">
           <li class="nav__item">
@@ -59,8 +58,13 @@
       </nav>
     </header>
     <div class="all_buttons">
-      {% block buttons %}{% endblock %}
+      <ul>
+        <li>
+          <button class="btns"><a class="buttons" href={% url 'get_page' %}>Project 0</a></button>
+        </li>
+      </ul>
     </div>
+    <footer class="bottom"></footer>
   </div>
   <script src="{% static 'js/pages.js' %}"></script>
 </body>
