@@ -18,6 +18,9 @@ from django.urls import path, include
 
 from web_projects.views import *
 
+import p0
+from p0 import urls
+
 import p1
 from p1 import urls
 
@@ -37,8 +40,9 @@ import p6
 from p6 import urls
 
 urlpatterns = [
+    path('', home),
     path('admin/', admin.site.urls),
-    path('', home.as_view(), name='home'),
+    path('page_0/', include(p0.urls)),
     path('page_1/', include(p1.urls)),
     path('page_2/', include(p2.urls)),
     path('page_3/', include(p3.urls)),
