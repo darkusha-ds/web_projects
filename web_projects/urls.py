@@ -18,27 +18,31 @@ from django.urls import path, include
 
 from web_projects.views import *
 
-import p1_one
-from p1_one import urls
+import p1
+from p1 import urls
 
-import p2_two
-from p2_two import urls
+import p2
+from p2 import urls
 
-import p3_three
-from p3_three import urls
+import p3
+from p3 import urls
 
-import p4_four
-from p4_four import urls
+import p4
+from p4 import urls
 
-import p5_five
-from p5_five import urls
+import p5
+from p5 import urls
+
+import p6
+from p6 import urls
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', home.as_view(), name='home'),
-    path('page_1/', include(p1_one.urls)),
-    path('page_2/', include(p2_two.urls)),
-    path('page_3/', include(p3_three.urls)),
-    path('page_4/', include(p4_four.urls)),
-    path('page_5/', include(p5_five.urls)),
+    path('page_1/', include(p1.urls)),
+    path('page_2/', include(p2.urls)),
+    path('page_3/', include(p3.urls)),
+    path('page_4/', include(p4.urls)),
+    path('page_5/', include(p5.urls)),
+    path('page_6/', include(p6.urls)),
 ]
