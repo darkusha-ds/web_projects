@@ -1,0 +1,65 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no">
+    <link rel="stylesheet" href={% static 'style/home.css' %}>
+    <link rel="icon" href={% static 'img/favicon.ico' %}>
+    <title>{% block title %}{% endblock %}</title>
+</head>
+
+<body>
+  <div class="container">
+    <header>
+      <button class="nav-toggle">
+        <span class="hamburger"></span>
+      </button>
+      <div class="smalllogo">
+        <a href={% url 'page_1' %} class="logolink">
+          <h2> <i class="fas fa-code"></i>Projects</h2>
+        </a>
+      </div>
+
+      <nav class="nav" id="navbar">
+        <div class="logo">
+          <a href={% url 'page_1' %} id="logo">
+            <h1> <i class="fas fa-code" style="font-size: 20px;"></i>Projects</h1>
+          </a>
+        </div>
+
+
+        <ul class="nav__list" id="navlinkitems">
+          <li class="nav__item">
+            <a href={% url 'page_1' %} class="nav__link" id="1">Page 1</a>
+          </li>
+          <li class="nav__item">
+            <a href={% url 'page_2' %} class="nav__link" id="2">Page 2</a>
+          </li>
+          <li class="nav__item">
+            <a href={% url 'page_3' %} class="nav__link" id="3">Page 3</a>
+          </li>
+          <li class="nav__item">
+            <a href={% url 'page_4' %} class="nav__link" id="4">Page 4</a>
+          </li>
+          <li class="nav__item">
+            <a href={% url 'page_5' %} class="nav__link" id="5">Page 5</a>
+          </li>
+          <li class="nav__item">
+            <a href={% url 'page_6' %} class="nav__link" id="6">Page 6</a>
+          </li>
+          <li class="nav__item">
+            <a href="/admin" class="nav__link" id="7">Admin</a>
+          </li>
+        </ul>
+      </nav>
+    </header>
+    <div class="all_buttons">
+      {% block buttons %}{% endblock %}
+    </div>
+  </div>
+  <script src="{% static 'js/pages.js' %}"></script>
+</body>
+
+</html>
