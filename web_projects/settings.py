@@ -32,12 +32,7 @@ ALLOWED_HOSTS = ["*"]
 # Application definition
 
 INSTALLED_APPS = [
-    'p1',
-    'p2',
-    'p3',
-    'p4',
-    'p5',
-    'p6',
+    'p0', 'p1', 'p2', 'p3', 'p4', 'p5', 'p6',
     'web_projects',
     'django.contrib.admin',
     'django.contrib.auth',
