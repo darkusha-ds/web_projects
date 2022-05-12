@@ -1,69 +1,78 @@
-body{
+* {
     margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
     height: 100vh;
     display: flex;
-    align-items: center;
     justify-content: center;
-    background-color: #090221;
-}
-.wrap{
-    position: relative;
-    width: 230px;
-    height: 65px;
-    border: 2px solid #393E46;
+    align-items: center;
+  }
+  
+  .btn {
+    --size: 55px;
+    text-decoration: none;
+    color: #191919;
+    height: var(--size);
     display: flex;
     align-items: center;
-    justify-content: center;
-    transition: .3s;
-}
-.wrap::before , .wrap::after{
+    padding: 0 25px 0 75px;
+    position: relative;
+    font-size: 20px;
+    transition: all 0.3s;
+    font-family: "Trebuchet MS";
+    font-weight: 600;
+  }
+  
+  .icon-container {
+    display: inline-block;
+    width: var(--size);
+    height: var(--size);
+    border-radius: 100px;
+    background-color: #191919;
+    color: #fff;
+    position: absolute;
+    left: 0;
+    transition: all 0.3s;
+    z-index: -1;
+  }
+
+  .icon-container::before {
     content: "";
+    position: absolute;
+    width: 20px;
+    height: 3px;
+    background-color: #fff;
+    top: 50%;
+    transform: translateY(-50%);
+    transition: all 0.3s;
+    left: 10px;
+    opacity: 0;
+  }
+  
+  .icon-container i {
     position: absolute;
     top: 50%;
-    width:5px;
-    height: 6px;
-    background-color: #090221;
-}
-.wrap::before{
-    left: -4px;
-}
-.wrap::after{
-    right: -4px;
-}
-.wrap button{
-    position: relative;
-    width: 225px;
-    height:60px;
-    border: none;
-    outline: none;
-    background-color: #393E46;
+    left: calc((var(--size) / 2) + 2px);
+    transform: translate(-50%, -50%);
+    transition: all 0.3s;
+  }
+  
+  .btn:hover {
     color: #fff;
-    font-size: 1.2rem;
-    text-transform: uppercase;
-    letter-spacing: 3px;
-    font-family: 'Alata', sans-serif;
-    cursor: pointer;
-    overflow: hidden;
-    z-index: 1;
-}
-.wrap button::after{
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    width:300px;
-    height: 100%;
-    background-color:#4ECCA3;
-    z-index: -2;
-    transition: .3s;
-    transform: translateX(-320px)skewX(-20deg);
-}
-.wrap button span{
-    z-index: 1;
-}
-.wrap:hover{
-    border-color: #4ECCA3;
-}
-.wrap button:hover::after{
-    transform: translateX(0px)skewX(0deg);
-}
+  }
+  
+  .btn:hover .icon-container {
+    width: 100%;
+  }
+  
+  .btn:hover .icon-container i {
+    transform: translate(50%, -50%);
+  }
+  
+  .btn:hover .icon-container::before {
+    transform: translate(15px, -50%);
+    opacity: 1;
+  }

@@ -1,57 +1,85 @@
-*{ margin: 0; padding: 0; box-sizing: border-box; }
-
-body{
-      background-color: #111;
-      height: 100vh;
+body {
+    height:100vh;
+    display:flex;
+    align-items:center;
+    justify-content: center;
 }
-
-ul{
-      width: 100%; height: 100%;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      list-style: none;
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
 }
-
-a{
-      text-transform: uppercase;
-      font-size: 32px;
-      color: #fff;
-      text-decoration: none;
-      font-family:'Arial Black';
-      display: inline-block;
-      margin: 25px 0;
+.container{
+  position: relative;
+  width:295px;
+  height:500px;
+  background:#121212;
+  border-radius:20px;
+  box-shadow:0 6px 20px rgba(0,0,0,.4);
+  overflow:hidden;
 }
-
-
-a::before{
-     content: attr(data-text);
-     text-align: center; line-height: 100vh;
-     position: absolute;
-     top: 0; left: 0;
-     width: 100%; height: 100%;
-     z-index: -1; transform: scale(0);
-     font-size: 180px; transition: transform 0.3s;
-     color: rgba(0,0,0,0.1);
+.bg-img{
+  position: absolute;
+  top:-60px;
+  width:100%;
+  height:300px;
+  background:url("1639030449622.jpg") center / cover;
 }
-
-li:hover a::before{
-     transform: scale(1);
+.container::before{
+  content:"";
+  position: absolute;
+  width:100%;
+  height:100%;
+  z-index:1;
+  background: linear-gradient(to top,#121212 65%,transparent);
 }
-
-li:nth-child(1) a::before{
-     background-color: #da4747;
+.content{
+  position: absolute;
+  bottom:0;
+  z-index:2;
+  width:100%;
+  height:330px;
+  display:flex;
+  flex-direction:column;
+  justify-content:space-evenly;
+ align-items:center;
+font-family: 'Poppins', sans-serif;
 }
-        
-li:nth-child(2) a::before{
-     background-color: #303960;
+form{
+  width:260px;
+  height:200px;
+  display:flex;
+  flex-direction:column;
+  justify-content:space-evenly;
 }
-
-li:nth-child(3) a::before{
-     background-color: #dd7631;
+form input , button{
+  border:none;
+  height:40px;
+  outline:none;
+  border-radius:2px;
 }
-
-li:nth-child(4) a::before{
-     background-color: #95389e;
+form input{
+  width:260px;
+  margin:5px 0;
+  background:#333333;
+  padding:0 10px;
+}
+form input::placeholder{
+  font-family: 'Poppins', sans-serif;
+}
+form button{
+  background:#E50813;
+  color:#fff;
+  font-size:16px;
+  font-weight:bolder;
+  font-family: 'Poppins', sans-serif;
+}
+.content p{
+  width:260px;
+  color:#737373;
+  font-size:13px;
+}
+.content p a{
+  text-decoration:none;
+  color:#fff;
 }

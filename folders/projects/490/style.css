@@ -1,56 +1,109 @@
- body
-{
-    background: #c8c8c8;
-}
-.image-wrapper {
-  width: 600px;
-  height: 400px;
-  position: relative;
-  margin: 30vh auto;
-}
- 
-.image-wrapper img {
-  position: absolute;
-  top: 0;
-  left: 0;
-  transform-origin: left;
+ html,body {
+     margin: 0;
+     padding: 0;
+     width: 100%;
+     height: 100vh;
+     background: #e8e8e8;
+     display: flex;
+     justify-content: center;
+     align-items: center;
+     font-family: 'Poppins', sans-serif;
+     overflow: hidden;
+ }
+
+ .card {
+     border-radius: 16px;
+     width: 360px;
+     height: 360px;
+     background: url(https://picsum.photos/360/360?image=0);
+     position: relative;
+     overflow: hidden;
+     box-shadow: 0 5px 50px rgba(0,0,0,0.85);
+ }
+
+.card:before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    background-color: rgba(0,0,0,0.92);
 }
 
-.image-1 {
-  clip-path: polygon(0 0, 0 32%, 28% 0);
-  transform: translate(-10px, -10px);
-  transition: transform 300ms ease;
-  transform-origin: top;
+.card .img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
 }
-  .image-wrapper:hover .image-1 {
-    transform: translate(0,0);
-  }
 
-.image-2 {
-  clip-path: polygon(28% 0, 0 32%, 0 100%, 17% 100%, 90% 0);
-  transform: translate(-30px, 5px);
-  transition: transform 300ms ease;
+.card .img span {
+    width: 25%;
+    height: 100%;
+    background: url(https://picsum.photos/360/360?image=0);
+    transition: .5s;
 }
-  .image-wrapper:hover .image-2  {
-    transform: translate(0,0);
-  }
 
-.image-3 {
-  clip-path: polygon(100% 0, 100% 65%, 74% 100%, 17% 100%, 90% 0);
-  transform: translate(-15px, -10px);
-  transition: transform 300ms ease;
+.card .img span:nth-child(1) {
+    background-position: 0;
+    transition-delay: 0;
 }
-  .image-wrapper:hover .image-3  {
-    transform: translate(0,0);
-  }
 
-.image-4 {
-  clip-path: polygon(100% 65%, 74% 100%, 100% 100%);
-  transform: translate(-32px, 5px);
-  transition: transform 300ms ease;
-  transform-origin: top;
+.card .img span:nth-child(2) {
+    background-position: 33.3%;
+    transition-delay: .1s;
 }
-  .image-wrapper:hover .image-4  {
-    transform: translate(0,0);
-  }
+
+.card .img span:nth-child(3) {
+    background-position: 66.6%;
+    transition-delay: .2s;
+}
+
+.card .img span:nth-child(4) {
+    background-position: 100%;
+    transition-delay: .3s;
+}
+
+.card:hover .img>span {
+    transform: translateY(-100%);
+}
+
+.card:hover .content {
+    transform: translateY(0%);
+    transition: 1s;
+    transition-delay: .1s;
+}
+
+.content {
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    color: white;
+    padding: 20px 20px;
+    width: 100%;
+    height: 100%;
+    transform: translateY(100%);
+}
+
+h2 {
+    font-size: 25px;
+    text-transform: uppercase;
+    text-align: center;
+    color: aqua;
+}
+
+h4 {
+    font-size: 15px;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+
+
+
+
 

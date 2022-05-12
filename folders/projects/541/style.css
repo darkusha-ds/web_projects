@@ -1,86 +1,42 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
-*{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Poppins', sans-serif;
-}
 body{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
+        background-color: #111;
 }
-.card{
-    width: 350px;
-    height: 350px;
-    background: #FFB319;
-    border-radius: 10px;
-    display: flex;
-    justify-content: center;
-    align-items: flex-end;
+        
+.container{
+      /* for centering the container */
+            position: absolute;
+            top: 50%; left: 50%;
+            transform: translate(-50%,-50%);
+  
+            width: 80px; height: 100px;
+            border: 5px solid white;
+            border-bottom-right-radius: 10px;
+            border-bottom-left-radius: 10px;
+            border-top-color: transparent;
+  
+   /* comment the overflow:hidden; to see what is actually happening */
+            overflow: hidden;  
 }
-.btn{
-    width: 250px;
-    height: 45px;
-    background: none;
-    border-radius: 10px;
-    margin-bottom: 20px;
-    z-index: 10;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: relative;
+.container::before{
+            content: "";
+            width: 150px; height: 150px;
+            position: absolute;
+            top: 120px; left: 50%;
+            transform: translateX(-50%);
+            background-color: #40a3d3;
+            border-radius: 60px;
+            animation: fill 3s ease-in 1;
+            animation-fill-mode: forwards;
 }
-.text{
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: whitesmoke;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border-radius: 10px;
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.185);
-}
-.btn input{
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    cursor: pointer;
-    appearance: none;
-    -webkit-appearance: none;
-}
-.colors{
-    position: absolute;
-    display: flex;
-    z-index: -2;
-}
-.color{
-    width: 30px;
-    height: 30px;
-    background: #FFB319;
-    border-radius: 50px;
-    margin: .6em;
-    border: 4px solid white;
-    transition: all .4s;
-    cursor: pointer;
-    transition-delay: calc(var(--i) * 0.1s);
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.185);
-}
-.color:nth-child(2){
-    background: #F037A5;
-}
-.color:nth-child(3){
-    background: #3E00FF;
-}
-.color:nth-child(4){
-    background: #DA0037;
-}
-.btn input:checked ~ .colors .color{
-    transform: translateY(-50px);
+
+@keyframes fill{
+        from{
+            top: 120px;
+            transform: translateX(-50%) rotate(0deg);
+        }
+
+        to{
+            top: 0;
+            transform: translateX(-50%) rotate(360deg);
+        }
 }

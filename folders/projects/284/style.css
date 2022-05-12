@@ -1,64 +1,122 @@
-
-.lines {
-    padding-Left: 10px;
-    font-size: 20px;
+@import url("https://fonts.googleapis.com/css?family=Raleway:400,700");
+* {
+  box-sizing: border-box;
 }
-
-#other {
-    display: none;
+body {
+  min-height: 100vh;
+  font-family: "Raleway", sans-serif;
+  overflow: hidden;
 }
-
-#text1 {
-    color: royalblue;
-    font-family: arial;
-    padding-Left: 14px;
-    font-size: 16px;
+.container {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
 }
-
-#text2 {
-    font-family: arial;
-    padding-Left: 14px;
-    font-size: 16px;
+.container:hover .top:before,
+.container:active .top:before,
+.container:hover .bottom:before,
+.container:active .bottom:before,
+.container:hover .top:after,
+.container:active .top:after,
+.container:hover .bottom:after,
+.container:active .bottom:after {
+  margin-left: 200px;
+  transform-origin: -200px 50%;
+  transition-delay: 0s;
 }
-
-.avatar {
-    float: right;
-    border-radius: 100px;
+.container:hover .center,
+.container:active .center {
+  opacity: 1;
+  transition-delay: 0.2s;
 }
-
-a {
-    line-height: 2;
-    padding: 20px;
-    color:royalblue;
-    font-size:13px;
+.top:before,
+.bottom:before,
+.top:after,
+.bottom:after {
+  content: "";
+  display: block;
+  position: absolute;
+  width: 200vmax;
+  height: 200vmax;
+  top: 50%;
+  left: 50%;
+  margin-top: -100vmax;
+  transform-origin: 0 50%;
+  transition: all 0.5s cubic-bezier(0.445, 0.05, 0, 1);
+  z-index: 10;
+  opacity: 0.65;
+  transition-delay: 0.2s;
 }
-
-.bottom {
-    font-family: arial;
-    text-align: center;
+.top:before {
+  transform: rotate(45deg);
+  background: #e46569;
 }
-
-.imgs {
-    text-align: center;
+.top:after {
+  transform: rotate(135deg);
+  background: #ecaf81;
 }
-
-input {
-    margin: 4px;
-    border-radius: 100px;
-    padding: 10px;
-    font-size: 16px;
-    border: 1px solid #999;
-    width: 60%;
+.bottom:before {
+  transform: rotate(-45deg);
+  background: #60b8d4;
 }
-
-input:focus {
-    outline: none;
+.bottom:after {
+  transform: rotate(-135deg);
+  background: #3745b5;
 }
-
-.material-icons {
-    padding: 8px;
-    color: white;
-    font-size:30px;
-    border-radius: 100px;
-    background: royalblue;
+.center {
+  position: absolute;
+  width: 400px;
+  height: 400px;
+  top: 50%;
+  left: 50%;
+  margin-left: -200px;
+  margin-top: -240px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 30px;
+  opacity: 0;
+  transition: all 0.5s cubic-bezier(0.445, 0.05, 0, 1);
+  transition-delay: 0s;
+  color: #333;
+}
+.center input {
+  width: 100%;
+  padding: 15px;
+  margin: 5px;
+  border-radius: 1px;
+  border: 1px solid #ccc;
+  font-family: inherit;
+}
+.center button {
+  position: relative;
+  width: 100%;
+  margin: 5px;
+  line-height: 60px;
+  letter-spacing: 2px;
+  text-decoration: none;
+  text-transform: uppercase;
+  background: transparent;
+  text-align: center;
+  color: #000;
+  transition: 0.5s;
+  border: 1px solid #ec1840;
+}
+.center button:hover {
+  border: 1px solid transparent;
+  color: #fff;
+  background: #ec1840 url(pixel.png);
+  transition-delay: 0.8s;
+  background-size: 180px;
+  animation: animate 0.8s steps(8) forwards;
+}
+@keyframes animate {
+  0% {
+    background-position-y: 0;
+  }
+  100% {
+    background-position-y: -480px;
+  }
 }

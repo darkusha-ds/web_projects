@@ -1,48 +1,23 @@
-body {
-  background-color: #ff7a00;
-  margin: 0;
-  min-height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+body{
+	background-color: #111;
+}
+		
+.container{
+	width: 150px;
+	height: 150px;
+	position: absolute;
+	top: 50%; left: 50%;
+	transform: translate(-50%,-50%);
+	border-radius: 50%;
+	overflow: hidden;
+	box-shadow: 0 0 0 50px rgba(1,121,233,0.2), 
+				0 0 0 100px rgba(1,121,233,0.2),
+				0 0 0 150px rgba(1,121,233,0.2),
+				0 0 0 200px rgba(1,121,233,0.2),
+				0 0 0 250px rgba(1,121,233,0.2);
 }
 
-.img-container {
-  width: 700px;
-  height: 460px;
-  cursor: pointer;
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
-  perspective: 1000px;
-}
-
-.img-bar {
-  display: block;
-  background-image: url("./bg.jpg");
-  height: 115px; /* width of parent divided by number of span */
-  background-size: cover;
-  background-repeat: no-repeat;
-  transition: all 1s;
-}
-
-.img-bar:first-child {
-  background-position: 0 0;
-}
-
-.img-bar:nth-child(2) {
-  background-position: 0 -115px;
-  transition-delay: 0.2s;
-}
-
-.img-container:hover .img-bar {
-  transform: rotateY(360deg);
-}
-
-.img-bar:nth-child(3) {
-  background-position: 0 -230px;
-  transition-delay: 0.4s;
-}
-
-.img-bar:last-child {
-  background-position: 0 -345px;
-  transition-delay: 0.6s;
+.container img{
+	width: 100%; height: 100%;
+	object-fit: cover;
 }

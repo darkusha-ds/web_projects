@@ -1,98 +1,49 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
-*{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Poppins', sans-serif;
-}
 body{
-    --primary-color: #e7e0ee;
-    --sec-color: #F3F1F5;
-    --hover-color: #11052C;
-    --color: #1f1f1f;
-    --text-color: #F3F1F5;
+     background-color: #111;
 }
-body[data-theme= "dark"]{
-    --primary-color: #0f0f0f;
-    --hover-color: #EDEDED;
-    --text-color: #1f1f1f;
-    --sec-color: #1a1a1a;
-    --color: #f0f0f0;
+
+h1{
+     font-family: verdana;
+     font-size: 50px;
+     cursor: pointer;
+     white-space: nowrap;
+  
+/* for centering the h1 */
+     margin: 0;
+     position: absolute;
+     top: 50%; left: 50%;
+     transform:translate(-50%,-50%);
 }
-body{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    background: var(--primary-color);
-    color: var(--color);
+
+h1 span{
+      display: inline-block;
+      overflow: hidden;
+      transition: all 0.3s ease-out;
+      color: white;
 }
-.card {
-    width: 350px;
-    height: 350px; 
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.151);
-    background: var(--sec-color);
-    border-radius: 10px;
-}
-.card img{
-    width: 150px;
-    height: 150px;
-    border-radius: 50%;
-}
-.btn{
-    width: 150px;
-    height: 40px;
-    border-radius: 20px;
-    margin-top: 1em;
-    border: none;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.151);
-    cursor: pointer;
-    background: var(--sec-color);
-    color: var(--color);
-    transition: all .4s;
-}
-.btn:hover{
-    background: var(--hover-color);
-    color: var(--text-color);
+
+h1 span:nth-child(even){
+       color: #da4747;
+       letter-spacing: -40px; 
 }
 
 
-/* dark mode */
-.darkMode{
-    width: 100px;
-    height: 50px;
-    position: absolute;
-    top: 50%;
-    left: -5px;
-    transform: translate(-50%);
-    border-radius: 10px;
-    overflow: hidden;
+h1:hover span:nth-child(even){
+     letter-spacing: 0;
 }
-.darkMode .box{
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
-    background: var(--sec-color);
-    transition: all .4s;
+
+h1:hover span:nth-child(2){
+     transition-delay: 0s;
 }
-.darkMode input{
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    -webkit-appearance: none;
-    cursor: pointer;
-    z-index: 10;
+
+h1:hover span:nth-child(4){
+     transition-delay: 0.5s;
 }
-.darkMode input:checked ~ .box{
-    transform: rotate(180deg);
+
+h1:hover span:nth-child(6){
+     transition-delay: 1s;
 }
-.darkMode input:checked ~ .box i{
-    transform: rotate(180deg);
+
+h1:hover span:nth-child(8){
+     transition-delay: 1.5s;
 }

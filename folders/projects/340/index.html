@@ -1,26 +1,30 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <title> Like Button Microinteraction </title>
-    <link rel="stylesheet" href="style.css" />
-  </head>
-  <body>
-    <a href="#" class="like-btn">
-      <!-- like button icon svg -->
-      <svg
-        class="like-icon"
-        xmlns="http://www.w3.org/2000/svg"
-        width="24"
-        height="24"
-        viewBox="0 0 24 24"
-      >
-        <path
-          d="M12 4.419c-2.826-5.695-11.999-4.064-11.999 3.27 0 7.27 9.903 10.938 11.999 
-               15.311 2.096-4.373 12-8.041 12-15.311 0-7.327-9.17-8.972-12-3.27z"
-        />
-      </svg>
-    </a>
 
-    <script src="main.js"></script>
-  </body>
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="https://cdn-uicons.flaticon.com/uicons-regular-rounded/css/uicons-regular-rounded.css" />
+  <link rel="stylesheet" href="style.css" />
+  <title>Lockscreen Ui | Coderider</title>
+</head>
+
+<body>
+  <button id="lock" onclick=" screenLock()">Lock</button>
+  <div class="lockscreen unlock">
+    <i class="fi-rr-lock" ondblclick="screenUnlock()"></i>
+    <div class="profile">
+      <img src="user.jpg" alt="" />
+      <span class="profile__name">Florencio</span>
+    </div>
+    <div class="time">
+      <span class="date">Mon,Jul 21</span>
+      <span class="clock">10:20</span>
+    </div>
+  </div>
+
+  <script src="main.js"></script>
+</body>
+
 </html>

@@ -1,49 +1,88 @@
-a{
-    color:#313131;
-    text-decoration: none;
-    font-family: verdana;
-    padding: 16px 32px;
-  
-  /* for centering the link */
-    position: absolute;
-    top:50%; left: 50%;
-    transform: translate(-50%,-50%);
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap");
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Montserrat", sans-serif;
+  color: #fff;
 }
 
-span{
-    position: absolute;
-    transition: all 0.6s ease-out;
-    background-color: #313131;
+h1 {
+  font-weight: 900;
 }
 
-span:nth-child(1){
-    top: 50%; left: 0;
-    transform: translateY(-50%);
-    width: 2px; height: 0px;
+.container {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 16px;
+  flex-direction: column;
+}
+.box {
+  width: 350px;
+  height: 400px;
+  font-size: 16px;
+  padding: 40px 40px;
+  background: #434856;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  border-radius: 48px;
+}
+.user {
+  margin-top: 50px;
 }
 
-span:nth-child(2){
-    top: 50%; right: 0;
-    transform: translateY(-50%);
-    width: 2px; height: 0px;
+.fas {
+  position: absolute;
+}
+input {
+  width: 90%;
+  margin-bottom: 25px;
+  padding: 0px 30px 10px;
+  font-size: 16px;
+  border: none;
+  border-bottom: 1px solid #0c0c0e;
+  outline: none;
+  background-color: #434856;
+  color: #fff;
+}
+input:focus {
+  border-bottom: 1px solid #e9af10;
+}
+.reset-password {
+  color: #ff7f50;
+  text-align: right;
+  margin-top: 0px;
+  font-size: 12px;
+}
+.login-btn {
+    margin-top: 25px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
 }
 
-span:nth-child(3){
-        left:50%; bottom: 0;
-        transform: translateX(-50%);
-        width: 0px; height: 2px;
+.btn {
+  display: block;
+  width: 80%;
+  padding: 15px;
+  background-color: #000;
+  color: #fff;
+  border: none;
+  border-radius: 20px;
+  font-size: 20px;
+  font-weight: 600;
+  opacity: 0.8;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+.btn:hover{
+    opacity: 1;
 }
 
-span:nth-child(4){
-        left:50%; top: 0;
-        transform: translateX(-50%);
-        width: 0px; height: 2px;
+.signup span{
+    color: #7fb8e6;
 }
-
-a:hover span:nth-child(1), a:hover span:nth-child(2){
-        height: 100%;
-}
-
-a:hover span:nth-child(3), a:hover span:nth-child(4){
-            width: 100%;
+.signup span:hover{
+    color: #3793df;
 }

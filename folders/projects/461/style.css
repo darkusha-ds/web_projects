@@ -1,91 +1,146 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
-*{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    list-style: none;
+body, html {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  width: 100%;
+  font-family: 'Open Sans', sans-serif;
 }
-body{
-    width: 100%;
-    font-family: 'Montserrat', sans-serif;
-    background: #ffff;
-    overflow: hidden;
+
+main {
+  height: 100%;
+  width: 100%;
 }
-header{
-    width: 100%;
+
+aside {
+  background-color: #ff4646;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  width: 20%;
+  z-index: 1;
 }
-.head__title{
-    display: flex;
-    justify-content: space-between;
-    padding: 0 .7rem;
-    align-items: center;
-    color: #111111;
+
+section {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  background-color: #f1f1f1;
+  overflow: hidden;
 }
-.head__title .slide__arrow{
-    font-size: 1.5rem;
+
+label {
+  display: inline-block;
+  padding: 7px 8px;
+  background-color: transparent;
+  cursor: pointer;
+  margin: 10px;
+  z-index: 3;
+  position: fixed;
 }
-.head__title .slide__arrow span{
-    text-align: center;
-    line-height: 1.7rem;
-    border-radius: 50%;
-    display: inline-block;
-    background: #EFEFEF;
-    height: 2rem;
-    width: 2rem;
-    cursor: pointer;
-    user-select: none;
+
+.bar {
+  display: block;
+  background-color: #ff4646;
+  width: 30px;
+  height: 3px;
+  border-radius: 5px;
+  margin: 5px auto;
+  transition: background-color .5s ease-in, transform .5s ease-in, width .5s ease-in;
 }
-.nav__links ul{
-    width: 100%;
-    font-size: 0.8rem;
-    display: flex;
-    overflow: hidden;
-    padding: 0.7rem;
+
+.content {
+  top: 0;
+  bottom: 0;
+  position: absolute;
+  right: 0;
+  left: 0;
+  background-color: #f1f1f1;
+  z-index: 2;
+  transition: transform .5s ease-in-out;
 }
-.nav__links ul li{
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    margin-right: 2rem;
-    padding: 0.5rem;
-    border-radius: 5px;
-    cursor: pointer;
+
+h1 {
+  margin: 0;
+  position: relative;
+  top: 50%;
+  left: 0;
+  right: 0;
+  transform: translateY(-50%);
+  text-align: center;
+  font-family: sans-serif;
+  font-weight: 600;
+  text-transform: uppercase;
+  font-size: 40px;
 }
-.nav__links ul li i{
-    height: 2rem;
-    width: 2rem;
-    background: crimson;
-    border-radius: 8px;
-    text-align: center;
-    line-height: 2.2rem;
-    font-size: 1rem;
-    color: #fff;
+
+.container {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  margin-top: 100px;
+  text-align: center;
+  border-top: 2px solid rgba(255, 255, 255, .7);
 }
-.nav__links ul li span{
-    padding-left: 5px;
-    white-space: nowrap;
+
+.menu {
+  border-bottom: 3px solid rgba(255, 255, 255, .7);
+  padding: 17px 0;
+  display: block;
+  color: #fff;
+  text-transform: uppercase;
+  text-decoration: none;
+  font-size: 25px;
+  font-weight: 700;
+  position: relative;
+  transition: color .3s .15s ease-in;
 }
-.nav__links ul li span p{
-    color: #A4A4A4;
+
+.menu::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  height: 100%;
+  background-color: #fff;
+  width: 0;
+  transition: width .3s ease-in;
+  z-index: -1;
 }
-.nav__links ul li:hover{
-    box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+
+.menu:hover {
+  color: #ff4646;
 }
-.nav__links ul li:nth-child(1) i{
-    background: #79A1E7;
+
+.menu:hover::after {
+  width: 100%;
 }
-.nav__links ul li:nth-child(2) i{
-    background: #A8C863;
+
+input[type="checkbox"] {
+  display: none;
 }
-.nav__links ul li:nth-child(3) i{
-    background: #FD7951;
+
+input[type="checkbox"]:checked ~ .content {
+  transform: translateX(20%);
 }
-.nav__links ul li:nth-child(4) i{
-    background: #539FE7;
+
+input[type="checkbox"]:checked ~ label .bar {
+  background-color: #fff;
 }
-.nav__links ul li:nth-child(5) i{
-    background: #FEB800;
+
+input[type="checkbox"]:checked ~ label .top {
+   
+  transform: translateY(0px) rotateZ(45deg);
 }
-.nav__links ul li:nth-child(6) i{
-    background: #D157E5;
+
+input[type="checkbox"]:checked ~ label .bottom {
+  transform: translateY(-15px) rotateZ(-45deg);
+}
+
+input[type="checkbox"]:checked ~ label .middle {
+  width: 0;
+}
+
+.middle {
+  margin: 0 auto;
 }

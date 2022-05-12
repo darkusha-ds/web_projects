@@ -1,42 +1,87 @@
-body{
-	background-color: #6d9733;
-	margin: 0;
-	min-height: 100vh;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-}
+body { 
+background-color: #111; 
+color: black; 
+text-align: center; 
+} 
 
-ul{ margin: 0; padding: 0; display: flex; }
+.container { 
+display: flex; 
+flex-direction: column; 
+align-items: center; 
+} 
 
-li{ list-style: none; margin: 0 40px; }
+.heading { 
+margin-bottom: 20px; 
+font-size: 3rem; 
+color: #fff; 
+} 
 
-a{
-	color:#fff;
-	font-size: 40px;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	text-decoration: none;
-	width: 80px; height: 80px;
-	border:5px solid #fff;
-	border-radius: 50%;	
-	transition: all 0.3s;
-	position: relative;
-}
+.header { 
+display: flex; 
+align-items: center; 
+} 
 
-a::before{
-	position: absolute;
-	content: "";
-	border-radius: 50%;
-	background-color: #fff;
-	top: 0; left: 0;
-	width: 100%; height: 100%;
-	transform: scale(0);
-	transition: all 0.3s;
-	z-index: -1;
-}
+.timer, .errors, .accuracy, 
+.cpm, .wpm { 
+background-color: #a6dcef; 
+height: 60px; 
+width: 70px; 
+margin: 8px; 
+padding: 12px; 
+border-radius: 20%; 
+box-shadow: black 5px 8px 5px; 
+} 
 
-a:hover{ color: #6d9733; }
+.cpm, .wpm { 
+display: none; 
+} 
 
-a:hover::before{ transform:scale(1); }
+.header_text { 
+text-transform: uppercase; 
+font-size: 0.6rem; 
+font-weight: 600; 
+} 
+
+.curr_time, .curr_errors, 
+.curr_accuracy, .curr_cpm, 
+.curr_wpm { 
+font-size: 2.75rem; 
+} 
+
+.quote { 
+background-color: #ff9595; 
+font-size: 1.5rem; 
+margin: 10px; 
+padding: 25px; 
+box-shadow: black 5px 8px 5px; 
+} 
+
+.input_area { 
+background-color: #f5f5c6; 
+height: 80px; 
+width: 40%; 
+font-size: 1.5rem; 
+font-weight: 600; 
+margin: 15px; 
+padding: 20px; 
+border: 0px; 
+box-shadow: black 5px 8px 5px; 
+} 
+
+.restart_btn { 
+display: none; 
+background-color: #326765; 
+font-size: 1.5rem; 
+padding: 10px; 
+border: 0px; 
+box-shadow: black 5px 8px 5px; 
+} 
+
+.incorrect_char { 
+color: red; 
+text-decoration: underline; 
+} 
+
+.correct_char { 
+color: darkgreen; 
+} 

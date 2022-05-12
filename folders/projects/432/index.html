@@ -1,34 +1,62 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Baloo+Bhai+2:wght@500&display=swap" rel="stylesheet">
-    <script src="https://kit.fontawesome.com/070428bd88.js" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="style.css">
-    <title>QR Code Generator | Coderider</title>
-</head>
-<body>
-    <div class="main" id="main">
-        <div class="logo">
-            <img src="qr_logo.svg" alt="">
-            <span>QR Code Generator</span>
-        </div>
-        <input type="text" class="dataBox" name="data" placeholder="Paste your content" id="dataBox" value=""
-            autocomplete="false">
-        <button class="btn" id="generateBtn">Generate</button>
-        <div class="qrdiv hide" id="qrdiv">
-            <div class="qrcode" id="qrcode">
-                <span class="nameTag"></span>
-            </div>
-            <button class="downloadBtn" id="downloadBtn">Download-PNG</button>
-        </div>
-    </div>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
+    <link rel="stylesheet" type="text/css" href="style.css" />
+    <title>Responsive Drop Down Menu Bar</title>
+  </head>
+  <body>
+     <nav>
+       <div class="logo">Coding Master</div>
 
-    <script src="./js/qrcode.js"></script>
-    <script src="./js/main.js"></script>
-</body>
+       <label for="btn" class="icon">
+         <span class="fa fa-bars"></span>
+       </label>
+
+       <input type="checkbox" id="btn" />
+
+       <ul>
+         <li><a href="#">Home</a></li>
+
+         <li>
+           <label for="btn-1" class="show">Features+</label>
+           <a href="#">Features</a>
+           <input type="checkbox" id="btn-1" />
+           <ul>
+             <li><a href="#">Feature 1</a></li>
+             <li><a href="#">Feature 2</a></li>
+             <li><a href="#">Feature 3</a></li>
+           </ul>
+           </li>
+
+           <li>
+             <label for="btn-2" class="show">Services+
+             </label>
+             <a href="#">Services</a>
+             <input type="checkbox" id="btn-2" />
+             <ul>
+               <li><a href="#">Service 1</a></li>
+               <li><a href="#">Service 2</a></li>
+               <li>
+                 <label for="btn-3" class="show">More+
+                 </label>
+                 <a href="#">More <span class="fa fa-plus"></span></a>
+                 <input type="checkbox" id="btn-3" />
+                 <ul>
+                  <li><a href="#">Submenu 1</a></li>
+                  <li><a href="#">Submenu 2</a></li>
+                  <li><a href="#">Submenu 3</a></li>
+                 </ul>
+               </li>
+             </ul>
+           </li>
+
+           <li><a href="#">Blog</a></li>
+           <li><a href="#">Contact</a></li>
+       </ul>
+     </nav>
+  </body>
 </html>

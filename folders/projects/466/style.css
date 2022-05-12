@@ -1,60 +1,42 @@
-*{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
 body{
-    position: relative;
-    min-height: 100vh;
-    background: #D5F8FF;
+    background-color: #313131;
+}
 
-}
-.share-btn i{
+.form-group{
+    width: 20%;
+  
+   /* for centering the form-group */  
     position: absolute;
-    top: 50%;
-    left: 50%;
+    top: 50%; left: 50%;
     transform: translate(-50%,-50%);
-    height: 60px;
-    width: 60px;
-    line-height: 60px;
-    text-align: center;
-    font-size: 25px;
-    background: #ffff;
-    box-shadow: 0 0 10px 2px rgba(0, 0, 0, 0.1);
-    border-radius: 50%;
-    color: #64B7DB;
-    cursor: pointer;
 }
-.share-btn > i{
-    z-index: 1;
-    background: rgba(0, 0, 0, 0.144);
-    color: #ffff;
+
+input{
+    display: block;
+    width: 100%;
+    color:#eee;
+    border: none;
+    border:2px solid #eee;
+    background-color: transparent;
+    padding: 12px;
 }
-.share-btn i ~ a i{
-    opacity: 0;
-    pointer-events: none;
-    transition : all 0.4s;
+
+label{
+      position: absolute;
+      top: -21px;
+      left: 0 ;
+      opacity: 1;
+      transition: all 0.3s;
+      font-family: verdana;
+      font-size: 13px;
+      color:#eee;
 }
-.share-btn i ~ a i:hover{
-    background-color: #64B7DB;
-    color: #ffff;
-}
-#btn:checked ~ .share-btn a i{
-    opacity: 1;
-    pointer-events: all;
-}
-#btn:checked ~ .share-btn a:nth-child(2) i{
-    transform: translate(-90px,-70px);
-    transition-delay: 0.2s;
-}
-#btn:checked ~ .share-btn a:nth-child(3) i{
-    transform: translate(-30px,-110px);
-    transition-delay: 0.4s;
-}
-#btn:checked ~ .share-btn a:nth-child(4) i{
-    transform: translate(30px,-70px);
-    transition-delay: 0.6s;
-}
-#btn{
-    display: none;
+
+/* The :placeholder-shown CSS pseudo-class represents any <input> or 
+   <textarea> element that is currently displaying placeholder text. */
+
+input:placeholder-shown + label{
+      top: 12px;
+      left: 12px;
+      opacity: 0;
 }

@@ -2,27 +2,22 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>Gallery In 30 Seconds</title>
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <div class="main">
-      <div id="text">#000000</div>
-      <button onclick="generateColor()" class="generateBtn">
-        Generate Color
-      </button>
+    <h1>My Gallery</h1>
+    <div class="gallery">
+      <img src="picture1.jpg" alt="" />
+      <img src="picture2.jpg" alt="" />
+      <img src="picture3.jpg" alt="" />
+      <img src="picture4.jpg" alt="" />
+      <img src="picture5.jpg" alt="" />
+      <img src="picture6.jpg" alt="" />
+      <img src="picture7.jpg" alt="" />
+      <img src="picture8.jpg" alt="" />
     </div>
-
-    <script>
-      function generateColor() {
-          var randomColor = (Math.floor(Math.random()*16777216)).toString(16);
-          console.log(randomColor)
-          document.body.style.backgroundColor = "#" + randomColor;
-          var text = document.getElementById("text");
-          text.innerText = "#" + randomColor;
-      }
-      
-    </script>
   </body>
 </html>

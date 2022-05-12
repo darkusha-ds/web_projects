@@ -1,24 +1,69 @@
 <!DOCTYPE html>
-<html lang="en">
+<html data-teheme="light">
+
 <head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=Edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Radio button</title>
-  <link rel="stylesheet" href="style.css">
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400&display=swap" rel="stylesheet">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Simple Calculator</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+
+    </style>
 </head>
+
 <body>
-  <div class="container">
-    <div class="input">
-     <input type="radio" id="male" name="gender"/>
-     <label for="male">Male</label>
+
+    <input type="button" id="theme-switcher" value="Switch themes"></input>
+
+
+    <div id="calculator">
+        <header>
+            <label id="previous"></label>
+            <div id="current">
+                <div id="current-value">0</div>
+            </div>
+        </header>
+
+        <div id="keys">
+            <button id="all_clear">AC</button>
+            <button id="clear">C</button>
+
+            <button class="numbers">1</button>
+            <button class="numbers">2</button>
+            <button class="numbers">3</button>
+            <button class="operators">/</button>
+
+            <button class="numbers">4</button>
+            <button class="numbers">5</button>
+            <button class="numbers">6</button>
+            <button class="operators">*</button>
+
+            <button class="numbers">7</button>
+            <button class="numbers">8</button>
+            <button class="numbers">9</button>
+            <button class="operators">+</button>
+
+            <button class="numbers">0</button>
+            <button class="numbers">.</button>
+            <button class="numbers">=</button>
+            <button class="operators">-</button>
+        </div>
     </div>
-    <div class="input">
-     <input type="radio" id="female" name="gender"/>
-     <label for="female">Female</label>
-    </div>
-  </div>
-  <script src="main.js"></script>
+
+    <script src="calculation.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function (event) {
+            document.documentElement.setAttribute("data-theme", "light");
+
+            var themeSwitcher = document.getElementById("theme-switcher");
+
+            themeSwitcher.onclick = function () {
+                var currentTheme = document.documentElement.getAttribute("data-theme");
+                var switchToTheme = currentTheme === "dark" ? "light" : "dark"
+                document.documentElement.setAttribute("data-theme", switchToTheme);
+            }
+        });
+    </script>
 </body>
+
 </html>

@@ -1,20 +1,11 @@
-const slider = document.querySelector(".slider");
-const slides = document.querySelectorAll(".slide");
-let currentIndex = 1;
+const signUp = document.querySelector(".signUp");
+const modal = document.querySelector(".form-modal");
+const close = document.querySelector(".close");
 
-slider.style.width = `${slides.length * 100}%`;
+signUp.addEventListener("click",()=>{
+	modal.style.display = "flex";
+})
 
-function moveSlider() {
-  if (currentIndex < slides.length) {
-    slider.style.transform = `translateX(-${
-      currentIndex * (100 / slides.length)
-    }%)`;
-    currentIndex++;
-  } else {
-    currentIndex = 0;
-  }
-}
-
-setInterval(() => {
-  moveSlider();
-}, 3000);
+close.addEventListener("click",()=>{
+	modal.style.display = "none";
+})

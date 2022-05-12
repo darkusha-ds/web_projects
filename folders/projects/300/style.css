@@ -1,29 +1,61 @@
-body{
-            margin: 0;
+*{
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
 }
-
-.header{
-            height: 100vh;
-            background-color: #111;
+.social-media-links{
+  position:absolute;
+  top:50%;
+  left:50%;
+  transform:translate(-50%,-50%);
 }
-
-.content{
-            position: absolute;
-            top: 40%; left: 50%;
-            transform: translate(-50%,-50%);
-            text-transform: capitalize;
-            text-align: center;
-            font-family: verdana;
-            color: white;
+.links{
+  display:flex;
 }
-
-p{
-            margin-top: 16px;
-            color: #da4747;
+.links a{
+  position:relative;
+  display:block;
+  width:80px;
+  height:80px;
+  margin:1.5rem;
+  background:#000;
+  text-align:center;
+  line-height:80px;
+  font-size:1.7rem;
+  border-radius:50%;
+  color:#fff;
+  overflow:hidden;
 }
-
-    /* main stuff here */
-svg{
-            position: absolute;
-            bottom: 0; left: 0;
+.links a:nth-child(1){
+  background:#dd2a7b; 
+}
+.links a:nth-child(2){
+  background:#4267B2;
+}
+.links a:nth-child(3) {
+  background:#1DA1F2;
+}
+.links a:nth-child(4) {
+  background:#FF0000;
+}
+.links a::before{
+  content:"";
+  position:absolute;
+  top:-70%;
+  left:-60%;
+  width:50px;
+  height:170px;
+  background:linear-gradient(90deg,transparent,rgba(255,255,255,.5));
+  transform:skewX(-20deg);
+}
+.links a:hover:before{
+  animation:shine 8s linear forwards;
+}
+@keyframes shine{
+  0%{
+    transform:translateX(0)skewX(-20deg);
+  }
+  100%{
+    transform:translateX(160px)skewX(-20deg);
+  }
 }

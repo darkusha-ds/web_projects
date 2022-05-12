@@ -1,45 +1,70 @@
-*{
-    margin: 0;
-    padding: 0;
-}
-body{
-    background: rgb(22, 22, 22);
-}
-.main{
-    width: 100%;
-    height: 100vh;
-    display: flex;
+body {
+    height:100vh;
+    display:flex;
+    align-items:center;
     justify-content: center;
-    align-items: center;
 }
-.btn{
-    width: 150px;
-    height: 40px;
-    font-size: 1.1rem;
-    font-family: cursive;
-    border: none;
-    background: rgb(29, 29, 29);
-    color: white;
-    cursor: pointer;
-    outline: none;
-    position: relative;
-    transition: all .5s;
-    overflow: hidden;
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
 }
-.btn:hover{
-    background: rgb(255, 59, 92);
+.main-container{
+ position: relative;
+ width:290px;
+ height:400px;
+ background:#121212;
+ box-shadow:0 10px 20px rgba(0,0,0,.4);
+ overflow:hidden;
 }
-.btn::before{
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100px;
-    height: 100%;
-    background: linear-gradient(to left,rgba(174,174,174,0) 0%,rgba(255,255,255,0.4) 50%,transparent);
-    transform: skew(-45deg) translateX(-120px);
-    transition: all .5s;
+.main-container::after{
+  content:"";
+  position: absolute;
+  width:100%;
+  height:100%;
+  background:url("img.jpg") center / cover;
+  transition:.7s ease;
 }
-.btn:hover::before{
-    transform: skew(-45deg) translateX(180px);
+.main-container::before{
+  content:"";
+  position: absolute;
+  width:100%;
+  height:100%;
+  background:linear-gradient(to top,#121212 6%,transparent);
+  opacity:0;
+  transition:.7s ease;
+  z-index:1;
+}
+.info{
+  position: absolute;
+  bottom:0;
+  color:#fff;
+  width:100%;
+  height:110px;
+ text-align:center;
+  font-size:15px;
+  font-family: 'Poppins', sans-serif;
+  opacity:0;
+  transition:.7s ease;
+  display:flex;
+  flex-direction:column;
+  justify-content:space-evenly;
+  z-index:1;
+}
+#name{
+  font-weight:bolder;
+}
+.links a{
+  color:#fff;
+  font-size:21px;
+  padding:5px 13px;
+}
+.main-container:hover .info{
+  opacity:1;
+}
+.main-container:hover::before{
+  opacity:1;
+}
+.main-container:hover::after{
+  transform:scale(1.06);
 }

@@ -3,5 +3,15 @@
 {% block title %} {{ name }} {% endblock %}
 
 {% block buttons %}
-
+<p>{{ idx }}</p>
+{% comment %}
+<iframe src="{% static 'pages/page' %}" width="" height=""></iframe>
+{% endcomment %}
+<ul>
+  <li>
+    {% comment %}
+    <button class="btns"><a class="buttons" href="{% url 'get_page' idx %}">Project 0</a></button>
+    {% endcomment %}
+  </li>
+</ul>
 {% endblock %}

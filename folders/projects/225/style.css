@@ -1,78 +1,29 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
-*{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Poppins', sans-serif;
+body {
+  /* for centering the .para-container within body */
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
 }
-body{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
+
+.para-container {
+  width: 500px;
+  height: 500px;
+  border: 5px solid #000;
+  border-radius: 50%;
+  overflow: hidden;
 }
-.heading{
-    margin-bottom: 15px;
-}
-.container{
-    width: 380px;
-    display: flex;
-    justify-content: space-around;
-    flex-wrap: wrap;
-}
-.container .box{
-    width: 80px;
-    height: 80px;
-    position: relative;
-    margin: 20px;
-}
-.container .box input{
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    cursor: pointer;
-    appearance: none;
-    -webkit-appearance: none;
-    z-index: 20;
-}
-.boxContent{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    width: 100%;
-    height: 100%;
-}
-.boxContent i{
-    margin-bottom: 5px;
-    position: relative;
-}
-.boxContent::before,
-.boxContent::after{
-    content: '';
-    position: absolute;
-    border-radius: 10px;
-}
-.boxContent::before{
-    width: 100%;
-    height: 100%;
-    background: rgb(255, 255, 255);
-    box-shadow: 0 0 15px rgba(0, 0, 0, 0.075);
-    z-index: -1;
-}
-.boxContent::after{
-    width: 115%;
-    height: 115%;
-    box-shadow: 0 0 15px rgba(0, 0, 0, 0.050);
-    z-index: -2;
-}
-.box input:checked ~ .boxContent::after{
-    background: linear-gradient(to right, #7f00ff, #e100ff);
-}
-.box input:checked ~ .boxContent i,.box input:checked ~ .boxContent p{
-    background: linear-gradient(to right, #7f00ff, #e100ff);
-    background-clip: text;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+
+.para-container p {
+  font-weight: bolder;
+  font-family: Arial, Helvetica, sans-serif;
+  background-image: url(dance.gif);
+  background-position: center top;
+  background-size: 100% 80%;
+  background-repeat: no-repeat;
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  user-select: none;
 }

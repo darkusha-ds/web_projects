@@ -1,112 +1,97 @@
-@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
 *{
-    padding: 0;
     margin: 0;
+    padding: 0;
     box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
 }
 body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
     height: 100vh;
-    width: 100%;
-    font-family: 'Nunito', sans-serif;
-    overflow: hidden;
 }
-.img__box{
+.card{
+    background: white;
+    padding: 1em;
+    border-radius: 20px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.089);
+}
+/* Post Header */
+.post_header{
+    display: flex;
+    align-items: center;
+    margin-bottom: 0.4em;
     position: relative;
-    height: 100%;
-    width: 100%;
 }
-.img__box img{
-    height: 100%;
-    width: 100%;
-}
-.slide span{
+.post_header i{
     position: absolute;
-    right: 80px;
-    height: 60px;
-    width: 60px;
-    background: transparent;
-    border: 2px solid #fff;
-    border-radius: 50%;
-    z-index: 10;
+    right: 0;
+}
+.heading{
+    margin-left: 0.4em;
+}
+.heading .main_heading{
+    font-size: 0.8em;
+}
+.heading .sub_heading{
+    font-size: 0.6em;
+    color: rgba(0, 0, 0, 0.836);
+}
+.post_header img{
+    width: 25px;
+    height: 25px;
+    border-radius: 50px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.432);
+}
+
+/* Post Img */
+.post_img img{
+    width: 230px;
+    height: 230px;
+    border-radius: 15px;
+    box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.397);
+}
+
+/* Post Footer */
+.post_footer{
+    width: 100%;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.btn{
+    position: relative;
+    width: 20px;
+    height: 20px;
+    appearance: none;
+    -webkit-appearance: none;
     cursor: pointer;
-    transition: transform 0.5s;
 }
-.slide span:nth-child(1){
-    top: 30px;
-}
-.slide span:nth-child(2){
-    top: 120px;
-}
-.slide span:nth-child(3){
-    top: 210px;
-}
-.slide span img{
-    height: 100%;
-    width: 100%;
-    border-radius: 50%;
-}
-.slide span .arrow{
-    position: absolute;
-    left: -25px;
-    top: 50%;
-    height: 1px;
-    width: 28px;
-    border-radius: 100px;
-    background: rgba(255, 255, 255, 0.7);
-    opacity: 0;
-    transition-delay: 0.3s;
-    transition: 0.5s;
-}
-.slide span .details{
+.btn::before{
+    content: '\f004';
     position: absolute;
     top: 0;
-    left: -280px;
-    height: 100px;
-    width: 150px;
-    font-size: 8px;
-    color: #fff;
-    opacity: 0;
-    transition: all 0.5s;
-    transition-delay: 0.5s;
+    left: 0;
+    font-family: 'Font Awesome 5 Free';
+    font-size: 1.4em;
 }
-.slide span .details h4{
-    text-decoration: underline;
-    text-underline-offset: 2px;
-    font-size: 12px;
-    letter-spacing: 2px;
+.btn:checked::before{
+    content: '\f004';
+    font-weight: 700;
+    color: red;
 }
-.slide span.show .details{
-    left: -190px !important;
-    opacity: 1;
+.left_box{
+    display: flex;
+    align-items: center;
 }
-.slide span.show .arrow{
-    left: -33px;
-    opacity: 1;
+.left_box img{
+    width: 18px;
+    height: 18px;
+    margin-left: 0.4em;
 }
-.slide span::after,.slide span::before{
-    content: '';
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%,-50%);
-    border: 1px solid;
-    border-radius: 50%;
-    opacity: 0;
-}
-.slide span::after{
-    height: 150%;
-    width: 150%;
-    border-color: rgba(255, 255, 255, 0.5);
-}
-.slide span::before{
-    height: 250%;
-    width: 250%;
-    border-color: rgba(255, 255, 255, 0.3);
-}
-.slide span.show{
-    transform: scale(1.4);
-    z-index: 99;
-}
-.slide span.show:before,.slide span.show:after{
-    opacity: 1;
+.right_box img{
+    width: 17px;
+    height: 17px;
 }

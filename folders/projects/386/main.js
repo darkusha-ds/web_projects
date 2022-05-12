@@ -1,14 +1,21 @@
-const themeToggleBtn = document.querySelector("#theme-toggle-btn");
-const toggleIcon = document.querySelector(".toggle-icon");
-
-themeToggleBtn.addEventListener("change",function(){	
-	if(this.checked){
-		document.documentElement.setAttribute('data-theme','dark');
-			toggleIcon.classList.remove("fa-moon");
-			toggleIcon.classList.add("fa-sun");
-	}else{
-		document.documentElement.setAttribute('data-theme','light');
-			toggleIcon.classList.remove("fa-sun");
-			toggleIcon.classList.add("fa-moon");
-	}
-})
+let timerOn = true;
+function timer(remaining) {
+  var m = Math.floor(remaining / 60);
+  var s = remaining % 60;
+  m = m < 10 ? '0' + m : m;
+  s = s < 10 ? '0' + s : s;
+  document.getElementById('countdown').innerHTML = `Time left: ${m} : ${s}`;
+  remaining -= 1;
+  if(remaining >= 0 && timerOn) {
+    setTimeout(function() {
+        timer(remaining);
+    }, 1000);
+    document.getElementById("resend").innerHTML = ``;
+    return;
+  }
+  if(!timerOn) {
+    return;
+  }
+  document.getElementById("resend").innerHTML = `Don't receive the code? <span class="font-weight-bold text-color cursor"  onclick="timer(60)">Resend</span>`;
+}
+timer(60);

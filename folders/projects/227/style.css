@@ -1,61 +1,98 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
 *{
+    margin: 0;
+    padding: 0;
     box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
 }
-.box{
+body{
+    --primary-color: #e7e0ee;
+    --sec-color: #F3F1F5;
+    --hover-color: #11052C;
+    --color: #1f1f1f;
+    --text-color: #F3F1F5;
+}
+body[data-theme= "dark"]{
+    --primary-color: #0f0f0f;
+    --hover-color: #EDEDED;
+    --text-color: #1f1f1f;
+    --sec-color: #1a1a1a;
+    --color: #f0f0f0;
+}
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: var(--primary-color);
+    color: var(--color);
+}
+.card {
+    width: 350px;
+    height: 350px; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.151);
+    background: var(--sec-color);
+    border-radius: 10px;
+}
+.card img{
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+}
+.btn{
+    width: 150px;
+    height: 40px;
+    border-radius: 20px;
+    margin-top: 1em;
+    border: none;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.151);
+    cursor: pointer;
+    background: var(--sec-color);
+    color: var(--color);
+    transition: all .4s;
+}
+.btn:hover{
+    background: var(--hover-color);
+    color: var(--text-color);
+}
+
+
+/* dark mode */
+.darkMode{
+    width: 100px;
+    height: 50px;
     position: absolute;
     top: 50%;
-    left: 50%;
-    transform: translate(-50%,-50%);
-}
-.box form input{
-    appearance: none;
-}
-form label{
-    position: relative;
-    display: block;
-    width: 130px;
-    height: 40px;
-    line-height: 40px;
-    cursor: pointer;
-    margin: 0 .9rem;
-    font-family: 'Roboto', sans-serif;
-    z-index: 1;
+    left: -5px;
+    transform: translate(-50%);
+    border-radius: 10px;
     overflow: hidden;
-    transition: .2s ease;
-    border: 2px solid #ededed;
+}
+.darkMode .box{
+    position: absolute;
+    width: 100%;
+    height: 100%;
     display: flex;
     align-items: center;
-    justify-content:space-evenly;
+    justify-content: space-around;
+    background: var(--sec-color);
+    transition: all .4s;
 }
-form span{
-    width: 60px;
-}
-.dot{
-    position:relative;
-    display: block;
-    width: 20px;
-    height: 20px;
-    border:2px solid #ededed;
-    border-radius: 50%;
-}
-.dot::before{
-    content: "";
+.darkMode input{
     position: absolute;
-    top:50%;
-    left:50%;
-    transform: translate(-50%,-50%)scale(0);
-    width:11px;
-    height: 11px;
-    background:#7900FF;
-    border-radius: 50%;
-    transition: .3s ease;
+    width: 100%;
+    height: 100%;
+    -webkit-appearance: none;
+    cursor: pointer;
+    z-index: 10;
 }
-form input:checked + label .dot::before{
-    transform: translate(-50%,-50%)scale(1);
+.darkMode input:checked ~ .box{
+    transform: rotate(180deg);
 }
-form input:checked + label .dot{
-    border-color: #7900FF;
-}
-form input:checked + label{
-    border-color: #7900FF;
+.darkMode input:checked ~ .box i{
+    transform: rotate(180deg);
 }

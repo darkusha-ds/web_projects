@@ -1,30 +1,33 @@
 body{
-	margin: 0;
-	background-color: #fff4f4;
-	font-family: "Century Gothic";
+    background-color: #00B1C0;
 }
 
-header{
-	height: 90vh;
-	background-image: url('header-bg.jpg');
-	background-size: cover;
-	background-position: center;
-	background-repeat: no-repeat;
+.text{
+    text-transform: uppercase;
+    font-size: 100px; font-family: Arial;
+    font-style: italic;
+    color:#fff;
+    -webkit-text-stroke:2px black; /*this will apply a stroke of 2px and black in color*/
+    white-space: nowrap; 
+    cursor: pointer; margin: 0; 
 
-	/* responsible for the skewed header */
-	clip-path: polygon(100% 0, 100% 90%, 69% 100%, 0 85%, 0 0);
-
-	/* responsible for the parallax effect */
-	background-attachment: fixed;
+   /* to center the h1 */
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
 }
 
-section{ padding: 30px 50px; text-align: center;}
-
-h1{
-	margin: 100px 0 40px;
-	font-size: 45px;
-	text-transform: uppercase;
-	font-weight: 400;
+.text::before{
+        content: "sparsh codes"; 
+        position: absolute;
+        color:#fc0d32;
+        width: 0;
+        overflow: hidden;
+        transition: width 0.5s ease-in,text-shadow 0.3s ease-out;
 }
 
-p{ line-height: 2; }
+.text:hover::before{
+        width: 100%;
+        text-shadow: 2px 5px 10px black;
+}

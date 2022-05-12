@@ -1,9 +1,11 @@
+const btn = document.querySelector('.btn');
+const videoContainer = document.querySelector('.video-container');
+const close = document.querySelector('.close');
 
-const colorPicker = document.getElementById("colorPicker");
+btn.addEventListener('click',()=>{
+    videoContainer.classList.add('show');
+})
 
-/* the "input" event occurs when the value of an 
-<input> or <textarea> element is changed. */
-
-colorPicker.addEventListener("input",()=>{
-	  document.body.style.backgroundColor = colorPicker.value;
+close.addEventListener('click',()=>{
+    videoContainer.classList.remove('show');
 })

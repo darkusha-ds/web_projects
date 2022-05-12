@@ -1,67 +1,43 @@
-*{
-  box-sizing:border-box; 
-  padding:0;
-  margin:0;
+ /* for centering the input element */
+	body{
+		margin: 0;
+		height: 100vh;
+		background-color: black;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+	}
+
+ /* main stuffs starts here */
+	input[type="checkbox"]{
+		-webkit-appearance:none;  /* it will remove the browser's default styling from the checkbox
+									 so that we can style the checkbox as we want. */
+		width: 200px;
+		height: 100px;
+		border-radius: 100px;
+		background-color: grey;
+		position: relative;
+		transition:all 0.3s ease-in-out;
+		outline: none;
 }
-.container{
-  position:absolute; 
-  top:50%;
-  left:50%;
-  transform:translate(-50%,-50%);
-  display:flex; 
-  flex-direction:column; 
-}
-input{
- display:none; 
-}
-label{
-  position:relative; 
-   width:290px;
-   height:50px;
-   background:#ededed;
-   margin:.1rem; 
-   border-radius:3px; 
-   font-family:'Poppins', sans-serif;
-   display:flex; 
-   align-items:center; 
-   justify-content:space-between;
-   padding:0 1.3rem; 
-   overflow:hidden; 
-}
-label::after {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 320px;
-  height: 70px;
-  background:#01cd42;
-  transition:.4s ease;
-  clip-path: circle(0px at 260px 25px)
-}
-.name{
-  z-index:1;
-  transition:.4s; 
-}
-.icon{
-  display:block; 
-  width:25px;
-  height:25px;
-  border-radius:50%;
-  font-size:16px; 
-  color:#ededed; 
-  border:2px solid #dbdbdb;
-  z-index:1;
-  display:grid; 
-  place-items:center; 
-}
-input:checked + label::after{
- clip-path:circle(100%);
-}
-input:checked + label  .name{
-  color:#fff; 
-}
-input:checked + label  .icon{
-  border-color:#fff; 
-  color:#fff; 
-}
+
+	input[type="checkbox"]::before{
+		content: "";
+		position: absolute;
+		left:0;
+		border-radius: 100px;
+		transform: scale(1.1);
+		width: 100px;
+		height: 100px;
+		background-color: white;
+		transition: all 0.3s ease-in-out;
+
+	}
+
+	input[type="checkbox"]:checked{
+		background-color: orange;
+	} 
+
+	input[type="checkbox"]:checked::before{
+		left: 100px;
+	}

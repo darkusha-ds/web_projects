@@ -1,55 +1,71 @@
-*{
-  margin: 0;
-  padding: 0;
+ body {
+     margin: 0;
+     padding: 0;
+     display: flex;
+     justify-content: center;
+     align-items: center;
+     min-height: 100vh;
+     background: #1b1b1b;
+     font-family: 'Poppins', sans-serif;
+ }
+ .container {
+     width: 700px;
+     height: auto;
+     margin: 0 auto;
+     display: grid;
+     grid-template-columns: repeat(auto-fit, minmax(280px,1fr));
+     grid-gap: 10px;
+     padding: 10px;
+     box-sizing: border-box;
+ }
+ .container .image img {
+     width: 100px;
+     height: 100px;
+     margin-top: 20px;
+     border-radius: 50%;
+     border: 5px solid rgb(238,54,8);
+ }
+ .container .box {
+     position: relative;
+     background: rgb(241,238,238);
+     padding: 10px 30px 30px;
+     text-align: center;
+     overflow: hidden;
+     border-radius: 30px;
+ }
+ .container .box h1 {
+     font-size: 25px;
+     font-weight: 600;
+     color: rgb(238,54,8);
+     text-transform: uppercase;
+ }
+ .container .box h2 {
+     font-size: 17px;
+     color: #222;
+     text-transform: uppercase;
+     opacity: .4;
+     z-index: 1;
+     letter-spacing: .1em;
+ }
+.container .box p {
+    color: #222;
+    font-size: 15px;
+    line-height: 20px;
+    letter-spacing: .1em;
+    padding-top: 20px;
 }
-body{
-  background: black;
-  width: 100px;
-  height: 100vh;
+.icons {
+    text-decoration: none;
+    font-size: 25px;
+    padding-top: 10px;
 }
-.main{
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%,-50%);
-  display: flex;
-  cursor: pointer;
+.fa {
+    color: #222;
+    padding: 10px;
+    margin-left: 5px;
+    text-align: center;
 }
-.icon{
-  position: relative;
-  width: 80px;
-  height: 80px;
-  margin: 20px;
-  border-radius: 50px;
-  transition: all .8s;
-}
-.icon:hover{
-  background: #e60073;
-  box-shadow: 0 0 20px #e60073;
-}
-.icon:hover:nth-child(2){
-  background: #1877f2;
-  box-shadow: 0 0 20px #1877f2;
-}
-.icon:hover:nth-child(3){
-  background: #25d366;
-  box-shadow: 0 0 20px #25d366;
-}
-.icon:hover:nth-child(4){
-  background: #1da1f2;
-  box-shadow: 0 0 20px #1da1f2;
-}
-.icon i{
-  color: white;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%,-50%);
-}
-svg circle{
-  stroke-dasharray: 150;
-  transition: all .8s;
-}
-.icon:hover svg circle{
-  stroke-dasharray: 220;
+.fa:hover {
+    color: rgb(238,54,8);
+    transition: all .5s;
 }

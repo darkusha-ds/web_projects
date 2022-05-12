@@ -1,42 +1,35 @@
-@import url("https://fonts.googleapis.com/css2?family=Cinzel+Decorative&display=swap");
+*{  margin: 0; padding: 0; box-sizing: border-box;  }
 
-body {
-  margin: 0;
-  height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: #191919;
-  font-family: "Cinzel Decorative", cursive;
+body{
+    background-image: linear-gradient(152deg,#D92027 50%,#111 50%);
+    height: 100vh;
 }
 
-.pulse {
-  stroke-dasharray: 1840;
-  stroke-dashoffset: 3680;
-  animation: dash 2s ease-out infinite;
-  stroke: url(#strokeGradient);
+h1{
+    position:absolute;
+    top:50%; left:50%;
+    transform:translate(-50%,-50%);
+    text-transform: uppercase;
+    font-family: 'Arial Black';
+    font-size: 112px;
+    color: transparent;
 }
 
-@keyframes dash {
-  to {
-    stroke-dashoffset: 0;
-  }
+h1::before, h1::after{
+    content: attr(data-text);
+    position: absolute;
+    width: 100%; height: 100%;
+    z-index: -1;
 }
 
-span {
-  color: #eee;
-  display: block;
-  text-align: center;
-  font-size: 35px;
-  margin-top: 15px;
-  animation: blink 900ms linear infinite alternate;
+h1::before{
+    top: 0; left: 0;
+    clip-path: polygon(0 0,70% 0, 30% 100%, 0 100%);
+    color: #111;
 }
 
-@keyframes blink {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
+h1::after{
+    bottom:0; right: 0;
+    clip-path: polygon(100% 0,70% 0,30% 100%,100% 100%);
+    color: #D92027;
 }

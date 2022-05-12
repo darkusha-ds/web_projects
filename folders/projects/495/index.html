@@ -1,24 +1,37 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=Edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Loading effect</title>
-  <link rel="stylesheet" href="style.css">
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400&display=swap" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Strange Navbar | Coderider</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <div class="container">
-    <div>
-   <span class="line line-one"></span>
-   <span class="line line-two"></span>
-    </div>
-        <div>
-   <span class="line line-one"></span>
-   <span class="line line-two"></span>
-    </div>
-  </div>
-  <script src="main.js"></script>
+    <nav>
+        <input class="toggle" id="nav" type="checkbox"/>
+        <label class="label" for="nav">
+          <p>Menu</p><span class="hum"></span>
+          <ul class="list">
+            <li class="list__home"><a href="#0">Home</a></li>
+            <li class="list__about"><a href="#0">About</a></li>
+            <li class="list__clients"><a href="#0"><span>Clients</span></a>
+              <ul class="list__clientsItems">
+                <li><a href="#0">Burger King</a></li>
+                <li><a href="#0">Southwest Airlines</a></li>
+                <li><a href="#0">Levi Strauss</a></li>
+              </ul>
+            </li>
+            <li class="list__strauss"><a href="#0"><span>Services</span></a>
+              <ul class="list__straussItem">
+                <li><a href="#0">Print Design</a></li>
+                <li><a href="#0">Web Design</a></li>
+                <li><a href="#0">Mobile App Development</a></li>
+              </ul>
+            </li>
+            <li class="list__contact"><a href="#0">Contact</a></li>
+          </ul>
+        </label>
+      </nav>
 </body>
 </html>

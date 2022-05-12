@@ -1,45 +1,104 @@
-@import url('https://fonts.googleapis.com/css2?family=Lobster&display=swap');
 *{
-    margin: 0;
-    padding: 0;
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
 }
-body{
-    background: black;
-}
+
+body{ background-color: #111; }
+
+section{ padding: 20px 0; }
+
 .container{
-    font-size: 2rem;
-    color: white;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%,-50%);
-    cursor: pointer;
+	width: 90%;
+	margin: 0 auto;
+	max-width: 1440px;
 }
-.container a{
-    color: white;
-    text-decoration: none;
-    font-family: 'Lobster', cursive;
+
+.container img{
+	display: block;
+	margin: 0 auto;
+	width: 150px;
 }
-.container i{
-    margin-left: 10px;
-    font-size: 1.2rem;
-    transition: all .5s;
+
+.marvel-gallery{
+	margin-top: 50px;
+	display: grid;
+	grid-template-columns: 1fr 1fr 1fr 1fr;
+	grid-template-areas: 'item1 item1 item2 item3'
+						 'item4 item4 item2 item5'
+						 'item4 item4 item2 item6';
+	grid-gap: 10px;
 }
-.container a:hover ~ i{
-    transform: translateX(10px);
+
+.item{
+	background-position: center;
+	background-size: cover;
+	background-repeat: no-repeat;
+	min-height: 15rem;
 }
-.bg{
-    position: absolute;
-    bottom: 3px;
-    left: -4px;
-    border-radius: 50px;
-    width: 25%;
-    height: 25%;
-    z-index: -1;
-    background-color: #FFE53B;
-    background-image: linear-gradient(147deg, #FFE53B 0%, #FF2525 74%);
-    transition: all .5s;
+
+.item1{
+	grid-area: item1;
+	background-image: url('character1.jpg');
 }
-.container a:hover ~ .bg{
-    width: 85%;
+
+.item2{
+	grid-area: item2;
+	background-image: url("character2.jpg");
+}
+
+.item3{
+	grid-area: item3;
+	background-image: url('character3.png');
+}
+
+.item4{
+	grid-area: item4;
+	background-image: url("character4.jpg");
+}
+
+.item5{
+	grid-area: item5;
+	background-image: url('character5.jpg');
+}
+
+.item6{
+	grid-area: item6;
+	background-image: url('character6.png');
+}
+
+
+@media (max-width:768px){
+	.marvel-gallery{
+		grid-template-columns: 1fr 1fr 1fr;
+		grid-template-areas: 'item1 item1 item2'
+							 'item3 item4 item2'
+							 'item5 item6 item2';
+	}
+}
+
+@media (max-width:576px){
+	.marvel-gallery{
+		grid-template-columns: 1fr 1fr;
+		grid-template-areas: 'item1 item3'
+							 'item2 item4'
+							 'item2 item5'
+							 'item2 item6';
+	}
+}
+
+@media (max-width:360px){
+	.container img{ width: 100px; }
+
+	.marvel-gallery{
+		grid-template-columns: 1fr;
+		grid-template-areas: 'item1' 
+							 'item2' 
+							 'item3'
+							 'item4' 
+							 'item5' 
+							 'item6';
+	}
+	
+	.item2{ background-position: top; }
 }

@@ -1,47 +1,25 @@
-body {
-    margin: 0;
-    min-height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-  
-  .img-container {
-    width: 350px;
-    position: relative;
-    animation: swing 0.8s ease-in-out infinite alternate;
-    transform-origin: center -80px;
-  }
-  
-  @keyframes swing {
-    from { transform: rotate(-6deg); }
-  
-    to { transform: rotate(6deg); }
-  }
-  
-.img-container img {
-    max-width: 100%;
-    box-shadow: 0 10px 20px rgba(17, 25, 25, 0.2);
+*{ margin: 0; padding: 0; box-sizing: border-box; }
+
+body{ background-color: #111; }
+
+h1{
+  position: absolute;
+  top: 50%; left: 50%;
+  transform: translate(-50%,-50%);
+  font-size: 150px;
+  font-family: 'Arial Black';
+  white-space: nowrap;
+  text-transform: uppercase;
+  background: url("strip.jpg") no-repeat;
+  -webkit-background-clip:text;
+  color: transparent;
+  animation: change 10s linear infinite;
+  animation-direction: alternate;
 }
 
-.img-container::before,
-.img-container::after{
-    content: "";
-    position: absolute;
-    left: 50%; top: -15%;
-    transform: translateX(-50%);
-    border: 1px solid #272727;
-}
+@keyframes change{
+  0%{ background-position: 0 0; }
 
-.img-container::before {
-  width: 10px; height: 10px;
-  border-radius: 50%;
-  background-color: #ff7a00;
-  box-shadow: 0 0 10px rgba(255, 122, 0, 0.8);
-}
+  100%{ background-position: 100% 100%; }
 
-.img-container::after {
-  width: 8px; height: 80px;
-  border-radius: 10px;
-  z-index: -1;
 }

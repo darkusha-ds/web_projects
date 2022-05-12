@@ -1,18 +1,75 @@
 <!DOCTYPE html>
- <html>
- <head>
-    <title> image description hover effect </title>
-
-<link rel="stylesheet" href="style.css">
- </head>
- <body>
-
-<div class="container">
-    <img src="portrait5.jpg">
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive progress bar | Coderider</title>
+    <script src="https://kit.fontawesome.com/070428bd88.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div id="container"> 
+    <h2>Skills</h2>
     <div class="content">
-        <p>web developer</p>
+      <div class="achievement">
+        <div class="bar">
+          <div class="img-box"><i class="fa fa-desktop"></i></div>
+          <div class="progress login"></div>
+          <p> <span class="login-counter">0</span>/5 Programming
+          </p>
+        </div>
+      </div>
+      <div class="achievement">
+        <div class="bar">
+          <div class="img-box"><i class="fas fa-heart"></i></div>
+          <div class="progress love"></div>
+          <p> <span class="love-counter">0</span>/5 Social
+          </p>
+        </div>
+      </div>
+      <div class="achievement">
+        <div class="bar">
+          <div class="img-box"><i class="fas fa-users"></i></div>
+          <div class="progress community"></div>
+          <p> <span class="community-counter">0</span>/5 community
+          </p>
+        </div>
+      </div>
+      <div class="achievement">
+        <div class="bar">
+          <div class="img-box"><i class="fas fa-camera"></i></div>
+          <div class="progress photography"></div>
+          <p> <span class="photography-counter">0</span>/5 photography
+          </p>
+        </div>
+      </div>
+      <div class="achievement">
+        <div class="bar">
+          <div class="img-box"><i class="fas fa-comment-alt"></i></div>
+          <div class="progress communication"></div>
+          <p> <span class="communication-counter">0</span>/5 communication
+          </p>
+        </div>
+      </div>
+      <div class="achievement">
+        <div class="bar">
+          <div class="img-box"><i class="fas fa-phone"></i></div>
+          <div class="progress call"></div>
+          <p> <span class="call-counter">0</span>/5 Calling
+          </p>
+        </div>
+      </div>
     </div>
-</div>
-
- </body>
- </html>
+  </div>
+  <div id="button-bar"> 
+    <button name="login" title="click to fill item-achievement bar"><i class="fa fa-desktop"></i></button>
+    <button name="love" title="click to fill item-achievement bar"><i class="fas fa-heart"></i></button>
+    <button name="community" title="click to fill item-achievement bar"><i class="fas fa-users"></i></button>
+    <button name="photography" title="click to fill item-achievement bar"><i class="fas fa-camera"></i></button>
+    <button name="communication" title="click to fill item-achievement bar"><i class="fas fa-comment-alt"></i></button>
+    <button name="call" title="click to fill item-achievement bar"><i class="fas fa-phone"></i></button>
+  </div>
+  <script src="main.js"></script>
+</body>
+</html>

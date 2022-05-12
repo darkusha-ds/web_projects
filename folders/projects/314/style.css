@@ -1,53 +1,18 @@
-body{
-  background-color:#111;
-}
-
 .container{
-  display: flex;
-  justify-content: space-around;
-
-/* for centering the container */
-  position: absolute;
-  top: 50%; left: 50%;
-  transform: translate(-50%,-50%);
+        position: absolute;
+        top:50%; left: 50%;
+        transform: translate(-50%,-50%);
+        width: 400px; height: 500px;
+        border:2px solid grey;
+        overflow: hidden;  /* so that the image get scaled within the container */
+        cursor: pointer;
 }
 
-figure{
-  width: 10rem; height: 10rem;
-  clip-path: circle(50% at 50% 50%);
-  cursor: pointer;
-  position: relative;
+.container img{
+        width: 100%; height: 100%;
+        transition: transform 1s ease;
 }
 
-img{
-  width: 100%; height: 100%;
-  transform: scale(1.5);
-  transition: all 0.4s ease;
-}
-
-figcaption{
-    color:white;
-    text-transform: uppercase;
-    text-align: center;
-    font-family: verdana;
-    letter-spacing: 3px;
-    transition: all 0.4s ease;
-    opacity: 0;
-
-    position: absolute;
-    top: 50%; left: 50%;
-    transform: translate(-50%,40%);
-}
-
-
-figure:hover img{
-    transform: scale(1);
-    filter: blur(3px) brightness(60%);
-}
-
-figure:hover figcaption{
-   opacity: 1;
-
-/* for centering the caption on hover */
-     transform: translate(-50%,-50%);
+.container:hover img{
+        transform: scale(1.6) rotate(20deg);
 }

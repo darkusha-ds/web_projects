@@ -1,78 +1,146 @@
-*{
-    margin: 0;
-    padding: 0;
+@import url("https://fonts.googleapis.com/css?family=Lato:300,900");
+*,
+:after,
+:before {
+  box-sizing: border-box;
 }
-body{
-    background: #eeeeee;
+html,
+body {
+  height: 100%;
 }
-.center{
-    display: flex;
-    justify-content: center;
-    align-items: center;
+body {
+  font-family: "Lato", sans-serif;
+  background: #d1d8ec;
+  padding: 100px 60px;
+  animation: fade-in 3s ease-in-out forwards;
 }
-.main{
-    width: 100%;
-    height: 100vh;
+strong {
+  font-weight: 900;
 }
-.box{
-    flex-direction: column;
-    background: white;
-    width: 350px;
-    height: 400px;
+.canvas-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
 }
-.heading{
-    margin-bottom: 30px;
+.canvas-wrapper .canvas + .canvas {
+  margin-left: 40px;
 }
-.input{
-    width: 250px;
-    height: 40px;
-    border-radius: 50px;
-    border: none;
-    background: #f3f1f1;
-    margin: 10px 0;
-    padding: 0 15px;
-    outline: none;
-    font-size: 0.9rem;
+.canvas {
+  position: relative;
+  display: block;
+  width: 400px;
+  height: 400px;
+  padding: 20px;
+  color: inherit;
+  text-decoration: none;
 }
-.btn{
-    width: 200px;
-    height: 40px;
-    border: none;
-    border-radius: 50px;
-    background: #ff414f;
-    color: white;
-    cursor: pointer;
-    outline: none;
+.canvas_border {
+  position: absolute;
+  top: 40px;
+  left: -40px;
+  height: 100%;
+  width: 100%;
+  z-index: 0;
 }
-.btn:hover{
-    background: #ff2735af;
+.canvas_img-wrapper {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  transform: rotate(-10deg) skew(-10deg);
+  overflow: hidden;
+  background: white;
 }
-.gender{
-    width: 230px;
-    height: 40px;
-    margin: 10px 0;
+.canvas_img {
+  transform: scale3d(0.9, 0.9, 0.9);
+  opacity: 0.3;
+  max-width: 200px;
+  max-height: 200px;
 }
-.gender input{
-    -webkit-appearance: none;
-    text-align: center;
-    line-height: 40px;
-    width: 50%;
-    height: 100%;
-    position: relative;
-    background: #f3f1f1;
-    color: rgb(0, 0, 0);
-    cursor: pointer;
-    border-radius: 50px;
-    margin: 0 5px;
-    outline: none;
+.canvas_copy {
+  position: absolute;
+  bottom: 0;
+  left: 85%;
+  text-transform: uppercase;
+  color: #dac527;
+  z-index: 100;
 }
-.gender input:checked{
-    background: #ff414f;
-    color: white;
+.canvas_copy--left {
+  left: -25%;
 }
-.gender input::before{
-    content: 'Female';
+.canvas_copy_title {
+  font-size: 62px;
+  display: block;
+  transform: translateX(-80px);
+  transition: all 0.75s cubic-bezier(0.68, -0.55, 0.265, 1.55) 0s;
+  color: black;
 }
-.gender input:nth-child(2)::before{
-    content: 'Male';
+.canvas_copy_title:nth-child(1) {
+  transition-delay: 0.1s;
+}
+.canvas_copy_title:nth-child(2) {
+  transition-delay: 0.2s;
+}
+.canvas_copy_subtitle {
+  display: block;
+  transform: rotate(270deg) translateY(-100%) translateX(calc(-100% - 80px));
+  transform-origin: top left;
+  position: absolute;
+  left: 0;
+  top: 8px;
+  font-size: 24px;
+  font-weight: 900;
+  transition: all 0.75s cubic-bezier(0.68, -0.55, 0.265, 1.55) 0.35s;
+}
+.canvas_copy_details {
+  display: block;
+  transition: all 0.75s cubic-bezier(0.68, -0.55, 0.265, 1.55) 0.14s;
+  transform: translateX(-80px);
+}
+.canvas_border,
+.canvas_img-wrapper,
+.canvas_img {
+  transition: all 0.25s ease-in-out 0s;
+}
+.canvas_border,
+.canvas_img-wrapper {
+  transform: rotate(-10deg) skew(-10deg);
+}
+.canvas_copy_title,
+.canvas_copy_subtitle,
+.canvas_copy_details {
+  opacity: 0;
+}
+.canvas:hover .canvas_copy_title,
+.canvas:hover .canvas_copy_subtitle,
+.canvas:hover .canvas_copy_details,
+.canvas:hover .canvas_img {
+  opacity: 1;
+}
+.canvas:hover .canvas_border,
+.canvas:hover .canvas_img-wrapper {
+  transform: rotate(-14deg) skew(-14deg) scale(0.96);
+}
+.canvas:hover .canvas_img {
+  transform: scale3d(1, 1, 1);
+}
+.canvas:hover .canvas_copy_title,
+.canvas:hover .canvas_copy_details {
+  transform: translateX(0);
+}
+.canvas:hover .canvas_copy_subtitle {
+  transform: rotate(270deg) translateY(-100%) translateX(-100%);
+}
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }

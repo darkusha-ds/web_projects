@@ -1,66 +1,37 @@
 *{
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
 }
-body{
-    background: black;
-}
-.main{
-    width: 100%;
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-a{
-    width: 150px;
-    height: 50px;
-    color: white;
-    text-decoration: none;
-    text-align: center;
-    position: relative;
-}
-a span{
-    line-height: 50px;
-}
-.liquid{
+.container{
     position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: -1;
-    background: #4271ff;
-    overflow: hidden;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
 }
-.liquid::before,.liquid::after{
-    content: "";
+input[type="checkbox"]{
+    appearance: none;
+    width: 90px;
+    height: 40px;
+    background-color: #bfbfbf;
+    border-radius: 20px;
+    outline: none;
+    cursor: pointer;
+}
+input[type="checkbox"]::before{
+    content:"";
     position: absolute;
-    width: 280px;
-    height: 280px;
-    border-radius: 50px;
-    transition: all 0.8s;
+    top: 3px;
+    left: 3px;
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+    transition: .3s;
+    background-color: #fff;
 }
-.liquid::before{
-    top: -275px;
-    left: -50%;
-    background: rgb(45, 45, 45);
-    animation: anim 5s linear infinite;
+input[type="checkbox"]:checked:before{
+    transform: translateX(50px);
 }
-.liquid::after{
-    top: -270px;
-    left: -50%;
-    background: rgba(45, 45, 45, 0.666);
-    animation: anim 5s linear infinite;
-}
-@keyframes anim{
-    0%{
-        transform: rotate(0);
-    }
-    100%{
-        transform: rotate(360deg);
-    }
-}
-a:hover .liquid::before,a:hover .liquid::after{
-    top: -350px;
+input[type="checkbox"]:checked{
+    background-color: #3399ff;
 }

@@ -1,42 +1,38 @@
-body{
-    background-color: #313131;
+body
+{
+    margin: 0;
+    padding: 0;
 }
-
-.form-group{
-    width: 20%;
-  
-   /* for centering the form-group */  
-    position: absolute;
-    top: 50%; left: 50%;
-    transform: translate(-50%,-50%);
+.container {
+  width: 100%;
+  height: 100vh;
+  background-color: #000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
-
-input{
-    display: block;
-    width: 100%;
-    color:#eee;
-    border: none;
-    border:2px solid #eee;
-    background-color: transparent;
-    padding: 12px;
+.icon {
+  padding: 20px;
+  animation: icon3d 200ms 10;
+  color: #fff;
 }
-
-label{
-      position: absolute;
-      top: -21px;
-      left: 0 ;
-      opacity: 1;
-      transition: all 0.3s;
-      font-family: verdana;
-      font-size: 13px;
-      color:#eee;
+.icon:hover {
+    animation: icon3d 200ms infinite;
 }
-
-/* The :placeholder-shown CSS pseudo-class represents any <input> or 
-   <textarea> element that is currently displaying placeholder text. */
-
-input:placeholder-shown + label{
-      top: 12px;
-      left: 12px;
-      opacity: 0;
+@keyframes icon3d {
+  0% {
+    text-shadow: 5px 4px rgba(244,67,54,1), -5px -6px rgba(33,150,243,1);
+  }
+  25% {
+    text-shadow: -5px -6px rgba(244,67,54,1), 5px 4px rgba(33,150,243,1);
+  }
+  50% {
+    text-shadow: 5px -4px rgba(244,67,54,1), -8px 4px rgba(33,150,243,1);
+  }
+  75% {
+    text-shadow: -8px -4px rgba(244,67,54,1), -5px -4px rgba(33,150,243,1);
+  }
+  100% {
+    text-shadow: -5px 0 rgba(244,67,54,1), 5px -4px rgba(33,150,243,1);
+  }
 }

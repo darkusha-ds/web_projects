@@ -1,33 +1,104 @@
- body{
-    background-color: slateblue;
+ body
+{
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+    background-color: #e0dede;
 }
-
-.container{
-    width: 400px;
-    height: 300px;
-    background-color: orange;
-    cursor: pointer;
- /* to center the container */ 
+a
+{
+    color: #fff;
+    text-decoration: none;
+}
+.card
+{
     position: absolute;
-    top:50%; left: 50%;
+    top: 50%;
+    left: 50%;
+    height: 400px;
+    width: 300px;
     transform: translate(-50%,-50%);
+    transform-style: preserve-3d;
+    perspective: 600px;
+    transition: .5s;
 }
-
-.container::before{
-    content: "";
+.card:hover .card-front
+{
+    transform: rotateX(-180deg);
+}
+.card:hover .card-back
+{
+    transform: rotateX(0deg);
+}
+.card-front
+{
+    height: 100%;
+    width: 100%;
+    background-image: url(Img1.jpg);
+    background-position: 50% 50%;
+    background-size: cover;
+    top: 0;
+    left: 0;
     position: absolute;
-    top:0; left:0;
-    border-width: 0; border-style:solid;
-
- /* make sure to give the same color as background to border-top and border-left */ 
-    border-top-color: slateblue;
-    border-left-color: slateblue;
-    border-right-color: rgba(255,255,255,0.6);
-    border-bottom-color: rgba(255,255,255,0.6);
-    border-radius: 0 0 5px 0;
-    transition: border 0.3s ease-out;
+    backface-visibility: hidden;
+    transform: rotateX(0deg);
+    background-color: #000000;
+    transition: .5s;
+}
+.card-back
+{
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: #000;
+    backface-visibility: hidden;
+    transform: rotateX(180deg);
+    text-align: center;
+    color: #fff;
+    transition: .5s;
+}
+h2
+{
+    margin: 60% auto 35% auto;
+    font-size: 25px;
+}
+span
+{
+    font-size: 20px;
+}
+a
+{
+    height: 17px;
+    width: 17px;
+    padding: 5px 5px;
+    border-radius: 50%;
+    line-height: 20px;
+}
+a:hover
+{
+    color: #000;
+    background-color: #fff;
 }
 
-.container:hover::before{
-    border-width: 25px;
-}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

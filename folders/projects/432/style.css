@@ -1,151 +1,151 @@
-@import url('https://fonts.googleapis.com/css2?family=Baloo+Bhai+2:wght@500&display=swap');
-body {
-	height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background: #f53b57;
-    font-family: 'Baloo Bhai 2', cursive;
+@import url('https://fonts.googleapis.com/css?family=Poppins:400,500,600,700&display=swap');
+*{
+  margin: 0;
+  padding: 0;
+  user-select: none;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
 }
-.main {
-    padding: 5px 30px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    background: rgba( 255, 255, 255, 0.25 );
-    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.2);
-    backdrop-filter: blur( 10.0px );
-    -webkit-backdrop-filter: blur( 10.0px );
-    border-radius: 10px;
-    border: 1px solid rgba( 255, 255, 255, 0.18 );
+body{
+  background: #f2f2f2;
 }
-.logo{
-	display: flex; 
-	align-items: center;
+nav{
+  background: #222;
 }
-.logo img{
-    height: 35px;
-    width: auto;
+nav:after{
+  content: '';
+  clear: both;
+  display: table;
 }
-.logo span{
-	margin-left: 10px;
-    font-size: 25px;
-	letter-spacing: 1px;
-    color: #1e272e;
+nav .logo{
+  float: left;
+  color: white;
+  text-transform: uppercase;
+  font-size: 25px;
+  font-weight: 600;
+  line-height: 70px;
+  padding-left: 60px;
 }
-.dataBox {
-    width: 200px;
-	height: 30px;
-	border-radius: 5px;
-	padding: 8px 16px;
-	margin: 10px 0;
-	font-size: 16px;
-    background: transparent;
-	outline: none;
-    border: 3px solid rgba( 255, 255, 255, 0.5);
-    font-family: 'Baloo Bhai 2', cursive;
+nav ul{
+  float: right;
+  margin-right: 40px;
+  list-style: none;
+  position: relative;
 }
-.dataBox::placeholder{ color: #fff;}
-.btn,.downloadBtn {
-    position: relative;
-	margin: 10px 0;
-	padding: 10px 25px;
-	text-align: center;
-	border-radius: 40px;
-	border: none;
-    outline: none;
-	background-color: #3c40c6;
-	color: #f0f8ff;
-	font-weight: 600;
-	font-size: 16px;
-    letter-spacing: 2px;
-	-webkit-transition-duration: 0.4s;
-	transition-duration: 0.4s;
-	text-decoration: none;
-	overflow: hidden;
-	cursor: pointer;
-    font-family: 'Baloo Bhai 2', cursive;
-	box-shadow: 0px 6px 10px #3c41c6a2;
+nav ul li {
+  display: inline-block;
+  background: #222;
+  margin: 0 5px;
 }
-.btn:after {
-    content: "";
-	display: block;
-	position: absolute;
-	background: #363bb3;
-	border-radius: 40px;
-	padding-top: 300%;
-	padding-left: 350%;
-	margin-left: -20px !important;
-	margin-top: -120%;
-	opacity: 0;
-	transition: all 0.8s;
+nav ul li a{
+  color: white;
+  line-height: 70px;
+  text-decoration: none;
+  font-size: 18px;
+  padding: 8px 15px;
+  text-transform: uppercase;
+  font-weight: 600;
 }
-.btn:active:after {
-    padding: 0;
-	margin: 0;
-	opacity: 1;
-	transition: 0s;
+nav ul li a:hover{
+  color: crimson;
 }
-.qrdiv { text-align: center; }
-.qrcode {
-    background: #fff;
-    padding: 10px;
-    display: flex;
-    flex-direction: column-reverse;
-    margin: 10px 0;
-    border-radius: 10px;
+nav ul ul{
+  position: absolute;
+  top: 90px;
+  opacity: 0;
+  visibility: hidden;
+  transition: top .3s;
 }
-.qrcode > img {
+nav ul li:hover > ul{
+  top: 70px;
+  opacity: 1;
+  visibility: visible;
+}
+nav ul ul li{
+  position: relative;
+  margin: 0px;
+  width: 150px;
+  float: none;
+  display: list-item;
+  border-bottom: 1px solid rgba(0,0,0,0.3);
+}
+nav ul ul li a{
+  line-height: 50px;
+}
+nav ul ul ul li{
+  position: relative;
+  top: -60px;
+  left: 150px;
+}
+.show,.icon,input{
+  display: none;
+}
+.fa-plus{
+  font-size: 15px;
+  margin-left: 40px;
+}
+@media all and (max-width: 968px) {
+  nav ul{
+    margin-right: 0px;
+    float: left;
+  }
+  nav .logo{
+    padding-left: 30px;
+    width: 100%;
+  }
+  .show + a, ul{
+    display: none;
+  }
+  nav ul li,nav ul ul li{
     display: block;
-    margin: auto;
-    background: #fff;
+    width: 100%;
+  }
+  .show{
+    display: block;
+    color: white;
+    font-size: 18px;
+    text-transform: uppercase;
+    padding: 0 20px;
+    line-height: 70px;
+    font-weight: 600;
+    cursor: pointer;
+  }
+  .show:hover{
+    color: crimson;
+  }
+  .icon{
+    display: block;
+    color: white;
+    position: absolute;
+    top: 0;
+    right: 40px;
+    line-height: 70px;
+    cursor: pointer;
+    font-size: 25px;
+  }
+  nav ul ul{
+    top: 70px;
+    border-top: 0px;
+    float: none;
+    position: static;
+    display: none;
+    opacity: 1;
+    visibility: visible;
+  }
+  nav ul ul a{
+    padding-left: 40px;
+  }
+  nav ul ul ul a{
+    padding-left: 80px;
+  }
+  nav ul ul ul li{
+    position: static;
+  }
+  [id^=btn]:checked + ul{
+    display: block;
+  }
+  nav ul ul li{
+    border-bottom: 0px;
+  }
 }
-.nameTag{
-    margin-top: 10px;
-    font-size: 30px;
-}
-.downloadBtn {
-	background: #05c46b;
-    box-shadow: 0px 6px 10px #05c46bad;
-}
-.hide { display: none; }
-.error { border-color: #e22416; }
-.shake {
-	animation: shake 0.5s;
-	animation-iteration-count: infinite;
-}
-@keyframes shake {
-	0% {
-		transform: translate(1px, 1px) rotate(0deg);
-	}
-	10% {
-		transform: translate(-1px, -2px) rotate(-0.5deg);
-	}
-	20% {
-		transform: translate(-3px, 0px) rotate(0.5deg);
-	}
-	30% {
-		transform: translate(3px, 2px) rotate(0deg);
-	}
-	40% {
-		transform: translate(1px, -1px) rotate(0.5deg);
-	}
-	50% {
-		transform: translate(-1px, 2px) rotate(-0.5deg);
-	}
-	60% {
-		transform: translate(-3px, 1px) rotate(0deg);
-	}
-	70% {
-		transform: translate(3px, 1px) rotate(-0.5deg);
-	}
-	80% {
-		transform: translate(-1px, -1px) rotate(0.5deg);
-	}
-	90% {
-		transform: translate(1px, 2px) rotate(0deg);
-	}
-	100% {
-		transform: translate(1px, -2px) rotate(-0.5deg);
-	}
-}
+ 

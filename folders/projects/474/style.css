@@ -1,105 +1,56 @@
-*,*:before,*:after {
-	box-sizing: border-box;
-	padding: 0;
-	margin: 0;
+ body
+{
+    background: #c8c8c8;
+}
+.image-wrapper {
+  width: 600px;
+  height: 400px;
+  position: relative;
+  margin: 30vh auto;
+}
+ 
+.image-wrapper img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  transform-origin: left;
 }
 
-body {
-  padding: 100px 0;
-	background: #111;
-  color: white;
-  max-width:640px;
-	font-family: 'Montserrat', sans-serif;
-	font-size: 15px;
-   
+.image-1 {
+  clip-path: polygon(0 0, 0 32%, 28% 0);
+  transform: translate(-10px, -10px);
+  transition: transform 300ms ease;
+  transform-origin: top;
 }
+  .image-wrapper:hover .image-1 {
+    transform: translate(0,0);
+  }
 
-nav {
-   float: left;
-	position: relative;
-	top: 45px;
-   left: 0;
-	background: transparent;
+.image-2 {
+  clip-path: polygon(28% 0, 0 32%, 0 100%, 17% 100%, 90% 0);
+  transform: translate(-30px, 5px);
+  transition: transform 300ms ease;
 }
+  .image-wrapper:hover .image-2  {
+    transform: translate(0,0);
+  }
 
-nav ul {
-	text-align: center;
+.image-3 {
+  clip-path: polygon(100% 0, 100% 65%, 74% 100%, 17% 100%, 90% 0);
+  transform: translate(-15px, -10px);
+  transition: transform 300ms ease;
 }
+  .image-wrapper:hover .image-3  {
+    transform: translate(0,0);
+  }
 
-nav ul li {
-	position: relative;
-  width: 70px;
-  cursor: pointer;
-  padding-bottom: 10px;
-  list-style: none;
-	background:#8ad7c1;
-	text-transform: uppercase;
-	transition:all .4s ease-out;
+.image-4 {
+  clip-path: polygon(100% 65%, 74% 100%, 100% 100%);
+  transform: translate(-32px, 5px);
+  transition: transform 300ms ease;
+  transform-origin: top;
 }
+  .image-wrapper:hover .image-4  {
+    transform: translate(0,0);
+  }
 
-nav ul li:after {
-	position: absolute;
-	background: white;
-	color: #111;
-	top:0;
-	font-size: 17px;
-	font-weight: bold;
-	left: 70px;
-	width: 100px; 
-	text-align: center;
-	height: 100%;
-    opacity:.5;
-    transform: perspective(400px) rotateY(90deg);
-	transform-origin: 0 100%;
-	transition:all .4s ease-out;
-}
-
-nav ul li:nth-child(1):after { 
-	content: "Home";
-	line-height: 61px;
-}
-nav ul li:nth-child(2):after { 
-	content: "About";
-	line-height: 62px;
-}
-nav ul li:nth-child(3):after { 
-	content: "Blog";
-	line-height: 62px;
-}
-nav ul li:nth-child(4):after { 
-	content: "Contact";
-	line-height: 62px;
-}
-nav ul li:nth-child(5):after { 
-	content: "Notice";
-	line-height: 62px;
-}
-nav ul li:nth-child(6):after { 
-	content: "Join US";
-	line-height: 62px;
-}
-
-nav ul li:hover {
-	transform: translateX(-70px);
-}
-
-nav ul li:hover:after {
-  opacity: 1;
-	transform: perspective(400px) rotateY(0deg) scale(1) ;
-}
-
-
-nav ul li > div {
-	display: inline-block;
-	padding: 25px 0;
-	background: transparent;
-}
-
- i.fa {
-	  font-size: 35px;
-	 margin-top: 10px;
-	 margin-bottom: 10px;
-	 color: #111;
-	 position: relative;
-
- }

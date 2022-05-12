@@ -1,61 +1,26 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <title>The Dropdown Menu</title>
-
-    <!-- Embedding poppins font from google fonts -->
-    <link rel="preconnect" href="https://fonts.gstatic.com" />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap"
-      rel="stylesheet"
-    />
-
-    <!-- Embedding Fontawesome icons -->
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
-      integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w=="
-      crossorigin="anonymous"
-    />
-    <link rel="stylesheet" href="style.css" />
-  </head>
-  <body>
-    <nav class="navbar">
-      <ul class="nav-list">
-        <li class="nav-item">
-          <a class="nav-link" href="#">Home</a>
-        </li>
-        <li class="nav-item">
-          <div class="dropdown-container">
-            <a class="nav-link" href="#"
-              >Services <i class="fas fa-chevron-down"></i>
-            </a>
-            <div class="dropdown-content">
-              <a href="#" class="dropdown-link">App Development</a>
-              <a href="#" class="dropdown-link">Website Development</a>
-              <a href="#" class="dropdown-link">SEO</a>
-              <a href="#" class="dropdown-link">Content Writing</a>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Planet Loading screen | Coderider</title>
+</head>
+<body>
+    <div class="spinner-box">
+        <div class="solar-system">
+          <div class="earth-orbit orbit">
+            <div class="planet earth"></div>
+            <div class="venus-orbit orbit">
+              <div class="planet venus"></div>
+              <div class="mercury-orbit orbit">
+                <div class="planet mercury"></div>
+                <div class="sun"></div>
+              </div>
             </div>
           </div>
-        </li>
-        <li class="nav-item">
-          <div class="dropdown-container">
-            <a class="nav-link" href="#"
-              >Products <i class="fas fa-chevron-down"></i>
-            </a>
-            <div class="dropdown-content">
-              <a href="#" class="dropdown-link">Full-stack Courses</a>
-              <a href="#" class="dropdown-link">Interview Questions</a>
-              <a href="#" class="dropdown-link">Merchandise</a>
-              <a href="#" class="dropdown-link">Blockchain Tutorials</a>
-              <a href="#" class="dropdown-link">Accessories</a>
-            </div>
-          </div>
-        </li>
-        <li class="nav-item"><a href="#" class="nav-link">Blog</a></li>
-        <li class="nav-item"><a href="#" class="nav-link">Gallery</a></li>
-        <li class="nav-item"><a href="#" class="nav-link">Contact</a></li>
-      </ul>
-    </nav>
-  </body>
+        </div>
+      </div>
+</body>
 </html>

@@ -1,74 +1,53 @@
 *{ margin: 0; padding: 0; box-sizing: border-box; }
 
 body{
-	min-height: 100vh;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	font-family: "Century Gothic";
-	background-color: #eee;
+ 	 background-color: #111;
+ 	 height: 100vh;
+
+ /* FOR CENTERING THE .container */	
+ 	 display: grid;
+ 	 place-items:center;
 }
 
-.title{
-	position: relative;
-	text-align: center;
-	text-transform: capitalize;
-	color: #1dd3bd;
-	margin: 10px 0;
+.container{
+ 	 width: 300px; height: 400px;
+ 	 position: relative;
+ 	 overflow: hidden;
+ 	 cursor: pointer;
+ 	 border: 5px solid #fff;
 }
 
-.title::after{
-	content: "";
-	position: absolute;
-	width: 20%; height: 2px;
-	bottom: -10px; left: 50%;
-	transform: translateX(-50%);
-	background-image: linear-gradient(to left, transparent 5%, #1dd3bd);
+.container img{
+ 	 width: 100%; height: 100%;
+ 	 object-fit: cover;
+ 	 transition: all 0.3s ease-in;
 }
 
-.team-row{
-	padding: 40px 0;
-	max-width: 1440px;
-	margin: 0 auto;
-	display: flex;
-	justify-content: center;
-	flex-wrap: wrap;
+.details{
+ 	 position: absolute;
+ 	 top: 0; left: 0;
+ 	 width: 100%; height: 100%;
+ 	 background-color: #fff;
+ 	 opacity: 0;
+ 	 transition: all 0.3s ease-in;
 }
 
-.member{
-	flex:1 1 250px;
-	max-width: 300px;
-	padding: 20px 10px;
-	margin:20px;
-	text-align: center;
-	transition: all 0.3s;
-	cursor: pointer;
-	border-radius: 5px;
+.details h1{
+ 	position: absolute;
+ 	top: 50%; left: 50%;
+ 	transform: translate(-50%,-50%);
+ 	text-transform: uppercase;
+ 	font-family: verdana;
+ 	white-space: nowrap;
+ 	font-size: 25px;
+ 	font-weight: 100;
 }
 
-.member:hover{
-	box-shadow: 0 0 20px rgba(0,0,0,0.1);
-	transform: translateY(-20px);	
+.container:hover img{
+ 	transform: scale(3);
+ 	filter: blur(3px);
 }
 
-img{
-  	display: block;
-	width: 150px; height: 150px;
-	border-radius: 50%;
-	margin: 0 auto;
-	object-fit: cover;
-	border:4px solid #1dd3bd;
-}
-
-.member h2{
-	text-transform: uppercase;
-	margin:15px 0;
-	font-size: 24px;
-	color: #1dd3bd;	
-}
-
-.member p{
-	font-size: 15px;
-	color: #838383;
-	line-height: 1.6;
-}
+.container:hover .details{
+ 	opacity: 1;
+}		

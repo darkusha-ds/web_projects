@@ -1,32 +1,44 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="style.css" />
-    <title>Custom radio Button | Coderider</title>
-  </head>
-  <body>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Poppins&display=swap" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign up</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
     <div class="container">
-      <input type="radio" name="radio" id="radio-1" />
-      <label for="radio-1">
-        <div class="radio-btn"></div>
-        <p>Light</p>
-        <img src="credit-light.svg" alt="">
-      </label>
-      <input type="radio" name="radio" id="radio-2" />
-      <label for="radio-2">
-        <div class="radio-btn"></div>
-        <p>Blue</p>
-        <img src="credit-blue.svg" alt="">
-    </label>
-    <input type="radio" name="radio" id="radio-3" />
-    <label for="radio-3">
-        <div class="radio-btn"></div>
-        <p>Dark</p>
-        <img src="credit-dark.svg" alt="">
-      </label>
+        <img src="shape.png" alt="img" width="350" class="img">
+        <div class="content">
+            <div class="intro-content">
+                <h2><span>Digi</span>Pay</h2>
+                <p>Create your account</p>
+                <p><span>It’s free and only takes a minute</span></p>
+            </div>
+            <form>
+                <div class="input">
+                    <input type="text" name="name" id="name" required>
+                    <label  for="name">Name</label>
+                </div>
+                <div class="input">
+                    <input type="email" name="email" autocomplete="off" id="email" required>
+                    <label for="email">Email</label>
+                </div>
+                <div class="input">
+                    <input type="password" name="password" id="password" required>
+                    <label for="password">Password</label>
+                </div>
+                <div class="input">
+                    <button>Create an account</button>
+                </div>
+            </form>
+            <div class="footer-content">
+                <p>By signing up, you agree to our Terms, Data Policy and Cookies Policy</p>
+                <p><a href="#">Already have an account?</a></p>
+            </div>
+        </div>
     </div>
-  </body>
+</body>
 </html>

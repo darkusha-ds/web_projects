@@ -1,52 +1,31 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html>
 <head>
-    <meta charset="UTF-8">
-    <link rel="stylesheet" href="./style.css">
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, 		                               initial-scale=1.0">
+	<title> Responsive Full Screen Navbar </title>
 
+<link rel="stylesheet" href="style.css">
 </head>
-
 <body>
-    <div class="custom-radios">
-        <div>
-            <input type="radio" id="color-1" name="color" value="color-1" checked>
-            <label for="color-1">
-      <span>
-        <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/242518/check-icn.svg" alt="Checked Icon" />
-      </span>
-    </label>
-        </div>
 
-        <div>
-            <input type="radio" id="color-2" name="color" value="color-2">
-            <label for="color-2">
-      <span>
-        <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/242518/check-icn.svg" alt="Checked Icon" />
-      </span>
-    </label>
-        </div>
+	<nav>
+		<h1 class="logo">logo</h1>
 
-        <div>
-            <input type="radio" id="color-3" name="color" value="color-3">
-            <label for="color-3">
-      <span>
-        <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/242518/check-icn.svg" alt="Checked Icon" />
-      </span>
-    </label>
-        </div>
+		<input type="checkbox" id="hamburger-toggle">
+		<label for="hamburger-toggle" class="hamburger">
+			<span class="bar"></span>
+		</label>
 
-        <div>
-            <input type="radio" id="color-4" name="color" value="color-4">
-            <label for="color-4">
-      <span>
-        <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/242518/check-icn.svg" alt="Checked Icon" />
-      </span>
-    </label>
-        </div>
-    </div>
+		<ul class="nav-list">
+			<li> <a href="#">home</a> </li>
+			<li> <a href="#">about</a> </li>
+			<li> <a href="#">services</a> </li>
+			<li> <a href="#">gallery</a> </li>
+			<li> <a href="#">contact</a> </li>
+		</ul>
 
+	</nav>
 
 </body>
-
 </html>

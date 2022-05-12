@@ -1,32 +1,43 @@
 <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Responsive Gallery With Blur Hover Effect</title>
-
-    <link rel="stylesheet" href="style.css" />
-  </head>
-  <body>
-    <section class="gallery">
-      <div class="container">
-        <h1>Our Gallery</h1>
-        <div class="img-container">
-          <img src="./images/gallery1.jpg" alt="" class="gallery-img" />
-          <img src="./images/gallery2.jpg" alt="" class="gallery-img" />
-          <img src="./images/gallery3.jpg" alt="" class="gallery-img" />
-          <img src="./images/gallery4.jpg" alt="" class="gallery-img" />
-          <img src="./images/gallery5.jpg" alt="" class="gallery-img" />
-          <img src="./images/gallery6.jpg" alt="" class="gallery-img" />
-          <img src="./images/gallery7.jpg" alt="" class="gallery-img" />
-          <img src="./images/gallery8.jpg" alt="" class="gallery-img" />
-          <img src="./images/gallery9.jpg" alt="" class="gallery-img" />
-          <img src="./images/gallery10.jpg" alt="" class="gallery-img" />
-          <img src="./images/gallery11.jpg" alt="" class="gallery-img" />
-          <img src="./images/gallery12.jpg" alt="" class="gallery-img" />
+<html>
+    <head>
+        <title>Shadow Generator</title>
+        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="style.css"/>
+    </head>
+    <body>
+        <div class="container">
+            <div class="box-container">
+                <div class="box"></div>
+                <div class="box-color color-input">
+                    <input type="color" id="boxcolor" value="#0069e5" oninput="getBoxcolor(this.value)"/>
+                </div>
+            </div>
+            <div class="inputs">
+            <div class="input">
+                <label>X</label>
+                <input type="range" value="0" min="-50" max="50" id="x" oninput="getValue()"/>
+            </div>
+            <div class="input">
+                <label>Y</label>
+                <input type="range" value="0"  min="-50" max="50" id="y" oninput="getValue()"/>
+            </div>
+            <div class="input">
+                <label>Blur</label>
+                <input type="range" value="0" max="50" id="blur" oninput="getValue()"/>
+            </div>
+            <div class="input">
+                <label>Spread</label>
+                <input type="range" value="0" max="50" id="spread" oninput="getValue()"/>
+            </div>
+            <div class="color-input input">
+                <input type="color" id="color" oninput="getValue()"/>
+            </div>
+            </div>
+            <div class="shadow-text">
+                <p id="text">box-shadow:0px 0px 0px 0px #000000;</p>
+            </div>
         </div>
-      </div>
-    </section>
-  </body>
+        <script src="main.js"></script>
+    </body>
 </html>

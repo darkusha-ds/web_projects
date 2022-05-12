@@ -1,82 +1,39 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@400;500&display=swap');
-*{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
 body{
-    background: black;
+        background-color: #111;
 }
-.container{
-    width: 50px;
-    height: 50px;
-    position: fixed;
-    top: 90%;
-    left: 50%;
-    transform: translate(-50%);
-    border-radius: 10px;
-    background: #252525;
+
+h1{
+        font-family: verdana;
+        font-size: 90px;
+        color: transparent;
+        cursor: pointer;
+
+    /* for centering the h1 */
+        margin: 0;
+        position: absolute;
+        top: 50%; left: 50%;
+        transform: translate(-50%,-50%);
 }
-.container::before{
-    content: '';
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%,-50%);
-    width: 20px;
-    height: 20px;
-    background: white;
-    border-radius: 50px;
-    box-shadow: 0 0 0 5px rgb(94,94,94),0 0 0 10px rgb(59,59,59);
+
+h1::before, h1::after{
+        content: "BROKEN";
+        position: absolute;
+        color:#da4747;
+        top: 0; left: 0;
+        transition: all 0.3s;
 }
-.container input{
-    -webkit-appearance: none;
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    outline: none;
-    cursor: pointer;
+h1::before{
+        clip-path: polygon(0 0, 100% 0, 0 100%);
 }
-.menu{
-    width: 300px;
-    height: 300px;
-    background-color: #0093e9;
-    background-image: linear-gradient(160deg,#0093e9 0%,#80d0c7 100%);
-    position: absolute;
-    top: -630%;
-    left: -120px;
-    display: none;
-    flex-direction: column;
-    justify-content: center;
-    border-radius: 10px;
+
+h1::after{
+        clip-path: polygon(100% 0, 100% 100%, 0 99%);
 }
-.menu div{
-    display: flex;
-    align-items: center;
-    margin: 10px 30px 0 35px;
-    padding: 10px 0 10px 15px;
-    color: white;
-    background: rgba(255, 255, 255, 0.336);
-    border-radius: 10px;
-    cursor: pointer;
-    transition: all .4s;
+
+h1:hover::before{
+        transform: translateX(-5px) rotate(-3deg);
 }
-.menu div p{
-    margin-left: 10px;
-    font-family: 'Roboto Slab', serif;
-}
-.menu div:hover{
-    transform: translateX(12px);
-}
-input:checked ~ .menu{
-    display: flex;
-    animation:  anim 0.5s;
-}
-@keyframes anim{
-    0%{
-        clip-path: circle(0% at 50% 50%);
-    }
-    100%{
-        clip-path: circle(100% at 50% 50%);
-    }
+
+h1:hover::after{
+        transform: translateX(5px) rotate(3deg);
 }

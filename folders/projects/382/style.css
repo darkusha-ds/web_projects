@@ -1,82 +1,105 @@
-* {
-  box-shadow: none;
+@import url('https://fonts.googleapis.com/css2?family=Baloo+2&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Baloo 2', cursive;
 }
-body {
-  font-family: "Poppins", sans-serif;
-  margin: 0;
-  width: 100%;
-  height: 100vh;
-  background-color: #d1dad3;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-size: 17px;
+body{
+    position: relative;
+    height: 100vh;
+    /* display: grid;
+    place-items: center; */
+    background-color: #F6D107;
 }
-.container {
-  max-width: 1000px;
-  width: 30%;
-  display: flex;
-  flex-direction: column;
-  flex-wrap: wrap;
-  justify-content: space-around;
+.box{
+    position: absolute;
+    bottom: 10%;
+    right: 30%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 150px;
+    width: 150px;
+    background-color: #ffff;
+    border-radius: 40px;
 }
-.switch-holder {
-  display: flex;
-  padding: 10px 20px;
-  border-radius: 10px;
-  margin-bottom: 30px;
-  box-shadow: -8px -8px 15px rgba(255, 255, 255, 0.7),
-    10px 10px 10px rgba(0, 0, 0, 0.3),
-    inset 8px 8px 15px rgba(255, 255, 255, 0.7),
-    inset 10px 10px 10px rgba(0, 0, 0, 0.3);
-  justify-content: space-between;
-  align-items: center;
+.chat-bubble{
+    position: relative;
+    height: 100px;
+    width: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color:   #0976F7;
+    border-radius: 50%;
 }
-.switch-label {
-  width: 150px;
+.chat-bubble:after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 0;
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    border-top: 20px solid #0976F7;
+    transform: rotate(45deg);
 }
-.switch-label i {
-  margin-right: 5px;
+.dot{
+    margin: 5px;
+    height: 10px;
+    width: 10px;
+    background-color: #ffff;
+    border-radius: 50%;
+    animation: bubble_up 1.5s ease-in-out infinite;
 }
-.switch-toggle {
-  height: 40px;
+.dot-1{
+    animation-delay: 0.4s;
 }
-.switch-toggle input[type="checkbox"] {
-  position: absolute;
-  opacity: 0;
-  z-index: -2;
+.dot-2{
+    animation-delay: 0.6s;
 }
-.switch-toggle input[type="checkbox"] + label {
-  position: relative;
-  display: inline-block;
-  width: 100px;
-  height: 40px;
-  border-radius: 20px;
-  margin: 0;
-  cursor: pointer;
-  box-shadow: inset -8px -8px 15px rgba(255, 255, 255, 0.6),
-    inset 10px 10px 10px rgba(0, 0, 0, 0.25);
+.dot-3{
+    animation-delay: 0.8s;
 }
-.switch-toggle input[type="checkbox"] + label::before {
-  position: absolute;
-  content: "OFF";
-  font-size: 13px;
-  text-align: center;
-  line-height: 25px;
-  top: 8px;
-  left: 8px;
-  width: 45px;
-  height: 25px;
-  border-radius: 20px;
-  background-color: #d1dad3;
-  box-shadow: -3px -3px 5px rgba(255, 255, 255, 0.5),
-    3px 3px 5px rgba(0, 0, 0, 0.25);
-  transition: 0.3s ease-in-out;
+@keyframes  bubble_up{
+    0%{
+        transform: translateY(0px);
+    }
+    50%{
+        transform: translateY(-20px);
+    }
+    100%{
+        transform: translateY(0px);
+    }
 }
-.switch-toggle input[type="checkbox"]:checked + label::before {
-  left: 50%;
-  content: "ON";
-  color: #fff;
-  background-color: #00b33c;
-  box-shadow: -3px -3px 5px rgba(255, 255, 255, 0.5), 3px 3px 5px #00b33c;
+.badge{
+    position: absolute;
+    top: -20px;
+    right: -20px;
+    height: 40px;
+    width: 120px;
+    font-size: 18px;
+    background-color: #EF2B05;
+    border-radius: 20px;
+    overflow: hidden;
 }
+.badge span{
+    display: inline-block;
+    line-height: 2;
+    white-space: nowrap;
+    color: #ffff;
+    animation: text_rotate 3s linear infinite;
+}
+@keyframes text_rotate {
+    0%{
+        transform: translateX(150px);
+    }
+    100%{
+        transform: translateX(-150px);
+    }
+}
+
+
+

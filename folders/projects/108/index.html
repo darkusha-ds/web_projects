@@ -1,103 +1,43 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
-    <title>Checkout Card | Coderider</title>
+	<title> complete responsive our team section </title>
+	<meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, 
+    initial-scale=1.0, user-scalable=no">
+	<link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="container">
-        <section class="product">
-          <form class="card-details" action="" data-form>
-            <fieldset class="card-details__fieldset">
-              <span class="card-details__heading">Card Type</span>
-      
-              <div class="card-details__cards" data-card-types>
-                <div class="card-details__cards-item">
-                  <input class="card-details__card-input" type="radio" name="cardType" id="visa" data-card-type="visa" checked>
-                  <label class="card-details__card-label" for="visa">Visa</label>
-                  <img class="card-details__cards-image" src="https://svgshare.com/i/7h2.svg" alt="Visa Card" aria-hidden="true">
-                </div>
-                <div class="card-details__cards-item">
-                  <input class="card-details__card-input" type="radio" name="cardType" id="mastercard" data-card-type="mastercard">
-                  <label class="card-details__card-label" for="mastercard">MasterCard</label>
-                  <img class="card-details__cards-image" src="https://svgshare.com/i/7fu.svg" alt="MasterCard" aria-hidden="true">
-                </div>
-                <div class="card-details__cards-item">
-                  <input class="card-details__card-input" type="radio" name="cardType" id="discover" data-card-type="discover">
-                  <label class="card-details__card-label" for="discover">Discover</label>
-                  <img class="card-details__cards-image" src="https://svgshare.com/i/7hP.svg" alt="Discover Card" aria-hidden="true">
-                </div>
-                <div class="card-details__cards-item">
-                  <input class="card-details__card-input" type="radio" name="cardType" id="express" data-card-type="express">
-                  <label class="card-details__card-label" for="express">American Express</label>
-                  <img class="card-details__cards-image" src="https://svgshare.com/i/7gD.svg" alt="Amercican Express Card" aria-hidden="true">
-                </div>
-              </div>
-            </fieldset>
-      
-            <fieldset class="card-details__fieldset">
-              <span class="card-details__heading">Card Number</span>
-      
-              <div class="card-details__number">
-                <div class="card-details__number-field">
-                  <label for="cardNumberFirstFour" class="card-details__number-label">First Four Digits</label>
-                  <input class="card-details__number-input" type="text" maxlength="4" name="card-number" value="0000" id="cardNumberFirstFour" data-input>
-                </div>
-      
-                <div class="card-details__number-field">
-                  <label for="cardNumberSecondFour" class="card-details__number-label">Second Four Digits</label>
-                  <input class="card-details__number-input" type="text" maxlength="4" name="card-number" value="0000" id="cardNumberSecondFour" data-input>
-                </div>
-      
-                <div class="card-details__number-field">
-                  <label for="cardNumberThirdFour" class="card-details__number-label">Third Four Digits</label>
-                  <input class="card-details__number-input" type="text" maxlength="4" name="card-number" value="0000" id="cardNumberThirdFour" data-input>
-                </div>
-      
-                <div class="card-details__number-field">
-                  <label for="cardNumberFirstFour" class="card-details__number-label">Last Four Digits</label>
-                  <input class="card-details__number-input" type="text" maxlength="4" name="card-number" value="0000" id="cardNumberLastFour" data-input>
-                </div>
-      
-                <div class="card-details__number-card">
-                  <img class="card-details__number-card-image" src="https://svgshare.com/i/7h2.svg" alt="Visa Card" data-card-image>
-                </div>
-              </div>
-            </fieldset>
-      
-            <fieldset class="card-details__fieldset">
-              <span class="card-details__heading" aria-hidden="true">Card Holder Name</span>
-              <div class="card-details__holder">
-                <label class="card-details__holder-label" for="cardHolderName">Card Holder Name</label>
-                <input class="card-details__holder-input" type="text" id="cardHolderName" data-input>
-              </div>
-            </fieldset>
-      
-            <fieldset class="card-details__fieldset">
-              <div class="card-details__expiration">
-                <span class="card-details__heading" aria-hidden="true">Expiration Date</span>
-                <div class="card-details__expiration-date">
-                  <label class="card-details__expiration-date-label" for="expirationDate">Expiration Date</label>
-                  <input class="card-details__expiration-date-input" type="text" maxlength="7" value="MM / YY" id="expirationDate" data-input>
-                </div>
-              </div>
-      
-              <div class="card-details__security">
-                <span class="card-details__heading" aria-hidden="true">CVV</span>
-                <div class="card-details__details__security-code">
-                  <label class="card-details__security-code-label" for="expirationDate">CVV</label>
-                  <input class="card-details__security-code-input" type="text" maxlength="3" value="000" id="expirationDate" data-input>
-                </div>
-              </div>
-            </fieldset>
-            <button class="card-details__submit" type="button" data-submit-button>Purchase</button>
-          </form>
-        </section>
-      </div>
 
-      <script src="main.js"></script>
+<section>
+	<h1 class="title">our team</h1>
+	<div class="team-row">
+		<div class="member">
+		  <img src="https://images.unsplash.com/photo-1520409364224-
+				63400afe26e5?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto
+				=format&fit=crop&w=358&q=80">
+		  <h2>gulshan smith</h2>
+		  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit,
+		  sed do eiusmod tempor incididunt.</p>
+		</div>
+	    <div class="member">
+		  <img src="https://images.unsplash.com/photo-1489980557514-
+				251d61e3eeb6?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto
+				=format&fit=crop&w=750&q=80">
+		  <h2>putin singh</h2>
+		  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit,
+		  sed do eiusmod tempor.</p>
+		</div>
+		<div class="member">
+		  <img src="https://images.unsplash.com/photo-1480455624313-
+				e29b44bbfde1?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto
+				=format&fit=crop&w=400&q=60">
+		  <h2> chris yadav </h2>
+		  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit,
+		  sed do eiusmod.</p>
+		</div>	
+	</div>
+</section>
+
 </body>
 </html>

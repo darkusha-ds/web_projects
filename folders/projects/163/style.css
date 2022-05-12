@@ -1,72 +1,111 @@
-@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@700&display=swap");
+*{ margin: 0; padding: 0; box-sizing: border-box; }
 
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+body{
+	min-height: 100vh;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background-color: #eee;
 }
 
-img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
+.btn{
+	padding: 15px 30px;
+	cursor: pointer;
+	outline: none;
+	background-color: transparent;
+	border: 1px solid #111;
+	color: #111;
+	font-family: 'Century Gothic';
+	font-size: 15px;
+	transition: all 0.3s;
 }
 
-.slider-container {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100vh;
-  z-index: -1;
-  overflow-x: hidden;
+.btn:hover{
+	background-color: #111;
+	color: #fff;
+	transform: translateY(-8px);
 }
 
-.slider {
-  height: 100%;
-  display: flex;
-  transition: transform 1500ms;
+.form-modal{
+	width: 100%; height: 100%;
+	position: absolute;
+	top: 0; left: 0;
+	background-color: rgba(0,0,0,0.8);
+	display: none;
+	justify-content: center;
+	align-items: center;
 }
 
-.slide {
-  width: 100%;
-  height: 100%;
+.modal-content{
+	width: 450px;
+	background-color: #fff;
+	padding: 20px;
+	position: relative;
+	animation: visible 1s 1;
+	animation-fill-mode: forwards;
 }
 
-.intro {
-  width: 100%;
-  height: 100vh;
-  z-index: 1;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-image: linear-gradient(
-    to bottom right,
-    rgba(0, 0, 0, 0.8) 60%,
-    rgba(0, 0, 0, 0.95)
-  );
+@keyframes visible{
+	from{
+		transform: scale(0);
+		opacity: 0;
+	}
+
+	to{
+		transform: scale(1);
+		opacity: 1;
+	}
 }
 
-.intro h1 {
-  color: #fff;
-  font-family: "Poppins", sans-serif;
-  font-size: 80px;
-  text-align: center;
-  line-height: 1.1;
+.content-wrapper{
+	opacity: 0;
+	animation: toRight 1s 500ms 1;
+	animation-fill-mode: forwards
 }
 
-.intro h1 span {
-  color: #e8983f;
+@keyframes toRight{
+	from{
+		opacity: 0;
+		transform: translateX(-100px);
+	}
+
+	to{
+		opacity: 1;
+		transform: translateX(0);
+	}
 }
 
-@media (max-width: 768px) {
-  .intro h1 {
-    font-size: 50px;
-  }
+.close{
+	position: absolute;
+	font-size: 30px;
+	transform: rotate(45deg);
+	cursor: pointer;
+	transition: all 0.3s;
 }
 
-@media (max-width: 480px) {
-  .intro h1 {
-    font-size: 35px;
-  }
+.close:hover{ transform: rotate(-45deg) scale(1.3); }
+
+img{
+	width: 120px;
+	display: block;
+	margin: 0 auto;
+}
+
+input, textarea{
+  	width: 60%;
+	display: block;
+	margin: 20px auto;
+	padding: 10px;
+	outline: none;
+	border:1px solid #111;
+	font-family: 'Century Gothic';
+}
+
+textarea{
+	max-width: 60%; min-height: 100px;
+}
+
+.submit{
+	display: block;
+	margin: 30px auto 0;
 }

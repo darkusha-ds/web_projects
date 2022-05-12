@@ -4,27 +4,40 @@ body{
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	font-family: 'Century Gothic';
 	background-color: #ddd;
 }
 
-.container{
-	width: 100%;
-	display: flex;
-	justify-content: space-around;
+button{
+	background-color: rgb(92,110,144);
+	color: #fff;
+	border:none; outline: none;
+	padding: 15px 60px;
+	border-radius: 30px;
+	font-family: Verdana;
+	font-size: 20px;
+	cursor: pointer;
+	overflow: hidden;
+	position: relative;
 }
 
-.counter-container{ text-align: center; }
-
-.count{
-	display: block;
-	margin-bottom: 20px;
-	font-size: 80px;
-	color: #6a097d;
+span{
+	position: absolute;
+	background-color: #fff;
+	transform: translate(-50%,-50%);
+	border-radius: 50%;
+	pointer-events: none;
+	animation: rippleEffect 1500ms 1;
 }
 
-.count-detail{
-	font-size: 25px;
-	white-space: nowrap;
-	color: #565656;
+@keyframes rippleEffect{
+	from{
+		width: 0; height: 0;
+		opacity: 0.7;
+	}
+
+	to{
+		width: 500px; height: 500px;
+		opacity: 0;
+	}
+
 }

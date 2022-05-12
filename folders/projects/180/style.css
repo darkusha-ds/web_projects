@@ -1,42 +1,62 @@
- body{
-      margin: 0;
-      height: 100vh;
-      background-color: black;
-      display: flex;
-      justify-content: center;
-      align-items: center;
+body{
+        background-color: #111;
 }
 
-.mouse{
-        width: 100px;
-        height: 150px;
-        border: 2px solid white;
-        border-radius: 50px;
-        position: relative;
-}
-
-.mouse::before{
+.container{
+     /* for centering the container */  
         position: absolute;
-        content: "";
-        width: 20px;
-        height: 20px;
-        background-color: white;
-        top: 30px;
-        left: 50%;
-        transform: translateX(-50%);
-        border-radius: 50%;
-        animation: scroll 1s infinite;
+        top: 50%; left: 50%;
+        transform: translate(-50%,-50%);
 }
 
-@keyframes scroll{
-        
-        from{
-            opacity: 1;
-            top: 30px;
-        }
+.radio-group{
+        margin-bottom: 24px;
+}
 
-        to{
-            opacity: 0;
-            top: 100px;
-        }
+input[type="radio"]{
+        display: none;
+}
+
+label{
+        position: relative;
+        color: white;
+        font-size: 22px; font-family: verdana;
+        padding-left: 24px;
+        transition: all 0.2s ease-in;
+        cursor: pointer;
+}
+
+.radio-btn{
+        position: absolute;
+        left: -15px;
+        display: inline-block;
+        width: 20px; height: 20px;
+        border:3px solid #fff;
+        border-radius: 50%;
+        transition: all 0.2s ease-in;
+}
+
+.radio-btn::before{
+        content: "";
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%,-50%);
+        width: 10px; height: 10px;
+        border-radius: 50%;
+        opacity: 0;
+        transition: all 0.2s;
+}
+
+input[type="radio"]:checked + label{
+        color: #da4747;
+}
+
+input[type="radio"]:checked + label .radio-btn{
+        border-color: #da4747;
+}
+
+input[type="radio"]:checked + label .radio-btn::before{
+        background-color: #da4747;
+        opacity: 1;
 }

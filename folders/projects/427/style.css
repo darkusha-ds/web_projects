@@ -1,55 +1,45 @@
-*{ margin: 0; padding: 0; box-sizing: border-box; }
-
+@import url('https://fonts.googleapis.com/css2?family=Lobster&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+}
+body{
+    background: black;
+}
 .container{
-      position: absolute;
-      top: 50%; left: 50%;
-      transform: translate(-50%,-50%);
+    font-size: 2rem;
+    color: white;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    cursor: pointer;
 }
-
-input[type="checkbox"]{ 
-      display: none;
+.container a{
+    color: white;
+    text-decoration: none;
+    font-family: 'Lobster', cursive;
 }
-
-.menu{ cursor: pointer; }
-
-.hamburger{
-      width: 80px;
-      position: relative;
+.container i{
+    margin-left: 10px;
+    font-size: 1.2rem;
+    transition: all .5s;
 }
-
-.hamburger,.hamburger::before,.hamburger::after{
-      height: 7px;
-      background-color: #515151;
-      display: inline-block;
-      transition: all 0.5s cubic-bezier(0.50,-0.05,0.60,0.53);
-      border-radius: 2px;
+.container a:hover ~ i{
+    transform: translateX(10px);
 }
-
-.hamburger::before,.hamburger::after{
-      content: "";
-      width: 40px;
-      position: absolute;
+.bg{
+    position: absolute;
+    bottom: 3px;
+    left: -4px;
+    border-radius: 50px;
+    width: 25%;
+    height: 25%;
+    z-index: -1;
+    background-color: #FFE53B;
+    background-image: linear-gradient(147deg, #FFE53B 0%, #FF2525 74%);
+    transition: all .5s;
 }
-
-.hamburger::before{
-      transform: translateY(-20px);
-      transform-origin: right;
-}
-
-.hamburger::after{
-      transform: translateY(20px);
-      right: 0;
-      transform-origin: left; 
-}
-
-input[type="checkbox"]:checked + label .hamburger::before{
-      transform: translate(0) rotate(450deg);
-}
-
-input[type="checkbox"]:checked + label .hamburger::after{
-      transform: translate(0) rotate(450deg);
-}
-
-input[type="checkbox"]:checked + label .hamburger{
-      transform: rotate(45deg);
+.container a:hover ~ .bg{
+    width: 85%;
 }

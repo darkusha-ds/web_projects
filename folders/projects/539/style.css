@@ -1,71 +1,120 @@
-*{ margin: 0; padding: 0; box-sizing: border-box; }
-		
-body{
-   margin: 0;
-   min-height: 100vh;
-   display: flex;
-   justify-content: center;
-   align-items: center;
-   background-color: #eee;
+ body,html
+{
+    background: #ebecf0;
+}
+body,p,input,select,textarea,button
+{
+    font-family: 'montserrat',sans-serif;
+    letter-spacing: -0.2px;
+    font-size: 16px;
+}
+div,p
+{
+    color: #babecc;
+    text-shadow: 1px 1px 1px #fff;
+}
+form
+{
+    padding: 16px;
+    width: 320px;
+    margin: 0 auto;
+}
+.segment
+{
+    padding: 32px 0;
+    text-align: center;
+}
+button,input
+{
+    border: 0;
+    outline: 0;
+    font-size: 16px;
+    border-radius: 320px;
+    padding: 16px;
+    background: #ebecf0;
+    text-shadow: 1px 1px 0 #fff;
+}
+label
+{
+    display: block;
+    margin-bottom: 24px;
+    width: 100%;
+}
+input
+{
+    margin-right: 8px;
+    box-shadow: inset 2px 2px 5px #babecc, inset -5px -5px 10px #fff;
+    width: 100%;
+    box-sizing: border-box;
+    transition: all 0.2s ease-in-out;
+    appearance: none;
+}
+input:focus
+{
+    box-shadow: inset 1px 1px 2px #babecc, inset 1px -1px 2px #fff;
+}
+button
+{
+    color: #61677c;
+    font-weight: bold;
+    box-shadow: -5px -5px 20px #fff, 5px 5px 20px #babecc;
+    transition: all 0.2s ease-in-out;
+    cursor: pointer;
+    font-weight: 600;
+}
+button:hover
+{
+    box-shadow: -2px -2px 5px #fff, 2px 2px 5px #babecc;
+}
+button:active
+{
+    box-shadow: 1px 1px 2px #fff, -1px -1px 2px #babecc;
+}
+button .fa
+{
+    margin-right: 8px;
+    font-size: 20px;
+    font-weight: bold;
+}
+button.unit
+{
+    border-radius: 8px;
+    line-height: 0;
+    width: 48px;
+    height: 48px;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 8px;
+    font-size: 19.2px;
+}
+button.unit .fa
+{
+    margin-right: 0;
+}
+button.red
+{
+    display: block;
+    width: 100%;
+    color: #ae1100;
 }
 
-.container{
-   width: 400px; height: 300px;
-   position: relative;
-   box-shadow: 0 0 20px rgba(0,0,0,0.3);
-   cursor: pointer;
-   border-radius: 3px;
-   overflow: hidden;
-}
 
-.details,.image{
-   width: 100%; height: 100%;
-   position: absolute;
-   top: 0; left: 0;
-}
 
-.image{
-   display: flex;
-   perspective: 1500px;
-}
 
-.details{
-   background-color: #ff5b64;
-}
 
-h1{
-   position: absolute;
-   top: 50%; left: 50%;
-   transform: translate(-50%,-50%);
-   color: #fff;
-   text-transform: capitalize;
-   font-family: 'Century Gothic';
-   white-space: nowrap;
-}
 
-li{
-   width: 50%; height: 100%;
-   list-style: none;
-   background: url("portrait.jpg") no-repeat;
-   background-size: cover;
-}
 
-.part1{
-     transition: all 0.5s;
-     transform-origin: left;
-}
 
-.part2{
-      background-position: -200px; /* width of container divided by
-                              number of li that is 400px/2 */        
-      transition: all 0.5s;
-      transform-origin:right;
-}
 
-.container:hover .part1{
-      transform: rotateY(98deg);
-}
 
-.container:hover .part2{
-      transform: rotateY(-98deg);
-}
+
+
+
+
+
+
+
+
+
+

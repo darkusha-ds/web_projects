@@ -1,96 +1,76 @@
- body
-{
-    background: #111;
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
 }
-.container {
-  width: 200px;
-  height: 200px;
-  display: inline-block;
-  overflow: hidden;
-margin-top: 220px;
-    margin-left: 550px;
-}
-.loader {
-  width: 100%;
-  height: 100%;
-  position: relative;
-  transform: translateZ(0) scale(1);
-  backface-visibility: hidden;
-  transform-origin: 0 0; 
-}
-.loader div
-{
-    box-sizing: content-box;
-}
-.loader > div > div > div {
+.main-container{
   position: absolute;
-  left: 30px;
-  top: 30px;
-  width: 70px;
-  height: 70px;
-  border-radius: 70px 0 0 0;
-  transform-origin: 100px 100px;
+  top:50%;
+  left:50%;
+  transform:translate(-50%,-50%);
+  width:320px;
+  height:430px;
+  background:url(MovieImg.jpg) center / cover;
+  box-shadow:0 7px 14px rgba(0,0,0,.3);
 }
-.loader > div > div {
-  transform-origin: 100px 100px;
-  animation: loader 3.03s linear infinite;
-  opacity: 0.8;
+.overlay{
+  position: absolute;
+  top:0;
+  width:100%;
+  height:100%;
+  background:linear-gradient(to bottom, transparent,transparent,#121212 70%);
+  transition:.7s ease;
+  opacity:0;
 }
-.loader > div div:nth-child(1)
-{
-    animation-duration: 0.75s;
+.main-container:hover .overlay{
+  opacity:1;
 }
-.loader > div div:nth-child(1) > div
-{
-    background: #e15b64;
-    transform: rotate(0);
+.content{
+  position: absolute;
+  bottom:0;
+  width:100%;
+  height:230px;
+  color:#fff;
+  font-family: 'Poppins', sans-serif;
+  padding:0 10px;
+  display:flex;
+  flex-direction:column;
+  justify-content:space-evenly;
 }
-.loader > div div:nth-child(2)
-{
-    animation-duration: 1.01s;
+#name{
+  font-size:18px;
 }
-.loader > div div:nth-child(2) > div
-{
-    background: #f47e60;
-    transform: rotate(0);
+.text{
+  font-size:12px;
+  color:#f9c80e;
 }
-.loader > div div:nth-child(3)
-{
-    animation-duration: 1.51s;
+#duration{
+  color:#fff;
+  padding:3px 6px;
+  margin-left:5px;
+  border:1px solid rgba(255,255,255,.6);
+  border-radius:3px;
+  font-size:11px;
 }
-.loader > div div:nth-child(3) > div
-{
-    background: #f8b26a;
-    transform: rotate(0);
+.rating{
+  font-size:12px;
+  color:#f9c80e;
 }
-.loader > div div:nth-child(4)
-{
-    animation-duration: 3.03s;
+.rating span{
+  color:#fff;
 }
-.loader > div div:nth-child(4) > div
-{
-    background: #abbd81;
-    transform: rotate(0);
+.cast{
+  font-size:12px;
 }
-@keyframes loader
-{
-    0%
-    {
-        transform: rotate(0deg);
-    }
-    100%
-    {
-        transform: rotate(360deg);
-    }
+button{
+  height:40px;
+  border:none;
+  border-radius:20px;
+  background:#f9c80e;
+  font-size:15px;
+  font-family: 'Poppins', sans-serif;
+  font-weight:600;
 }
-
-
-
-
-
-
-
-
-
-
-
+.fa-play{
+  margin-left:5px;
+}

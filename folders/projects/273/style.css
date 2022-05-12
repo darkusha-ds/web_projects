@@ -1,87 +1,64 @@
-body {
-  margin: 0;
-  padding: 0;
-  font-family: sans-serif;
-  background-image: url(1.png);
-  background-size: cover;
-  background-attachment: fixed;
+
+.lines {
+    padding-Left: 10px;
+    font-size: 20px;
 }
-.login-form {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 380px;
-  height: 420px;
-  padding: 40px;
-  transform: translate(-50%, -50%);
-  box-sizing: border-box;
-  background: rgba( 255, 255, 255, 0.25 );
-  box-shadow: 0 5px 22px 0 rgba(209, 211, 233, 0.37);
-  backdrop-filter: blur( 4px );
-  border-radius: 10px;
-  border: 1px solid rgba( 255, 255, 255, 0.18 );
+
+#other {
+    display: none;
 }
-.login-form h2 {
-  margin: 0 0 50px;
-  text-transform: uppercase;
-  font-size: 32px;
-  color: #fff;
-  padding: 0;
-  text-align: center;
+
+#text1 {
+    color: royalblue;
+    font-family: arial;
+    padding-Left: 14px;
+    font-size: 16px;
 }
-.login-form .user-box {
-  position: relative;
+
+#text2 {
+    font-family: arial;
+    padding-Left: 14px;
+    font-size: 16px;
 }
-.login-form .user-box input {
-  width: 100%;
-  padding: 10px 0;
-  font-size: 16px;
-  color: #fff;
-  margin-bottom: 30px;
-  border: none;
-  border-bottom: 1px solid #fff;
-  outline: none;
-  background: transparent;
+
+.avatar {
+    float: right;
+    border-radius: 100px;
 }
-.login-form .user-box label {
-   position: absolute;
-   top: 0;
-   left: 0;
-   padding: 10px 0;
-   font-size: 16px;
-   color: #fff;
-   pointer-events: none;
-   transition: .5s;
-}
-.login-form .user-box input:focus ~ label,
-.login-form .user-box input:valid ~ label {
-  top: -20px;
-  left: 0;
-  color: #c0c0c0;
-  font-size: 12px;
-}
+
 a {
-  width: 200px;
-  position: relative;
-  display: inline-block;
-  padding: 10px 20px;
-  color: #111;
-  text-transform: uppercase;
-  font-weight: 600;
-  text-decoration: none;
-  transition: .5s;
-  letter-spacing: 3px;
-  margin: 40px 40px;
-  overflow: hidden;
-  font-size: 25px;
-  text-align: center;
-  box-sizing: border-box;
-  background: rgba( 255, 255, 255, 0.25 );
-  box-shadow: 0 5px 22px 0 rgba(209, 211, 233, 0.37);
-  backdrop-filter: blur( 4px );
-  border-radius: 10px;
-  border: 1px solid rgba( 255, 255, 255, 0.18 );
+    line-height: 2;
+    padding: 20px;
+    color:royalblue;
+    font-size:13px;
 }
-a:hover {
-  transform: scale(1.1);
+
+.bottom {
+    font-family: arial;
+    text-align: center;
+}
+
+.imgs {
+    text-align: center;
+}
+
+input {
+    margin: 4px;
+    border-radius: 100px;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #999;
+    width: 60%;
+}
+
+input:focus {
+    outline: none;
+}
+
+.material-icons {
+    padding: 8px;
+    color: white;
+    font-size:30px;
+    border-radius: 100px;
+    background: royalblue;
 }

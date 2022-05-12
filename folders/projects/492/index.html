@@ -1,30 +1,134 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-	<title> Slider Using Vanilla JS </title>
-
-<!-- Embedding fontawesome icons CDN -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" />
-
-<link rel="stylesheet" href="style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="css/style.css">
 </head>
+
 <body>
 
-<div class="container">
-	<div class="slider-container">
-	  <button class="prev"><i class="fas fa-chevron-left"></i></button>
-	  <button class="next"><i class="fas fa-chevron-right"></i></button>
-	  <div class="slider">
-		<div class="image"> <img src="dbz1.png"> </div>
-		<div class="image"> <img src="dbz2.png"> </div>
-		<div class="image"> <img src="dbz3.jpg"> </div>
-		<div class="image"> <img src="dbz4.jpg"> </div>
-		<div class="image"> <img src="dbz5.jpg"> </div>
-		<div class="image"> <img src="dbz6.jpg"> </div>
-	  </div>
+    <div class="header">
+        <h1>Blog</h1>
     </div>
-</div>
 
-<script src="main.js"></script>
+    <div id="navbar">
+        <div class="items">
+            <a class="active" href="javascript:void(0)">Home</a>
+            <a href="javascript:void(0)">About</a>
+            <a href="javascript:void(0)">Contact</a>
+        </div>
+        <button>Follow Now</button>
+    </div>
+
+    <div class="txt">
+        <h4>Lorem ipsum dolor</h4>
+        <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Porro necessitatibus, dolorum officiis delectus,
+            voluptates culpa magni sed dolor saepe laudantium minima earum hic doloremque similique tempora non qui
+            veniam quo!
+        </p>
+        <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Porro necessitatibus, dolorum officiis delectus,
+            voluptates culpa magni sed dolor saepe laudantium minima earum hic doloremque similique tempora non qui
+            veniam quo!
+        </p>
+        <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Porro necessitatibus, dolorum officiis delectus,
+            voluptates culpa magni sed dolor saepe laudantium minima earum hic doloremque similique tempora non qui
+            veniam quo!
+        </p>
+        <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Porro necessitatibus, dolorum officiis delectus,
+            voluptates culpa magni sed dolor saepe laudantium minima earum hic doloremque similique tempora non qui
+            veniam quo!
+        </p>
+        <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Porro necessitatibus, dolorum officiis delectus,
+            voluptates culpa magni sed dolor saepe laudantium minima earum hic doloremque similique tempora non qui
+            veniam quo!
+        </p>
+        <h3>
+            Frontend Everything x Creative Siddharth
+        </h3>
+
+        <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Porro necessitatibus, dolorum officiis delectus,
+            voluptates culpa magni sed dolor saepe laudantium minima earum hic doloremque similique tempora non qui
+            veniam quo!
+        </p>
+        <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Porro necessitatibus, dolorum officiis delectus,
+            voluptates culpa magni sed dolor saepe laudantium minima earum hic doloremque similique tempora non qui
+            veniam quo!
+        </p>
+        <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Porro necessitatibus, dolorum officiis delectus,
+            voluptates culpa magni sed dolor saepe laudantium minima earum hic doloremque similique tempora non qui
+            veniam quo!
+        </p>
+        <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Porro necessitatibus, dolorum officiis delectus,
+            voluptates culpa magni sed dolor saepe laudantium minima earum hic doloremque similique tempora non qui
+            veniam quo!
+        </p>
+        <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Porro necessitatibus, dolorum officiis delectus,
+            voluptates culpa magni sed dolor saepe laudantium minima earum hic doloremque similique tempora non qui
+            veniam quo!
+        </p>
+        <h3>
+            Frontend Everything x Creative Siddharth
+        </h3>
+
+        <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Porro necessitatibus, dolorum officiis delectus,
+            voluptates culpa magni sed dolor saepe laudantium minima earum hic doloremque similique tempora non qui
+            veniam quo!
+        </p>
+        <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Porro necessitatibus, dolorum officiis delectus,
+            voluptates culpa magni sed dolor saepe laudantium minima earum hic doloremque similique tempora non qui
+            veniam quo!
+        </p>
+        <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Porro necessitatibus, dolorum officiis delectus,
+            voluptates culpa magni sed dolor saepe laudantium minima earum hic doloremque similique tempora non qui
+            veniam quo!
+        </p>
+        <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Porro necessitatibus, dolorum officiis delectus,
+            voluptates culpa magni sed dolor saepe laudantium minima earum hic doloremque similique tempora non qui
+            veniam quo!
+        </p>
+        <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Porro necessitatibus, dolorum officiis delectus,
+            voluptates culpa magni sed dolor saepe laudantium minima earum hic doloremque similique tempora non qui
+            veniam quo!
+        </p>
+        <h3>
+            Frontend Everything x Creative Siddharth
+        </h3>
+
+    </div>
+
+    <script>
+        window.onscroll = function () {
+            stickynav()
+        };
+
+        var navbar = document.getElementById("navbar");
+        var sticky = navbar.offsetTop;
+
+        function stickynav() {
+            if (window.pageYOffset >= sticky) {
+                navbar.classList.add("sticky")
+            } else {
+                navbar.classList.remove("sticky");
+            }
+        }
+    </script>
+
 </body>
+
 </html>

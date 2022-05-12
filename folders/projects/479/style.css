@@ -1,63 +1,112 @@
-body{
-  height:100vh;
-  display:flex;
-  align-items:center;
-  justify-content:center;
+@import url("https://fonts.googleapis.com/css2?family=Rubik&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
-*{
-  padding:0;
-  margin:0;
-  box-sizing:border-box;
+body {
+  height: 100vh;
+  display: grid;
+  place-items: center;
+  background: #a8a9bd;
+  font-family: "Rubik", sans-serif;
+  overflow: hidden;
 }
-.container{
-  width:300px;
-  height:440px;
-  background:#fff;
-  display:flex;
+li {
+  list-style: none;
+}
+.main {
+  width: 80%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.card {
+  display: flex;
+  justify-content: center;
+  position: relative;
+  align-items: center;
   flex-direction: column;
-  justify-content:space-evenly;
-  padding:0 15px;
-  font-family: 'Poppins', sans-serif;
+  margin-right: 0.7rem;
+  height: 16rem;
+  width: 20rem;
+  border-radius: 8px;
+  background-color: tomato;
 }
-.intro-text p{
-  margin:5px 0;
-  font-size:13px;
+.card:nth-child(1) {
+  background: linear-gradient(to bottom, #ea4c89, #be1657);
 }
-.intro-text p a{
-  color:#121212;
+.card:nth-child(2) {
+  background: linear-gradient(to bottom, #053eff, #032081);
 }
-form{
-  height:330px;
-  display:flex;
-  flex-direction:column;
-  justify-content:space-evenly;
+.card:nth-child(3) {
+  background: linear-gradient(to bottom, #e60023, #740113);
 }
-form input{
-  padding:12px 7px;
-  outline:none;
-  border:1px solid #8c8f94;
-  font-family: 'Poppins', sans-serif;
+.card i {
+  display: block;
+  font-size: 8rem;
+  color: #fff;
+  transition: 0.5s;
 }
-form input:focus{
-  border-color:#16056b;
+.card:hover i {
+  font-size: 6rem;
+  transform: translateY(-30px);
 }
-.check-box{
-  display:flex;
+.card__details {
+  position: absolute;
+  bottom: 0;
+  margin: 1.2rem 0;
+  transition: 0.5s;
 }
-.check-box label{
-  font-size:10px;
-  padding:0 5px;
+.card__details::before {
+  content: "";
+  position: absolute;
+  left: 300px;
+  top: -40px;
+  height: 2px;
+  width: 100%;
+  margin: 0.7rem 0;
+  border-radius: 20px;
+  background: #fff;
+  opacity: 0;
+  transition: 0.5s;
 }
-.check-box label a{
-  color:#121212;
+.card:hover .card__details::before {
+  left: 0;
+  opacity: 1;
 }
-form button{
-  border:none;
-  outline:none;
-  padding:11px 0;
-  background:#16056b;
-  color:#fff;
-  font-size:18px;
-  box-shadow:0 7px 15px rgba(22,5,107,.3);
-  font-family: 'Poppins', sans-serif;
+.card__details ul {
+  display: flex;
+}
+.card__details ul li {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 0 0.7rem;
+  opacity: 0;
+  transition: 0.5s;
+  transform: translateY(70px);
+}
+.card__details ul li p:first-child {
+  font-size: 1.2rem;
+  color: #fff;
+}
+.card__details ul li p:last-child {
+  color: rgba(255, 255, 255, 0.438);
+}
+.card:hover .card__details ul li:nth-child(1) {
+  transition-delay: 0.5s;
+  transform: translateY(0);
+  opacity: 1;
+}
+.card:hover .card__details ul li:nth-child(2) {
+  transition-delay: 0.8s;
+  transform: translateY(0);
+  opacity: 1;
+}
+.card:hover .card__details ul li:nth-child(3) {
+  transition-delay: 1s;
+  transform: translateY(0);
+  opacity: 1;
 }

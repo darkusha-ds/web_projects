@@ -1,104 +1,189 @@
+@import url("https://fonts.googleapis.com/css?family=Poppins:400,500,600,700,800,900");
 body {
-   font-family:'Poppins', sans-serif;
+  font-family: "Poppins", sans-serif;
+  font-weight: 300;
+  font-size: 15px;
+  line-height: 1.7;
+  color: #343434;
+  background-color: #000;
+  overflow-y: hidden;
 }
-*{
-  padding:0;
-  margin:0;
-  box-sizing:border-box; 
+a {
+  cursor: pointer;
 }
-.container{
-  position:absolute; 
-  top:50%;
-  left:50%;
-  transform:translate(-50%,-50%);
-  width:270px; 
-  height:360px; 
-  background:#fff; 
-  box-shadow:0 10px 20px rgba(179,179,179,.6);
-  border-radius:10px; 
-  overflow:hidden; 
+a:hover {
+  text-decoration: none;
 }
-.section{
-  width:100%;
-  display:flex; 
-  flex-direction:column; 
-  align-items:center; 
-  justify-content:space-evenly; 
+.section {
+  position: relative;
+  width: 100%;
+  display: block;
 }
-.section p{
-   color:#bfbfbf;
-   font-size:.7rem;
+.full-height {
+  min-height: 100vh;
 }
-.first-box{
-  position:relative; 
-  height:170px; 
-  padding-top:1rem; 
+.over-hide {
+  overflow: hidden;
 }
-.bubble{
-  position:absolute; 
-  top:10px;left:5px;
-  width:140px; 
-  height:140px; 
-  background:#7367F0; 
-border-radius:50%;
- z-index:-1;
- opacity:.2;
+.padding-tb {
+  padding: 100px 0;
 }
-.bubble-two{
-  top:120px;left:190px; 
-  width:50px; 
-  height:50px; 
+[type="radio"]:checked,
+[type="radio"]:not(:checked) {
+  position: absolute;
+  left: -9999px;
 }
-.profile-pic{
-  position:relative; 
-  width:70px;
-  height:70px; 
-  background:#fff; 
-  border-radius:25px; 
+.checkbox:checked + label,
+.checkbox:not(:checked) + label {
+  position: relative;
+  cursor: pointer;
+  margin: 0 auto;
+  text-align: center;
+  margin-right: 6px;
+  margin-left: 6px;
+  display: inline-block;
+  width: 50px;
+  height: 50px;
+  border: 3px solid #bdc3c7;
+  background-size: cover;
+  background-position: center;
+  box-sizing: border-box;
+  transition: all 0.2s ease;
+  background-image: url(avengers.jpg);
+  animation: border-transform 6s linear infinite alternate forwards;
+  animation-play-state: paused;
 }
-.profile-pic::after, .profile-pic::before{
-  content:"";
-  position:absolute; 
+.checkbox.scnd + label {
+  background-image: url(spider.png);
 }
-.profile-pic::before{
-  top:0;left:0;
-  width:100%;
-  height:100%;
-  background:url("https://images.pexels.com/photos/2379005/pexels-photo-2379005.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500") center / cover; 
-  border-radius:25px; 
-  transform:scale(.9);
+.checkbox.thrd + label {
+  background-image: url(strange.jpg);
 }
-.profile-pic::after{
-  top:50%;left:50%;
-  transform:translate(-50%,-50%);
-  width:75px;
-  height:75px;
- background:linear-gradient(135deg, #CE9FFC 0%,#7367F0 100%);
-  z-index:-1;
-  border-radius:27px; 
+.checkbox.foth + label {
+  background-image: url(captain.jpg);
 }
-.second-box{
-  height:190px; 
-  justify-content:space-evenly; 
-  align-items:center; 
-  padding:0 1.1rem; 
+.checkbox:checked + label {
+  box-shadow: 0 8px 25px 0 rgba(16, 39, 112, 0.3);
+  transform: scale(1.3);
+  -webkit-animation-play-state: running;
+  -moz-animation-play-state: running;
+  animation-play-state: running;
 }
-.about-header{
-  width:100%;
+@keyframes border-transform {
+  0%,
+  100% {
+    border-radius: 63% 37% 54% 46% / 55% 48% 52% 45%;
+  }
+  14% {
+    border-radius: 40% 60% 54% 46% / 49% 60% 40% 51%;
+  }
+  28% {
+    border-radius: 54% 46% 38% 62% / 49% 70% 30% 51%;
+  }
+  42% {
+    border-radius: 61% 39% 55% 45% / 61% 38% 62% 39%;
+  }
+  56% {
+    border-radius: 61% 39% 67% 33% / 70% 50% 50% 30%;
+  }
+  70% {
+    border-radius: 50% 50% 34% 66% / 56% 68% 32% 44%;
+  }
+  84% {
+    border-radius: 46% 54% 50% 50% / 35% 61% 39% 65%;
+  }
 }
-.links{
-  width:220px; 
-  display:flex; 
-  justify-content:space-evenly; 
+.slider-height-padding {
+  padding-top: 440px;
 }
-.links a{
-  color:#bfbfbf; 
-  padding:.4rem .9rem;  
-  font-size:1.2rem; 
-  transition:.3s; 
-  border:1px solid transparent; 
+ul {
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: block;
+  width: 100%;
+  z-index: 100;
+  padding: 0;
+  margin: 0;
+  list-style: none;
 }
-.links a:hover{
-  color:#7367f0;
-  border-color:#7367f0;
+ul li {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  display: block;
+  z-index: 100;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  height: 400px;
+  border: 5px solid #bdc3c7;
+  background-size: cover;
+  background-position: center;
+  background-image: url(avengers.jpg);
+  border-radius: 50%;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+  font-weight: 900;
+  font-size: 24px;
+  letter-spacing: 2px;
+  line-height: 2.7;
+  color: #343434;
+  writing-mode: vertical-rl;
+  opacity: 0;
+  pointer-events: none;
+  box-shadow: 0 8px 25px 0 rgba(16, 39, 112, 0.1);
+  -webkit-transition: all 0.5s ease;
+  transition: all 0.5s ease;
+}
+ul li span {
+  mix-blend-mode: difference;
+}
+ul li:nth-child(2) {
+  background-image: url(spider.png);
+}
+ul li:nth-child(3) {
+  background-image: url(strange.jpg);
+}
+ul li:nth-child(4) {
+  background-image: url(captain.jpg);
+}
+.checkbox.frst:checked ~ ul li:nth-child(1) {
+  opacity: 1;
+  pointer-events: auto;
+  border-radius: 16px;
+}
+.checkbox.scnd:checked ~ ul li:nth-child(2) {
+  opacity: 1;
+  pointer-events: auto;
+  border-radius: 16px;
+}
+.checkbox.thrd:checked ~ ul li:nth-child(3) {
+  opacity: 1;
+  pointer-events: auto;
+  border-radius: 16px;
+}
+.checkbox.foth:checked ~ ul li:nth-child(4) {
+  opacity: 1;
+  pointer-events: auto;
+  border-radius: 16px;
+}
+@media (max-width: 767px) {
+  .slider-height-padding {
+    padding-top: 340px;
+  }
+  ul li {
+    height: 300px;
+    font-size: 13px;
+    letter-spacing: 1px;
+  }
+}
+@media (max-width: 575px) {
+  .slider-height-padding {
+    padding-top: 240px;
+  }
+  ul li {
+    height: 200px;
+  }
 }

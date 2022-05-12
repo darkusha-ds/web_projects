@@ -1,104 +1,60 @@
 *{
-	margin: 0;
-	padding: 0;
-	box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
+body{
+    position: relative;
+    min-height: 100vh;
+    background: #D5F8FF;
 
-body{ background-color: #111; }
-
-section{ padding: 20px 0; }
-
-.container{
-	width: 90%;
-	margin: 0 auto;
-	max-width: 1440px;
 }
-
-.container img{
-	display: block;
-	margin: 0 auto;
-	width: 150px;
+.share-btn i{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    height: 60px;
+    width: 60px;
+    line-height: 60px;
+    text-align: center;
+    font-size: 25px;
+    background: #ffff;
+    box-shadow: 0 0 10px 2px rgba(0, 0, 0, 0.1);
+    border-radius: 50%;
+    color: #64B7DB;
+    cursor: pointer;
 }
-
-.marvel-gallery{
-	margin-top: 50px;
-	display: grid;
-	grid-template-columns: 1fr 1fr 1fr 1fr;
-	grid-template-areas: 'item1 item1 item2 item3'
-						 'item4 item4 item2 item5'
-						 'item4 item4 item2 item6';
-	grid-gap: 10px;
+.share-btn > i{
+    z-index: 1;
+    background: rgba(0, 0, 0, 0.144);
+    color: #ffff;
 }
-
-.item{
-	background-position: center;
-	background-size: cover;
-	background-repeat: no-repeat;
-	min-height: 15rem;
+.share-btn i ~ a i{
+    opacity: 0;
+    pointer-events: none;
+    transition : all 0.4s;
 }
-
-.item1{
-	grid-area: item1;
-	background-image: url('character1.jpg');
+.share-btn i ~ a i:hover{
+    background-color: #64B7DB;
+    color: #ffff;
 }
-
-.item2{
-	grid-area: item2;
-	background-image: url("character2.jpg");
+#btn:checked ~ .share-btn a i{
+    opacity: 1;
+    pointer-events: all;
 }
-
-.item3{
-	grid-area: item3;
-	background-image: url('character3.png');
+#btn:checked ~ .share-btn a:nth-child(2) i{
+    transform: translate(-90px,-70px);
+    transition-delay: 0.2s;
 }
-
-.item4{
-	grid-area: item4;
-	background-image: url("character4.jpg");
+#btn:checked ~ .share-btn a:nth-child(3) i{
+    transform: translate(-30px,-110px);
+    transition-delay: 0.4s;
 }
-
-.item5{
-	grid-area: item5;
-	background-image: url('character5.jpg');
+#btn:checked ~ .share-btn a:nth-child(4) i{
+    transform: translate(30px,-70px);
+    transition-delay: 0.6s;
 }
-
-.item6{
-	grid-area: item6;
-	background-image: url('character6.png');
-}
-
-
-@media (max-width:768px){
-	.marvel-gallery{
-		grid-template-columns: 1fr 1fr 1fr;
-		grid-template-areas: 'item1 item1 item2'
-							 'item3 item4 item2'
-							 'item5 item6 item2';
-	}
-}
-
-@media (max-width:576px){
-	.marvel-gallery{
-		grid-template-columns: 1fr 1fr;
-		grid-template-areas: 'item1 item3'
-							 'item2 item4'
-							 'item2 item5'
-							 'item2 item6';
-	}
-}
-
-@media (max-width:360px){
-	.container img{ width: 100px; }
-
-	.marvel-gallery{
-		grid-template-columns: 1fr;
-		grid-template-areas: 'item1' 
-							 'item2' 
-							 'item3'
-							 'item4' 
-							 'item5' 
-							 'item6';
-	}
-	
-	.item2{ background-position: top; }
+#btn{
+    display: none;
 }

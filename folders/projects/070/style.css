@@ -1,66 +1,53 @@
-*{
-    margin: 0;
-    padding: 0;
+@import url("https://fonts.googleapis.com/css2?family=Poppins&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
 }
-body{
-    background: linear-gradient(to left,#444444 50%,#161616 50%);
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
 }
-.main{
-    width: 100%;
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+.btn {
+  width: 150px;
+  height: 45px;
+  font-size: 1.1em;
+  border: none;
+  background: none;
+  color: rgb(56, 56, 56);
+  cursor: pointer;
+  position: relative;
+  z-index: 1;
 }
-.ball{
-    width: 60px;
-    height: 60px;
-    background: linear-gradient(to top,#aa56e2 50%,#c964ff 50%);
-    border-radius: 50%;
-    position: relative;
-    overflow: hidden;
-    animation: animate 1s linear infinite;
+.btn:hover {
+  color: rgb(255, 255, 255);
 }
-@keyframes animate{
-    0%{
-        transform: translateY(0) rotate(0);
-    }
-    50%{
-        transform: translateY(-150px) rotate(180deg);
-    }
-    100%{
-        transform: translateY(0) rotate(360deg);
-    }
+.btn::before,
+.btn::after {
+  content: "";
+  position: absolute;
+  top: 0%;
+  left: 0%;
+  width: 100%;
+  height: 100%;
+  background: rgba(128, 128, 128, 0.096);
+  backdrop-filter: blur(10px);
+  z-index: -1;
+  transition: all 0.4s;
 }
-.ball::before{
-    content: "";
-    position: absolute;
-    top: 42%;
-    width: 100%;
-    height: 10px;
-    background: rgba(255, 255, 255, 0.292);
+.btn::after {
+  z-index: -2;
+  transition: all 0.4s;
 }
-.shadow{
-    position: absolute;
-    transform: translateY(32px);
-    width: 50px;
-    height: 10px;
-    z-index: -1;
-    background: rgb(140, 140, 140);
-    border-radius: 50%;
-    animation: anim 1s linear infinite;
+.btn:hover::before {
+  background: rgba(0, 0, 0, 0.315);
+  border-radius: 10px;
 }
-@keyframes anim{
-    0%{
-        width: 50px;
-        opacity: 0.8;
-    }
-    50%{
-        width: 20px;
-        opacity: 0.3;
-    }
-    100%{
-        width: 50px;
-        opacity: 0.8;
-    }
+.btn:hover::after {
+  background: linear-gradient(to right, #2b32b2, #1488cc);
+  border-radius: 10px;
+  transform:  scale(1.07, 1.2) rotateX(180deg);
 }

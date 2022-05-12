@@ -1,24 +1,24 @@
-.container{
- 	  position: absolute;
- 	  top: 0; left: 0;
- 	  width: 100%; height: 100%;
- 	  cursor: none;
+body{
+    margin: 0; /* overriding the default margin */
 }
 
-.image, .torch{
- 	  position: absolute;
- 	  top: 0; left: 0;
- 	  width: 100%; height: 100%;
- 	  background-image: url("dbz.jpg");
- 	  background-size: cover;
- 	  background-repeat: no-repeat;
- 	  background-position: center;
+header{
+     position: relative;
+     background-color: #111;
+     height: 100vh;
+     clip-path: polygon(0 0, 100% 0, 100% 85vh, 0 100%);
 }
 
-.image{
- 	  filter: brightness(15%);
+h1{
+      position: absolute;
+      top: 44%; left: 50%;
+      transform: translate(-50%,-50%);
+      text-transform: uppercase;
+      font-family: verdana;
+      color: white;
+      font-size: 21px;
 }
 
-.torch{
- 	  clip-path: circle(80px at 0 0);
+#color{
+      color: #da4747;
 }

@@ -1,97 +1,67 @@
-body {
-    background: #1c2b2d;
-    font-family: "Poppins", sans-serif;
-    margin: 100px;
+*{
+  box-sizing:border-box; 
+  padding:0;
+  margin:0;
 }
-a {
-    text-decoration: none;
+.container{
+  position:absolute; 
+  top:50%;
+  left:50%;
+  transform:translate(-50%,-50%);
+  display:flex; 
+  flex-direction:column; 
 }
-.periodic-table {
-    display: grid;
-    grid-template-columns: repeat(9, 100px);
-    grid-template-rows: repeat(4, 100px);
-    grid-gap: 10px;
-    margin: auto;
-    max-width: 1200px;
-    justify-content: center;
+input{
+ display:none; 
 }
-.periodic-element {
-    padding: 4px;
-    position: relative;
-    z-index: 1;
-    cursor: default;
-    transition: all 0.3s ease;
+label{
+  position:relative; 
+   width:290px;
+   height:50px;
+   background:#ededed;
+   margin:.1rem; 
+   border-radius:3px; 
+   font-family:'Poppins', sans-serif;
+   display:flex; 
+   align-items:center; 
+   justify-content:space-between;
+   padding:0 1.3rem; 
+   overflow:hidden; 
 }
-.periodic-element .periodic-element-inner {
-    background: #202e38;
-    padding: 10px 15px;
-    width: calc(100% - 30px);
-    height: calc(100% - 20px);
-    transition: inherit;
+label::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 320px;
+  height: 70px;
+  background:#01cd42;
+  transition:.4s ease;
+  clip-path: circle(0px at 260px 25px)
 }
-.periodic-element .title {
-    font: 700 26.1538461538px "Poppins", sans-serif;
-    margin: 0.3em 0 0;
-    transition: 0.8s ease 600ms;
+.name{
+  z-index:1;
+  transition:.4s; 
 }
-.periodic-element .description {
-    font: 500 12px "Poppins", sans-serif;
-    margin-top: -0.2em;
+.icon{
+  display:block; 
+  width:25px;
+  height:25px;
+  border-radius:50%;
+  font-size:16px; 
+  color:#ededed; 
+  border:2px solid #dbdbdb;
+  z-index:1;
+  display:grid; 
+  place-items:center; 
 }
-.periodic-element:hover {
-    transform: scale(1.12);
-    z-index: 10;
+input:checked + label::after{
+ clip-path:circle(100%);
 }
-.periodic-element:hover .periodic-element-inner {
-    background: transparent;
+input:checked + label  .name{
+  color:#fff; 
 }
-.periodic-element:hover .title, .periodic-element:hover .description {
-    -webkit-text-fill-color: #222;
-}
-.periodic-element:hover:after {
-    top: 105%;
-    opacity: 1;
-}
-.periodic-element {
-    cursor: pointer;
-}
-.one {
-    background: linear-gradient(to bottom right, #f3f9a6 0%, #cbc634 100%);
-}
-.one .title, .one .description {
-    background: -webkit-linear-gradient(#f3f9a6, #cbc634);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-}
-.four {
-    background: linear-gradient(to bottom right, #fa7f72 0%, #ffc171 100%);
-}
-.four .title, .four .description {
-    background: -webkit-linear-gradient(#fa7f72, #ffc171);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-}
-.two {
-    background: linear-gradient(to bottom right, #37cfdc 0%, #5a88e5 100%);
-}
-.two .title, .two .description {
-    background: -webkit-linear-gradient(#37cfdc, #5a88e5);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-}
-.three {
-    background: linear-gradient(to bottom right, #58ac30 0%, #a7df62 100%);
-}
-.three .title, .three .description {
-    background: -webkit-linear-gradient(#58ac30, #a7df62);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-}
-.empty-space-1 {
-    grid-column: 3 / span 4;
-    grid-row: 1;
-}
-.empty-space-2 {
-    grid-column: 1;
-    grid-row: 4;
+input:checked + label  .icon{
+  border-color:#fff; 
+  color:#fff; 
 }

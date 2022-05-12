@@ -1,23 +1,21 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-     
-<!-- EMBEDDING THE FONTAWESOME ICONS -->
-  <script src="https://kit.fontawesome.com/e25b852c87.js" crossorigin="anonymous"></script>
-    <title>Profile Card Hover Effect</title>
-
-<link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="quotes.css">
+    <title>Quotes App</title>
 </head>
 <body>
+    <div>
+        <h1>Quote of the Day</h1>
+        <p>Press the button below to recieve a random quote!</p>
 
-<div class="container">
-  <img src="portrait.jpg">
-    <div class="details">
-        <i class="fas fa-info-circle"></i>
-        <p>Web Designer</p>
+        <button onclick="generateQuote();">New Quote</button>
+        <p id="quoteOutput"></p>
+        <p id="authorOutput"></p>
     </div>
-
-</div>
-
+    <script src="quotes.js"></script>
 </body>
 </html>

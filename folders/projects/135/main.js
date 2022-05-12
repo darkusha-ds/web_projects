@@ -1,21 +1,19 @@
-let counts = document.querySelectorAll('.count');
+const rippleBtn = document.querySelector('.ripple-button');
 
-counts.forEach((count)=>{
-	const updateCount = ()=>{
+rippleBtn.addEventListener('click',(e)=>{
 
-	let currentCount = parseInt(count.innerText);
-	let targetCount = count.getAttribute('data-target');
-	let increaseSpeed = 40;
-	let increaseCount = parseInt(targetCount / increaseSpeed);
-	
-		if(currentCount < targetCount){
-			count.innerText = currentCount + increaseCount;
-		}else{
-			count.innerText = targetCount;
-		}
-		setTimeout(updateCount,increaseSpeed);
-	}
+	let ripples = document.createElement('span');
 
-updateCount();
+	const horizontalPos = e.clientX - e.target.offsetLeft;
+	const verticalPos = e.clientY - e.target.offsetTop;
+
+	ripples.style.left = horizontalPos + 'px';
+	ripples.style.top = verticalPos + 'px';
+
+	rippleBtn.appendChild(ripples);
+
+	setTimeout(()=>{
+			ripples.remove();
+	},1500)
 
 })

@@ -1,51 +1,81 @@
 body{
-    background-color: #ddd;
-    margin: 0;
-    min-height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+      background-color: #111;
 }
 
-.btn{
-    text-decoration: none;
-    font-family: "Century Gothic";
-    color: #333;
-    padding: 16px 48px;
-    border:2px solid #333;
-    position: relative;
-    overflow: hidden;
-    transition: all 0.2s;
+a{
+      position:absolute;
+      top:50%; left:50%;
+      transform:translate(-50%,-50%);
+      text-transform: uppercase;
+      color: #fff;
+      font-family: verdana;
+      padding: 16px 48px;
+      text-decoration: none;
+      border:2px solid #fff;
+      overflow: hidden;
+      transition: color 1.2s;
 }
 
-.btn span{
-    position: absolute;
-    width: 25%; height: 100%;
-    top: 0;
-    background-color: #333;
-    border-radius: 50% 50% 0 0;
-    transform: translateY(150%);
-    transition: all 0.3s;
-    z-index: -1;
+a::before, a::after{
+      content: "";
+      position: absolute;
+      top: 50%;
+      width: 20px; height: 20px;
+      border-radius: 50%;
+      background-color: #fff; 
+      z-index: -1;
+      box-shadow: 0 10px 20px rgba(0,0,0,0.7);
 }
 
-.btn span:nth-child(1){ left: 0; }
-
-.btn span:nth-child(2){
-    left: 25%;
-    transition-delay: 0.1s;
+a::before{
+      transform: translate(-50%,-50%);
+      left: -30px;
 }
 
-.btn span:nth-child(3){
-    left: 50%;
-    transition-delay: 0.2s;
+a::after{
+      transform: translate(50%,-50%);
+      right: -30px;
 }
 
-.btn span:nth-child(4){
-    left: 75%;
-    transition-delay: 0.3s;
+a:hover::before{
+      animation: toRight 0.9s forwards;
 }
 
-.btn:hover span{ transform: translateY(0) scale(2); }
+a:hover::after{
+      animation: toLeft 0.9s forwards;
+}
 
-.btn:hover{ color: #ddd; }
+a:hover{
+      color: #111;
+}
+@keyframes toRight{
+            0%{
+                left:-20px;
+            }
+
+            50%{
+                width: 20px; height: 20px;
+                left: 50%;
+            }
+
+            100%{
+                width: 200px; height: 200px;
+                left: 50%;
+            }
+}
+
+@keyframes toLeft{
+            0%{
+                right:-20px;
+            }
+
+            50%{
+                width: 20px; height: 20px;
+                right:50%;
+            }
+
+            100%{
+                width: 200px; height: 200px;
+                right: 50%;
+            }
+}

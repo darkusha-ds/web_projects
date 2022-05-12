@@ -4,42 +4,30 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/uicons-regular-rounded/css/uicons-regular-rounded.css'>
+    <script src="https://kit.fontawesome.com/070428bd88.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="style.css">
-    <title>Button Animantion | Coderider</title>
-
+    <title>Glassmorphism Login in form</title>
 </head>
 <body>
-    <div class="box">
-        <div class="innerBox">
-            <button class="btn"><i class="fi-rr-plus-small"></i></button>
-            <div class="inputBox">
-                <input type="text" placeholder="Message">
-            </div>
-            <div class="icon_links">
-                <ul>
-                    <li><i class="fi-rr-video-camera"></i></li>
-                    <li><i class="fi-rr-camera"></i></li>
-                    <li><i class="fi-rr-picture"></i></li>
-                </ul>
-            </div>
-        </div>
-    </div>
+    <span class="animate" style="--count:6;"></span>
+    <span class="animate" style="--count:3;"></span>
+    <span class="animate" style="--count:5;"></span>
+    <span class="animate" style="--count:4;"></span>
+    <div class="login">
+        <h1>Login</h1>
+        <form class="form" method="post" action="#">
 
-    <script>
-        const box = document.querySelector(".box");
-        const btn = document.querySelector(".btn"); 
-        togglebtn = () => {
-            if(box.classList.contains("showMsg")){
-                box.classList.remove("showMsg");
-                box.classList.add("showLinks");
-            }else{
-                box.classList.remove("showLinks");
-                box.classList.add("showMsg");
-            }
-        };
-        btn.addEventListener("click",togglebtn);
-
-    </script>
+            <div class="field">
+              <input type="text" name="login" placeholder="Username" required/>
+              <i class="fa fa-user"></i>
+            </div>
+      
+            <div class="field">
+              <input type="password" name="password" placeholder="Password" required/>
+              <i class="fa fa-lock"></i>
+            </div>
+            <div class="submit"><input type="submit" name="sent" value="Login"></div>
+        </form>
+    </div>  
 </body>
 </html>

@@ -1,24 +1,127 @@
-/* styling the background */
+@import url('https://fonts.googleapis.com/css2?family=Baloo+Bhai+2:wght@400;600&display=swap');
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Baloo Bhai 2', cursive;
+}
 body{
-			background-color:black;
-
-		/* for centering the h1 within body */	
-			margin: 0;
-			height: 100vh;	
-			display: flex;
-			justify-content: center;
-			align-items: center;
+    position: relative;
+    height: 100vh;
+    background: #353b48;
+    overflow: hidden;
+}
+.showbtn{
+    height: 40px;
+    width: 90px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    outline: none;
+    border: none;
+    color: #00a8ff;
+    font-size: 18px;
+    font-weight: 600;
+    background: rgba( 255, 255, 255, 0.05 );    
+    border-radius: 5px;
+    box-shadow: 0 0 5px 2px rgba(0, 0, 0, 0.09);
+    cursor: pointer;
+    transition: background 0.5s ease;
+}
+.showbtn:hover{
+    background: rgba(255, 255, 255, 0.295);
+}
+.box{
+    position: absolute;
+    top: 20px;
+    right: 10px;
+    height: 70px;
+    width: 400px;
+    display: flex;
+    background: rgba( 255, 255, 255, 0.05 );    
+    border-radius: 5px;
+    box-shadow: 0 0 5px 2px rgba(0, 0, 0, 0.09);
+    
+}
+.box .icon{
+    height: 100%;
+    width: 100px;
+    display: flex;
+    align-items: center;
+    background: linear-gradient(to right, #00aaff46,transparent);
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+    color: #00a8ff;
+}
+.icon .fa{
+    margin-left: 20px;
+    font-size: 18px;
+}
+.box-details{
+    display: inline-block;
+    margin: auto 0;
+}
+.box-details  h4{
+    color: #00a8ff;
+}
+.box-details p{
+    font-size: 14px;
+    color: #f5f6fa;
+}
+.box-details p span{
+    font-size: 16px;
+    font-weight: 600;
+}
+.close{
+    display: flex;
+    margin: auto;
+    color: #fff;
+    cursor: pointer;
+}
+.box.hide{
+  display: none;
 }
 
-h1{
-
-	/* styling the h1 */
-			text-transform: uppercase;
-			font-size: 3rem;
-			font-family: verdana;
-
-	/* main stuffs here */
-			color: transparent;
-		    background-image: linear-gradient(109deg,red,yellow);
-			-webkit-background-clip: text;
+.box.show{
+    animation: bounce-show 2s ease;
 }
+@keyframes bounce-show{
+    0%{
+        transform: translateX(100%);
+        }
+        25%{
+        transform: translateX(0);
+        }
+        40%{
+        transform: translateX(26px);
+        }
+        55%{
+        transform: translateX(0);
+        }
+        65%{
+        transform: translateX(13px);
+        }
+        75%{
+        transform: translateX(0);
+        }
+        82%{
+        transform: translateX(6.5px);
+        }
+        87%{
+        transform: translateX(0);
+        }
+        93%{
+        transform: translateX(4px);
+        }
+        100%{
+        transform: translateX(0);
+        }
+           
+}
+
+
+
+
+
+

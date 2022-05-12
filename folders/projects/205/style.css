@@ -1,117 +1,79 @@
 body {
-  align-items: center;
-  display: flex;
-  font-family: sans-serif;
-  font-weight: 600;
-  font-size: 26px;
-  height: 100vh;
-  justify-content: center;
-  margin: 0;
+  background: #d1d8ec;
 }
-.container {
-  align-items: center;
-  background: #000;
-  border-radius: 40px;
-  box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
-  display: flex;
-  height: 80px;
-  justify-content: center;
+.masonry .grid {
+  display: inline-block;
+  margin-bottom: 16px;
   position: relative;
-  width: 200px;
 }
-.text {
-  color: white;
+.masonry .grid:before {
+  border-radius: 5px;
+  content: "";
   position: absolute;
-  transition: opacity 300ms;
-  user-select: none;
-  -moz-user-select: none;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.2);
 }
-.fingerprint {
-  /* height: 80px; */
-  left: -8px;
-  opacity: 0;
+.masonry .grid img {
+  width: 100%;
+  border-radius: 5px;
+}
+.masonry .grid__title {
+  font-size: 1.75rem;
+  font-weight: bold;
+  margin: 0px 0px 10px 0px;
+}
+.masonry .grid__author {
+  font-size: 0.9rem;
+  font-weight: 300;
+}
+.masonry .grid__link {
   position: absolute;
-  stroke: #777;
-  top: -9px;
-  transition: opacity 1ms;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
 }
-.fingerprint-active {
-  stroke: #fff;
+.masonry .grid__body {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  padding: 30px 30px;
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  font-family: "Apple Chancery", cursive;
 }
-.fingerprint-out {
-  opacity: 1;
+.masonry .grid__tag {
+  background-color: rgba(255, 255, 255, 0.8);
+  color: #333;
+  border-radius: 5px;
+  padding: 5px 15px;
+  margin-bottom: 5px;
 }
-.odd {
-  stroke-dasharray: 0px 50px;
-  stroke-dashoffset: 1px;
-  transition: stroke-dasharray 1ms;
+.mt-auto {
+  margin-top: auto;
 }
-.even {
-  stroke-dasharray: 50px 50px;
-  stroke-dashoffset: -41px;
-  transition: stroke-dashoffset 1ms;
+.masonry {
+  columns: 5;
+  column-gap: 16px;
 }
-.ok {
-  opacity: 0;
+@media (max-width: 1200px) {
+  .masonry {
+    columns: 4;
+  }
 }
-.active.container {
-  animation: 6s Container;
+@media (max-width: 992px) {
+  .masonry {
+    columns: 3;
+  }
 }
-.active .text {
-  opacity: 0;
-  animation: 6s Text forwards;
-}
-.active .fingerprint {
-  opacity: 1;
-  transition: opacity 300ms 200ms;
-}
-.active .fingerprint-base .odd {
-  stroke-dasharray: 50px 50px;
-  transition: stroke-dasharray 800ms 100ms;
-}
-.active .fingerprint-base .even {
-  stroke-dashoffset: 0px;
-  transition: stroke-dashoffset 800ms;
-}
-.active .fingerprint-active .odd {
-  stroke-dasharray: 50px 50px;
-  transition: stroke-dasharray 2000ms 1500ms;
-}
-.active .fingerprint-active .even {
-  stroke-dashoffset: 0px;
-  transition: stroke-dashoffset 2000ms 1300ms;
-}
-.active .fingerprint-out {
-  opacity: 0;
-  transition: opacity 300ms 4100ms;
-}
-.active .ok {
-  opacity: 1;
-  animation: 6s Ok forwards;
-}
-@keyframes Container {
-  0% { width: 200px }
-  6% { width: 80px }
-  71% { transform: scale(1); }
-  75% { transform: scale(1.2); }
-  77% { transform: scale(1); }
-
-  94% { width: 80px }
-  100% { width: 200px }
-}
-@keyframes Text {
-  0% { opacity: 1; transform: scale(1); }
-  6% { opacity: 0; transform: scale(0.5); }
-
-  94% { opacity: 0; transform: scale(0.5); }
-  100% { opacity: 1; transform: scale(1); }
-}
-@keyframes Ok {
-  0% { opacity: 0 }
-  70% { opacity: 0; transform: scale(0); }
-  75% { opacity: 1; transform: scale(1.1); }
-  77% { opacity: 1; transform: scale(1); }
-  92% { opacity: 1; transform: scale(1); }
-  96% { opacity: 0; transform: scale(0.5); }
-  100% { opacity: 0 }
+@media (max-width: 532px) {
+  .masonry {
+    columns: 2;
+  }
 }

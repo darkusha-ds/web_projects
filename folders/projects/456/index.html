@@ -1,58 +1,43 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title> PROFILE CARDS </title>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-										   scale=1.0">
-  
- <!-- embedding fontawesome icons -->
-<script src="https://kit.fontawesome.com/e25b852c87.js" crossorigin="anonymous"></script>
-
- <!-- embedding raleway font from google fonts -->
-<link href="https://fonts.googleapis.com/css2?family=Raleway:wght@300&display=swap" rel="stylesheet">
-
-<link rel="stylesheet" href="style.css">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/uicons-regular-rounded/css/uicons-regular-rounded.css'>
+    <link rel="stylesheet" href="style.css">
+    <title>Shopping cart | Coderiderr</title>
 </head>
-<body>	
-
-<div class="container">
-	<div class="card">
-		<img src="picture1.jpg" alt="">
-		<div class="details">
-			<h2>gwen yadav</h2>
-			<div class="social-media-list">
-				<a href="#"><i class="fab fa-facebook-f"></i></a>
-				<a href="#"><i class="fab fa-twitter"></i></a>
-				<a href="#"><i class="fab fa-instagram"></i></a>
-		    </div>
+<body>
+    <div class="container">
+        <div class="inputBox">
+            <input type="text" placeholder="Cart">
+            <i class="fi-rr-shopping-cart"></i>
+            <span>1</span>
         </div>
-   </div>
-
-   	<div class="card">
-		<img src="picture2.jpeg" alt="">
-		<div class="details">
-			<h2>julia singh</h2>
-			<div class="social-media-list">
-				<a href="#"><i class="fab fa-facebook-f"></i></a>
-				<a href="#"><i class="fab fa-twitter"></i></a>
-				<a href="#"><i class="fab fa-instagram"></i></a>
-			</div>
-		</div>
-	</div>
-
-	<div class="card">
-		<img src="picture3.jpeg" alt="">
-		<div class="details">
-			<h2>jaden kumar</h2>
-			<div class="social-media-list">
-				<a href="#"><i class="fab fa-facebook-f"></i></a>
-				<a href="#"><i class="fab fa-twitter"></i></a>
-				<a href="#"><i class="fab fa-instagram"></i></a>
-			</div>
-		</div>
-	</div>
-
-</div>
-
+        <div class="cart">
+            <div class="product">
+                <img src="shoes.png" alt="">
+                <div class="product-info">
+                    <h2>Media Comp</h2>
+                    <div class="product-detail">
+                        <span class="price">1000</span>
+                        <span class="quantity">2x</span>
+                    </div>
+                </div>
+            </div>
+                <div class="subtotal">
+                    <h3>Sub Total</h3>
+                    <p>Ext sales tax</p>
+                    <span>2000</span>
+                </div>
+                <div class="grandtotal">
+                    <h3>Grand Total</h3>
+                    <p>Inc. sales tax</p>
+                    <span>2000</span>
+                </div>
+            <button>BUY NOW</button>
+        </div>
+    </div>
 </body>
 </html>

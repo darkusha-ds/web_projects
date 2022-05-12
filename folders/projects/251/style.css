@@ -1,50 +1,45 @@
-*{
-    margin: 0;
-    padding: 0;
-}
 body{
-    background: #17267d;
-}
-.main{
-    width: 100%;
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-.circle{
-    width: 250px;
-    height: 250px;
-    background: linear-gradient(#001fd1 0%,#001bb3 10%,#00106c 50%,#000a40 100%);
-    border-radius: 50%;
-    position: relative;
-    z-index: -2;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-.circle::before{
-    content: '';
-    position: absolute;
-    width: 200px;
-    height: 200px;
-    background: linear-gradient(#677be9 10%,#00127b 50%,#000c4e 100%);
-    border-radius: 50%;
-    filter: blur(20px);
-}
-.circle::after{
-    content: '';
-    position: absolute;
-    width: 90%;
-    height: 60px;
-    background: rgba(0, 0, 0, 0.415);
-    border-radius: 50%;
-    bottom: -50%;
-    filter: blur(12px);
+  background-color: #ff7a00;
+/* for centering the .fold-image within body */
+  margin: 0;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
+.fold-image{
+  width:600px;
+  height: 400px;
+  display: flex;
+  filter: drop-shadow(0 10px 20px rgba(0,0,0,0.3));
+}
 
+.fold-image span{
+  width: 25%;
+  height: 100%;
+  background-image: url(mountains.jpg);
+  background-size: cover;
+  box-shadow: inset 20px 0 40px rgba(0,0,0,0.4);
+}
 
+.fold-image span:nth-child(odd){
+  transform: skewY(20deg);
+}
 
+.fold-image span:nth-child(even){
+  transform: skewY(-20deg);
+}
 
-
+.fold-image span:first-child{
+  background-position: 0;
+}
+.fold-image span:nth-child(2){
+  background-position: -150px;
+}
+.fold-image span:nth-child(3){
+  background-position: -300px;
+}
+.fold-image span:last-child{
+  background-position: -450px;
+}

@@ -1,44 +1,25 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Poppins&display=swap" rel="stylesheet">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sign up</title>
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
-    <div class="container">
-        <img src="shape.png" alt="img" width="350" class="img">
-        <div class="content">
-            <div class="intro-content">
-                <h2><span>Digi</span>Pay</h2>
-                <p>Create your account</p>
-                <p><span>It’s free and only takes a minute</span></p>
+<html>
+    <head>
+        <title>Figma Login</title>
+        <link rel="stylesheet" href="style.css"/>
+        <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+    </head>
+    <body>
+        <div class="container">
+            <div class="google-log">
+                <button>
+                    <img src="google-symbol.png"/>
+                    Continue with Google
+                </button>
             </div>
+            <p>or</p>
             <form>
-                <div class="input">
-                    <input type="text" name="name" id="name" required>
-                    <label  for="name">Name</label>
-                </div>
-                <div class="input">
-                    <input type="email" name="email" autocomplete="off" id="email" required>
-                    <label for="email">Email</label>
-                </div>
-                <div class="input">
-                    <input type="password" name="password" id="password" required>
-                    <label for="password">Password</label>
-                </div>
-                <div class="input">
-                    <button>Create an account</button>
-                </div>
+                <input type="text" placeholder="Email" name="email" autocomplete="off"/>
+                <input type="password" placeholder="Password" name="password"/>
+                <button>Log In</button>
             </form>
-            <div class="footer-content">
-                <p>By signing up, you agree to our Terms, Data Policy and Cookies Policy</p>
-                <p><a href="#">Already have an account?</a></p>
-            </div>
+            <a href="#">Forget password ?</a>
         </div>
-    </div>
-</body>
+    </body>
 </html>

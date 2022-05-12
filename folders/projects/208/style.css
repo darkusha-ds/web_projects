@@ -1,163 +1,147 @@
-@import url("https://fonts.googleapis.com/css?family=Open+Sans:400,700");
-  
+*,
+::after,
+::before {
+  box-sizing: border-box;
+}
 body {
-    background: #1b1b1b;
-    color: #fff;
-    font-family: "Open Sans",sans-serif;
-    font-weight: bold;
-    text-transform: uppercase;
-    text-shadow: 2px 2px 1px rgba(54,58,70,0.6);
+  background-color: #212121;
+  color: #fff;
+  font-family: monospace, serif;
+  letter-spacing: 0.05em;
 }
-.pricing-table {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%,-50%);
-    display: flex;
+h1 {
+  font-size: 23px;
 }
-.pricing-table .card {
-    width: 220px;
-    height: 370px;
-    padding: 25px;
-    border-radius: 1.5rem;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    position: relative;
-    overflow: hidden;
-    box-shadow: 2px 2px 46px -4px rgba(0,0,0,.6);
-    transition: all 0.2s ease-in-out;
+.form {
+  width: 300px;
+  padding: 64px 15px 24px;
+  margin: 0 auto;
 }
-.pricing-table .card:nth-child(1) {
-    background: #7f7fd5;
-    background: linear-gradient(to left,#91eae4,#86a8e7,#7f7fd5);
+.form .control {
+  margin: 0 0 24px;
 }
-.pricing-table .card:nth-child(1) .price::before {
-    content: "$30";
+.form .control input {
+  width: 100%;
+  padding: 14px 16px;
+  border: 0;
+  background: transparent;
+  color: #fff;
+  font-family: monospace, serif;
+  letter-spacing: 0.05em;
+  font-size: 16px;
 }
-.pricing-table .card:nth-child(1) .price {
-    font-size: 5rem;
+.form .control input:hover,
+.form .control input:focus {
+  outline: none;
+  border: 0;
 }
-.pricing-table .card:nth-child(1) .subscribe {
-    width: 230px;
-    height: 160px;
+.form .btn {
+  width: 100%;
+  display: block;
+  padding: 14px 16px;
+  background: transparent;
+  outline: none;
+  border: 0;
+  color: #fff;
+  letter-spacing: 0.1em;
+  font-weight: bold;
+  font-family: monospace;
+  font-size: 16px;
 }
-.pricing-table .card:nth-child(1) .subscribe h3 {
-    top: 1%;
-    left: 10%;
-    font-size: 1rem;
-    font-weight: 700;
+.block-cube {
+  position: relative;
 }
-.pricing-table .card .type {
-    margin-top: 20px;
-    margin-bottom: 2px;
-    letter-spacing: 0.1rem;
-    font-size: 20px;
+.block-cube .bg-top {
+  position: absolute;
+  height: 10px;
+  background: #020024;
+  background: linear-gradient(
+    90deg,
+    rgba(2, 0, 36, 1) 0%,
+    rgba(52, 9, 121, 1) 37%,
+    rgba(0, 212, 255, 1) 94%
+  );
+  bottom: 100%;
+  left: 5px;
+  right: -5px;
+  transform: skew(-45deg, 0);
+  margin: 0;
 }
-.pricing-table .card .price {
-    font-size: 8rem;
-    position: relative;
-    margin: 2px;
-    z-index: 2;
+.block-cube .bg-top .bg-inner {
+  bottom: 0;
 }
-.pricing-table .card .price span {
-    font-size: 1.8rem;
-    position: absolute;
-    left: -15%;
-    top: 65%;
+.block-cube .bg {
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  background: #020024;
+  background: linear-gradient(
+    90deg,
+    rgba(2, 0, 36, 1) 0%,
+    rgba(52, 9, 121, 1) 37%,
+    rgba(0, 212, 255, 1) 94%
+  );
 }
-.pricing-table .card .price::before {
-    position: absolute;
-    content: '';
-    color: rgba(255,255,255,0.06);
-    font-size: 10rem;
-    z-index: -1;
-    right: -30%;
-    bottom: 15%;
-    text-shadow: 0 0 0 rgba(51,55,69,0);
-    transition: all 1s ease-in-out;
+.block-cube .bg-right {
+  position: absolute;
+  background: #020024;
+  background: rgba(0, 212, 255, 1);
+  top: -5px;
+  z-index: 0;
+  bottom: 5px;
+  width: 10px;
+  left: 100%;
+  transform: skew(0, -45deg);
 }
-.pricing-table .card .plan {
-    font-size: 1.3rem;
-    position: relative;
-    margin-top: 10px;
-    margin-bottom: 5px;
+.block-cube .bg-right .bg-inner {
+  left: 0;
 }
-.pricing-table .card .plan:before, .pricing-table .card .plan:after {
-    position: absolute;
-    content: '';
-    width: 35px;
-    height: 2px;
-    background: #fff;
-    bottom: 40%;
-    transition: all 0.2s ease-out;
+.block-cube .bg .bg-inner {
+  transition: all 0.2s ease-in-out;
 }
-.pricing-table .card .plan:before {
-    right: 100%;
-    transform: translate(-50%,-50%);
+.block-cube .bg-inner {
+  background: #212121;
+  position: absolute;
+  left: 2px;
+  top: 2px;
+  right: 2px;
+  bottom: 2px;
 }
-.pricing-table .card .plan:after {
-    right: -100%;
-    transform: translate(-0%,-50%);
+.block-cube .text {
+  position: relative;
+  z-index: 2;
 }
-.pricing-table .card .details {
-    text-transform: capitalize;
+.block-input input {
+  position: relative;
+  z-index: 2;
 }
-.pricing-table .card .details li {
-    margin: 10px 0;
+.block-input input:focus ~ .bg-right .bg-inner,
+.block-input input:focus ~ .bg-top .bg-inner,
+.block-input input:focus ~ .bg-inner .bg-inner {
+  top: 100%;
+  background: rgba(255, 255, 255, 0.5);
 }
-.pricing-table .card .subscribe {
-    cursor: pointer;
-    position: absolute;
-    width: 200px;
-    height: 170px;
-    background: #fff;
-    border-radius: 20%;
-    right: -34%;
-    bottom: -27%;
-    transition: all 0.4s ease-in-out;
+.block-input .bg-top,
+.block-input .bg-right,
+.block-input .bg {
+  background: rgba(255, 255, 255, 0.5);
+  transition: background 0.2s ease-in-out;
 }
-.pricing-table .card .subscribe h3 {
-    text-shadow: 0 0 0;
-    text-decoration: none;
-    color: #fff;
-    position: absolute;
-    left: 8.5%;
-    color: #333745;
-    top: 8%;
-    font-size: 1.5rem;
-    text-align: center;
-    transition: all 0.4s ease-in-out;
+.block-input .bg-right .bg-inner,
+.block-input .bg-top .bg-inner {
+  transition: all 0.2s ease-in-out;
 }
-.pricing-table .card:hover {
-    transform: scale(1.02);
+.block-input:focus .bg-top,
+.block-input:hover .bg-top,
+.block-input:focus .bg-right,
+.block-input:hover .bg-right,
+.block-input:focus .bg,
+.block-input:hover .bg {
+  background: rgba(255, 255, 255, 0.8);
 }
-.pricing-table .card:hover .price::before {
-    animation: text-hover 1s ease-in-out infinite normal;
-}
-.pricing-table .card:hover .plan:before {
-    right: 90%;
-}
-.pricing-table .card:hover .plan::after {
-    right: -90%;
-}
-.pricing-table .card:hover .subscribe {
-    width: 100%;
-    right: 0%;
-    border-radius: 0%;
-}
-.pricing-table .card:hover .subscribe h3 {
-    left: 50%;
-    transform: translate(-50%,0);
-}
-@keyframes text-hover {
-    0% {
-        right: -30%;
-    }
-    50% {
-        right: -37%;
-    }
-    100% {
-        right: -30%;
-    }
+.block-cube.block-cube-hover:focus .bg .bg-inner,
+.block-cube-hover:hover .bg .bg-inner {
+  top: 100%;
 }

@@ -1,17 +1,19 @@
-var container = document.querySelector(".container");
-var image = ["Images/1630728390098.jpg","Images/photo-1610123598147-f632aa18b275.jpeg","Images/photo-1506744038136-46273834b3fb.jpeg","Images/1630728380447.jpg"];
-var index=0;
-function forward(){
-  index++;
-  if(index > image.length-1){
-    index=0;
-  }
-  container.style.backgroundImage = `url(${image[index]})`;
-}
-function backward(){
-  index--;
-  if(index < 0){
-    index = image.length - 1;
-  }
-  container.style.backgroundImage = `url(${image[index]})`;
-}
+$(".owl-carousel").owlCarousel({
+  loop: true,
+  nav: true,
+  navText: [
+    "<button class='nav-button owl-prev control-btn'><i class='fas fa-arrow-left'></i>Prev</button>",
+    "<button class='nav-button owl-next control-btn'>Next<i class='fas fa-arrow-right'></i></button>",
+  ],
+  responsive: {
+    0: {
+      items: 1,
+    },
+    600: {
+      items: 1,
+    },
+    1000: {
+      items: 1,
+    },
+  },
+});

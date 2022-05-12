@@ -1,90 +1,84 @@
-* { margin: 0; padding: 0; box-sizing: border-box; }
-
-.navbar {
-  max-width: 1440px;
-  background-color: #333;
-  margin: 50px auto;
-  font-family: "Poppins", sans-serif;
-  border-radius: 10px;
+* {
+  box-sizing: border-box;
 }
-
-.nav-list {
+body {
+  min-height: 100vh;
+  background-color: #1d2630;
   display: flex;
-  justify-content: space-between;
-  list-style: none;
-}
-
-.nav-item {
-  position: relative;
-  padding: 25px;
-  height: 100%;
-  cursor: pointer;
-}
-
-.nav-link {
-  color: #fefefe;
-  text-decoration: none;
-  font-weight: 600;
-  font-size: 24px;
-  display: flex;
+  justify-content: center;
   align-items: center;
-  transition: all 0.3s;
-  letter-spacing: 1px;
 }
-
-.nav-item:hover .nav-link {
-  transform: scale(1.2);
-  color: #ff7a00;
+.spinner-box {
+  width: 300px;
+  height: 300px;
+  background-color: transparent;
 }
-
-.nav-link i {
-  font-size: 16px;
-  margin-left: 10px;
+.solar-system {
+  width: 250px;
+  height: 250px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
-
-.dropdown-content {
-    background-color: #ff7a00;
-    display: flex;
-    flex-direction: column;
-    padding: 15px 60px 15px 15px;
-    position: absolute;
-    left: 50%;
-    transform: translate(-50%, 15px);
-    border-radius: 10px;
-    transition: opacity 0.3s;
-    opacity: 0;
-    pointer-events: none;
-    transition-delay: 0.2s;
+.orbit {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid #fafbfc;
+  border-radius: 50%;
+}
+.earth-orbit {
+  width: 165px;
+  height: 165px;
+  animation: spin 12s linear 0s infinite;
+}
+.venus-orbit {
+  width: 120px;
+  height: 120px;
+  animation: spin 7.4s linear 0s infinite;
+}
+.mercury-orbit {
+  width: 90px;
+  height: 90px;
+  animation: spin 3s linear 0s infinite;
+}
+.planet {
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+}
+.earth{
+    top: -7px;
+    width: 14px;
+    height: 14px;
+    background-color: #8c7ae6;
+}
+.venus{
+    top: -6px;
+    width: 12px;
+    height: 12px;
+    background-color: #babbbe; 
+}
+.mercury{
+  top: -5px;
+  width: 10px;
+  height: 10px;
+  background-color: #c23616;
+}
+.sun {
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  background-color: #fbc531;
+  box-shadow: 0 0 32px #fbc531;
+}
+@keyframes spin {
+  from {
+    transform: rotate(0);
   }
-  
-  .nav-item:hover .dropdown-content {
-    opacity: 1;
-    pointer-events: all;
+  to {
+    transform: rotate(359deg);
   }
-  
-  .dropdown-content::before {
-    content: "";
-    position: absolute;
-    width: 20px; height: 20px;
-    background-color: #ff7a00;
-    top: 0; left: 50%;
-    transform-origin: 0 0;
-    transform: rotate(45deg) translate(-50%, -50%);
-  }
-  
-  .dropdown-link {
-    text-decoration: none;
-    color: #fefefe;
-    white-space: nowrap;
-    transition: all 0.3s;
-    text-transform: capitalize;
-    font-size: 20px;
-  }
-  
-  .dropdown-link:hover {
-    transform: translateX(10px);
-  }
-  
-  .dropdown-link:not(:last-child) {
-    margin-bottom: 20px;
-  }
+}
