@@ -1,0 +1,36 @@
+ body{
+      background-color: black;
+
+    /* for centering the content */
+      margin: 0;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+}
+        
+label{
+      position:relative;
+}
+    
+input[type="text"]{
+        border:none;
+        width:400px;
+        height: 40px;
+        padding:0 15px;
+}
+
+button{
+        position: absolute;
+        top:0;
+        bottom:0;
+        right:0;
+        background-color:#2CCD78;
+        color:white;
+        padding: 0 15px;
+        letter-spacing: 1.2px;
+        font-family: cursive;
+        font-size: 12px;
+        border:none;
+        cursor:pointer;
+}

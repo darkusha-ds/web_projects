@@ -1,0 +1,61 @@
+*{
+    box-sizing: border-box;
+}
+.box{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+}
+.box form input{
+    appearance: none;
+}
+form label{
+    position: relative;
+    display: block;
+    width: 130px;
+    height: 40px;
+    line-height: 40px;
+    cursor: pointer;
+    margin: 0 .9rem;
+    font-family: 'Roboto', sans-serif;
+    z-index: 1;
+    overflow: hidden;
+    transition: .2s ease;
+    border: 2px solid #ededed;
+    display: flex;
+    align-items: center;
+    justify-content:space-evenly;
+}
+form span{
+    width: 60px;
+}
+.dot{
+    position:relative;
+    display: block;
+    width: 20px;
+    height: 20px;
+    border:2px solid #ededed;
+    border-radius: 50%;
+}
+.dot::before{
+    content: "";
+    position: absolute;
+    top:50%;
+    left:50%;
+    transform: translate(-50%,-50%)scale(0);
+    width:11px;
+    height: 11px;
+    background:#7900FF;
+    border-radius: 50%;
+    transition: .3s ease;
+}
+form input:checked + label .dot::before{
+    transform: translate(-50%,-50%)scale(1);
+}
+form input:checked + label .dot{
+    border-color: #7900FF;
+}
+form input:checked + label{
+    border-color: #7900FF;
+}

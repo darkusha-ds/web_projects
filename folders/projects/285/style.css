@@ -1,0 +1,41 @@
+body {
+  /* For centering the .drive-logo within body */
+  margin: 0;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.drive-logo {
+  width: 320px;
+  height: 280px;
+  position: relative;
+}
+
+.bar {
+  width: 200px;
+  height: 100px;
+  position: absolute;
+}
+
+.bar1 {
+  transform: rotate(-60deg) skew(-30deg);
+  top: 90px;
+  left: -19px;
+  background-color: #1fa463;
+}
+
+.bar2 {
+  transform: skew(-30deg) translate(0, -50%);
+  top: 227px;
+  left: 58.5px;
+  background-color: #4688f4;
+}
+
+.bar3 {
+  transform: rotate(60deg) skew(-30deg);
+  left: 109px;
+  top: 40.1px;
+  background-color: #ffd04b;
+}

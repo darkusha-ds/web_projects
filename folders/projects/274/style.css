@@ -1,0 +1,162 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap');
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    list-style: none;
+    text-decoration: none;
+    font-family: 'Poppins', sans-serif;
+}
+body{
+    position: relative;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #31354E;
+}
+body::before{
+    content: '';
+    position: absolute;
+    top: 20px;
+    right: 30%;
+    height: 150px;
+    width: 150px;
+    background: linear-gradient(#3742fa,#ff6b81);
+    border-radius: 50%;
+    box-shadow: 0 0 5px 5px rgba(0, 0, 0, 0.2);
+    z-index: -2;
+}
+body::after{
+    content: '';
+    position: absolute;
+    bottom: 20px;
+    left: 30%;
+    height: 200px;
+    width: 200px;
+    background: linear-gradient(#ff7f50,#1e90ff);
+    border-radius: 50%;
+    box-shadow: 0 0 5px 5px rgba(0, 0, 0, 0.2);
+    z-index: -2;
+}
+.card{
+    position: relative;
+    height: 510px;
+    width: 360px;
+    padding: 15px;
+    background: rgba( 255, 255, 255, 0.05 );
+    backdrop-filter: blur( 4.0px );
+    border-radius: 10px;
+    border: 3px solid rgba( 255, 255, 255, 0.18 );
+}
+.navicon{
+    display: flex;
+    justify-content: space-between;
+    color: #fff;
+    font-size: 18px;
+}
+.right-bar .fa-heart-o{
+    margin-right: 10px;
+}
+.profile{
+    padding: 30px 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+}
+.profile-img{
+    position: relative;
+}
+.profile-img img{
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    object-fit: cover;
+    box-shadow: 2px 2px 5px 2px rgba(0, 0, 0, 0.2);
+}
+.profile-img .fa-check{
+    position: absolute;
+    bottom: 15px;
+    right: -3px;
+    padding: 3px;
+    color: #fff;
+    background: linear-gradient(#3742fa,#ff6b81);
+    border-radius: 10px;
+    font-size: 14px;
+}
+.profile h2{
+    color: #fff;
+    font-size: 30px;
+}
+.profile p:nth-child(2){
+    margin-top: -10px;
+    font-size: 14px;
+    color: rgba(255, 255, 255, 0.5);
+    text-transform: uppercase;
+}
+.profile p:nth-child(3){
+    color: #fff;
+    font-size: 13px;
+}
+.btn{
+    margin-top: 35px;
+    height: 35px;
+    width: 130px;
+    outline: none;
+    border: none;
+    background: linear-gradient(to right, #3742fa,#ff6b81);
+    color: #fff;
+    border-radius: 20px;
+    box-shadow: 0 0 5px 5px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+}
+.social-details{
+    margin-top: 30px;
+}
+.social-details ul{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.social-details ul li{
+    margin: 0 20px;
+    text-align: center;
+    color: #fff;
+}
+.social-details ul li .fa{
+    height: 60px;
+    width: 60px;
+    padding: 15px;
+    font-size: 30px;
+    border-radius: 50%;
+    box-shadow: 0 0 5px 5px rgba(0, 0, 0, 0.2);
+}
+.social-details ul li .fa-facebook{
+    background: linear-gradient(to right,#B1237A,#CB6CA6);
+}
+.social-details ul li .fa-instagram{
+    background: linear-gradient(to right,#0865FE,#5A98FE);
+}
+.social-details ul li .fa-twitter{
+    background: linear-gradient(to right,#634EED,#9789F3);
+}
+.social-details ul li h4{
+    font-size: 24px;
+}
+.social-details ul li p{
+    margin-top: -10px;
+    font-size: 12px;
+}
+
+
+
+
+
+
+
+
+
+

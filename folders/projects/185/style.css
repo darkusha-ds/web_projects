@@ -1,0 +1,30 @@
+body{
+	margin: 0;
+	background-color: #fff4f4;
+	font-family: "Century Gothic";
+}
+
+header{
+	height: 90vh;
+	background-image: url('header-bg.jpg');
+	background-size: cover;
+	background-position: center;
+	background-repeat: no-repeat;
+
+	/* responsible for the skewed header */
+	clip-path: polygon(100% 0, 100% 90%, 69% 100%, 0 85%, 0 0);
+
+	/* responsible for the parallax effect */
+	background-attachment: fixed;
+}
+
+section{ padding: 30px 50px; text-align: center;}
+
+h1{
+	margin: 100px 0 40px;
+	font-size: 45px;
+	text-transform: uppercase;
+	font-weight: 400;
+}
+
+p{ line-height: 2; }

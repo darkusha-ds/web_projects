@@ -1,0 +1,18 @@
+ body{
+            margin: 0; /* overriding the default margin */
+}
+            
+.container{
+            height: 95vh;
+            background-color: #111;
+            clip-path: polygon(0 0,100% 0,100% 80vh,50% 100%,0 80vh);
+}
+
+.content{
+            position: absolute;
+            top: 45%; left: 50%;
+            transform: translate(-50%,-50%);
+            text-align: center;
+            color: white;
+            font-family: verdana;
+}

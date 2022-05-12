@@ -1,0 +1,48 @@
+.container{
+        width: 40%;
+        display: flex;
+        justify-content: space-between;
+        font-family: verdana;
+
+    /* for centering the container */   
+        position: absolute;
+        top: 50%;left: 50%;
+        transform: translate(-50%,-50%);
+}
+
+.icon{
+        position: relative;
+}
+
+.icon i{
+        font-size: 64px; cursor: pointer;
+}
+
+.icon span{
+        position: absolute;
+        top: -56px; left: 50%;
+        transform: translateX(-50%);
+        text-transform: capitalize;
+        color: white;
+        padding: 12px 24px;
+        background-color: black;
+        font-size: 12.8px;
+        border-radius: 10px;
+        transition: all 0.3s;
+        opacity: 0;
+        visibility: hidden;
+}
+
+.icon span::before{
+         content: "";
+         width: 10px; height: 10px;
+         background-color: black;
+         position: absolute;
+         top:35.2px; left: 50%;
+         transform: translateX(-50%) rotate(45deg);
+}
+
+.icon:hover span{
+         opacity:1;
+         visibility: visible;
+}

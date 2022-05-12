@@ -1,0 +1,49 @@
+body{ background-color: #eee; }
+
+.container{
+    /* FOR CENTERING THE CONTAINER */	
+	  position: absolute;
+	  top: 50%; left: 50%;
+	  transform: translate(-50%,-50%);
+}
+
+#toggle{
+	  display: none;
+}
+
+label{
+	  display: inline-block;
+	  width: 150px; height: 50px;
+	  perspective: 500px;
+	  cursor: pointer;
+}
+
+.front, .back{
+	   color: #fff;
+	   position: absolute;
+	   width: 100%; height: 100%;
+	   transition: transform 0.3s ease;
+	   backface-visibility: hidden;
+	   text-align: center;
+	   line-height: 50px;
+	   font-family: Arial;
+	   user-select: none;
+	   border-radius: 5px;
+}
+
+.front{
+	   background-color: #0baf3e;
+}
+
+.back{
+	   background-color: #cf1b1b;
+	   transform: rotateY(180deg);
+}
+
+#toggle:checked ~ label .front{
+	   transform: rotateY(-180deg);
+}
+
+#toggle:checked ~ label .back{
+	   transform: rotateY(0);
+}
