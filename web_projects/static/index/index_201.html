@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title> Our Services </title>
+	<meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- embedding Raleway font from google fonts  -->
+<link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;700&display=swap" rel="stylesheet">
+
+ <!-- embedding fontawesome icons -->
+<script src="https://kit.fontawesome.com/e25b852c87.js" crossorigin="anonymous"></script>
+
+<style>
+	*{
+	margin: 0; padding: 0;
+	box-sizing: border-box;
+}
+
+body{
+	min-height: 100vh;
+	display: flex; justify-content: center;
+	align-items: center;
+	font-family: 'Raleway', sans-serif;
+	background-color: #ccc;
+}
+
+section{ width: 100%; }
+
+.container{
+	width: 90%; 
+	margin: 0 auto; 
+	max-width: 1440px;
+}
+
+.services h1{
+	text-align: center;
+	color: #565656;
+	padding-bottom: 15px;
+	position: relative;
+}	
+
+.services h1::before{
+	content: '';
+	position: absolute;
+	width: 20%; height: 2px;
+	background-color: #565656;
+	bottom: 0; left: 50%; transform: translateX(-50%);
+}
+
+.services h1::after{
+	content: "";
+	position: absolute;
+	width: 10px; height: 10px;
+	background-color: #565656;
+	bottom: 0; left: 50%;
+	transform: translate(-50%,50%) rotate(45deg);
+}
+
+.service-cards-wrapper{
+	display: flex; justify-content: center;
+	flex-wrap: wrap;
+	margin-top: 50px;
+}
+
+.service-card{
+	flex: 1 1 250px;
+	max-width: 250px;
+	margin: 30px 15px; 
+	text-align: center;
+	background-color: #fff;
+	color: #565656;
+	padding: 50px 15px 25px;
+	border-radius: 5px;
+	box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+	position: relative;
+}
+
+.service-card .icon-container{
+	width: 40px; height: 40px;
+	margin: 0 auto;
+	background-color: rgba(0,0,0,0.8);
+	color: #fff;
+	display: flex; justify-content: center;
+	align-items: center;
+	position: absolute;
+	top: 0; left: 50%;
+	transform: translate(-50%,-50%) rotate(45deg);
+}
+
+.service-card .icon-container i{ transform: rotate(-45deg); }
+
+.service-card h2{ font-size: 20px; }
+
+.service-card p{
+	font-size: 12px;
+	margin: 15px 0 25px;
+	line-height: 1.6;
+}
+
+.service-card button{
+	padding: 10px 30px;
+	background-color: transparent;
+	border: none; outline: none;
+	color: #fff;
+	background-color: rgba(0,0,0,0.8);
+	border:1px solid transparent;
+	transition: all 0.3s; 
+	cursor: pointer;
+}
+
+.service-card button:hover{
+	color: #565656;
+	background-color: transparent;
+	border:1px solid #565656;
+}
+</style>
+</head>
+<body>
+
+<section class="services">
+	<div class="container">
+		<h1>Our Services</h1>
+		<div class="service-cards-wrapper">
+			<div class="service-card">
+				<div class="icon-container">
+                  <i class="fas fa-paint-brush"></i>
+                </div>
+                			<h2> Creative Designs </h2>
+			<p>Lorem ipsum dolor sit amet, consectetur 					   adipisicing elit, sed do eiusmod tempor 					   incididunt ut labore. </p>
+			<button> Read More </button>
+		</div>
+		<div class="service-card">
+			<div class="icon-container">
+              <i class="fas fa-chart-line"></i>
+            </div>
+			<h2> Digital Marketing </h2>
+			<p>Lorem ipsum dolor sit amet, consectetur 				       adipisicing elit, sed do eiusmod tempor 					   incididunt ut labore. </p>
+			<button> Read More </button>
+		</div>
+		<div class="service-card">
+			<div class="icon-container">
+              <i class="far fa-life-ring"></i>
+            </div>
+			<h2> 24 x 7 Support </h2>
+			<p>Lorem ipsum dolor sit amet, consectetur 					   adipisicing elit, sed do eiusmod tempor 					   incididunt ut labore. </p>
+			<button> Read More </button>
+		</div>
+	</div>
+</div>
+</section>
+
+</body>
+</html>

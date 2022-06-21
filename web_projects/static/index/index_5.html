@@ -1,93 +1,68 @@
-<!DOCTYPE html>
-<html lang="en" >
+<!doctype html>
+<html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>3D Card Cutout Hover Effect</title>
-  <style>
-    html,body
-    {
-        height: 100%;
-    }
-    body
-    {
-        margin: 0;
-        padding: 0;
-        display: grid;
-        background: #222831;
-        place-items: center;
-    }
-    .container
-    {
-        position: relative;
-        perspective: 40em;
-        display: grid;
-        transform-style: preserve-3d;
-        font-family: sans-serif;
-    }
-    .card
-    {
-        grid-area: 1/1;
-        height: 250px;
-        width: 450px;
-        transform: translateX(10px) rotateY(25deg) rotateX(10deg);
-        background: #f7f7f7;
-        justify-content: center;
-        padding: 30px;
-        font-size: 20px;
-        font-weight: 900;
-        backface-visibility: hidden;
-        box-shadow: 0 10px 30px -3px rgba(0,0,0,1);
-        opacity: 1;
-        cursor: pointer;
-    }
-    h1
-    {
-        font-size: 60px;
-        font-weight: 900;
-        text-align: center;
-    }
-    .card .write
-    {
-        color: #000;
-        display: inline-block;
-        transform: translate(-1px,1px) scale(0.75);
-    }
-    .container:before
-    {
-        --bw: 9px;
-        content: '';
-        grid-area: 1/1;
-        backface-visibility: hidden;
-        height: 100%;
-        width: 100%;
-        margin-top: calc(-1 * var(--bw));
-        margin-left: calc(-1 * var(--bw));
-        transform: translateX(-60px) rotateY(-30deg) rotateX(15deg) scale(1.03);
-        pointer-events: none;
-        border: var(--bw) solid #f0a500;
-        box-sizing: content-box;
-    } 
-    .container:hover > div,
-    .container:hover:before
-    {
-        transform: none;
-        opacity: 1;
-    }
-    .container > div,
-    .container:before
-    {
-        will-change: transform;
-        transition: 0.3s transform cubic-bezier(.25, .46, .45, 1);
-        
-    }
-  </style>
-
+    <meta charset="utf-8">
+    <style>
+        body {
+            background: #eeeded;
+        }
+        .wrapper {
+            display: block;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+        .btn {
+            padding: 0.75em 2em;
+            text-align: center;
+            text-decoration: none;
+            text-transform: uppercase;
+            font-family: sans-serif;
+            color: #2194e0;
+            font-size: 32px;
+            display: inline-block;
+            border: 2px solid #2194e0;
+            border-radius: 0.3em;
+            transition: all 0.2s ease-in-out;
+            position: relative;
+            overflow: hidden;
+        }
+        .btn:before {
+            content: '';
+            background-color: rgba(255,255,255,0.5);
+            height: 100%;
+            width: 3em;
+            display: block;
+            position: absolute ;
+            top: 0;
+            left: -4.5em;
+            transform: skewX(-45deg) translateX(0);
+            transition: none;
+        }
+        .btn:hover {
+             background-color: #2194e0;
+             color: #fff;
+             border-bottom: 4px solid #1977b5;
+        }
+        .btn:hover:before {
+            transform: skewX(-45deg) translateX(13.5em);
+            transition: all 0.5s ease-in-out;
+        }
+        @keyframes sheen {
+            0% {
+                transform: skewY(-45deg) translateX(0);
+            }
+            100% {
+                transform: skewY(-45deg) translateX(12.5em);
+            }
+        }
+    </style>
+    <title> 3D Button Glint Effect </title>
 </head>
 <body>
-  <div class="container">
-    <div class="card">
-      <h1><span class="write">3D Card Cutout Effect</span></h1>    
+    <div class="wrapper">
+        <a href="#" class="btn">Button</a>
     </div>
-  </div>
 </body>
 </html>

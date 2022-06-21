@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+* {
+margin: 0;
+padding: 0;
+box-sizing: border-box;
+}
+
+body {
+top: 50%;
+left: 50%;
+position: absolute;
+transform: translate(-50%, -50%);
+background: #111;
+font-family: Arial, Helvetica, sans-serif;
+}
+
+a {
+display: flex;
+justify-content: center;
+align-items: center;
+margin: auto;
+padding: 19px 22px;
+transition: all 0.2s ease;
+text-decoration: none;
+color: #fff;
+}
+
+a:before {
+content: "";
+position: absolute;
+top: 0;
+left: 0;
+display: block;
+border-radius: 28px;
+background: rgb(7, 202, 7);
+width: 56px;
+height: 56px;
+transition: all 0.3s ease;
+}
+
+a span {
+position: relative;
+font-size: 16px;
+line-height: 18px;
+font-weight: 900;
+letter-spacing: 0.25em;
+text-transform: uppercase;
+text-align: center;
+}
+
+a i {
+position: relative;
+top: 0.5px;
+margin-left: 12px;
+transform: translateX(-5px);
+transition: all 0.3s ease;
+}
+
+a:hover:before {
+width: 100%;
+background: green;
+}
+
+a:hover i {
+transform: translateX(0);
+}
+</style>
+</head>
+
+<body>
+<a href="#">
+<span>Click me</span>
+<i class="fas fa-angle-double-right"></i>
+</a>
+<script src="https://kit.fontawesome.com/dd8c49730d.js" crossorigin="anonymous"></script>
+</body>
+
+</html>

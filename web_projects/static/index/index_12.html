@@ -1,54 +1,85 @@
-<html>
-<head>
-<title>3D Text Effect</title>
-</head>
-<style>
-     body,html
-{
-    background: #b2ebf2;
-    height: 100%;
-    padding: 0;
-    margin: 0;
-}
-body
-{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-family: cursive;
-}
-h1
-{
-    margin: 0;
-    font-size: 8em;
-    padding: 0;
-    color: white;
-    text-shadow: 
-        0 0.1em 20px rgba(0,0,0,1),
-        0.05em -0.03em 0 rgba(0,0,0,1),
-        0.05em 0.005em 0 rgba(0,0,0,1),
-        0 0.08em 0 rgba(0,0,0,1),
-        0.05em 0.08em 0 rgba(0,0,0,1),
-        0 -0.03em 0 rgba(0,0,0,1),
-        -0.03em -0.03em 0 rgba(0,0,0,1),
-        -0.03em 0.08em 0 rgba(0,0,0,1),
-        -0.03em 0 0 rgba(0,0,0,1);
-}
-span
-{
-    transform: scale(0.9);
-    display: inline-block;
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Animated Gradient Border</title>
+    <style>
+      body {
+  background-color: #f7f7f7;
+  /* for centering the .box within body */
+  margin: 0;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
+/* basic styling for .box */
+.box {
+  width: 400px;
+  height: 250px;
+  position: relative;
+  border-radius: 5px;
+  background-color: #f7f7f7;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 
+.box p {
+  font-size: 25px;
+  font-family: Arial, Helvetica, sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 5px;
+  word-spacing: 10px;
+  color: #666;
+}
 
+/* Let's create the animated gradient border */
 
+.box::before {
+  content: "";
+  position: absolute;
+  top: -12px;
+  bottom: -12px;
+  left: -12px;
+  right: -12px;
+  background-image: linear-gradient(
+    120deg,
+    #ff952b,
+    #d6614a,
+    #f14576,
+    #aa5eb8,
+    #4d7ee2,
+    #07d2f1,
+    #16665b,
+    #26a044
+  );
+  z-index: -1;
+  background-size: 300% 300%;
+  background-position: 0 100%;
+  border-radius: 10px;
+  animation: gradient 6s linear infinite;
+}
 
+@keyframes gradient {
+  0% {
+    background-position: 0 45%;
+  }
 
+  50% {
+    background-position: 100% 50%;
+  }
 
+  100% {
+    background-position: 0% 45%;
+  }
+}
 
-</style>
-<body>
-    <h1><span>"CODING</span><span>MASTER"</span></h1>
-    </body>
+    </style>
+  </head>
+  <body>
+    <div class="box">
+      <p>Animated Gradient</p>
+    </div>
+  </body>
 </html>

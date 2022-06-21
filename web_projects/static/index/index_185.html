@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+ 	<title> CUSTOM RANGE SLIDER </title>
+
+	 <style>
+		 body{
+ 	background-color: #111;
+
+ /* for centering the .container div */	
+ 	margin: 0;
+ 	display: flex;
+ 	justify-content: center;
+ 	align-items: center;
+ 	min-height: 100vh;
+}
+
+#range-value{
+ 	color: #c0392b;
+ 	display: block;
+ 	font-family: 'Arial Black';
+ 	text-align: center;
+ 	transition: all 0.5s;
+}
+
+.range-slider{
+       -webkit-appearance:none;  /* to override the default 										styling of range slider */
+ 		height: 2px; 
+ 		outline: none;
+ 		cursor: pointer;
+ 		border-radius: 10px;
+ 		background: linear-gradient(to right,#c0392b,#8e44ad);
+}
+
+/* The ::-webkit-slider-thumb CSS pseudo-element represents the    "thumb" that the user can move to alter slider's numerical 	    value */
+
+.range-slider::-webkit-slider-thumb{
+ 		-webkit-appearance: none; /* to override the default 										 styling of slider thumb */
+ 		width: 12px; height: 12px;
+ 		background-color:#000;
+ 		border-radius: 50%;
+ 		border:2px solid #c0392b;
+}
+	 </style>
+</head>
+<body>
+ 
+<div class="container">
+	<span id="range-value"> 0 </span>
+	<input type="range" class="range-slider" min="0" 
+           max="100" value="0">
+</div>
+
+<script>
+	const rangeSlider = document.querySelector(".range-slider");
+const rangeValue = document.querySelector("#range-value");
+
+/* the "input" event occurs when the value of an
+	<input> or <textarea> element is changed */
+
+rangeSlider.addEventListener("input",()=>{
+		rangeValue.innerHTML = rangeSlider.value;
+		rangeValue.style.color = (rangeSlider.value > 50) ? 									 "#8e44ad" : "#c0392b";
+})
+</script>
+
+</body>
+</html>

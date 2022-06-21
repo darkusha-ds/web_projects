@@ -6,210 +6,186 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-
     <style>
-        html,
-        body {
-            position: relative;
-            width: 100%;
-            height: 100%;
-            margin: 0;
-            overflow: hidden;
-        }
-
-        body {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            background-color: #111;
-        }
-
-        ul {
-            position: relative;
-            margin: 0;
-            padding: 0;
-            list-style: none;
-            display: flex;
-            justify-content: center;
-            flex-direction: revert;
-        }
-
-        li {
-            width: 54px;
-            height: 54px;
-            border-radius: 50%;
-            cursor: pointer;
-            margin: 8px;
-        }
-
-        .ico01 {
-            background-color: #fff;
-            position: relative;
-            z-index: 4;
-        }
-
-        .ico02 {
-            background-color: #d91e85;
-            transition: transform 1.2s cubic-bezier(0.77, 0, 0.175, 1);
-            z-index: 3;
-        }
-
-        .ico03 {
-            background-color: #DB4437;
-            transition: transform 1.2s cubic-bezier(0.77, 0, 0.175, 1) 0.4s;
-            z-index: 2;
-        }
-
-        .ico04 {
-            background-color: #00acee;
-            transition: transform 1.2s cubic-bezier(0.77, 0, 0.175, 1) 0.8s;
-            z-index: 1;
-        }
-
-
-        .ico05 {
-            background-color: #3b5998;
-            transition: transform 1.2s cubic-bezier(0.77, 0, 0.175, 1) 0.8s;
-            z-index: 1;
-        }
-
-        .move-ico {
-            position: absolute;
-            top: 0;
-        }
-
-        .active .ico02 {
-            transform: translateX(calc(54px + 30px));
-            transition: transform 1.2s cubic-bezier(0.77, 0, 0.175, 1) 0.8s;
-            box-shadow: #000 0px 0px 10px;
-        }
-
-        .active .ico03 {
-            transform: translateX(calc(-54px + -30px));
-            transition: transform 1.2s cubic-bezier(0.77, 0, 0.175, 1) 0.8s;
-            box-shadow: #000 0px 0px 10px;
-        }
-
-        .active .ico04 {
-            transform: translateY(calc(54px + 30px));
-            transition: transform 1.2s cubic-bezier(0.77, 0, 0.175, 1);
-            box-shadow: #000 0px 0px 10px;
-        }
-
-        .active .ico05 {
-            transform: translateY(calc(-54px + -30px));
-            transition: transform 1.2s cubic-bezier(0.77, 0, 0.175, 1);
-            box-shadow: #000 0px 0px 10px;
-        }
-
-        .menu-object {
-            position: absolute;
-            top: 0;
-            right: 0;
-            bottom: 0;
-            left: 0;
-            margin: auto;
-            width: calc(54px * 4 + 30px * 3);
-            height: 54px;
-        }
-
-        .menu-object .ico01::before {
-            content: "";
-            position: absolute;
-            top: 0;
-            right: 0;
-            bottom: 0;
-            left: 0;
-            width: 4px;
-            height: 24px;
-            margin: auto;
-            background-color: #111;
-            transition: transform 0.8s cubic-bezier(0.77, 0, 0.175, 1);
-        }
-
-        .menu-object .ico01::after {
-            content: "";
-            position: absolute;
-            top: 0;
-            right: 0;
-            bottom: 0;
-            left: 0;
-            width: 24px;
-            height: 4px;
-            margin: auto;
-            background-color: #111;
-            transition: transform 0.8s cubic-bezier(0.77, 0, 0.175, 1);
-        }
-
-        .menu-object .link {
-            display: block;
-            width: 100%;
-            height: 100%;
-            color: #fff;
-            line-height: 1;
-            font-size: 24px;
-
-        }
-
-        .menu-object .link i {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate3d(-50%, -50%, 0);
-        }
-
-        .active .menu-object .ico01::before {
-            transform: rotate(45deg);
-        }
-
-        .active .menu-object .ico01::after {
-            transform: rotate(45deg);
-        }
+        * {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+    background-size: cover;
+    background-repeat: no-repeat;
+    font-family: sans-serif;
+  }
+  
+  .container {
+    height: 100vh;
+    width: 100%;
+    background-color: #111;
+  }
+  .container .menu-btn {
+    position: fixed;
+    top: 30px;
+    right: 30px;
+    height: 50px;
+    width: 50px;
+    border-radius: 100%;
+    background-color: #f8f8f8;
+    color: #1c1b20;
+    z-index: 6;
+  }
+  .container .menu-btn:hover {
+    cursor: pointer;
+  }
+  .container .menu-btn::before {
+    position: absolute;
+    top: 0;
+    left: 0;
+    content: "+";
+    width: 100%;
+    height: 100%;
+    border-radius: 100%;
+    text-align: center;
+    line-height: 50px;
+    font-size: 40px;
+    font-weight: 100 !important;
+    font-family: serif;
+    transition-duration: 500ms;
+  }
+  .container .menu-btn.active::before {
+    transform: rotate(405deg);
+    background-color: #343436;
+    color: #f8f8f8;
+  }
+  .container .overlay {
+    position: fixed;
+    top: 30px;
+    right: 30px;
+    height: 50px;
+    width: 50px;
+    border-radius: 100%;
+    background-color: #eeeeee;
+    transition-duration: 700ms;
+    z-index: 4;
+  }
+  .container .overlay.active {
+    transform: scale(100, 100);
+  }
+  .container .menu-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 100%;
+    z-index: -5;
+    opacity: 0;
+    transition: opacity 1500ms;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .container .menu-container .menu-wrapper {
+    list-style: none;
+  }
+  .container .menu-container .menu-wrapper li {
+    margin: 10px 0;
+    display: flex;
+    justify-content: left;
+  }
+  .container .menu-container .menu-wrapper li a {
+    text-decoration: none;
+    letter-spacing: 5px;
+    font-weight: 700;
+    font-size: 15vmin;
+    color: rgba(255, 255, 255, 0);
+    -webkit-text-stroke: 1.4px #343436;
+    transition-duration: 200ms;
+  }
+  .container .menu-container .menu-wrapper li a:hover {
+    color: #343436;
+    -webkit-text-stroke: 0px #343436;
+  }
+  .container .menu-container .menu-wrapper li span {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 68vmin;
+    font-weight: 900;
+    color: rgba(0, 0, 0, 0.2);
+  }
+  .container .menu-container .menu-underlay {
+    position: absolute;
+    top: 100px;
+    left: 100px;
+    background-color: rgb(15, 177, 50);
+  }
+  .container .menu-container.active {
+    transition-delay: 0ms;
+    opacity: 1;
+    z-index: 5;
+  }
+  .container .container-content {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background-color: #343436;
+    color: #f8f8f8;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+  .container .container-content div {
+    font-size: 20vmin;
+    font-weight: 700;
+  }
+  .container .container-content div span {
+    font-size: 40px;
+    font-weight: 400;
+  }
     </style>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
 </head>
 
 <body>
-    <div class="wrapper">
-        <div class="menu-object">
-            <ul class="toggle">
-                <li class="ico01 normalico"></li>
-                <li class="move-ico ico02">
-                    <a href="" class="link link01">
-                        <i class="fab fa-instagram"></i>
-                    </a>
-                </li>
-                <li class="move-ico ico03">
-                    <a href="" class="link link02">
-                        <i class="fab fa-google"></i>
-                    </a>
-                </li>
-                <li class="move-ico ico04">
-                    <a href="" class="link link03">
-                        <i class="fab fa-twitter"></i>
-                    </a>
-                </li>
-                <li class="move-ico ico05">
-                    <a href="" class="link link04">
-                        <i class="fab fa-facebook-f"></i>
-                    </a>
-                </li>
+    <div class="container">ō
+        <div class="menu-btn"></div>
+        <div class="overlay"></div>
+        <div class="menu-container">
+            <ul class="menu-wrapper">
+                <li><a href="">Home</a></li>
+                <li><a href="">About</a></li>
+                <li><a href="">Services</a></li>
+                <li><a href="">Team</a></li>
+                <li><a href="">Contact</a></li>
             </ul>
+            <div class="menu-underlay"></div>
         </div>
+
+       <!--  <div class="container-content">
+            <div class="line-1">
+                Animated <br />CSS
+                Menu
+            </div>
+        </div> -->
     </div>
-
-    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
-    <script src="https://kit.fontawesome.com/dd8c49730d.js"></script>
-
     <script>
-        function toggle() {
-            $('.ico01').click(function () {
-                $('.wrapper').toggleClass('active');
-            })
-        }
-
-        toggle();
+        $(".menu-btn").click(function () {
+    $(".menu-btn").toggleClass("active");
+    $(".overlay").toggleClass("active");
+    $(".menu-container").toggleClass("active");
+  });
+  
+  /* const cursor = curDot();
+  
+  cursor.over(".line-1", {
+    borderColor: "rgba(255,255,255,.38)",
+    broderWidth: 2
+  }); */
     </script>
-
+    
 </body>
 
 </html>

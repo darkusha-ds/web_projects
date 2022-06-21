@@ -1,170 +1,229 @@
+ 
 <!DOCTYPE html>
-<html lang="en">
-
+<html>
 <head>
-<meta charset="UTF-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Document</title>
+<title>Call App</title>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+<script src="https://kit.fontawesome.com/4250fce1f4.js" crossorigin="anonymous"></script>
 <style>
+    * 
+{
+    padding: 0;
+    margin: 0;
+}
 body {
-margin: 0;
-padding: 0;
-min-height: 100vh;
-background: #111;
-display: flex;
-justify-content: center;
-align-items: center;
-font-family: consolas;
+    min-height: 100vh;
+    width: 100%;
+    background-color: white;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+}
+#container {
+    width: 280px;
+    background-color: #fff;
 }
 
-.container {
-width: 1000px;
-position: relative;
-display: flex;
-justify-content: space-between;
+.btn-no {
+    height: 80px;
+    width: 80px;
+    margin: 5px;
+    border-radius: 50%;
+    outline: none;
+    border: none;
+    background-color: white;
+}
+.btn-no:active {
+    background-color: #cfcfcf;
+}
+.btn-no h3 {
+    font-size: 30px;
+    font-weight: normal;
+    color: #222;
+}
+.btn-no p {
+    font-size: 11px;
+    color: #666;
 }
 
-.container .card {
-position: relative;
-cursor: pointer;
+.btn {
+    background-color: white;
+}
+.btn i {
+    font-size: 30px;
+}
+.btn .fa-whatsapp {
+    font-size: 40px;
+    color: green;
+}
+.btn .fa-phone {
+    color: green;
 }
 
-.container .card .face {
-width: 300px;
-height: 200px;
-transition: 0.5s;
+.flex-box {
+    display: flex;
 }
 
-.container .card .face.face1 {
-position: relative;
-background: #333;
-display: flex;
-justify-content: center;
-align-items: center;
-z-index: 1;
-transform: translateY(100px);
-}
-
-.container .card:hover .face.face1 {
-background: #ff0057;
-transform: translateY(0);
-}
-
-.container .card .face.face1 .content {
-opacity: 0.2;
-transition: 0.5s;
-}
-
-.container .card:hover .face.face1 .content {
-opacity: 1;
-}
-
-.container .card .face.face1 .content img {
-max-width: 100px;
-}
-
-.container .card .face.face1 .content h3 {
-margin: 10px 0 0;
-padding: 0;
-color: #fff;
-text-align: center;
-font-size: 1.5em;
-}
-
-.container .card .face.face2 {
-position: relative;
-background: #fff;
-display: flex;
-justify-content: center;
-align-items: center;
-padding: 20px;
-box-sizing: border-box;
-box-shadow: 0 20px 50px rgba(0, 0, 0, 0.8);
-transform: translateY(-100px);
-}
-
-.container .card:hover .face.face2 {
-transform: translateY(0);
-}
-
-.container .card .face.face2 .content p {
-margin: 0;
-padding: 0;
-}
-
-.container .card .face.face2 .content a {
-margin: 15px 0 0;
-display: inline-block;
-text-decoration: none;
-font-weight: 900;
-color: #333;
-padding: 5px;
-border: 1px solid #333;
-}
-
-.container .card .face.face2 .content a:hover {
-background: #333;
-color: #fff;
-}
-
-i {
-font-size: 120px;
-color: #fff;
+.number {
+    width: 100%;
+    margin-bottom: 5px;
+    height: 50px;
+    text-align: center;
+    font-size: 35px;
+    background-color: #fff;
+    outline: none;
+    border: none;
 }
 </style>
+<script>
+    // Created by Rushikesh
+
+var cc = prompt("Enter your country calling code \n\n example: india's country calling code is +91");
+
+function one() {
+    document.getElementById('number').value+="1";
+}
+function two() {
+    document.getElementById('number').value+="2";
+}
+function three() {
+    document.getElementById('number').value+="3";
+}
+function four() {
+    document.getElementById('number').value+="4";
+}
+function five() {
+    document.getElementById('number').value+="5";
+}
+function six() {
+    document.getElementById('number').value+="6";
+}
+function seven() {
+    document.getElementById('number').value+="7";
+}
+function eight() {
+    document.getElementById('number').value+="8";
+}
+function nine() {
+    document.getElementById('number').value+="9";
+}
+function star() {
+    document.getElementById('number').value+="*";
+}
+function zero() {
+    document.getElementById('number').value+="0";
+}
+function hash() {
+    document.getElementById('number').value+="#";
+}
+
+function call() {
+    var number = document.getElementById("number").value;
+    if (number != null){
+        document.getElementById("call").href="tel:"+number;
+    }
+}
+
+function wacall() {
+    var number = document.getElementById("number").value;
+    if (number != null){
+        if (cc == null){
+            cc="+91"
+        }
+        var a = document.getElementById("wacall").href="https://api.whatsapp.com/send?phone="+cc+number;
+          
+    }
+}
+
+function back(){
+    var number = document.getElementById("number");
+    var len = number.value.length-1;
+    var dummy ="";
+    for(let i=0; i<len; i++){
+        dummy += number.value[i];
+        } document.getElementById("number").value=dummy;
+}
+</script>
 </head>
-
-<body>
-<div class="container">
-<div class="card">
-<div class="face face1">
-<div class="content">
-<i class="fas fa-graduation-cap"></i>
-<h3>Courses</h3>
-</div>
-</div>
-<div class="face face2">
-<div class="content">
-<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas cum cumque minus iste veritatis
-provident at.</p>
-<a href="#">Read More</a>
-</div>
-</div>
-</div>
-<div class="card">
-<div class="face face1">
-<div class="content">
-<i class="fas fa-tools"></i>
-<h3>Tools</h3>
-</div>
-</div>
-<div class="face face2">
-<div class="content">
-<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas cum cumque minus iste veritatis
-provident at.</p>
-<a href="#">Read More</a>
-</div>
-</div>
-</div>
-<div class="card">
-<div class="face face1">
-<div class="content">
-<i class="fas fa-laptop"></i>
-<h3>Product</h3>
-</div>
-</div>
-<div class="face face2">
-<div class="content">
-<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas cum cumque minus iste veritatis
-provident at.</p>
-<a href="#">Read More</a>
-</div>
-</div>
-</div>
-</div>
-
-<script src="https://kit.fontawesome.com/dd8c49730d.js" crossorigin="anonymous"></script>
+    <body>
+     <div id="container">
+     <input type="text" class="number" id="number" disabled />
+     <button class="btn-no" onclick="one()">
+     <h3>1</h3>
+     <p>➿</p>
+     </button>
+            
+     <button class="btn-no" onclick="two()">
+     <h3>2</h3>
+     <p>ABC</p>
+     </button>
+            
+     <button class="btn-no" onclick="three()">
+     <h3>3</h3>
+     <p>DEF</p>
+     </button>
+     
+     <button class="btn-no" onclick="four()">
+     <h3>4</h3>
+     <p>GHI</p>
+     </button>
+            
+     <button class="btn-no" onclick="five()">
+     <h3>5</h3>
+     <p>JKL</p>
+     </button>
+            
+     <button class="btn-no" onclick="six()">
+     <h3>6</h3>
+     <p>MNO</p>
+     </button>
+            
+     <button class="btn-no" onclick="seven()">
+     <h3>7</h3>
+     <p>PQRS</p>
+     </button>
+     
+     <button class="btn-no" onclick="eight()">
+     <h3>8</h3>
+     <p>TUV</p>
+     </button>
+            
+     <button class="btn-no" onclick="nine()">
+     <h3>9</h3>
+     <p>WXYZ</p>
+     </button>
+            
+     <button class="btn-no" onclick="star()">
+     <h3>*</h3>
+     </button>
+            
+     <button class="btn-no" onclick="zero()">
+     <h3>0</h3>
+     <p>+</p>
+     </button>
+            
+     <button class="btn-no" onclick="hash()">
+     <h3>#</h3>
+     </button>
+            
+     <div class="flex-box">
+     <button onclick="wacall()" class="btn-no btn">
+     <a id="wacall" href="">
+     <i class="fa fa-whatsapp"></i>
+     </a>
+     </button>
+            
+     <button onclick="call()" class="btn-no btn btn-call">
+     <a id="call" href="" class="social-icon whatsapp">
+     <i class="fa fa-phone"></i>
+     </a>
+     </button>
+            
+     <button onclick="back()" class="btn-no btn btn-back">
+     <i class="fas fa-backspace"></i>
+     </button>
+     </div>
+     </div>
+        
 </body>
-
-</html><!--  -->
+</html>

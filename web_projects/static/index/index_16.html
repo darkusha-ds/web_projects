@@ -1,135 +1,197 @@
-<!DOCTYPE html>
-<html lang="en">
-
+<!doctype html>
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>sliding tabs</title>
-    <style>
-        @import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap");
-
-        :root {
-            --primary-color: #111;
-            --secondary-color: #a8adb3;
-        }
-
-        *,
-        *:after,
-        *:before {
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: "Inter", sans-serif;
-            background-color: #111;
-        }
-
-        .container {
-            position: absolute;
-            left: 0;
-            top: 0;
-            right: 0;
-            bottom: 0;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .tabs {
-            display: flex;
-            position: relative;
-            background-color: #fff;
-            box-shadow: 0 0 1px 0 rgb(233 234 236 / 15%), 0 6px 12px 0 rgb(241 244 248 / 15%);
-            padding: 0.75rem;
-            border-radius: 99px;
-        }
-
-        .tabs * {
-            z-index: 2;
-        }
-
-        input[type=radio] {
-            display: none;
-        }
-
-        .tab {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            height: 54px;
-            width: 200px;
-            font-size: 1.25rem;
-            font-weight: 500;
-            border-radius: 99px;
-            cursor: pointer;
-            transition: color 0.15s ease-in;
-        }
-
-        .notification {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 2rem;
-            height: 2rem;
-            margin-left: 0.75rem;
-            border-radius: 50%;
-            background-color: var(--secondary-color);
-            transition: 0.15s ease-in;
-        }
-
-        input[type=radio]:checked+label {
-            color: var(--primary-color);
-        }
-
-        input[type=radio]:checked+label>.notification {
-            background-color: var(--primary-color);
-            color: #fff;
-        }
-
-        input[id=radio-1]:checked~.glider {
-            transform: translateX(0);
-        }
-
-        input[id=radio-2]:checked~.glider {
-            transform: translateX(100%);
-        }
-
-        input[id=radio-3]:checked~.glider {
-            transform: translateX(200%);
-        }
-
-        .glider {
-            position: absolute;
-            display: flex;
-            height: 54px;
-            width: 200px;
-            background-color: var(--secondary-color);
-            z-index: 1;
-            border-radius: 99px;
-            transition: 0.25s ease-out;
-        }
-
-        @media (max-width: 700px) {
-            .tabs {
-                transform: scale(0.6);
-            }
-        }
-    </style>
+<title>Animated Login Form With Social Media Icons</title>
 </head>
-
+<style>
+     body
+{
+    background: #2d2d2f;
+    font-family: sans-serif;
+}
+.login-form
+{
+    background: #fff;
+    width: 35em;
+    margin-left: 390px;
+    margin-top: 170px;
+    overflow: hidden;
+    position: relative;
+    border-radius: 0.3em;
+    box-shadow: 0 0 2em rgba(0,0,0,0.5);
+}
+.heading
+{
+    background: #f85f64;
+    color: #fff;
+    text-align: center;
+    text-transform: uppercase;
+    font-size: 20px;
+    font-weight: bold;
+    padding: 15px;
+}
+.left
+{
+    width: 50%;
+    float: left;
+    padding: 1.7em 1.5em 2.5em 1.5em;
+    box-sizing: border-box;
+}
+.right
+{
+    width: 50%;
+    float: right;
+    padding:  1.7em 1.5em 2.5em 1.5em;
+    box-sizing: border-box;
+}
+.right:before
+{
+    content: 'or';
+    color: gray;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+    height: 0.5em;
+    width: 0.5em;
+    left: -1.5em;
+    top: 1.2em;
+    z-index: 900;
+}
+.right:after
+{
+    content: '';
+    background: gray;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+    height: 7.25em;
+    width: 0.1em;
+    left: -0.85em;
+    top: -6.8em;
+    box-shadow: 0 8.8em 0 0 gray;
+}
+.left label
+{
+    display: inline-block;
+    color: gray;
+    font-size: 1.1em;
+    margin-top: 0.6em;
+}
+input[type="email"],
+input[type="password"]
+{
+    border: 2px solid #ccc;
+    padding: 1em;
+    outline: none;
+    margin: 0.6em 0;
+    border-radius: 0.2em;
+    box-shadow: inset 0 0 0.2em #eee;
+    transition: 0.15s all ease-in-out;
+}
+input[type="submit"]
+{
+    background: #f85f64;
+    color: #fff;
+    outline: none;
+    text-transform: uppercase;
+    padding: 1.2em;
+    text-align: center;
+    letter-spacing: 0.1em;
+    border-radius: 0.4em;
+    font-weight: bold;
+    margin-left: 60px;
+    margin-top: 18px;
+    transition: 0.15s all ease-in-out;
+}
+input[type="submit"]:hover
+{
+    background: #f85f64;
+    cursor: pointer;
+    opacity: 0.8;
+    transform: scale(1.2);
+}
+.right .connect
+{
+    color: gray;
+    font-size: 1.1em;
+    text-align: center;
+}
+a
+{
+    display: inline-block;
+    font-size: 1.5em;
+    text-decoration: none;
+    color: white;
+    width: 9em;
+    clear: both;
+    padding: 0.55em 0.3em;
+    text-align: center;
+    margin: 0.5em 0.1em;
+    border-radius: 0.3em;
+}
+a.fb
+{
+    background: #3a589a;
+    margin-top: 0.8em;
+    transition: 0.15s all ease-in-out;
+}
+a.fb:hover
+{
+    background: #3a589a;
+    opacity: 0.8;
+    transform: scale(1.1);
+}
+a.twitter
+{
+    background: #4099ff;
+    margin-top: 0.8em;
+    transition: 0.15s all ease-in-out;
+}
+a.twitter:hover
+{
+    background: #4099ff;
+    opacity: 0.8;
+    transform: scale(1.1);
+}
+a.gplus
+{
+    background: #e9544f;
+    margin-top: 0.8em;
+    transition: 0.15s all ease-in-out;
+}
+a.gplus:hover
+{
+    background: #e9544f;
+    opacity: 0.8;
+    transform: scale(1.1);
+}
+</style>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 <body>
-    <div class="container">
-        <div class="tabs">
-            <input type="radio" id="radio-1" name="tabs" checked />
-            <label class="tab" for="radio-1">Pending<span class="notification">2</span></label>
-            <input type="radio" id="radio-2" name="tabs" />
-            <label class="tab" for="radio-2">Processing<span class="notification">1</span></label>
-            <input type="radio" id="radio-3" name="tabs" />
-            <label class="tab" for="radio-3">Completed <span class="notification">3</span></label>
-            <span class="glider"></span>
-        </div>
-    </div>
+ <form action="#" class="login-form">
+<div class="heading">Login</div>
+<div class="left">
+<label for="email">Email</label>
+<input type="email" name="email" id="email">
+<label for="password">Password</label>
+<input type="password" name="password" id="pass">
+<input type="submit" value="Login">
+</div>
+<div class="right">
+<div class="connect">Connect With</div>
+<a href="" class="fb">
+<i class="fa fa-facebook" aria-hidden="true"></i></a>
+<a href="" class="twitter">
+<i class="fa fa-twitter" aria-hidden="true"></i></a>
+<a href="" class="gplus">
+<i class="fa fa-google-plus" aria-hidden="true"></i></a>
+</div> 
+</form>
 </body>
-
 </html>

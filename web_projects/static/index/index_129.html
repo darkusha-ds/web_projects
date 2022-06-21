@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>covid tracker</title>
+    <style>
+        *{
+    margin: 0;
+    padding: 0;
+}
+.inputBox{
+    width: 500px;
+    margin: 20px auto;
+    display: flex;
+    justify-content: center;
+}
+.inputBox input{
+    width: 300px;
+    height: 30px;
+    margin: 0 10px;
+    font-size: 1.2rem;
+}
+.inputBox button{
+    width: 90px;
+    height: 34px;
+    background: rgb(65, 144, 255);
+    color: white;
+    border: none;
+    font-size: 1.2rem;
+}
+.data{
+    width: 800px;
+    margin: 0 auto;
+}
+.box .head {
+    border: 1px solid black;
+    border-radius: 15px;
+    padding: 10px 20px;
+    text-align: center;
+}
+.box .head span{
+    font-size: 2rem;
+}
+.total{
+    display: flex;
+    width: 800px;
+    height: 200px;
+    justify-content: space-between;
+}
+.total div{
+    margin-top: 20px;
+    width: 30%;
+    height: 200px;
+    font-size: 2rem;
+    text-align: center;
+    background-color: rgb(137, 137, 137);
+    color: white;
+}
+.total div p{
+    margin: 50px 0 10px 0;
+}
+.total div:nth-child(1){
+    background: #41a7ff;
+}
+.total div:nth-child(2){
+    background: #ff3434;
+}
+.total div:nth-child(3){
+    background: #32b336;
+}
+
+
+.new{
+    margin-top: 60px;
+    display: flex;
+    width: 800px;
+    height: 200px;
+    justify-content: space-between;
+}
+.new div{
+    width: 30%;
+    height: 200px;
+    background-color: rgb(65, 144, 255);
+    color: white;
+    font-size: 2rem;
+    text-align: center;
+} 
+.new div p{
+    margin: 50px 0 10px 0;
+}
+.new div:nth-child(1){
+    background: #d83f3f;
+}
+.new div:nth-child(2){
+    background: #ff0053;
+}
+.new div:nth-child(3){
+    background: #ffa501;
+}
+    </style>
+</head>
+<body>
+    <div class="inputBox">
+        <input type="text" id="getText">
+        <button id="btn">Search</button>
+    </div>
+    <div class="data">
+    </div>
+    <script>
+        let btn = document.getElementById("btn");
+        
+        btn.addEventListener("click",()=>{
+        let text = document.getElementById("getText").value;
+
+            fetch('https://api.covid19api.com/summary')
+            .then((covidData)=>{
+                return covidData.json();
+            })
+            .then((getData)=>{
+                console.log(getData);
+                var content = document.querySelector(".data"); 
+
+                var box = content.lastElementChild;  
+                while (box) { 
+                    content.removeChild(box); 
+                    box = content.lastElementChild; 
+                } 
+
+                var index = 0;
+                for(var i=0;i<185;i++){
+                    if(getData.Countries[i].Country.toLowerCase() == text.toLowerCase()){
+                        index = i;
+                        break;
+                    }
+                }
+                let data = document.querySelector(".data");
+                data.innerHTML = `<div class="box">
+                                <div class="head">
+                                    <span>Covid-19 Cases in ${getData.Countries[index].Country}</span>
+                                </div>
+                                <div class="total">
+                                    <div><p>TotalConfirmed</p> ${getData.Countries[index].TotalConfirmed}</div>
+                                    <div><p>TotalDeaths</p> ${getData.Countries[index].TotalDeaths}</div>
+                                    <div><p>TotalRecovered</p> ${getData.Countries[index].TotalRecovered}</div>
+                                </div>
+                                <div class="new">
+                                    <div><p>NewConfirmed</p> ${getData.Countries[index].NewConfirmed}</div>
+                                    <div><p>NewDeaths</p> ${getData.Countries[index].NewDeaths}</div>
+                                    <div><p>NewRecovered</p> ${getData.Countries[index].NewRecovered}</div>
+                                    </div>
+                                </div>`;
+            })
+        })
+    </script>
+</body>
+</html>

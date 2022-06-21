@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title> Scroll Indicator </title>
+
+	<style>
+		body{
+	margin: 0;
+	font-family: "Century Gothic";
+}
+
+#scrollIndicator{
+	position: fixed;
+	top: 0; left: 0;
+	height: 4px;
+	background-color: #333;
+	box-shadow: 0 0 20px rgba(0,0,0,0.5);
+}
+
+section{
+	height: 100vh;
+	display: grid;
+	place-items:center;
+	color: #fff;
+	font-size: 40px;
+	text-transform: uppercase;
+}
+
+.home{ background-color: #da4747; }
+
+.about{ background-color: #db6400; }
+
+.services{ background-color: #61b15a; }
+
+.contact{ background-color: #ffa62b; }
+	</style>
+</head>
+<body>
+
+<div id="scrollIndicator"></div>
+<main>
+	<section class="home">home</section>
+	<section class="about">about</section>
+	<section class="services">services</section>
+	<section class="contact">contact</section>
+</main>
+
+<script>
+	const scrollIndicator = document.getElementById('scrollIndicator');
+
+window.addEventListener("scroll",()=>{
+
+/* document.documentElement.scrollHeight - document.documentElement corresponds to the <html> tag, scrollHeight property returns the entire height (content + padding) of an element in px. */
+
+// window.innerHeight - returns the viewport height
+
+ const scrollableHeight = document.documentElement.scrollHeight - window.innerHeight;
+
+/* window.scrollY - scrollY property of the Window returns the number of pixels that the document is currently scrolled vertically. */
+  
+ const currentScrolled = window.scrollY;
+
+ const scrollIndicatorWidth = Math.ceil( currentScrolled / scrollableHeight * 100 );
+
+ scrollIndicator.style.width = `${scrollIndicatorWidth}%`;
+
+})
+</script>
+</body>
+</html>

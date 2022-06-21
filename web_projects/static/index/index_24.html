@@ -1,436 +1,146 @@
-<!DOCTYPE html>
 <html>
-  <head>
-    <title>YouTube Clone</title>
-    <link
-      href="https://fonts.googleapis.com/icon?family=Material+Icons"
-      rel="stylesheet"
-    />
-    <style>
-      @import url("https://fonts.googleapis.com/css?family=Roboto&display=swap");
-
+<head> 
+<title> Animated Search Bar </title>
+</head>
+<style>
+     * {
+     border: 0;
+     box-sizing: border-box;
+     margin: 0;
+     padding: 0;
+ }
+ :root {
+	font-size: calc(16px + (24 - 16)*(100vw - 320px)/(1920 - 320));
+}
+body, button, input {
+	font: 1em Hind, sans-serif;
+	line-height: 1.5em;
+}
+body, input {
+	color: #171717;
+}
+body, .search-bar {
+	display: flex;
+}
 body {
-  margin: 0;
-  padding: 0;
-  background: #282828;
-  padding-top: 100px;
-  font-family: "Roboto", sans-serif;
-  text-decoration:none;
+	background: #111;
+	height: 100vh;
+}
+.search-bar input,
+.search-btn, 
+.search-btn:before, 
+.search-btn:after {
+	transition: all 0.25s ease-out;
+}
+.search-bar input,
+.search-btn {
+	width: 3em;
+	height: 3em;
+}
+.search-bar input:invalid:not(:focus),
+.search-btn {
+	cursor: pointer;
+}
+.search-bar,
+.search-bar input:focus,
+.search-bar input:valid  {
+	width: 100%;
+}
+.search-bar input:focus,
+.search-bar input:not(:focus) + .search-btn:focus {
+	outline: transparent;
+}
+.search-bar {
+	margin: auto;
+	padding: 1.5em;
+	justify-content: center;
+	max-width: 30em;
+}
+.search-bar input {
+	background: transparent;
+	border-radius: 1.5em;
+	box-shadow: 0 0 0 0.4em #f1f1f1 inset;
+	padding: 0.75em;
+	transform: translate(0.5em,0.5em) scale(0.5);
+	transform-origin: 100% 0;
+	appearance: none;
+}
+.search-bar input:focus,
+.search-bar input:valid {
+	background: #fff;
+	border-radius: 0.375em 0 0 0.375em;
+	box-shadow: 0 0 0 0.1em #d9d9d9 inset;
+	transform: scale(1);
+}
+.search-btn {
+	background: #f1f1f1;
+	border-radius: 0 0.75em 0.75em 0 / 0 1.5em 1.5em 0;
+	padding: 0.75em;
+	position: relative;
+	transform: translate(0.25em,0.25em) rotate(45deg) scale(0.25,0.125);
+	transform-origin: 0 50%;
+}
+.search-btn:before, 
+.search-btn:after {
+	content: "";
+	display: block;
+	opacity: 0;
+	position: absolute;
+}
+.search-btn:before {
+	border-radius: 50%;
+	box-shadow: 0 0 0 0.2em #f1f1f1 inset;
+	top: 0.75em;
+	left: 0.75em;
+	width: 1.2em;
+	height: 1.2em;
+}
+.search-btn:after {
+	background: #f1f1f1;
+	border-radius: 0 0.25em 0.25em 0;
+	top: 51%;
+	left: 51%;
+	width: 0.75em;
+	height: 0.25em;
+	transform: translate(0.2em,0) rotate(45deg);
+	transform-origin: 0 50%;
+}
+.search-btn span {
+	display: inline-block;
+	overflow: hidden;
+	width: 1px;
+	height: 1px;
 }
 
-.navbar {
-  width: 100%;
-  height: 50px;
-  background: #282828;
+/* Active state */
+.search-bar input:focus + .search-btn,
+.search-bar input:valid + .search-btn {
+	background: #ff4646;
+	border-radius: 0 0.375em 0.375em 0;
+	transform: scale(1);
 }
-
-.icon {
-  width: 50px;
-  height: 50px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: #fff;
-  float: right;
+.search-bar input:focus + .search-btn:before, 
+.search-bar input:focus + .search-btn:after,
+.search-bar input:valid + .search-btn:before, 
+.search-bar input:valid + .search-btn:after {
+	opacity: 1;
 }
-
-.avatar img {
-  width: 25px;
-  height: 25px;
-  border-radius: 50%;
-  background: #333;
-  border: 1px solid #333;
-  filter: grayscale(1) invert(1);
+.search-bar input:focus + .search-btn:hover,
+.search-bar input:valid + .search-btn:hover,
+.search-bar input:valid:not(:focus) + .search-btn:focus {
+	background: #ff4646;
 }
-.logo {
-  float: left;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 100%;
-  margin-left: 15px;
+.search-bar input:focus + .search-btn:active,
+.search-bar input:valid + .search-btn:active {
+    transform: translateY(1px);
 }
-
-.logo img {
-  width: 100px;
-}
-
-.tabs {
-  border-top: 1px solid #525252;
-  display: flex;
-  background: #282828;
-  max-width: 100%;
-  overflow-x: scroll;
-  padding: 10px;
-}
-
-.tab1,.tab2,.tab3,.tab4,.tab5,.tab6,.tab7 {
-  margin-right: 10px;
-  padding: 6px 11px 6px 11px;
-  font-size: 14px;
-  border-radius: 100px;
-  color: #fff;
-  border: 1px solid #525252;
-  background: #3e3e3e;
-  white-space: nowrap;
-}
-
-.chips .active {
-  background: #fff;
-  color: #000;
-  border: 1px solid #fff;
-}
-
-.bottomnav {
-  width: 100%;
-  max-height: 50px;
-  display: flex;
-  background: #282828;
-  border-top: 1px solid #525252;
-  position: fixed;
-  bottom: 1px;
-  left: 0;
-  z-index: 1;
-}
-
-.bottomnav .item {
-  text-align: center;
-  width: 100%;
-  color: #909090;
-  padding-top: 6px;
-  width: 100%;
-  height: 50px;
-}
-
-.text1, .text2, #text1, #text2, .text3, #text3 {
-  font-size: 15px;
-  margin-top: -1px;
-}
-
-.bottomnav .active {
-  color: #fff;
-}
-
-.topnav {
-  width: 100%;
-  position: fixed;
-  top: 0;
-  left: 0;
-  box-shadow: 0 0 5px #000;
-  z-index: 1;
-}
-.sendfb {
-  white-space: nowrap;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 0 15px 0 5px;
-  color: #3ea6ff;
-  font-weight: bolder;
-  font-size: 14px;
-}
-
-.preloader {
-  width: 100%;
-  height: 100vh;
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  z-index: 100;
-  position: fixed;
-  align-items: center;
-  justify-content: center;
-  background: #111;
-  top: 0;
-  left: 0;
-  transition: 1s;
-}
-
-.preloader img {
-  width: 100%;
-  height: 100vh;
-}
-
-#search-icon:hover .search-box {
-  top: 0;
-}
-#search-icon:hover .back-button{
-    top:5px;
-}
-.search-box {
-  position: absolute;
-  height: 47px;
-  width: 90%;
-  z-index: +2;
-  top: -55px;
-  right: -12px;
-  border-right: 35px solid #111;
-  transition: 0.5s;
-  background: #111;
-  border: none;
-  outline: none;
-  font-family: "Roboto", sans-serif;
-  color: white;
-}
-.back-button{
-    position:absolute;
-    z-index:+3;
-    height:40px;
-    width:40px;
-    background:#eee;
-    margin:auto;
-    top:-55px;
-    left:13px;
-    transition:.5s;
-    filter:invert(1);
-}
-.container {
-  position: absolute;
-  height: 80%;
-  width: 100%;
-  border-bottom: 1px solid rgb(51, 51, 51);
-  margin: auto;
-  right: 0;
-  left: 0;
-  overflow-x:hidden;overflow-y:scroll;
-}
-.result {
-  position: relative;
-  height: 62%;
-  width: 100%;text-decoration:none;
-}
-.thumbnail {
-  position: relative;
-  margin: auto;
-  left: 0;
-  right: 0;
-  width: 100%;
-}
-.title {
-  color: white;
-  position: relative;
-  margin: auto;
-  height: 45px;
-  overflow: hidden;
-  width: 80%;
-  left: 20px;
-  top: 10px;
-  font-family: "roboto", sans-serif;
-  text-decoration:none;
-}
-.user {
-  position: relative;
-  color: rgb(141, 141, 141);
-  font-family: "roboto", sans-serif;
-  left: 60px;
-  top: -5px;text-decoration:none;
-}
-.channelArt {
-  position: relative;
-  height: 40px;
-  border-radius: 50%;
-  bottom: 90px;
-  text-decoration:none;
-  left: 7px;
-}
-.LoaderBG{
-    position:absolute;
-    height:100%;
-    width:100%;
-    margin:auto;top:0;right:0;left:0;bottom:0;
-   background:#111; display:flex;justify-content:center;align-items:center;
-   transition:1s;
-    z-index:10;
-}
-.YTLogo{
-    position:absolute;
-    width:80%;
-}
-    </style>
-    <script>
-      var key = "AIzaSyCHvrQM98U7SHt_OerRwk-c4pUfdI-n3qY";
-      
-      var profileId = [1,2], profilepics = [1,2];
-      function search() {
-        profileId.length = 0;
-        profilepics.length = 0;
-        
-        var x = document.querySelector(".search-box").value;
-        var api =
-          "https://www.googleapis.com/youtube/v3/search?part=snippet&q=" +
-          x +
-          "&key="+key+"&maxResults=20&type=video";
-        
-        $.getJSON(api, response);
-      }
-      var j=0,y=1;
-      setTimeout(disapp, 3000);
-      window.onload=ck(1);
-      window.onload=searchTrending("");
-      function disapp() {
-       document.querySelector(".LoaderBG").style.transform = "translateY(-100%)";
-      };
-      function getProfile() {j=-1;j=-1;
-        var inter = setInterval(searchh, 20);
-        function searchh() {
-        var api2="";
-          j++;
-          if (j > 8) clearInterval(inter);
-          api2 =
-            "https://www.googleapis.com/youtube/v3/channels?part=snippet&id=" +
-            profileId[j] +
-            "&key="+key;
-          $.getJSON(api2, profilePix);
-        }
-        function profilePix(event) {
-          profilepics.push(event.items[0].snippet.thumbnails.medium.url);
-        }
-      }
-      function response(data) {
-      document.querySelector(".container").innerHTML = "";
-        for (var i = 0; i < data.items.length; i++)
-       profileId.push(data.items[i].snippet.channelId);
-        getProfile();
-        setTimeout(() => {
-          for (var j = 0; j < data.items.length; j++)
-    document.querySelector(".container").innerHTML +=
-                '<a target="_blank" style="text-decoration:none;" href="https://www.youtube.com/watch?v='+data.items[j].id.videoId+'"><div class="result"><img src="' +
-                data.items[j].snippet.thumbnails.medium.url +
-                '" class="thumbnail"/><h4 class="title">' +
-                data.items[j].snippet.title +
-                '</h4><h5 class="user">' +
-                data.items[j].snippet.channelTitle +
-                '</h5><img src="' +
-                profilepics[j] +
-                '" class="channelArt"/></div></a>';
-        }, 1000);
-        
-      }
-      function searchTrending(y){
-             profileId = [];
-        profilepics = [];
-        var x = document.querySelector(".search-box").value; x = y;
-        var api =
-          "https://www.googleapis.com/youtube/v3/search?part=snippet&q=" +
-          x +
-          "&key="+key+"&maxResults=10&type=video";
-        $.getJSON(api, response);
-        x = "";
-        }
-        function ck(x){
-            document.querySelector(".tab"+x).style.background="#fff";
-            document.querySelector(".tab"+x).style.color="#000";       document.querySelector(".tab"+x).style.border="1px solid #fff";
-           if(x!=y){ document.querySelector(".tab"+y).style.background="#3e3e3e";
-            document.querySelector(".tab"+y).style.color="#fff";       document.querySelector(".tab"+y).style.border="1px solid #525252";}
-            y=x;}
-            var v=1;
-            function cc(o){ document.querySelector(".text"+o).style.color="#fff";
-            document.querySelector("#text"+o).style.color="#fff";
-           if(o!=v){  document.querySelector(".text"+v).style.color="#909090"; 
-           document.querySelector("#text"+v).style.color="#909090"; 
-            }v=o;}
-            
-    </script>
-  </head>
-  <body>
-     
-    <div class="topnav">
-      <div class="navbar">
-        <div class="logo">
-          <img src="https://static.wixstatic.com/media/c287e1_753ff5405b334bbabed7ae9c66e32f2c~mv2.png/v1/fill/w_570,h_175,al_c,lg_1/c287e1_753ff5405b334bbabed7ae9c66e32f2c~mv2.png"
-          />
-        </div>
-
-        <div class="icon avatar">
-          <img onclick="alert('Sign in YouTube!')"
-            src="https://icon-library.net/images/no-profile-picture-icon/no-profile-picture-icon-29.jpg"
-          />
-        </div>
-
-        <div class="icon" id="search-icon">
-          <img src="https://cdn.pixabay.com/photo/2016/09/05/10/50/app-1646213_960_720.png" class="back-button">
-          <input
-            type="text"
-            class="search-box"
-            placeholder="Search YouTube"
-            onchange="search();"
-          />
-          <i class="material-icons">search</i>
-        </div>
-
-        <div class="icon">
-          <i class="material-icons" onclick="alert('Sign in YouTube!')">videocam</i>
-        </div>
-
-        <div class="icon">
-          <i class="material-icons" onclick="alert('No device found!')">cast_connected</i>
-        </div>
-      </div>
-
-      <div class="tabs">
-        <div class="tab1" onclick='ck(1);searchTrending("")'>
-          All
-        </div>
-
-        <div class="tab2" onclick='ck(2);searchTrending("iphone")'>
-          Web Development
-        </div>
-
-        <div class="tab3" onclick='ck(3);searchTrending("macbook pro")'>
-          HTML5
-        </div>
-
-        <div class="tab4" onclick='ck(4);searchTrending("JavaScript")'>
-          CSS3
-        </div>
-
-        <div class="tab5" onclick='ck(5);searchTrending("Pewdiepie")'>
-        Javascript
-        </div>
-
-        <div class="tab6" onclick='ck(6);searchTrending("music")'>
-         Courses
-        </div>
-
-        <div class="tab7" onclick='ck(7);searchTrending("mark rober")'>
-         Web Design
-        </div>
-
-        <div class="sendfb" onclick="alert('We know we are the best, Team YouTube')">
-          SEND FEEDBACK
-        </div>
-      </div>
-    </div>
-    <div class="container">
-     <a target="_blank" style="text-decoration:none;" href="https://youtu.be/cvvwkgp4HBg"><div class="result"><img src="https://i.ytimg.com/vi/vrQlEhmVFDA/maxresdefault.jpg" class="thumbnail"><h4 class="title">Installing VS Code, Extensions & Setup | JavaScript Tutorial In Hindi #1</h4><h5 class="user">Free Code Camp</h5><img src="https://yt3.ggpht.com/a/AATXAJw2A_6sf-5CPlppwkqz80CXExCKGVPNrKNScg=s900-c-k-c0xffffffff-no-rj-mo" class="channelArt"></div></a><a target="_blank" style="text-decoration:none;" href="https://youtu.be/DKlTBBuc32c"><div class="result"><img src="https://i.ytimg.com/vi/UzVvW2Msu-E/maxresdefault.jpg" class="thumbnail"><h4 class="title">HTML CSS Tutorial - Live | Creating a website using HTML CSS | Web Development Training | Edureka</h4><h5 class="user">Edureka </h5><img src="https://d1jnx9ba8s6j9r.cloudfront.net/imgver.1590146772/img/site/edureka_1362740598.png" class="channelArt"></div></a><a target="_blank" style="text-decoration:none;" href="https://youtu.be/BNmtuZpvT6w"><div class="result"><img src="https://i6q2k2f7.stackpathcdn.com/upload/course_thumbnail/css.svg" class="thumbnail"><h4 class="title">CSS List-Style-Type String Tutorial in Hindi / Urdu</h4><h5 class="user">Yahoo Baba</h5><img src="https://yt3.ggpht.com/a/AATXAJy6aLqbRXfdpRLLRUgqqerlfo4kNnY9z2MYQg=s900-c-k-c0xffffffff-no-rj-mo" class="channelArt"></div></a><a target="_blank" style="text-decoration:none;" href="https://youtu.be/8DeZ2rLfv9w"><div class="result"><img src="https://i.ytimg.com/vi/F_xWv0Q_dLE/maxresdefault.jpg" class="thumbnail"><h4 class="title">URL Dispatcher or URL Pattern inside Project in Django (Hindi)</h4><h5 class="user">Geeky Shows</h5><img src="data:image/png;base64,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" class="channelArt"></div></a><a target="_blank" style="text-decoration:none;" href="https://youtu.be/paMmgo4MhQ8"><div class="result"><img src="https://i.ytimg.com/vi/paMmgo4MhQ8/maxresdefault.jpg" class="thumbnail"><h4 class="title">
-CSS Grid: Moving From CSS Frameworks To CSS Grid (2018 and beyond)</h4><h5 class="user">Coding Tech</h5><img src="https://yt3.ggpht.com/a/AGF-l78qFJuAlbvzkEvnoYRUVkDs0aDqhcXl7AGBCA=s900-c-k-c0xffffffff-no-rj-mo" class="channelArt"></div></a><a target="_blank" style="text-decoration:none;" href="https://youtu.be/APSx9uzhz6o"><div class="result"><img src="https://i.ytimg.com/vi/ke-MRPy-RJw/maxresdefault.jpg" class="thumbnail"><h4 class="title">Hash Maps in Java | Internal Working & Implementation of Hash Maps | Java Placement Course | Lec 48</h4><h5 class="user">Apni Kaksha</h5><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcSRHalrAMPpceLbqV3Oe6rZfq9D-grTsbIKJHKoKvrCmm8UkW3G&usqp=CAU" class="channelArt"></div></a><a target="_blank" style="text-decoration:none;" href="https://youtu.be/ObZWaCEE8DA"><div class="result"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQPnIIFDLlyCg0GK3yj5elEcVNw40UnrZDayB3EfjeiNkwKPoSp&usqp=CAU" class="thumbnail"><h4 class="title">Dear YouTube... The Most EPIC JavaScript CHALLENGE Ever MAY 25th ($20,000 GIVEAWAY)</h4><h5 class="user">Clever Programmer</h5><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQPnIIFDLlyCg0GK3yj5elEcVNw40UnrZDayB3EfjeiNkwKPoSp&usqp=CAU" class="channelArt"></div></a><a target="_blank" style="text-decoration:none;" href="https://youtu.be/tcBRvjYw5xQ"><div class="result"><img src="https://i.ytimg.com/vi/tcBRvjYw5xQ/maxresdefault.jpg" class="thumbnail"><h4 class="title">CSS Units - Which ones to use and which to stop using! - HTML CSS Tutorial</h4><h5 class="user">Free Code Academy</h5><img src="https://i.ytimg.com/vi/tcBRvjYw5xQ/maxresdefault.jpg" class="channelArt"></div></a> 
-    </div>
-    <div class="bottomnav">
-      <div class="item active">
-        <i class="material-icons" onclick='searchTrending("");cc(1);' id="text1">home</i>
-        <div class="text1">
-          Home
-        </div>
-      </div>
-
-      <div class="item">
-        <i class="material-icons"  onclick = 'searchTrending("Trending");cc(2);' id="text2">whatshot</i>
-        <div class="text2">
-          Trending
-        </div>
-      </div>
-
-      <div class="item">
-        <i class="material-icons" onclick="alert('Sign in real YouTube!')" id="text3">video_library</i>
-        <div class="text3">
-          Library
-        </div>
-      </div>
-    </div>
-    <div class="LoaderBG" style="filter:opacity(1);">
-    <img src="https://www.techadvisor.co.uk/cmsdata/features/3681165/youtube-logo-png-2069_thumb1200_16-9.png" class="YTLogo"></div>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-     
-  </body>
-</html>
+</style>
+<body>
+     <form action="" class="search-bar">
+         <input type="search" name="search" required>
+         <button class="search-btn" type="submit">
+             <span>Search</span>
+         </button>
+     </form>
+    </body>
+    </html>

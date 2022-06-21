@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title> CREATE A CARAOUSEL USING PURE CSS </title>
+  
+	<style>
+		*{ margin: 0; padding: 0; box-sizing: border-box; }
+
+body{
+	background-color: #111;
+}
+
+.container{
+	width: 500px;
+	height: 350px;
+	border:5px solid #fff;
+	position: absolute;
+	top: 50%; left: 50%;
+	transform: translate(-50%,-50%);
+}
+
+.slide{
+	position: absolute;
+	top: 0; left: 0;
+	width: 100%; height: 100%;
+}
+
+.slide img{
+	width: 100%; height: 100%;
+	user-select: none;
+}
+
+input[type="radio"]{
+	display: none;   /*hiding the radio buttons*/
+}
+
+
+/* the prev and next buttons */
+#prev,#next{
+	position: absolute;
+	top: 50%;
+	transform: translateY(-50%);
+	width: 40px;
+	height: 40px;
+	border-radius: 50%;
+	border:3px solid #111;
+	background-color:#fff;
+	cursor: pointer;
+}
+
+#prev{
+	left: 3px;
+}
+
+#next{
+	right: 3px;
+}
+
+
+label span{
+	color: #111;
+	position: absolute;
+	top: 49%; left: 50%;
+	transform: translate(-50%,-50%);
+	font-family: 'Arial Black';
+	user-select: none;
+	font-size:23px;
+}
+
+
+#radio1:checked ~ .one{
+	z-index: 2;
+}
+
+#radio2:checked ~ .two{
+	z-index: 2;
+}
+
+#radio3:checked ~ .three{
+	z-index: 2;
+}
+
+#radio4:checked ~ .four{
+	z-index: 2;
+}
+	</style>
+</head>
+<body>
+
+<div class="container">
+
+	<input type="radio" name="r1" id="radio1">
+	<input type="radio" name="r1" id="radio2">
+	<input type="radio" name="r1" id="radio3">
+	<input type="radio" name="r1" id="radio4">
+
+		<div class="slide one">
+			<img src="https://images.pexels.com/photos/464325/pexels-photo-464325.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260">
+
+		<label for="radio4" id="prev"> <span> < </span> </label>
+		<label for="radio2" id="next"> <span> > </span> </label>
+
+		</div>
+		<div class="slide two">
+			<img src="https://images.pexels.com/photos/2087994/pexels-photo-2087994.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260">
+		
+		<label for="radio1" id="prev"> <span> < </span> </label>
+		<label for="radio3" id="next"> <span> > </span> </label>
+		</div>
+		<div class="slide three">
+			<img src="https://images.pexels.com/photos/210150/pexels-photo-210150.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260">
+		
+		<label for="radio2" id="prev"> <span> < </span> </label>
+		<label for="radio4" id="next"> <span> > </span> </label>
+		</div>
+
+		<div class="slide four">
+			<img src="https://images.pexels.com/photos/571169/pexels-photo-571169.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260">
+		
+		<label for="radio3" id="prev"> <span> < </span> </label>
+		<label for="radio1" id="next"> <span> > </span> </label>
+		</div>
+
+</div>
+
+</body>
+</html>

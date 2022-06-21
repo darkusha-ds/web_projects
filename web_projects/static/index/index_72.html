@@ -2,156 +2,162 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <style>
-        /* basic styling  */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Responsive nav bar</title>
+<style>
+html {
+scroll-behavior: smooth;
+}
 
-        html,
-        body {
-            width: 100%;
-            height: 100%;
-        }
+:root {
+--ff-primary: 'Source Sans Pro', sans-serif;
+--fw-bold: 600;
+--clr-dark: #303030;
+--clr-accent: #16e0bd;
+--fs-h2: 1.25rem;
+}
 
-        /* enter everything , body basic styling */
-        body {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
-            background-color: #111;
-            font-family: "Ubuntu", sans-serif;
-        }
+* {
+margin: 0;
+padding: 0;
+box-sizing: border-box;
+}
 
-        /* css for searchbar field  */
-        .searchfield {
-            font-weight: 600;
-            position: absolute;
-            margin: auto;
-            top: 0;
-            right: 0;
-            bottom: 0;
-            left: 0;
-            width: 50px;
-            height: 50px;
-            outline: none;
-            border: none;
-            background: #fff;
-            color: #111;
-            text-shadow: 0 0 10px #ccc;
-            padding: 0 80px 0 20px;
-            border-radius: 30px;
-            box-shadow: 12px 13px 25px 0 #111, 8px 9px 25px 0 rgba(0, 0, 0, 0.2);
-            transition: all 1s;
-            opacity: 0;
-            z-index: 5;
-            font-weight: bolder;
-            letter-spacing: 0.1em;
-        }
+body {
+background: #111111;
+color: var(--clr-dark);
+margin: 0;
+font-family: var(--ff-primary);
+font-size: var(--fs-body);
+line-height: 1.6;
+}
 
-        /* pointer cursor on searchfield hover */
-        .searchfield:hover {
-            cursor: pointer;
-        }
+p {
+margin-top: 250px;
+color: #fff;
+text-align: center;
+}
 
-        /* css for search icon and cancel icon  */
-        .search {
-            position: absolute;
-            margin: auto;
-            top: 0;
-            right: 0;
-            bottom: 0;
-            left: 0;
-            width: 50px;
-            height: 50px;
-            background: #fff;
-            border-radius: 50%;
-            transition: all 1s;
-            z-index: 4;
-        }
 
-        /* pointer cursor on search , cancel icon hover */
-        .search:hover {
-            cursor: pointer;
-        }
+header {
+top: 0;
+position: fixed;
+width: 100%;
+}
 
-        /* search icon  */
-        .search::before {
-            content: "";
-            position: absolute;
-            margin: auto;
-            top: 10px;
-            right: 8px;
-            bottom: -5px;
-            left: 22px;
-            width: 12px;
-            height: 2px;
-            background-color: #111;
-            transform: rotate(45deg);
-        }
+.nav__list {
+list-style: none;
+display: flex;
+height: 100%;
+justify-content: space-evenly;
+margin: 0;
+padding: 8px;
+background-color: rgb(240, 240, 20);
+}
 
-        .search::after {
-            content: "";
-            position: absolute;
-            margin: auto;
-            top: -5px;
-            right: 0;
-            bottom: 0;
-            left: -5px;
-            width: 15px;
-            height: 15px;
-            border-radius: 50%;
-            border: 2px solid #111;
-        }
+.nav__link {
+color: inherit;
+font-weight: var(--fw-bold);
+font-size: var(--fs-h2);
+text-decoration: none;
+}
 
-        /* expand width of searchfield on focus */
-        .searchfield:focus {
-            width: 300px;
-            opacity: 1;
-            cursor: text;
-        }
+.nav__link:hover {
+color: var(--clr-accent);
+}
 
-        .searchfield:focus~.search {
-            right: -240px;
-            background: transparent;
-            z-index: 6;
-        }
+.nav-toggle {
+position: absolute;
+}
 
-        /* css for cancel icon */
-        .searchfield:focus~.search::before {
-            top: 28px;
-            left: 15px;
-            width: 25px;
-            height: 2px;
-            bottom: 25px;
-        }
+label {
+position: relative;
+margin-right: -410px;
+}
 
-        .searchfield:focus~.search::after {
-            top: 29px;
-            left: -8px;
-            width: 25px;
-            right: -15px;
-            height: 2px;
-            border: none;
-            bottom: 25px;
-            background: #111;
-            border-radius: 0%;
-            transform: rotate(-45deg);
-        }
-    </style>
+.nav__item {
+color: #111;
+}
+
+
+.text {
+font-size: 35px;
+color: #fff;
+text-align: center;
+line-height: 2em;
+}
+</style>
 </head>
 
 <body>
-    <!-- markup of search bar  -->
-    <input type="text" class="searchfield" />
-    <div class="search"></div>
+<header>
+<button class="nav-toggle">
+<span class="hamburger"></span>
+</button>
+<nav class="nav" id="navbar">
+<ul class="nav__list">
+<label>
+<li class="nav__item">
+<a href="#welcome-section" class="nav__link">Home</a>
+</li>
+</label>
+<label>
+<li class="nav__item">
+<a href="#services" class="nav__link">Service</a>
+</li>
+</label>
+<label>
+<li class="nav__item">
+<a href="#projects" class="nav__link">Work</a>
+</li>
+</label>
+<label>
+<li class="nav__item">
+<a href="#contact" class="nav__link">Contact</a>
+</li>
+</label>
+</ul>
+</nav>
+</header>
+
+<div class="text">
+<h3>1</h3>
+<h3>2</h3>
+<h3>3</h3>
+<h3>4</h3>
+<h3>5</h3>
+<h3>6</h3>
+<h3>7</h3>
+<h3>8</h3>
+<h3>9</h3>
+<h3>10</h3>
+<h3>11</h3>
+<h3>12</h3>
+<h3>13</h3>
+<h3>14</h3>
+<h3>15</h3>
+<h3>16</h3>
+<h3>17</h3>
+<h3>18</h3>
+<h3>19</h3>
+<h3>20</h3>
+<h3>21</h3>
+<h3>22</h3>
+<h3>23</h3>
+<h3>24</h3>
+<h3>25</h3>
+<h3>26</h3>
+<h3>27</h3>
+<h3>28</h3>
+<h3>29</h3>
+<h3>30</h3>
+<h3>31</h3>
+<h3>32</h3>
+<h3>33</h3>
+<h3>34</h3>
+<h3>35</h3>
+</div>
 </body>
 
 </html>

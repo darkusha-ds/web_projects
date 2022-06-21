@@ -3,299 +3,213 @@
 
 <head>
     <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Responsive nav bar</title>
+    <title>Document</title>
+
     <style>
-        html {
-            scroll-behavior: smooth;
-        }
-
-        :root {
-            --ff-primary: 'Source Sans Pro', sans-serif;
-            --fw-bold: 600;
-            --clr-dark: #303030;
-            --clr-accent: #16e0bd;
-            --fs-h2: 1.25rem;
-        }
-
-        @media (max-width: 800px) {
-            :root {
-                --fs-h2: 1.75rem;
-                --fs-body: 1.125rem;
-                --speed: 300px;
-                --fw-bold: 900;
-            }
-        }
-
-        * {
+        html,
+        body {
+            position: relative;
+            width: 100%;
+            height: 100%;
             margin: 0;
-            padding: 0;
-            box-sizing: border-box;
+            overflow: hidden;
         }
 
         body {
-            background: #111111;
-            color: var(--clr-dark);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #111;
+        }
+
+        ul {
+            position: relative;
             margin: 0;
-            font-family: var(--ff-primary);
-            font-size: var(--fs-body);
-            line-height: 1.6;
-        }
-
-        p {
-            margin-top: 250px;
-            color: #fff;
-            text-align: center;
-        }
-
-
-        header {
-            top: 0;
-            position: fixed;
-            width: 100%;
-        }
-
-        .nav__list {
+            padding: 0;
             list-style: none;
             display: flex;
-            height: 100%;
-            justify-content: space-evenly;
-            margin: 0;
-            padding: 8px;
-            background-color: rgb(240, 240, 20);
+            justify-content: center;
+            flex-direction: revert;
         }
 
-        .nav__link {
-            color: inherit;
-            font-weight: var(--fw-bold);
-            font-size: var(--fs-h2);
-            text-decoration: none;
+        li {
+            width: 54px;
+            height: 54px;
+            border-radius: 50%;
+            cursor: pointer;
+            margin: 8px;
         }
 
-        .nav__link:hover {
-            color: var(--clr-accent);
-        }
-
-        .nav-toggle {
-            position: absolute;
-        }
-
-        label {
+        .ico01 {
+            background-color: #fff;
             position: relative;
-            margin-right: -410px;
+            z-index: 4;
         }
 
-        .nav__item {
-            color: #111;
+        .ico02 {
+            background-color: #d91e85;
+            transition: transform 1.2s cubic-bezier(0.77, 0, 0.175, 1);
+            z-index: 3;
         }
 
-        @media (max-width: 800px) {
-            .nav {
-                display: flex;
-                justify-content: center;
-                position: fixed;
-                background: var(--clr-dark);
-                color: var(--clr-light);
-                top: 0;
-                bottom: 0;
-                left: 0;
-                right: 0;
-                z-index: 100;
-                transform: translateY(100%);
-                transition: transform 250ms cubic-bezier(.5, 0, .5, 1);
-            }
+        .ico03 {
+            background-color: #DB4437;
+            transition: transform 1.2s cubic-bezier(0.77, 0, 0.175, 1) 0.4s;
+            z-index: 2;
+        }
 
-            .nav__list {
-                list-style: none;
-                display: flex;
-                height: 100%;
-                flex-direction: column;
-                justify-content: space-evenly;
-                margin: 0;
-                padding: 0;
-                background-color: transparent;
-            }
+        .ico04 {
+            background-color: #00acee;
+            transition: transform 1.2s cubic-bezier(0.77, 0, 0.175, 1) 0.8s;
+            z-index: 1;
+        }
 
-            .nav__link {
-                color: inherit;
-                font-weight: var(--fw-bold);
-                font-size: var(--fs-h2);
-                text-decoration: none;
-            }
 
-            .nav__link:hover {
-                color: var(--clr-accent);
-            }
+        .ico05 {
+            background-color: #3b5998;
+            transition: transform 1.2s cubic-bezier(0.77, 0, 0.175, 1) 0.8s;
+            z-index: 1;
+        }
 
-            .nav-toggle {
-                padding: .5em;
-                background: transparent;
-                border: 0;
-                cursor: pointer;
-                position: absolute;
-                right: 1em;
-                top: 1em;
-                z-index: 1000;
-                outline: none;
-            }
+        .move-ico {
+            position: absolute;
+            top: 0;
+        }
 
-            .nav-open .nav {
-                transform: translateX(0);
-            }
+        .active .ico02 {
+            transform: translateX(calc(54px + 30px));
+            transition: transform 1.2s cubic-bezier(0.77, 0, 0.175, 1) 0.8s;
+            box-shadow: #000 0px 0px 10px;
+        }
 
-            .nav-open .nav-toggle {
-                position: fixed;
-            }
+        .active .ico03 {
+            transform: translateX(calc(-54px + -30px));
+            transition: transform 1.2s cubic-bezier(0.77, 0, 0.175, 1) 0.8s;
+            box-shadow: #000 0px 0px 10px;
+        }
 
-            .nav-open .hamburger {
-                transform: rotate(.625turn);
-            }
+        .active .ico04 {
+            transform: translateY(calc(54px + 30px));
+            transition: transform 1.2s cubic-bezier(0.77, 0, 0.175, 1);
+            box-shadow: #000 0px 0px 10px;
+        }
 
-            .nav-open .hamburger::before {
-                transform: rotate(90deg) translateX(-6px);
-            }
+        .active .ico05 {
+            transform: translateY(calc(-54px + -30px));
+            transition: transform 1.2s cubic-bezier(0.77, 0, 0.175, 1);
+            box-shadow: #000 0px 0px 10px;
+        }
 
-            .nav-open .hamburger::after {
-                opacity: 0;
-            }
+        .menu-object {
+            position: absolute;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            margin: auto;
+            width: calc(54px * 4 + 30px * 3);
+            height: 54px;
+        }
 
-            .hamburger {
-                display: block;
-                position: relative;
-            }
+        .menu-object .ico01::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            width: 4px;
+            height: 24px;
+            margin: auto;
+            background-color: #111;
+            transition: transform 0.8s cubic-bezier(0.77, 0, 0.175, 1);
+        }
 
-            .hamburger,
-            .hamburger::before,
-            .hamburger::after {
-                background: var(--clr-accent);
-                width: 2em;
-                height: 3px;
-                border-radius: 1em;
-                transition: transform 250ms ease-in-out;
-            }
+        .menu-object .ico01::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            width: 24px;
+            height: 4px;
+            margin: auto;
+            background-color: #111;
+            transition: transform 0.8s cubic-bezier(0.77, 0, 0.175, 1);
+        }
 
-            .hamburger::before,
-            .hamburger::after {
-                content: '';
-                position: absolute;
-                left: 0;
-                right: 0;
-            }
+        .menu-object .link {
+            display: block;
+            width: 100%;
+            height: 100%;
+            color: #fff;
+            line-height: 1;
+            font-size: 24px;
 
-            .hamburger::before {
-                top: 6px;
-            }
+        }
 
-            .hamburger::after {
-                bottom: 6px;
-            }
+        .menu-object .link i {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate3d(-50%, -50%, 0);
+        }
 
-            label {
-                position: relative;
-                margin: 2px;
-            }
+        .active .menu-object .ico01::before {
+            transform: rotate(45deg);
+        }
 
-            label::before {
-                position: absolute;
-                content: "";
-                top: 0;
-                left: -3rem;
-                width: 0.25rem;
-                height: 100%;
-                background: var(--menu-link-active-color);
-                transition: 2s;
-                margin-left: 5px;
-            }
-
-            label li {
-                position: relative;
-                background: linear-gradient(var(--menu-link-active-color) 0 100%) left/0 no-repeat;
-                color: transparent;
-                background-clip: text;
-                -webkit-background-clip: text;
-                transition: background-size 0.45s 0.04s;
-            }
-
-            label li::before {
-                position: absolute;
-                content: attr(data-text);
-                z-index: -1;
-                color: #fff;
-            }
-
-            label:nth-child(1) {
-                --menu-link-active-color: rgb(252, 252, 128);
-            }
-
-            label:nth-child(2) {
-                --menu-link-active-color: rgb(241, 100, 100);
-            }
-
-            label:nth-child(3) {
-                --menu-link-active-color: rgb(243, 161, 10);
-            }
-
-            label:nth-child(4) {
-                --menu-link-active-color: rgb(21, 185, 240);
-                ;
-            }
-
-            label:hover::before {
-                left: var(--speed);
-            }
-
-            .nav__item {
-                color: #fff;
-            }
+        .active .menu-object .ico01::after {
+            transform: rotate(45deg);
         }
     </style>
 </head>
 
 <body>
-    <header>
-        <button class="nav-toggle">
-            <span class="hamburger"></span>
-        </button>
-        <nav class="nav" id="navbar">
-            <ul class="nav__list">
-                <label>
-                    <li class="nav__item">
-                        <a href="#welcome-section" class="nav__link">Home</a>
-                    </li>
-                </label>
-                <label>
-                    <li class="nav__item">
-                        <a href="#services" class="nav__link">Service</a>
-                    </li>
-                </label>
-                <label>
-                    <li class="nav__item">
-                        <a href="#projects" class="nav__link">Work</a>
-                    </li>
-                </label>
-                <label>
-                    <li class="nav__item">
-                        <a href="#contact" class="nav__link">Contact</a>
-                    </li>
-                </label>
+    <div class="wrapper">
+        <div class="menu-object">
+            <ul class="toggle">
+                <li class="ico01 normalico"></li>
+                <li class="move-ico ico02">
+                    <a href="" class="link link01">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                </li>
+                <li class="move-ico ico03">
+                    <a href="" class="link link02">
+                        <i class="fab fa-google"></i>
+                    </a>
+                </li>
+                <li class="move-ico ico04">
+                    <a href="" class="link link03">
+                        <i class="fab fa-twitter"></i>
+                    </a>
+                </li>
+                <li class="move-ico ico05">
+                    <a href="" class="link link04">
+                        <i class="fab fa-facebook-f"></i>
+                    </a>
+                </li>
             </ul>
-        </nav>
-    </header>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script src="https://kit.fontawesome.com/dd8c49730d.js"></script>
 
     <script>
-        const navToggle = document.querySelector('.nav-toggle');
-        const navLinks = document.querySelectorAll('.nav__link')
-
-        navToggle.addEventListener('click', () => {
-            document.body.classList.toggle('nav-open');
-        });
-
-        navLinks.forEach(link => {
-            link.addEventListener('click', () => {
-                document.body.classList.remove('nav-open');
+        function toggle() {
+            $('.ico01').click(function () {
+                $('.wrapper').toggleClass('active');
             })
-        })
+        }
+
+        toggle();
     </script>
+
 </body>
 
 </html>

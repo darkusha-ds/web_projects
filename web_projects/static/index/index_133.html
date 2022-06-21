@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title> Accordion menu </title>
+
+	<style>
+		*{ margin: 0; padding: 0; box-sizing: border-box; }
+
+body{
+	min-height: 100vh;
+	background-color: #111;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.container{ width: 500px; }
+
+p{
+	background-color: #eee;
+	font-size: 14px;
+	max-height: 0;
+	overflow: hidden;
+	line-height: 1.6;
+	font-family: 'Century Gothic';
+	transition: all 0.3s;
+}
+
+button{
+	width: 100%;
+	text-align: left;
+	cursor: pointer;
+	font-family: 'Century Gothic';
+	color: #fff;
+	background-color: #da4747;
+	font-size: 16px;
+	border:none; outline: none;
+	padding: 15px;
+	border-bottom:2px solid #111;
+	user-select: none;
+}
+	</style>
+</head>
+<body>
+
+<div class="container">
+	<section>
+		<button>Question 1</button>
+		<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+		tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+		quis.</p>
+	</section>
+	<section>
+		<button>Question 2</button>
+		<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+		tempor incididunt ut labore et dolore.</p>
+	</section>
+	<section>
+		<button>Question 3</button>
+		<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+		tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+		quis ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+		tempor.</p>
+	</section>
+	<section>
+		<button>Question 4</button>
+		<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+		tempor.</p>
+	</section>
+</div>
+
+<script>
+	let buttons = document.querySelectorAll("button");
+
+buttons.forEach((button)=>{
+ 		button.addEventListener("click",()=>{
+ 			const para = button.nextElementSibling;
+ 			const paraStyle = getComputedStyle(para);
+
+/* you can write multiple css properties using the "cssText" property */
+
+ 			if(paraStyle.maxHeight == "0px"){
+ 				para.style.cssText = " max-height: 200px; padding:20px; opacity:1 ";
+ 			}else{
+ 				para.style.cssText = " opacity:0 ";
+ 			}
+
+ 		})
+})
+</script>
+
+</body>
+</html>

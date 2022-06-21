@@ -2,93 +2,442 @@
 <html lang="en">
 
 <head>
-<meta charset="UTF-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Document</title>
-<style>
-/* Base */
-* {
-margin: 0;
-padding: 0;
-box-sizing: border-box;
-}
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        html {
+        box-sizing: border-box;
+        }
 
-body {
-background: #111111;
-display: flex;
-justify-content: center;
-align-items: center;
-min-height: 100vh;
-}
+        *,
+        *::before,
+        *::after {
+        box-sizing: inherit;
+        margin: 0;
+        padding: 0;
+        }
 
-.wrapper {
-width: 90%;
-max-width: 900px;
-margin: 3em auto;
-text-align: center;
-}
+        [data-theme="light"] {
+        --bg-color: #eef0f4;
+        --color: #333;
+        --togglebg: #333;
+        --contactIconColor: crimson;
+        --inputTextColor: #111;
+        --deleteIconColor: #111;
+        --filter: drop-shadow(-8px -8px 12px #ffffff)
+            drop-shadow(8px 8px 12px #c3c5c8);
+        --roundcolor: #eef0f4;
+        --toggleslider: #111;
+        --togglesliderColor: #111;
+        }
 
-.badge {
-margin: 1.5em 3em;
-width: 6.4em;
-height: 6.4em;
-border-radius: 20%;
-display: inline-block;
-top: 0;
-transition: all 0.2s ease;
-box-shadow: 8px 10px 12px 3px rgba(0, 0, 0, 0.43);
-}
+        [data-theme="dark"] {
+        --bg-color: #333;
+        --color: #ccc;
+        --contactIconColor: lightblue;
+        --inputTextColor: #fff;
+        --deleteIconColor: #fff;
+        --filter: drop-shadow(-5px -5px 6px #16151530)
+            drop-shadow(5px 5px 6px #13111178);
+        --roundcolor: #333;
+        --toggleslider: #eef0f4;
+        --togglesliderColor: #fff;
+        }
 
-.rounded {
-width: 70px;
-height: 70px;
-background: white;
-position: absolute;
-margin: 15px 16px auto;
-z-index: 10;
-border-radius: 30%;
-}
+        body {
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+            Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+        line-height: 1.4;
+        background: var(--bg-color);
+        }
 
-.rounded i.fab {
-font-size: 2.6em;
-margin-top: 16px;
-}
+        .container {
+        margin: 0 auto;
+        padding-left: 10px;
+        padding-right: 10px;
+        color: var(--color);
+        margin-top: 5vh;
+        margin-bottom: 5vh;
+        display: flex;
+        flex-direction: row;
+        }
 
-.blue {
-background: dodgerblue;
-color: deepskyblue;
-box-shadow: 0px 0px 10px 1px dodgerblue
-}
+        .ListContainer {
+        width: 50%;
+        margin: 56px 30px 0 51px;
+        max-width: 500px;
+        border-radius: 0.25rem;
+        padding: 1.5rem 2rem;
+        border-radius: 16px;
+        background: var(--bg-color);
+        border: 12px solid var(--bg-color);
+        filter: var(--filter);
+        }
 
-.orange {
-background: darkorange;
-color: orange;
-box-shadow: 0px 0px 10px 1px darkorange
-}
+        .person {
+        display: flex;
+        /* justify-content: space-between; */
+        column-gap: 0.75rem;
+        margin-bottom: 1.5rem;
+        align-items: center;
+        }
 
-.gold {
-background: gold;
-color: gold;
-box-shadow: 0px 0px 10px 1px gold
-}
-</style>
+        .person img {
+        width: 75px;
+        height: 75px;
+        object-fit: cover;
+        border-radius: 50%;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .contactdetail {
+        margin-right: 5rem;
+        }
+
+        .contactIcon {
+        margin: 0 10px 0 5px;
+        font-size: 14px;
+        color: var(--contactIconColor);
+        }
+
+        .person h4 {
+        margin-bottom: 0.35rem;
+        }
+
+        .person p {
+        margin-bottom: 0;
+        }
+
+        .delete-contact {
+        border: none;
+        background-color: transparent;
+        outline: none;
+        cursor: pointer;
+        float: right;
+        display: block;
+        position: absolute;
+        right: 10%;
+        }
+
+        .delete-contact svg {
+        width: 30px;
+        height: 30px;
+        pointer-events: none;
+        fill: var(--deleteIconColor);
+        }
+
+        form {
+        width: 50%;
+        left: 50%;
+        margin-top: 15%;
+        margin-left: 7%;
+        position: fixed;
+        }
+
+        .name,
+        .number,
+        .email,
+        .img {
+        display: flex;
+        justify-content: space-evenly;
+        margin-right: 30%;
+        align-items: center;
+        margin-bottom: 30px;
+        background: var(--bg-color);
+        border: 5px solid var(--bg-color);
+        filter: var(--filter);
+        }
+
+        input[type="text"],
+        input[type="email"],
+        input[type="url"],
+        input[type="tel"] {
+        width: 240px;
+        background: transparent;
+        border: none;
+        font-family: "Roboto", sans-serif;
+        font-size: 16px;
+        font-weight: 200px;
+        padding: 10px 0;
+        transition: border 0.5s;
+        outline: none;
+        color: var(--inputTextColor);
+        font-weight: bold;
+        }
+
+        .submitbtn {
+        display: none;
+        }
+
+        /* toggle  */
+
+        nav {
+            display: flex;
+            justify-content: flex-end;
+            padding: 20px 24px;
+        }
+
+        .btn {
+            position: absolute;
+            left: 2rem;
+            margin-top: 0.3rem;
+        }
+
+        .theme-switch-wrapper {
+            display: flex;
+            align-items: center;
+        }
+
+        .theme-switch-wrapper em {
+            margin-left: 10px;
+            font-size: 1rem;
+        }
+
+        .theme-switch {
+            display: inline-block;
+            height: 34px;
+            position: relative;
+            width: 60px;
+        }
+
+        .theme-switch input {
+            display: none;
+        }
+
+        .slider {
+            background-color: var(--togglebg);
+            bottom: 0;
+            cursor: pointer;
+            left: 0;
+            position: absolute;
+            right: 0;
+            top: 0;
+            transition: 0.4s;
+            /* filter: var(--filter); */
+        }
+
+        .slider:before {
+            background-color: var(--roundcolor);
+            bottom: 4px;
+            content: "";
+            height: 26px;
+            left: 4px;
+            position: absolute;
+            transition: 0.4s;
+            width: 26px;
+        }
+
+        input:checked+.slider {
+            background-color: var(--toggleslider);
+        }
+
+        input:checked+.slider:before {
+            transform: translateX(26px);
+        }
+
+        .slider.round {
+            border-radius: 34px;
+        }
+
+        .slider.round:before {
+            border-radius: 50%;
+        }
+
+        em {
+            color: var(--togglesliderColor);
+        }
+    </style>
+    <title>Document</title>
 </head>
 
 <body>
-<main class="wrapper">
-<article class="badge orange">
-<div class="rounded"><i class="fab fa-html5"></i></div>
-</article>
-<article class="badge blue">
-<div class="rounded"><i class="fab fa-css3-alt"></i></div>
-</article>
-<article class="badge gold">
-<div class="rounded"><i class="fab fa-js-square"></i></div>
-</article>
-</main>
-<script src="https://kit.fontawesome.com/dd8c49730d.js">
-</script>
+    <nav>
+        <div class="btn">
+            <!-- Place this tag where you want the button to render. -->
+            <a class="github-button"
+                href="https://github.com/smthari/Neumorphism-Contact-manger-using-html-css-javascript"
+                data-icon="octicon-star"
+                aria-label="Star smthari/Neumorphism-Contact-manger-using-html-css-javascript on GitHub">Star</a>
+            <!-- Place this tag where you want the button to render. -->
+            <a class="github-button"
+                href="https://github.com/smthari/Neumorphism-Contact-manger-using-html-css-javascript/fork"
+                data-icon="octicon-repo-forked"
+                aria-label="Fork smthari/Neumorphism-Contact-manger-using-html-css-javascript on GitHub">Fork</a>
+
+            <!-- Place this tag where you want the button to render. -->
+            <a class="github-button" href="https://github.com/smthari" aria-label="Follow @smthari on GitHub">Follow
+                @smthari</a>
+        </div>
+        <div class="theme-switch-wrapper">
+            <label class="theme-switch" for="checkbox">
+                <input type="checkbox" id="checkbox" />
+                <div class="slider round"></div>
+            </label>
+            <em>Switch Theme</em>
+        </div>
+    </nav>
+
+    <main>
+        <div class="container row">
+            <section class="ListContainer column">
+                <div id="people" class="Contact_list"></div>
+            </section>
+            <br>
+            <form autocomplete="off" class="js-form column">
+                <div class="name">
+                    <i class="far fa-user"></i>
+                    <input type="text" required id="fullName" placeholder="Enter name" />
+                </div>
+                <div class="email">
+                    <i class="fas fa-at"></i>
+                    <input type="email" required id="myEmail" placeholder="Enter email" />
+                </div>
+
+                <div class="number">
+                    <i class="fas fa-phone"></i>
+                    <input type="tel" required id="myTel" placeholder="Enter number" />
+                </div>
+
+                <div class="img">
+                    <i class="far fa-image"></i>
+                    <input type="url" required id="imgurl" placeholder="Enter image url" />
+                </div>
+                <button type="submit" class="submitbtn"></button>
+            </form>
+        </div>
+    </main>
+
+    <script src="https://kit.fontawesome.com/dd8c49730d.js" crossorigin="anonymous"></script>
+    <script async defer src="https://buttons.github.io/buttons.js"></script>
+    <script>
+        // object for storing a contacts in array for localstorage
+        let contacts = [];
+
+        /* console.log(contacts); */
+
+        function renderContact(contact) {
+        /* set item to localStorage to store data */
+        localStorage.setItem("contacts", JSON.stringify(contacts));
+
+        // selecting the list where we will appending a all node items
+        const list = document.querySelector(".Contact_list");
+
+        const item = document.querySelector(`[data-key='${contact.id}']`);
+
+        if (contact.deleted) {
+            // remove the item from the DOM
+            item.remove();
+            return;
+        }
+
+        // creating new element article
+        const node = document.createElement("article");
+        node.setAttribute("class", "person"); // setting attribute class:"person"
+        node.setAttribute("data-key", contact.id);
+        // adding a image name and dob in article element
+        // we can access the contactObject items with contactObject.objectitem because we rendered a contactObject in renderContact function as a parameter
+        node.innerHTML = `
+        <img src="${contact.imageurl}">
+        <div class="contactdetail">
+        <h1><i class="fas fa-user-circle contactIcon"></i> ${contact.name}</h1>
+        <p> <i class="fas fa-envelope contactIcon"></i> ${contact.email}</p>
+        <p><i class="fas fa-phone-alt contactIcon"></i> ${contact.contactnumber}  </p>
+        </div>
+            <button class="delete-contact js-delete-contact">
+                <svg fill="var(--svgcolor)" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                    <path d="M6 19c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V7H6v12zM19 4h-3.5l-1-1h-5l-1 1H5v2h14V4z" />
+                </svg>
+            </button>
+        `;
+        // appending a node in list
+        list.append(node);
+        }
+
+        const list = document.querySelector(".Contact_list");
+        list.addEventListener("click", (event) => {
+        if (event.target.classList.contains("js-delete-contact")) {
+            const itemKey = event.target.parentElement.dataset.key;
+            deleteContact(itemKey);
+        }
+        });
+
+        function deleteContact(key) {
+        // find the corresponding contactObject in the contacts array
+        const index = contacts.findIndex((item) => item.id === Number(key));
+        // Create a new object with properties of the current contactobject item
+        // and a `deleted` property which is set to true
+        const UpdatedContactObject = {
+            deleted: true,
+            ...contacts[index],
+        };
+        // remove the contactobject item from the array by filtering it out
+        contacts = contacts.filter((item) => item.id !== Number(key));
+        renderContact(UpdatedContactObject);
+        }
+
+        // function for adding todo
+        function addContact(name, email, imageurl, contactnumber, id) {
+        const contactObject = {
+            name: document.getElementById("fullName").value,
+            email: document.getElementById("myEmail").value,
+            imageurl: document.getElementById("imgurl").value,
+            contactnumber: document.getElementById("myTel").value,
+            id: Date.now(),
+        };
+
+        // push a contactObject in todoItems array for store a data as a array in localstorage
+        contacts.push(contactObject);
+        /* console.log(todoItems); */
+        // rendering contactObject in renderContact function as a prameter
+        renderContact(contactObject);
+        }
+
+        // add a event listner submit to the form
+        const form = document.querySelector(".js-form");
+        form.addEventListener("submit", (event) => {
+        event.preventDefault();
+        // when the form is submitted addTodo function is called
+        addContact();
+        form.reset();
+        });
+
+        // adding a add event listner when content is loaded and showing stored data array on the screen
+        document.addEventListener("DOMContentLoaded", () => {
+        const ref = localStorage.getItem("contacts");
+        if (ref) {
+            contacts = JSON.parse(ref);
+            contacts.forEach((t) => {
+            renderContact(t);
+            });
+        }
+        });
+
+        const toggleSwitch = document.querySelector(
+            '.theme-switch input[type="checkbox"]'
+        );
+        const currentTheme = localStorage.getItem("theme");
+
+        if (currentTheme) {
+            document.documentElement.setAttribute("data-theme", currentTheme);
+
+            if (currentTheme === "dark") {
+                toggleSwitch.checked = true;
+            }
+        }
+
+        function switchTheme(e) {
+            if (e.target.checked) {
+                document.documentElement.setAttribute("data-theme", "dark");
+                localStorage.setItem("theme", "dark");
+            } else {
+                document.documentElement.setAttribute("data-theme", "light");
+                localStorage.setItem("theme", "light");
+            }
+        }
+
+        toggleSwitch.addEventListener("change", switchTheme, false);
+    </script>
 </body>
 
 </html>

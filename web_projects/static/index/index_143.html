@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>dribbble logo</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+    <style>
+        body{
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        *{
+            box-sizing: border-box;
+        }
+        .circle{
+            position: relative;
+            width:300px;
+            height: 300px;
+            border: 19px solid #B2215A;
+            border-radius: 50%;
+            background: #E74D89;
+            overflow: hidden;  
+        }
+        .circle::before{
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 350px;
+            height: 250px;
+            border: 19px solid #B2215A;
+            border-radius:50%;
+            transform: translate(-90px,-160px);
+        }
+        .circle::after{
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 350px;
+            height: 250px;
+            border: 19px solid #B2215A;
+            border-radius:50%;
+            transform: translate(10px,140px);
+        }
+        span{
+            display: block;
+            width: 500px;
+            height: 650px;
+            border: 19px solid #B2215A;
+            border-radius: 50%;
+            transform: translate(-310px,-50px);
+        }
+    </style>
+</head>
+<body>
+    <div class="circle">
+        <span></span>
+    </div>
+</body>
+</html>

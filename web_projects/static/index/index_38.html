@@ -2,442 +2,81 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <style>
-        html {
-        box-sizing: border-box;
-        }
-
-        *,
-        *::before,
-        *::after {
-        box-sizing: inherit;
-        margin: 0;
-        padding: 0;
-        }
-
-        [data-theme="light"] {
-        --bg-color: #eef0f4;
-        --color: #333;
-        --togglebg: #333;
-        --contactIconColor: crimson;
-        --inputTextColor: #111;
-        --deleteIconColor: #111;
-        --filter: drop-shadow(-8px -8px 12px #ffffff)
-            drop-shadow(8px 8px 12px #c3c5c8);
-        --roundcolor: #eef0f4;
-        --toggleslider: #111;
-        --togglesliderColor: #111;
-        }
-
-        [data-theme="dark"] {
-        --bg-color: #333;
-        --color: #ccc;
-        --contactIconColor: lightblue;
-        --inputTextColor: #fff;
-        --deleteIconColor: #fff;
-        --filter: drop-shadow(-5px -5px 6px #16151530)
-            drop-shadow(5px 5px 6px #13111178);
-        --roundcolor: #333;
-        --toggleslider: #eef0f4;
-        --togglesliderColor: #fff;
-        }
-
-        body {
-        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
-            Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
-        line-height: 1.4;
-        background: var(--bg-color);
-        }
-
-        .container {
-        margin: 0 auto;
-        padding-left: 10px;
-        padding-right: 10px;
-        color: var(--color);
-        margin-top: 5vh;
-        margin-bottom: 5vh;
-        display: flex;
-        flex-direction: row;
-        }
-
-        .ListContainer {
-        width: 50%;
-        margin: 56px 30px 0 51px;
-        max-width: 500px;
-        border-radius: 0.25rem;
-        padding: 1.5rem 2rem;
-        border-radius: 16px;
-        background: var(--bg-color);
-        border: 12px solid var(--bg-color);
-        filter: var(--filter);
-        }
-
-        .person {
-        display: flex;
-        /* justify-content: space-between; */
-        column-gap: 0.75rem;
-        margin-bottom: 1.5rem;
-        align-items: center;
-        }
-
-        .person img {
-        width: 75px;
-        height: 75px;
-        object-fit: cover;
-        border-radius: 50%;
-        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-        }
-
-        .contactdetail {
-        margin-right: 5rem;
-        }
-
-        .contactIcon {
-        margin: 0 10px 0 5px;
-        font-size: 14px;
-        color: var(--contactIconColor);
-        }
-
-        .person h4 {
-        margin-bottom: 0.35rem;
-        }
-
-        .person p {
-        margin-bottom: 0;
-        }
-
-        .delete-contact {
-        border: none;
-        background-color: transparent;
-        outline: none;
-        cursor: pointer;
-        float: right;
-        display: block;
-        position: absolute;
-        right: 10%;
-        }
-
-        .delete-contact svg {
-        width: 30px;
-        height: 30px;
-        pointer-events: none;
-        fill: var(--deleteIconColor);
-        }
-
-        form {
-        width: 50%;
-        left: 50%;
-        margin-top: 15%;
-        margin-left: 7%;
-        position: fixed;
-        }
-
-        .name,
-        .number,
-        .email,
-        .img {
-        display: flex;
-        justify-content: space-evenly;
-        margin-right: 30%;
-        align-items: center;
-        margin-bottom: 30px;
-        background: var(--bg-color);
-        border: 5px solid var(--bg-color);
-        filter: var(--filter);
-        }
-
-        input[type="text"],
-        input[type="email"],
-        input[type="url"],
-        input[type="tel"] {
-        width: 240px;
-        background: transparent;
-        border: none;
-        font-family: "Roboto", sans-serif;
-        font-size: 16px;
-        font-weight: 200px;
-        padding: 10px 0;
-        transition: border 0.5s;
-        outline: none;
-        color: var(--inputTextColor);
-        font-weight: bold;
-        }
-
-        .submitbtn {
-        display: none;
-        }
-
-        /* toggle  */
-
-        nav {
-            display: flex;
-            justify-content: flex-end;
-            padding: 20px 24px;
-        }
-
-        .btn {
-            position: absolute;
-            left: 2rem;
-            margin-top: 0.3rem;
-        }
-
-        .theme-switch-wrapper {
-            display: flex;
-            align-items: center;
-        }
-
-        .theme-switch-wrapper em {
-            margin-left: 10px;
-            font-size: 1rem;
-        }
-
-        .theme-switch {
-            display: inline-block;
-            height: 34px;
-            position: relative;
-            width: 60px;
-        }
-
-        .theme-switch input {
-            display: none;
-        }
-
-        .slider {
-            background-color: var(--togglebg);
-            bottom: 0;
-            cursor: pointer;
-            left: 0;
-            position: absolute;
-            right: 0;
-            top: 0;
-            transition: 0.4s;
-            /* filter: var(--filter); */
-        }
-
-        .slider:before {
-            background-color: var(--roundcolor);
-            bottom: 4px;
-            content: "";
-            height: 26px;
-            left: 4px;
-            position: absolute;
-            transition: 0.4s;
-            width: 26px;
-        }
-
-        input:checked+.slider {
-            background-color: var(--toggleslider);
-        }
-
-        input:checked+.slider:before {
-            transform: translateX(26px);
-        }
-
-        .slider.round {
-            border-radius: 34px;
-        }
-
-        .slider.round:before {
-            border-radius: 50%;
-        }
-
-        em {
-            color: var(--togglesliderColor);
-        }
+         html {
+     margin: 0;
+     font-family: 'Muli', sans-serif;
+     font-smoothing: antialiased;
+     text-rendering: optimizeLegibility;
+ }
+ body {
+     background: linear-gradient(to bottom, #b721ff, #2af598, #c05555, #fee140, #fa709a);
+     background-size: 100%;
+     background-repeat: no-repeat;
+     margin: 0;
+     font-size: 1.15rem;
+     line-height: 1.4em;
+ }
+ body:before {
+     content: '';
+     position: fixed;
+     top: 0;
+     bottom: 0;
+     width: 100%;
+     z-index: -1;
+     background: linear-gradient(to right bottom, rgba(255,255,255,0.2), #ffda77 75%);
+ }
+ #container {
+     background-color: #fff;
+     margin: 80px 10%;
+     padding: 30px 60px;
+     border-radius: 20px;
+     box-shadow: 0 3px 26px 0 rgba(0,0,0,0.20);
+ }
+ main,header {
+     box-sizing: border-box;
+ }
+ main {
+     background-color: #f7f7f7;
+     padding: 20px;
+     border-radius: 10px;
+     color: #6b6b6b;
+     margin: 40px 0;
+ }
+ h1 {
+     font-family: sans-serif;
+     text-transform: uppercase;
+     text-align: center;
+ }
     </style>
-    <title>Document</title>
+    <title>Background Gradient Change On Scrolling</title>
 </head>
-
 <body>
-    <nav>
-        <div class="btn">
-            <!-- Place this tag where you want the button to render. -->
-            <a class="github-button"
-                href="https://github.com/smthari/Neumorphism-Contact-manger-using-html-css-javascript"
-                data-icon="octicon-star"
-                aria-label="Star smthari/Neumorphism-Contact-manger-using-html-css-javascript on GitHub">Star</a>
-            <!-- Place this tag where you want the button to render. -->
-            <a class="github-button"
-                href="https://github.com/smthari/Neumorphism-Contact-manger-using-html-css-javascript/fork"
-                data-icon="octicon-repo-forked"
-                aria-label="Fork smthari/Neumorphism-Contact-manger-using-html-css-javascript on GitHub">Fork</a>
+     <div id="container">
+         <header>
+             <h1>Scrolling Gradient</h1>
+         </header>
+         <main>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Varius quam quisque id diam vel quam elementum pulvinar. Et ligula ullamcorper malesuada proin libero. Turpis massa sed elementum tempus egestas sed sed. Nulla aliquet enim tortor at auctor urna nunc id cursus. Elementum eu facilisis sed odio morbi quis commodo odio. Convallis aenean et tortor at risus viverra adipiscing at in. Diam quam nulla porttitor massa. Tempus imperdiet nulla malesuada pellentesque elit eget. In est ante in nibh mauris cursus mattis. Sit amet mattis vulputate enim nulla aliquet porttitor. Adipiscing at in tellus integer feugiat scelerisque varius morbi enim. Cursus metus aliquam eleifend mi in nulla posuere sollicitudin aliquam. Duis tristique sollicitudin nibh sit amet commodo. Leo a diam sollicitudin tempor id eu. Aliquam eleifend mi in nulla posuere sollicitudin aliquam ultrices. Velit ut tortor pretium viverra. Blandit libero volutpat sed cras. Non odio euismod lacinia at quis risus sed vulputate.
 
-            <!-- Place this tag where you want the button to render. -->
-            <a class="github-button" href="https://github.com/smthari" aria-label="Follow @smthari on GitHub">Follow
-                @smthari</a>
-        </div>
-        <div class="theme-switch-wrapper">
-            <label class="theme-switch" for="checkbox">
-                <input type="checkbox" id="checkbox" />
-                <div class="slider round"></div>
-            </label>
-            <em>Switch Theme</em>
-        </div>
-    </nav>
-
-    <main>
-        <div class="container row">
-            <section class="ListContainer column">
-                <div id="people" class="Contact_list"></div>
-            </section>
-            <br>
-            <form autocomplete="off" class="js-form column">
-                <div class="name">
-                    <i class="far fa-user"></i>
-                    <input type="text" required id="fullName" placeholder="Enter name" />
-                </div>
-                <div class="email">
-                    <i class="fas fa-at"></i>
-                    <input type="email" required id="myEmail" placeholder="Enter email" />
-                </div>
-
-                <div class="number">
-                    <i class="fas fa-phone"></i>
-                    <input type="tel" required id="myTel" placeholder="Enter number" />
-                </div>
-
-                <div class="img">
-                    <i class="far fa-image"></i>
-                    <input type="url" required id="imgurl" placeholder="Enter image url" />
-                </div>
-                <button type="submit" class="submitbtn"></button>
-            </form>
-        </div>
-    </main>
-
-    <script src="https://kit.fontawesome.com/dd8c49730d.js" crossorigin="anonymous"></script>
-    <script async defer src="https://buttons.github.io/buttons.js"></script>
-    <script>
-        // object for storing a contacts in array for localstorage
-        let contacts = [];
-
-        /* console.log(contacts); */
-
-        function renderContact(contact) {
-        /* set item to localStorage to store data */
-        localStorage.setItem("contacts", JSON.stringify(contacts));
-
-        // selecting the list where we will appending a all node items
-        const list = document.querySelector(".Contact_list");
-
-        const item = document.querySelector(`[data-key='${contact.id}']`);
-
-        if (contact.deleted) {
-            // remove the item from the DOM
-            item.remove();
-            return;
-        }
-
-        // creating new element article
-        const node = document.createElement("article");
-        node.setAttribute("class", "person"); // setting attribute class:"person"
-        node.setAttribute("data-key", contact.id);
-        // adding a image name and dob in article element
-        // we can access the contactObject items with contactObject.objectitem because we rendered a contactObject in renderContact function as a parameter
-        node.innerHTML = `
-        <img src="${contact.imageurl}">
-        <div class="contactdetail">
-        <h1><i class="fas fa-user-circle contactIcon"></i> ${contact.name}</h1>
-        <p> <i class="fas fa-envelope contactIcon"></i> ${contact.email}</p>
-        <p><i class="fas fa-phone-alt contactIcon"></i> ${contact.contactnumber}  </p>
-        </div>
-            <button class="delete-contact js-delete-contact">
-                <svg fill="var(--svgcolor)" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
-                    <path d="M6 19c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V7H6v12zM19 4h-3.5l-1-1h-5l-1 1H5v2h14V4z" />
-                </svg>
-            </button>
-        `;
-        // appending a node in list
-        list.append(node);
-        }
-
-        const list = document.querySelector(".Contact_list");
-        list.addEventListener("click", (event) => {
-        if (event.target.classList.contains("js-delete-contact")) {
-            const itemKey = event.target.parentElement.dataset.key;
-            deleteContact(itemKey);
-        }
-        });
-
-        function deleteContact(key) {
-        // find the corresponding contactObject in the contacts array
-        const index = contacts.findIndex((item) => item.id === Number(key));
-        // Create a new object with properties of the current contactobject item
-        // and a `deleted` property which is set to true
-        const UpdatedContactObject = {
-            deleted: true,
-            ...contacts[index],
-        };
-        // remove the contactobject item from the array by filtering it out
-        contacts = contacts.filter((item) => item.id !== Number(key));
-        renderContact(UpdatedContactObject);
-        }
-
-        // function for adding todo
-        function addContact(name, email, imageurl, contactnumber, id) {
-        const contactObject = {
-            name: document.getElementById("fullName").value,
-            email: document.getElementById("myEmail").value,
-            imageurl: document.getElementById("imgurl").value,
-            contactnumber: document.getElementById("myTel").value,
-            id: Date.now(),
-        };
-
-        // push a contactObject in todoItems array for store a data as a array in localstorage
-        contacts.push(contactObject);
-        /* console.log(todoItems); */
-        // rendering contactObject in renderContact function as a prameter
-        renderContact(contactObject);
-        }
-
-        // add a event listner submit to the form
-        const form = document.querySelector(".js-form");
-        form.addEventListener("submit", (event) => {
-        event.preventDefault();
-        // when the form is submitted addTodo function is called
-        addContact();
-        form.reset();
-        });
-
-        // adding a add event listner when content is loaded and showing stored data array on the screen
-        document.addEventListener("DOMContentLoaded", () => {
-        const ref = localStorage.getItem("contacts");
-        if (ref) {
-            contacts = JSON.parse(ref);
-            contacts.forEach((t) => {
-            renderContact(t);
-            });
-        }
-        });
-
-        const toggleSwitch = document.querySelector(
-            '.theme-switch input[type="checkbox"]'
-        );
-        const currentTheme = localStorage.getItem("theme");
-
-        if (currentTheme) {
-            document.documentElement.setAttribute("data-theme", currentTheme);
-
-            if (currentTheme === "dark") {
-                toggleSwitch.checked = true;
-            }
-        }
-
-        function switchTheme(e) {
-            if (e.target.checked) {
-                document.documentElement.setAttribute("data-theme", "dark");
-                localStorage.setItem("theme", "dark");
-            } else {
-                document.documentElement.setAttribute("data-theme", "light");
-                localStorage.setItem("theme", "light");
-            }
-        }
-
-        toggleSwitch.addEventListener("change", switchTheme, false);
-    </script>
-</body>
-
-</html>
+            Aenean euismod elementum nisi quis eleifend quam adipiscing vitae proin. Consectetur a erat nam at lectus urna duis. Urna porttitor rhoncus dolor purus non enim. Volutpat sed cras ornare arcu dui vivamus arcu felis. Aliquam purus sit amet luctus. Nunc sed velit dignissim sodales. Donec et odio pellentesque diam volutpat commodo sed egestas. Non odio euismod lacinia at quis risus. Sollicitudin ac orci phasellus egestas tellus rutrum tellus pellentesque. Integer vitae justo eget magna fermentum iaculis eu. Sagittis eu volutpat odio facilisis mauris sit amet massa. Lacus viverra vitae congue eu. Mauris nunc congue nisi vitae suscipit. Velit sed ullamcorper morbi tincidunt.
+            
+            Aliquam id diam maecenas ultricies mi eget mauris. Hendrerit dolor magna eget est lorem ipsum dolor sit amet. Non nisi est sit amet facilisis magna etiam tempor orci. Aliquet nec ullamcorper sit amet risus. Velit ut tortor pretium viverra suspendisse. Eu nisl nunc mi ipsum. Nibh mauris cursus mattis molestie a iaculis at. Nunc eget lorem dolor sed viverra ipsum nunc aliquet. Leo duis ut diam quam nulla porttitor. Tristique et egestas quis ipsum. Ullamcorper sit amet risus nullam eget felis eget nunc. Pharetra sit amet aliquam id diam maecenas ultricies.
+            
+            Augue interdum velit euismod in pellentesque massa placerat. Consectetur adipiscing elit duis tristique sollicitudin. Turpis tincidunt id aliquet risus feugiat in ante. Elit sed vulputate mi sit. Est sit amet facilisis magna. Lorem mollis aliquam ut porttitor leo a diam. Amet volutpat consequat mauris nunc congue. Amet nisl suscipit adipiscing bibendum est ultricies integer quis auctor. Pulvinar neque laoreet suspendisse interdum consectetur libero id faucibus nisl. Luctus venenatis lectus magna fringilla urna porttitor rhoncus dolor. Tellus cras adipiscing enim eu turpis egestas pretium aenean pharetra.
+            
+            Neque sodales ut etiam sit amet. Duis convallis convallis tellus id interdum velit laoreet id. Aenean vel elit scelerisque mauris. Mi bibendum neque egestas congue. Leo a diam sollicitudin tempor id eu nisl nunc mi. Nulla aliquet porttitor lacus luctus accumsan tortor posuere ac. Elementum sagittis vitae et leo duis ut. Consequat semper viverra nam libero justo laoreet sit amet cursus. Hac habitasse platea dictumst vestibulum. Blandit aliquam etiam erat velit. Purus ut faucibus pulvinar elementum integer. Fringilla ut morbi tincidunt augue. At urna condimentum mattis pellentesque. Erat imperdiet sed euismod nisi. At elementum eu facilisis sed. Consectetur adipiscing elit ut aliquam. Id velit ut tortor pretium viverra suspendisse potenti nullam ac.
+            
+            Posuere sollicitudin aliquam ultrices sagittis. Ipsum consequat nisl vel pretium lectus quam id leo in. Mi sit amet mauris commodo quis imperdiet massa tincidunt nunc. Morbi tincidunt augue interdum velit euismod in. In hac habitasse platea dictumst quisque. Egestas quis ipsum suspendisse ultrices gravida dictum fusce ut. Tellus in hac habitasse platea dictumst. Ligula ullamcorper malesuada proin libero nunc consequat interdum varius sit. Dignissim sodales ut eu sem integer vitae justo eget. Mauris nunc congue nisi vitae suscipit tellus mauris a. Interdum varius sit amet mattis vulputate enim. At ultrices mi tempus imperdiet. Elementum nisi quis eleifend quam adipiscing vitae. Lectus proin nibh nisl condimentum id venenatis a condimentum.
+            
+            Urna condimentum mattis pellentesque id nibh tortor id aliquet. Sit amet justo donec enim diam vulputate ut. Porttitor massa id neque aliquam vestibulum morbi blandit cursus risus. Libero volutpat sed cras ornare arcu dui. Sed risus ultricies tristique nulla aliquet enim tortor at. Semper auctor neque vitae tempus quam pellentesque. At quis risus sed vulputate odio ut enim. In vitae turpis massa sed elementum tempus egestas sed. Congue eu consequat ac felis donec et odio. Massa sapien faucibus et molestie. Viverra orci sagittis eu volutpat. Commodo viverra maecenas accumsan lacus vel.
+            
+            Quis eleifend quam adipiscing vitae proin sagittis nisl. Proin sed libero enim sed faucibus turpis in eu. Odio tempor orci dapibus ultrices in iaculis. Morbi tristique senectus et netus et. Vel orci porta non pulvinar neque laoreet. Eu non diam phasellus vestibulum. Sit amet dictum sit amet justo donec enim. Et tortor consequat id porta nibh. Vitae ultricies leo integer malesuada nunc vel. Eleifend donec pretium vulputate sapien nec sagittis aliquam malesuada. Dolor sed viverra ipsum nunc aliquet bibendum enim. Mauris pharetra et ultrices neque ornare aenean euismod. Gravida arcu ac tortor dignissim convallis aenean et. Aliquam id diam maecenas ultricies mi eget mauris pharetra et. At urna condimentum mattis pellentesque id. Phasellus vestibulum lorem sed risus ultricies tristique nulla. Iaculis nunc sed augue lacus viverra vitae. Aenean pharetra magna ac placerat vestibulum lectus mauris ultrices.
+            
+            Egestas dui id ornare arcu odio ut sem nulla pharetra. Mi tempus imperdiet nulla malesuada pellentesque elit eget. Tellus molestie nunc non blandit massa enim nec dui. Ante in nibh mauris cursus. Urna nunc id cursus metus aliquam eleifend. Mauris a diam maecenas sed enim ut sem. Metus aliquam eleifend mi in nulla posuere sollicitudin aliquam ultrices. Eget nunc lobortis mattis aliquam faucibus purus in massa tempor. Lorem dolor sed viverra ipsum nunc. Urna neque viverra justo nec ultrices. Amet nisl suscipit adipiscing bibendum est ultricies integer quis. Ac odio tempor orci dapibus ultrices in iaculis nunc sed. Mauris in aliquam sem fringilla ut. Tincidunt eget nullam non nisi. Ullamcorper morbi tincidunt ornare massa eget egestas purus viverra.
+            
+            Commodo nulla facilisi nullam vehicula ipsum. Non sodales neque sodales ut etiam. Viverra suspendisse potenti nullam ac tortor vitae purus. Arcu non odio euismod lacinia. Ut etiam sit amet nisl. Nisi quis eleifend quam adipiscing vitae. Dictum at tempor commodo ullamcorper a lacus vestibulum sed. Pretium nibh ipsum consequat nisl vel. Commodo odio aenean sed adipiscing diam donec adipiscing tristique risus. Nulla facilisi etiam dignissim diam. In eu mi bibendum neque egestas. Duis tristique sollicitudin nibh sit amet commodo nulla. Etiam erat velit scelerisque in dictum non consectetur a erat. Et netus et malesuada fames ac. Nascetur ridiculus mus mauris vitae. Duis at tellus at urna condimentum.
+         </main>
+     </div>
+    </body>
+    </html>

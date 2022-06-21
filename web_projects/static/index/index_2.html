@@ -1,57 +1,149 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content= "width=device-width, initial-scale=1.0">
-    <title> 3 column responsive layout </title>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <style>
-            body{
-                background-color: #111;
-                margin: 0;
-                height: 100vh;
-                display: flex;
-                justify-content: center;
-                align-items: center;
-        }
-
-        .container{
-                width: 90%;
-                display: grid;
+    *{
+        margin: 0;
+        padding: 0;
+        font-family: 'lato';
+        list-style: none;
+        text-decoration: none;
+    }
+    body{
+        background-color: #fcdc29;
+    }
+    .wrapper{
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+    .mainMenu{
+        width: 250px;
+        display: block;
+        border-radius: 10px;
+        overflow: hidden;
+    }
+    .item{
+        border-top: 1px solid #ef584a;
+        overflow: hidden;
+    }
+    .btn{
+        display: block;
+        padding: 15px 20px;
+        background-color: #ff6f61;
+        color: #fff;
+        position: relative;
+    
+    }
+    .btn:before{
+        content: '';
+        position: absolute;
+        width: 0;
+        height: 0;
+        border-left: 8px solid transparent;
+        border-right:8px solid transparent;
+        border-top:10px solid #ff6f61;
+        right: 15px;
+        bottom: -10px;
+        z-index: 9;
         
-            /* main stuff here */
-                grid-template-columns: repeat(auto-fit,minmax(250px,1fr));
-                grid-gap: 20px;
-        }
-        .box{
-                height: 200px;
-                color: white;
-                border:2px solid white;
-                position: relative;
-        }
-
-        h2{
-                text-transform: uppercase;
-                font-family: verdana;
-                margin: 0;
-                position: absolute;
-                top: 50%; left: 50%;
-                transform: translate(-50%,-50%);
-        }
+    }
+    .btn i {
+        margin-right: 10px;
+    }
+    .subMenu{
+        background: #273057;
+        overflow: hidden;
+        transition: max-height 0.7s;
+        max-height: 0;
+    }
+    .subMenu a{
+        display: block;
+        padding: 15px 20px;
+        color: #fff;
+        font-size: 14px;
+        border-bottom: 1px solid #394c7f;
+        position: relative;
+    }
+    .subMenu a:before{
+        content: '';
+        opacity: 0;
+        transition: opacity 0.3s;
+    }
+    .subMenu a:hover:before{
+        content: '';
+        position: absolute;
+        height: 0;
+        width: 6px;
+        left: 0;
+        top:0;
+        opacity: 1;
+        border-top: 24px solid transparent;
+        border-left: 11px solid #fcdc29;
+        border-bottom: 24px solid transparent;
+    }
+    .subMenu a:after{
+        content: '';
+        opacity: 0;
+        transition: opacity 0.3s;
+    }
+    .subMenu a:hover:after{
+        content: '';
+        position: absolute;
+        height: 0;
+        width: 6px;
+        right: 0px;
+        top:0;
+        opacity: 1;
+        border-top: 24px solid transparent;
+        border-right: 11px solid #fcdc29;
+        border-bottom: 24px solid transparent;
+    }
+    .subMenu a:hover{
+        background: #273057;
+        background: linear-gradient(to bottom, #273057 0%,#273057 50%,#394c7f 51%,#394c7f 100%);
+        filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#273057', endColorstr='#394c7f',GradientType=0 );
+        transition: all 0.3s;
+        border-bottom: 1px solid #394c7f;
+    }
+    .subMenu a:last-child{border:none;}
+    .item:target .subMenu{max-height: 10em;}
     </style>
+    <title>According Menu | Coderider</title>
 </head>
 <body>
-
-<div class="container">
-    <div class="box">
-        <h2>box 1</h2>
-    </div>
-    <div class="box">
-        <h2>box 2</h2>
-    </div>
-    <div class="box">
-        <h2>box 3</h2>
+    <div class="wrapper">
+        <ui class="mainMenu">
+            <li class="item" id="account">
+                <a href="#account" class="btn"><i class="fas fa-user-circle"></i>My Account</a>
+                <div class="subMenu">
+                    <a href="">item-1</a>
+                    <a href="">item-2</a>
+                    <a href="">item-3</a>
+                </div>
+            </li>
+            <li class="item" id="about">
+                <a href="#about" class="btn"><i class="fas fa-address-card"></i>About</a>
+                <div class="subMenu">
+                    <a href="">item-1</a>
+                    <a href="">item-2</a>
+                </div>
+            </li>
+            <li class="item" id="support">
+                <a href="#support" class="btn"><i class="fas fa-info"></i>Support</a>
+                <div class="subMenu">
+                    <a href="">item-1</a>
+                </div>
+            </li>
+            <li class="item">
+                <a href="#" class="btn"><i class="fas fa-sign-out-alt"></i>Log Out</a>
+            </li>
+        </ui>
     </div>
 </div>
-
 </body>
 </html>

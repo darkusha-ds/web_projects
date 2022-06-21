@@ -1,396 +1,192 @@
-<!DOCTYPE html>
-<html lang="en">
-
+<!doctype html>
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Neumorphism Password generator</title>
-    <style>
-        @import url("https://fonts.googleapis.com/css?family=Muli&display=swap");
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Snake Gallery jQuery Plugin Demo</title>
+    <link href="http://www.jqueryscript.net/css/jquerysctipttop.css" rel="stylesheet" type="text/css">
+	<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+	<style>
+		.main{
+			display: inline-block;
+			padding: 0;
+			width: 200px;
+    		height: 200px;
+		}
+		.main img{
+			width: 100%;
+			height: 100%;
+		}
+	</style>
+	<style type="text/css">
+    .container { margin-top:150px;}
+    	.snake{
+    		position: relative;
+    		overflow: hidden;
+    	}
+    	.overlay{
+    		position: absolute;
+    		opacity: 0.9;
 
-        [data-theme="light"] {
-        --bg-color: #eef0f4;
-        --color: #333;
-        --togglebg: #333;
-        --roundcolor: #eef0f4;
-        --toggleslider: #111;
-        --togglesliderColor: #111;
-        --filter1: drop-shadow(-8px -8px 12px #ffffff)
-            drop-shadow(8px 8px 12px #c3c5c8);
-        --filter2: drop-shadow(-4px -4px 6px #ffffff) drop-shadow(4px 4px 6px #c3c5c8);
-        --filter3: drop-shadow(-2px -2px 3px #ffffff) drop-shadow(2px 2px 3px #c3c5c8);
-        }
-
-        [data-theme="dark"] {
-        --bg-color: #333;
-        --color: #ccc;
-        --roundcolor: #333;
-        --toggleslider: #eef0f4;
-        --togglesliderColor: #fff;
-        --filter1: drop-shadow(-8px -8px 12px #16151508)
-            drop-shadow(8px 8px 12px #13111178);
-        --filter2: drop-shadow(-4px -4px 6px #16151508)
-            drop-shadow(4px 4px 6px #13111178);
-        --filter3: drop-shadow(-2px -2px 3px #16151508)
-            drop-shadow(2px 2px 3px #13111178);
-        }
-
-        * {
-        box-sizing: border-box;
-        margin: 0;
-        padding: 0;
-        }
-
-        body {
-        background-color: var(--bg-color);
-        color: var(--color);
-        font-family: "Muli", sans-serif;
-        }
-
-        p {
-        margin: 5px 0;
-        }
-
-        h2 {
-        margin: 10px 0 20px;
-        text-align: center;
-        }
-
-        input[type="checkbox"] {
-        margin-right: 0;
-        }
-
-        .container {
-        padding: 20px;
-        width: 350px;
-        max-width: 100%;
-        background: var(--bg-color);
-        border: 12px solid var(--bg-color);
-        filter: var(--filter1);
-        margin: auto;
-        }
-
-        .result-container {
-        background-color: var(--bg-color);
-        border: 12px solid var(--bg-color);
-        filter: var(--filter2);
-        display: flex;
-        justify-content: flex-start;
-        align-items: center;
-        position: relative;
-        font-size: 18px;
-        letter-spacing: 1px;
-        height: 60px;
-        width: 100%;
-        margin-bottom: 35px;
-        }
-
-        textarea {
-        background: none;
-        border: none;
-        color: var(--color);
-        font-size: 20px;
-        margin-top: auto;
-        outline: none;
-        resize: none;
-        }
-
-        .result-container .btn {
-        font-size: 20px;
-        position: absolute;
-        top: 5px;
-        right: 5px;
-        height: 40px;
-        width: 40px;
-        }
-
-        .buttons {
-        display: flex;
-        }
-
-        .btn {
-        width: 50%;
-        border: none;
-        color: var(--color);
-        cursor: pointer;
-        font-size: 16px;
-        padding: 8px 12px;
-        margin: 14px 5px 7px 5px;
-        background-color: var(--bg-color);
-        filter: var(--filter2);
-        }
-
-        .btn:hover {
-        filter: var(--filter3);
-        transition: 0.3s ease-in-out;
-        }
-
-        .setting {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        margin: 15px 0;
-        }
-
-        @media screen and (max-width: 400px) {
-        .result-container {
-            font-size: 14px;
-        }
-        }
-
-        /* dark mode toggle  & github buttons */
-        nav {
-            display: flex;
-            justify-content: flex-end;
-            padding: 20px 24px;
-        }
-
-        .navbtn {
-            position: absolute;
-            left: 2rem;
-            margin-top: 0.3rem;
-        }
-
-        .theme-switch-wrapper {
-            display: flex;
-            align-items: center;
-        }
-
-        .theme-switch-wrapper em {
-            margin-left: 10px;
-            font-size: 1rem;
-        }
-
-        .theme-switch {
-            display: inline-block;
-            height: 34px;
-            position: relative;
-            width: 60px;
-        }
-
-        .theme-switch input {
-            display: none;
-        }
-
-        .slider {
-            background-color: var(--togglebg);
-            bottom: 0;
-            cursor: pointer;
-            left: 0;
-            position: absolute;
-            right: 0;
-            top: 0;
-            transition: 0.4s;
-            /* filter: var(--filter); */
-        }
-
-        .slider:before {
-            background-color: var(--roundcolor);
-            bottom: 4px;
-            content: "";
-            height: 26px;
-            left: 4px;
-            position: absolute;
-            transition: 0.4s;
-            width: 26px;
-        }
-
-        input:checked+.slider {
-            background-color: var(--toggleslider);
-        }
-
-        input:checked+.slider:before {
-            transform: translateX(26px);
-        }
-
-        .slider.round {
-            border-radius: 34px;
-        }
-
-        .slider.round:before {
-            border-radius: 50%;
-        }
-
-        em {
-            color: var(--togglesliderColor);
-        }
+    		text-align: center;
+    		padding-top: 60px;
+    		background-color: #222;
+        color:#fff;
+    	}
+    	.overlay .title{
+    		font-size: 15px;
+    		font-weight: bold;
+    		display: block;
+    		width: 100%;
+    	}
     </style>
 </head>
-
 <body>
-    <!-- /* dark mode toggle & github buttons   */ -->
-    <nav>
-       <!--  <div class="navbtn">
-            <a class="github-button" href="https://github.com/smthari/Password-generator-using-html-css-javascript/fork"
-                data-color-scheme="no-preference: dark; light: light; dark: dark;" data-icon="octicon-repo-forked"
-                data-size="large" data-show-count="true"
-                aria-label="Fork smthari/Password-generator-using-html-css-javascript on GitHub">Fork</a>
+<div id="jquery-script-menu">
+<div class="jquery-script-center">
+<ul>
+<li><a href="http://www.jqueryscript.net/gallery/Direction-aware-Gallery-Hover-Effect-jQuery-SnakeGallery.html">Download This Plugin</a></li>
+<li><a href="http://www.jqueryscript.net/">Back To jQueryScript.Net</a></li>
+</ul>
+<div class="jquery-script-ads"><script type="text/javascript">
+// <!--
+google_ad_client = "ca-pub-2783044520727903";
+/* jQuery_demo */
+google_ad_slot = "2780937993";
+google_ad_width = 728;
+google_ad_height = 90;
+//-->
+</script>
+<script type="text/javascript"
+src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+</script></div>
+<div class="jquery-script-clear"></div>
+</div>
+</div>
+<div class="container">
+<h1>Snake Gallery jQuery Plugin Demo</h1>
+	<div class="main col-md-4 snake">
+			<div class="overlay"><span class="title">Image #1</span>
+			<span class="description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce maximus bibendum mollis.</span></div>
+			<img class="" src="https://unsplash.it/300/300?image=570"/>
+	</div>
+	<div class="main col-md-4 snake">
+			<div class="overlay"><span class="title">Image #2</span>
+			<span class="description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce maximus bibendum mollis.</span></div>
+			<img class="" src="https://unsplash.it/300/300?image=571"/>
+	</div>
+	<div class="main col-md-4 snake">
+			<div class="overlay"><span class="title">Image #3</span>
+			<span class="description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce maximus bibendum mollis.</span></div>
+			<img class="" src="https://unsplash.it/300/300?image=572"/>
+	</div>
+	<div class="main col-md-4 snake">
+			<div class="overlay"><span class="title">Image #4</span>
+			<span class="description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce maximus bibendum mollis.</span></div>
+			<img class="" src="https://unsplash.it/300/300?image=573"/>
+	</div>
+	<div class="main col-md-4 snake">
+			<div class="overlay"><span class="title">Image #5</span>
+			<span class="description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce maximus bibendum mollis.</span></div>
+			<img class="" src="https://unsplash.it/300/300?image=574"/>
+	</div>
+	<div class="main col-md-4 snake">
+			<div class="overlay"><span class="title">Image #6</span>
+			<span class="description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce maximus bibendum mollis.</span></div>
+			<img class="" src="https://unsplash.it/300/300?image=575"/>
+	</div>
+	<div class="main col-md-4 snake">
+			<div class="overlay"><span class="title">Image #7</span>
+			<span class="description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce maximus bibendum mollis.</span></div>
+			<img class="" src="https://unsplash.it/300/300?image=576"/>
+	</div>
+	<div class="main col-md-4 snake">
+			<div class="overlay"><span class="title">Image #8</span>
+			<span class="description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce maximus bibendum mollis.</span></div>
+			<img class="" src="https://unsplash.it/300/300?image=577"/>
+	</div>
+	<div class="main col-md-4 snake">
+			<div class="overlay"><span class="title">Image #9</span>
+			<span class="description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce maximus bibendum mollis.</span></div>
+			<img class="" src="https://unsplash.it/300/300?image=550"/>
+	</div>
+	<div class="main col-md-4 snake">
+			<div class="overlay"><span class="title">Image #10</span>
+			<span class="description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce maximus bibendum mollis.</span></div>
+			<img class="" src="https://unsplash.it/300/300?image=579"/>
+	</div>
+	<div class="main col-md-4 snake">
+			<div class="overlay"><span class="title">Image #11</span>
+			<span class="description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce maximus bibendum mollis.</span></div>
+			<img class="" src="https://unsplash.it/300/300?image=580"/>
+	</div>
+	<div class="main col-md-4 snake">
+			<div class="overlay"><span class="title">Image #12</span>
+			<span class="description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce maximus bibendum mollis.</span></div>
+			<img class="" src="https://unsplash.it/300/300?image=581"/>
+	</div>
+	<div class="main col-md-4 snake">
+			<div class="overlay"><span class="title">Image #13</span>
+			<span class="description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce maximus bibendum mollis.</span></div>
+			<img class="" src="https://unsplash.it/300/300?image=582"/>
+	</div>
+	<div class="main col-md-4 snake">
+			<div class="overlay"><span class="title">Image #14</span>
+			<span class="description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce maximus bibendum mollis.</span></div>
+			<img class="" src="https://unsplash.it/300/300?image=583"/>
+	</div>
+	<div class="main col-md-4 snake">
+			<div class="overlay"><span class="title">Image #15</span>
+			<span class="description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce maximus bibendum mollis.</span></div>
+			<img class="" src="https://unsplash.it/300/300?image=584"/>
+	</div>
+	<div class="main col-md-4 snake">
+			<div class="overlay"><span class="title">Image #16</span>
+			<span class="description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce maximus bibendum mollis.</span></div>
+			<img class="" src="https://unsplash.it/300/300?image=585"/>
+	</div>
+	<div class="main col-md-4 snake">
+			<div class="overlay"><span class="title">Image #17</span>
+			<span class="description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce maximus bibendum mollis.</span></div>
+			<img class="" src="https://unsplash.it/300/300?image=586"/>
+	</div>
+	<div class="main col-md-4 snake">
+			<div class="overlay"><span class="title">Image #18</span>
+			<span class="description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce maximus bibendum mollis.</span></div>
+			<img class="" src="https://unsplash.it/300/300?image=558"/>
+	</div>
+	<div class="main col-md-4 snake">
+			<div class="overlay"><span class="title">Image #19</span>
+			<span class="description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce maximus bibendum mollis.</span></div>
+			<img class="" src="https://unsplash.it/300/300?image=552"/>
+	</div>
+	<div class="main col-md-4 snake">
+			<div class="overlay"><span class="title">Image #20</span>
+			<span class="description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce maximus bibendum mollis.</span></div>
+			<img class="" src="https://unsplash.it/300/300?image=664"/>
+	</div>
+</div>
 
-            <a class="github-button" href="https://github.com/smthari/Password-generator-using-html-css-javascript"
-                data-color-scheme="no-preference: dark; light: light; dark: dark;" data-icon="octicon-star"
-                data-size="large" data-show-count="true"
-                aria-label="Star smthari/Password-generator-using-html-css-javascript on GitHub">Star</a>
 
-            <a class="github-button" href="https://github.com/smthari"
-                data-color-scheme="no-preference: dark; light: light; dark: dark;" data-size="large"
-                data-show-count="true" aria-label="Follow @smthari on GitHub">Follow @smthari</a>
-        </div> -->
-        <div class="theme-switch-wrapper">
-            <label class="theme-switch" for="checkbox">
-                <input type="checkbox" id="checkbox" />
-                <div class="slider round"></div>
-            </label>
-            <em>Switch Theme</em>
-        </div>
-    </nav>
+<script>
+	!function(a){a.fn.snakeify=function(b){var c=a.extend({inaccuracy:30,speed:200},b);this.find(".overlay").css({top:-9999999}),this.mouseenter(function(b){const d=a(this),e=d.find(".overlay"),f=d.offset(),g=b.pageX-f.left,h=b.pageY-f.top;e.css({top:0,left:0,width:d.width(),height:d.height()}),g>d.width()-c.inaccuracy?e.css({top:0,left:d.width()}):g<c.inaccuracy?e.css({top:0,left:-d.width()}):h>d.width()-c.inaccuracy?e.css({top:d.width(),left:0}):h<c.inaccuracy&&e.css({top:-d.width(),left:0}),e.animate({top:0,left:0},c.speed)}),this.mouseleave(function(b){const d=a(this),e=d.find(".overlay"),f=d.offset(),g=b.pageX-f.left,h=b.pageY-f.top;g<=0&&e.animate({top:0,left:-d.width()},c.speed),g>=d.width()&&e.animate({top:0,left:d.width()},c.speed),h<=0&&e.animate({left:0,top:-d.height()},c.speed),h>=d.height()&&e.animate({left:0,top:d.height()},c.speed)})}}(jQuery);
+</script>
+<script>$(".snake").snakeify({speed: 200});</script>
+<script type="text/javascript">
 
-    <div class="container">
-        <h2>Password Generator</h2>
-        <div class="result-container">
-            <textarea id="PasswordResult"></textarea>
-        </div>
-        <div class="settings">
-            <div class="setting">
-                <label>Password length</label>
-                <input type="number" id="Passwordlength" min="4" max="20" value="8" />
-            </div>
-            <div class="setting">
-                <label>Include uppercase letters</label>
-                <input type="checkbox" id="uppercase" checked />
-            </div>
-            <div class="setting">
-                <label>Include lowercase letters</label>
-                <input type="checkbox" id="lowercase" checked />
-            </div>
-            <div class="setting">
-                <label>Include numbers</label>
-                <input type="checkbox" id="numbers" checked />
-            </div>
-            <div class="setting">
-                <label>Include symbols</label>
-                <input type="checkbox" id="symbols" checked />
-            </div>
-        </div>
-        <div class="buttons">
-            <button class="btn btn-large" id="generateBtn">
-                <i class="fas fa-key"></i> Genrate
-            </button>
-            <button class="btn" id="clipboardBtn">
-                <i class="far fa-clipboard"></i> Copy
-            </button>
-        </div>
-    </div>
-    <script>
-        function getRandomLower() {
-            return String.fromCharCode(Math.floor(Math.random() * 26) + 97);
-        }
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-36251023-1']);
+  _gaq.push(['_setDomainName', 'jqueryscript.net']);
+  _gaq.push(['_trackPageview']);
 
-        function getRandomUpper() {
-            return String.fromCharCode(Math.floor(Math.random() * 26) + 65);
-        }
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
 
-        function getRandomNumber() {
-            return +String.fromCharCode(Math.floor(Math.random() * 10) + 48);
-        }
-
-        function getRandomSymbol() {
-        const symbols = "!@#$%^&*(){}[]=<>/,.";
-            return symbols[Math.floor(Math.random() * symbols.length)];
-        }
-
-        // adding a all functions into a object called randomFunc
-        const randomFunc = {
-        lower: getRandomLower,
-        upper: getRandomUpper,
-        number: getRandomNumber,
-        symbol: getRandomSymbol,
-        };
-
-        // adding a click event listner to generate button
-        const generate = document.getElementById("generateBtn");
-        generate.addEventListener("click", () => {
-        const length = document.getElementById("Passwordlength").value;
-        const hasUpper = document.getElementById("uppercase").checked;
-        const hasLower = document.getElementById("lowercase").checked;
-        const hasNumber = document.getElementById("numbers").checked;
-        const hasSymbol = document.getElementById("symbols").checked;
-        const result = document.getElementById("PasswordResult");
-        result.innerText = generatePassword(
-            hasLower,
-            hasUpper,
-            hasNumber,
-            hasSymbol,
-            length
-        );
-        // console.log(hasLower, hasUpper, hasNumber, hasSymbol);
-        });
-
-        // function for generating random password
-        function generatePassword(lower, upper, number, symbol, length) {
-            let generatedPassword = "";
-            const typesCount = lower + upper + number + symbol;
-            // filter out unchecked types
-            const typesArr = [{ lower }, { upper }, { number }, { symbol }].filter(
-            (item) => Object.values(item)[0]
-            );
-            // console.log(typesArr);
-        
-            // creating a loop for calling generator function for each type
-            for (let i = 0; i < length; i += typesCount) {
-            typesArr.forEach((type) => {
-                const funcName = Object.keys(type)[0];
-                generatedPassword += randomFunc[funcName]();
-            });
-            }
-        
-            // slicing password from 0 to length
-            const finalPassword = generatedPassword.slice(0, length);
-            return finalPassword;
-        }
-        
-        // copy to clipboard
-        let button = document.getElementById("clipboardBtn");
-        // add click event listner on button
-        button.addEventListener("click", (e) => {
-        e.preventDefault();
-        // execute command for copy text by selecting textarea text with id
-        document.execCommand(
-            "copy",
-            false,
-            document.getElementById("PasswordResult").select()
-        );
-        });
-    </script>
-    <script async defer src="https://buttons.github.io/buttons.js"></script>
-    <script src="https://kit.fontawesome.com/dd8c49730d.js" crossorigin="anonymous"></script>
-    <script>
-        /* dark mode toggle  */
-        const toggleSwitch = document.querySelector(
-            '.theme-switch input[type="checkbox"]'
-        );
-        const currentTheme = localStorage.getItem("theme");
-
-        if (currentTheme) {
-            document.documentElement.setAttribute("data-theme", currentTheme);
-
-            if (currentTheme === "dark") {
-                toggleSwitch.checked = true;
-            }
-        }
-
-        function switchTheme(e) {
-            if (e.target.checked) {
-                document.documentElement.setAttribute("data-theme", "dark");
-                localStorage.setItem("theme", "dark");
-            } else {
-                document.documentElement.setAttribute("data-theme", "light");
-                localStorage.setItem("theme", "light");
-            }
-        }
-
-        toggleSwitch.addEventListener("change", switchTheme, false);
-    </script>
+</script>
 </body>
-
 </html>

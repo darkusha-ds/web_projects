@@ -1,112 +1,119 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <style>
-        body,
-        .spinner,
-        .spinner-dial {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-
-        body {
-            margin: 0;
-            padding: 0;
-            top: 50%;
-            left: 50%;
-            background: #111;
-            position: absolute;
-            transform: translate(-50%, -50%);
-        }
-
-        .spinner {
-            position: relative;
-            width: 300px;
-            height: 300px;
-            border-radius: 50%;
-            box-shadow: 0 0 20px 0px yellow;
-            animation: pulse 1.2s infinite alternate;
-        }
-
-        .spinner-dial {
-            width: 78%;
-            height: 78%;
-            border-radius: 50%;
-            animation: pulse 1.2s infinite alternate;
-            animation-delay: calc(1.2s / 4);
-        }
-
-        .spinner-dial::after {
-            content: '';
-            width: 100%;
-            height: 100%;
-            background: yellow;
-            border-radius: 50%;
-            animation: rotate 2.4s infinite linear;
-        }
-
-        .spinner-nub {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            width: 55%;
-            height: 55%;
-            transform: translate(-50%, -50%);
-            border-radius: 50%;
-            background: #450d0d;
-            background-size: 120%;
-            background-position: center;
-        }
-
-        .spinner-nub::after {
-            content: '';
-            width: 40%;
-            height: 40%;
-            border-radius: 50%;
-            background-color: rgba(255, 255, 255, 0.8);
-            box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.7);
-            animation: pulse 1.2s infinite alternate;
-            animation-delay: calc(1.2s / 4);
-        }
-
-        @keyframes rotate {
-            0% {
-                transform: rotate(0deg);
-            }
-
-            100% {
-                transform: rotate(360deg);
-            }
-        }
-
-        @keyframes pulse {
-            0% {
-                transform: scale(1);
-            }
-
-            100% {
-                transform: scale(1.1);
-            }
-        }
-    </style>
+<html>
+<head> 
+<title> Animated ON/OFF Switch</title>
 </head>
-
+<style>
+     body
+{
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background-color: #ccc;
+}
+span.switcher
+{
+    position: relative;
+    width: 200px;
+    height: 50px;
+    border-radius: 25px;
+    margin: 20px 0;
+}
+input
+{
+    appearance: none;
+    position: relative;
+    width: 200px;
+    height: 50px;
+    margin-top: -1px;
+    border-radius: 25px;
+    background-color: #1e1e1e;
+    outline: none;
+    cursor: pointer;
+    font-family: 'Oswald' sans-serif;
+}
+input:before,
+input:after
+{
+    z-index: 2;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #fff;
+}
+input:before
+{
+    content: 'ON';
+    left: 25px;
+}
+input:after
+{
+    content: 'OFF';
+    right: 25px;
+}
+label
+{
+    z-index: 1;
+    position: absolute;
+    top: 10px;
+    bottom: 10px;
+    border-radius: 20px;
+}
+.switcher-1 input
+{
+    transition: 0.25s -0.1sl
+}
+input:checked
+{
+    background-color: #fff;
+}
+input:checked:before
+{
+    color: #fff;
+    transition: color 0.5s 0.2s;
+}
+input:checked:after
+{
+    color: #ccc;
+    transition: color 0.5s;
+}
+input:checked + label
+{
+    left: 10px;
+    right: 100px;
+    background: #1e1e1e;
+    transition: left 0.5s, right 0.4s 0.2s;
+}
+input:not(:checked)
+{
+    background: #1e1e1e;
+    transition: background 0.5s -0.1s;
+}
+input:not(:checked):before
+{
+    color: #ccc;
+    transition: color 0.5s;
+}
+input:not(:checked):after
+{
+    color: #1e1e1e;
+    transition: color 0.5s 0.2s;
+}
+input:not(:checked) + label
+{
+    left: 100px;
+    right: 10px;
+    background: #fff;
+    transition: left 0.4s 0.2s, right 0.5s, background 0.35s -0.1s;
+}
+</style>
 <body>
-    <div class="spinner">
-        <div class="spinner-dial">
-        </div>
-        <div class="spinner-nub">
-        </div>
-    </div>
-</body>
-
+ <span class="switcher switcher-1">
+     <input type="checkbox" id="switcher-1">
+     <label for="switcher-1"></label>
+ </span>
+    </body>
 </html>

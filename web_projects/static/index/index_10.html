@@ -1,147 +1,109 @@
-<!DOCTYPE html>
-<html lang="en">
+<!doctype html>
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-    <style>
-        body {
-    padding: 0;
+  <style>
+    body
+{
     margin: 0;
+    padding: 0;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #fff;
 }
-
-*,*:before,*:after {
-	box-sizing: border-box;
+nav ul
+{
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
 }
-body { 
-   padding-top: 135px;
-   background: #fff;
-   color: white;
-   max-width: 400px;
-   font-family: 'Montserrat', sans-serif;
-   font-size: 15px;
-   line-height: 1.6;
-   
+nav ul li
+{
+    color: #e84a5f;
+    font-size: 15px;
+    border: 0.2em solid #111;
+    border-radius: 0.5em;
+    width: 10em;
+    height: 3em;
+    text-transform: uppercase;
+    font-weight: 800;
+    font-family: sans-serif;
+    text-align: center;
+    line-height: 3em;
+    position: relative;
+    overflow: hidden;
+    letter-spacing: 0.1em;
+    z-index: 1;
+    margin: 1em;
+    transition: 0.5s;
 }
-nav {
-      float: left;
-      position: relative;
-      top: 0;
-      left: -40px;
-      background: transparent;
-  }
-  
-nav ul {
-	text-align: center;
-}
-ul {
-    list-style: none;
-}
-ul li .fa
+nav ul li span
 {
     position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%,-50%);
-    font-size: 40px;
-    color: #fff;
-}
-
-nav ul li {
-	position: relative;
-    width: 100px;
-    padding: 10px;
-    cursor: pointer;
-	background: #1b1b1b;
-	text-transform: uppercase;
-	transition: all .4s ease-out;
-}
-
-nav ul li > div {
-	display: inline-block;
-	padding: 25px 0;
-	background: transparent;
-}
-
-nav ul li:after {
-	position: absolute;
-	background: crimson;
-	color: #fff;
-	top:0;
-	left: 100px;
-	width: 100px; 
-    text-align: center;
-    line-height: 80px;
-    font-size: 15px;
-    font-weight: 500;
+    width: 25%;
     height: 100%;
-    opacity:.5;
-    transform: perspective(500px) rotateY(90deg);
-	transform-origin: 0 100%;
-	transition:all .4s ease-out;
+    background-color: #e84a5f;
+    border-radius: 50%;
+    transform: translateY(150%);
+    left: calc((var(--n) - 1) * 25%);
+    transition: 0.5s;
+    transition-delay: calc((var(--n) - 1) * 0.1s);
+    z-index: -1;
 }
-
-nav ul li:nth-child(1):after { 
-	content: "Home";
+nav ul li:hover
+{
+    color: #fff;
+    cursor: pointer;
 }
-nav ul li:nth-child(2):after { 
-	content: "About";
+nav ul li:hover span
+{
+    transform: translateY(0) scale(2);
 }
-nav ul li:nth-child(3):after { 
-	content: "Contact";
+nav ul li span:nth-child(1)
+{
+    --n: 1;
 }
-nav ul li:nth-child(4):after { 
-	content: "Connect";
+nav ul li span:nth-child(2)
+{
+    --n: 2;
 }
-nav ul li:nth-child(5):after { 
-	content: "Setting";
+nav ul li span:nth-child(3)
+{
+    --n: 3;
 }
-
-nav ul li:hover {
-	transform: translateX(-100px);
+nav ul li span:nth-child(4)
+{
+    --n: 4;
 }
-
-nav ul li:hover:after {
-    opacity: 1;
-	transform: perspective(500px) rotateY(0deg) scale(1) ;
-}
-
- 
- 
-
-    </style>
-    <title>3D Rotating Sidebar Hover Effect</title>
+  </style>
+<title>Animated Bubble Effect Button On Hover</title>
 </head>
 <body>
-     <nav>
-         <ul>
-             <li>
-                 <i class="fa fa-home" arial-hidden="true"></i>
-                 <div class="icons"></div>
-             </li>
-
-             <li>
-                <i class="fa fa-user" arial-hidden="true"></i>
-                <div class="icons"></div>
+    <nav>
+        <ul>
+            <li>Home
+            <span></span><span></span>
+            <span></span><span></span>
             </li>
-
-            <li>
-                <i class="fa fa-phone" arial-hidden="true"></i>
-                <div class="icons"></div>
+              <li>About
+            <span></span><span></span>
+            <span></span><span></span>
             </li>
-
-            <li>
-                <i class="fa fa-envelope" arial-hidden="true"></i>
-                <div class="icons"></div>
+              <li>Services
+            <span></span><span></span>
+            <span></span><span></span>
             </li>
-
-            <li>
-                <i class="fa fa-cog" arial-hidden="true"></i>
-                <div class="icons"></div>
+              <li>Contact
+            <span></span><span></span>
+            <span></span><span></span>
             </li>
-
-         </ul>
-     </nav>
-</body>
+              <li>Blogs
+            <span></span><span></span>
+            <span></span><span></span>
+            </li>
+        </ul>
+    </nav>
+    </body>
 </html>
